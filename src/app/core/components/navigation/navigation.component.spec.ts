@@ -1,23 +1,22 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { fakeAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NavigationComponent } from './navigation.component';
 
 describe('NavigationComponent', () => {
   let component: NavigationComponent;
   let fixture: ComponentFixture<NavigationComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [NavigationComponent],
+  beforeEach(fakeAsync(() => {
+    TestBed.configureTestingModule({
+      declarations: [ NavigationComponent ]
     })
-      .compileComponents();
+    .compileComponents();
 
     fixture = TestBed.createComponent(NavigationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
+  }));
 
-  it('should create', () => {
+  it('should compile', () => {
     expect(component).toBeTruthy();
   });
 });

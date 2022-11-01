@@ -6,4 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./navigation.component.scss'],
 })
 export class NavigationComponent {
+  isCollapsed = false;
+
+  toggleCollapsed(): void {
+    this.isCollapsed = !this.isCollapsed;
+  }
 }

@@ -1,0 +1,21 @@
+
+      .wrapper {
+        width: 240px;
+        height: calc(100vh - 50px);
+      }
+
+      button {
+        margin-bottom: 12px;
+      }
+
+      .ant-menu {
+        height: 100%;
+      }
+
+      :host {
+        position: absolute;
+        left: 0;
+        top: 50px;
+      }
+
+

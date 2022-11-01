@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { NZ_I18N, en_US } from 'ng-zorro-antd/i18n';
 import { CoreRoutingModule } from './core-routing.module';
 import { CoreComponent } from './core.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { NavigationComponent } from './components/navigation/navigation.component';
 import { ConfirmationModalComponent } from './components/confirmation-modal/confirmation-modal.component';
 import { GlobalSearchComponent } from './components/global-search/global-search.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { ZorroModule } from './zorro/zorro.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,13 @@ import { GlobalSearchComponent } from './components/global-search/global-search.
   imports: [
     CommonModule,
     CoreRoutingModule,
+    ZorroModule,
+  ],
+  exports: [
+    NavigationComponent,
+  ],
+  providers: [
+    { provide: NZ_I18N, useValue: en_US },
   ],
 })
 export class CoreModule { }
