@@ -1,0 +1,38 @@
+<div class="wrapper">
+  <button nz-button nzType="primary" (click)="toggleCollapsed()">
+    <span nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></span>
+  </button>
+  <ul nz-menu nzMode="inline" nzTheme="dark" [nzInlineCollapsed]="isCollapsed">
+    <li nz-menu-item nz-tooltip nzTooltipPlacement="right" [nzTooltipTitle]="isCollapsed ? 'Welcome Page' : ''"
+      nzSelected>
+      <a routerLink="" routerLinkActive="active">
+        <span nz-icon nzType="mail"></span>
+        <span>Welcome Page</span>
+      </a>
+    </li>
+
+    <li nz-menu-item nz-tooltip nzTooltipPlacement="right" [nzTooltipTitle]="isCollapsed ? 'Authorization' : ''">
+      <a
+        routerLink="auth" routerLinkActive="active">
+        <span nz-icon nzType="appstore"></span>
+        <span>Authorization</span>
+      </a>
+    </li>
+
+    <li nz-menu-item nz-tooltip nzTooltipPlacement="right" [nzTooltipTitle]="isCollapsed ? 'Workspace' : ''">
+      <a
+        routerLink="workspace" routerLinkActive="active">
+        <span nz-icon nzType="appstore"></span>
+        <span>Workspace</span>
+      </a>
+    </li>
+
+    <li nz-menu-item nz-tooltip nzTooltipPlacement="right" [nzTooltipTitle]="isCollapsed ? 'Profile' : ''">
+      <a
+        routerLink="profile" routerLinkActive="active">
+        <span nz-icon nzType="setting"></span>
+        <span>Profile</span>
+      </a>
+    </li>
+  </ul>
+</div>
