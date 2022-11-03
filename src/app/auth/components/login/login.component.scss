@@ -1,0 +1,19 @@
+      .login-form {
+        max-width: 300px;
+      }
+
+      .login-form-button {
+        width: 100%;
+      }
+      
+      ::ng-deep .ant-form{
+        width: 50%;
+        margin: 10% 50% auto 45%;
+      }
+
+      .login-form-button {
+        max-width: 200px;
+        width: 50%;
+        display: block;
+        margin: 0 auto 16px;
+    }
