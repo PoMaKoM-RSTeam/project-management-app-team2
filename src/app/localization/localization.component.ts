@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { LocalStorageService } from '../core/services/localstorage.service';
 
 @Component({
   selector: 'app-localization',
@@ -7,29 +8,25 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./localization.component.scss'],
 })
 export class LocalizationComponent {
-  language = 'en';
+  key: string = 'lang';
 
-  constructor(public translate: TranslateService) {
-    translate.addLangs(['en', 'ru']);
+  constructor(
+    public translate: TranslateService,
+    private localStorageService: LocalStorageService,
+  ) {
+    translate.addLangs(['en', 'ru', 'de', 'by']);
     translate.setDefaultLang('en');
     let browserLang = 'en';
-    if (localStorage.getItem('lang')) {
-      browserLang = localStorage.getItem('lang')!;
+    if (this.localStorageService.getFromLocalStorage(this.key)) {
+      browserLang = this.localStorageService.getFromLocalStorage(this.key)!;
     } else {
       browserLang = translate.getBrowserLang()!;
     }
-    translate.use(browserLang!.match(/en|ru/) ? browserLang! : 'en');
-    console.log(browserLang);
-    this.language = browserLang!;
+    translate.use(browserLang!.match(/en|ru|de|by/) ? browserLang! : 'en');
   }
 
-  onClick(): void {
-    if (this.language === 'en') {
-      this.language = 'ru';
-    } else {
-      this.language = 'en';
-    }
-    this.translate.use(this.language);
-    localStorage.setItem('lang', this.language);
+  onChange(value: string): void {
+    this.translate.use(value);
+    this.localStorageService.setInLocalStorage(this.key, value);
   }
 }

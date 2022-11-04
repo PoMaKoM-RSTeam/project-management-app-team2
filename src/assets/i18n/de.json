@@ -1,0 +1,11 @@
+{
+  "HOME": {
+    "SELECT": "Sprache ändern"
+  },
+  "NAV": {
+    "WELCOME": "Willkommensseite",
+    "AUTHORIZATION": "Autorisierung",
+    "WORKSPACE": "Arbeitsbereich",
+    "PROFILE": "Profil"
+  }
+}
