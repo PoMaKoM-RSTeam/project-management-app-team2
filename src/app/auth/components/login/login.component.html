@@ -1,31 +1,36 @@
 
+    <section class="login-page">
+    <a routerLink="/auth" class="link-back" >Back</a>
     <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
       <nz-form-item>
-          <nz-input-group nzPrefixIcon="user">
-            <input type="text" nz-input formControlName="userName" placeholder="Username" />
+          <nz-input-group class="{{
+            validateForm.get('userName')?.errors && 
+            validateForm.get('userName')?.touched  ? 'error' : ''
+            }}"
+             nzPrefixIcon="user">
+            <input type="text" nz-input formControlName="userName" placeholder="Name" />
           </nz-input-group>
-          <small *ngIf="validateForm.get('userName')?.errors?.['required']">
+          <small *ngIf="validateForm.get('userName')?.errors?.['required'] && validateForm.get('userName')?.touched ">
             Please your username!
           </small>
           <small *ngIf="validateForm.get('userName')?.getError('minlength')">
             Username must contain more than 6 characters!
           </small>
-          <small *ngIf="validateForm.get('userName')?.touched && validateForm.get('userName')?.invalid ">
-            Enter the correct email!
-          </small>
       </nz-form-item>
+
       <nz-form-item>
-          <nz-input-group nzPrefixIcon="lock">
+          <nz-input-group class="{{
+            validateForm.get('password')?.errors && 
+            validateForm.get('password')?.touched? 'error' : ''
+            }}"
+               nzPrefixIcon="lock">
             <input type="password" nz-input formControlName="password" placeholder="Password" />
           </nz-input-group>
-          <small *ngIf="validateForm.get('password')?.errors?.['required']">
-            Please your password!
-          </small>
           <small *ngIf="validateForm.get('password')?.touched && validateForm.get('password')?.getError('invalidPassword')">
              {{validateForm.get('password')?.errors?.['invalidPassword']}}
-
           </small>
       </nz-form-item>
-      <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">Log in</button>
+
+      <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'" [disabled]="validateForm.invalid" (click)="login()">Log in</button>
     </form>
-  
+  </section>

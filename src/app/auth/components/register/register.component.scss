@@ -1,0 +1,69 @@
+
+      .phone-select {
+        width: 70px;
+      }
+
+      .register-are {
+        margin-bottom: 8px;
+      }
+    
+      .input{
+        width: 60%;
+      }
+
+      .register-page{
+        max-width: 420px;
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        margin: 71px 250px;
+      }
+
+      .ant-form{
+        width: 100%;
+      }
+      
+      input{
+        &.ng-valid{
+            border-bottom: 0.3px solid rgb(68, 156, 214);
+        }
+    }
+    .ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover {
+      border-color: #b9b9b9;
+      border-right-width: 0px;
+      z-index: 0;
+  }
+  
+  
+  .ant-input-affix-wrapper:focus, .ant-input-affix-wrapper-focused {
+    border-color: #b9b9b9;
+    box-shadow: 0 0 0 2px rgba(192, 192, 192, 0.2);
+    border-right-width: 1px;
+    outline: 0;
+  }
+  .error{
+    border-bottom: 2px solid rgb(255, 0, 0);
+  }
+  .error:hover{
+    border-bottom: 2px solid rgb(255, 0, 0);
+  
+  }
+
+  .ant-input:hover {
+    border-color: #b6b8b8;
+    border-right-width: 1px;
+}
+
+.ant-input:focus, .ant-input-focused {
+  border-color: #c4c4c5;
+  box-shadow: 0 0 0 2px rgba(197, 198, 199, 0.5);
+  border-right-width: 1px;
+  outline: 0;
+}
+  small{
+    color: rgb(255, 0, 0) ;
+  }
+
+  .ant-form-item{
+    height: 35px;
+  }

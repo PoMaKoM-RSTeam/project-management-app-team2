@@ -1,0 +1,92 @@
+
+ <section class="register-page">
+    <a routerLink="/auth" class="link-back" >Back</a>
+   <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+
+      <nz-form-item>
+        <nz-form-label [nzSm]="8" [nzXs]="10" nzRequired nzFor="email">E-mail</nz-form-label>
+        <nz-input-group class="input">
+          <input class=" {{
+            validateForm.get('email')?.errors &&
+            validateForm.get('email')?.touched   ? 'error' : ''
+            }}" nz-input formControlName="email" id="email" />
+          <small *ngIf="validateForm.get('email')?.errors?.['required'] && validateForm.get('email')?.touched"> 
+            Please your email!
+          </small>
+          <small *ngIf="validateForm.get('email')?.getError('email')">Please provide a valid email address</small>
+        </nz-input-group>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSm]="8" [nzXs]="10" nzFor="password" nzRequired>Password</nz-form-label>
+        <nz-input-group class="input">
+          <input
+            nz-input
+            type="password"
+            id="password"
+            formControlName="password"
+            (ngModelChange)="updateConfirmValidator()"
+            class="{{            
+              validateForm.get('password')?.errors && 
+              validateForm.get('password')?.touched   ? 'error' : ''}}"
+          />
+          <small *ngIf="
+          validateForm.get('password')?.touched && 
+          validateForm.get('password')?.getError('invalidPassword')">
+             {{validateForm.get('password')?.errors?.['invalidPassword']}}
+          </small>
+        </nz-input-group>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSm]="8" [nzXs]="10" nzFor="checkPassword" nzRequired>Confirm Password</nz-form-label>
+        <nz-input-group class="input">
+          <input 
+          nz-input 
+          type="password" 
+          formControlName="checkPassword" 
+          id="checkPassword"
+          class="{{            
+            validateForm.get('checkPassword')?.errors && 
+            validateForm.get('checkPassword')?.touched   ? 'error' : ''}}"
+           />
+          <small *ngIf="validateForm.get('checkPassword')?.errors?.['required'] && validateForm.get('checkPassword')?.touched ">
+            checkPassword
+          </small>
+          <small *ngIf="validateForm.get('checkPassword')?.getError('confirm')">The password is incorrect!</small>
+        </nz-input-group>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label
+          [nzSm]="8"
+          [nzXs]="10"
+          nzFor="nickname"
+          nzRequired
+          nzTooltipTitle="What do you want other to call you"
+        >
+          <span>Name</span>
+        </nz-form-label>
+        <nz-input-group class="input">
+          <input 
+          nz-input 
+          id="nickname" 
+          formControlName="nickname"
+          class="{{            
+            validateForm.get('nickname')?.errors && 
+            validateForm.get('nickname')?.touched   ? 'error' : ''}}"
+          />
+          <small *ngIf="validateForm.get('nickname')?.errors?.['required'] && validateForm.get('nickname')?.touched">
+            Please your username!
+          </small>
+          <small *ngIf="validateForm.get('nickname')?.getError('minlength')">
+            Username must contain more than 6 characters!
+          </small>
+        </nz-input-group>
+      </nz-form-item>
+    
+      <nz-form-item nz-row class="register-area">
+        <nz-form-control [nzSpan]="14" [nzOffset]="6">
+          <button nz-button nzType="primary" [disabled]="validateForm.invalid">Register</button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </section>

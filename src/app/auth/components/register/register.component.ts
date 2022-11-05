@@ -1,15 +1,36 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  FormControl, UntypedFormBuilder, UntypedFormGroup, ValidationErrors, Validators,
+  FormControl,
+  UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, ValidationErrors, Validators,
 } from '@angular/forms';
 
+import { NzFormTooltipIcon } from 'ng-zorro-antd/form';
+
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+
+  styleUrls: ['./register.component.scss'],
 })
-export class LoginComponent implements OnInit {
+export class RegisterComponent implements OnInit {
   validateForm!: UntypedFormGroup;
+
+  captchaTooltipIcon: NzFormTooltipIcon = {
+    type: 'info-circle',
+    theme: 'twotone',
+  };
+
+  constructor(private fb: UntypedFormBuilder) {}
+
+  ngOnInit(): void {
+    this.validateForm = this.fb.group({
+      email: [null, [Validators.required, Validators.email]],
+      password: [null, [Validators.required, this.validatorsPassword]],
+      checkPassword: [null, [Validators.required, this.confirmationValidator]],
+      nickname: [null, [Validators.required, Validators.minLength(6)]],
+      agree: [false],
+    });
+  }
 
   submitForm(): void {
     if (this.validateForm.valid) {
@@ -24,18 +45,23 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  constructor(private fb: UntypedFormBuilder) {}
+  updateConfirmValidator(): void {
+    /** wait for refresh value */
+    Promise.resolve().then(() => this.validateForm.controls['checkPassword'].updateValueAndValidity());
+  }
 
-  ngOnInit(): void {
-    this.validateForm = this.fb.group({
-      userName: [null, [
-        Validators.required,
-        Validators.minLength(6),
-      ]],
-      password: [null, [
-        Validators.required,
-        this.validatorsPassword]],
-    });
+  confirmationValidator = (control: UntypedFormControl): { [s: string]: boolean } => {
+    if (!control.value) {
+      return { required: true };
+    } if (control.value !== this.validateForm.controls['password'].value) {
+      return { confirm: true, error: true };
+    }
+    return {};
+  };
+
+  // eslint-disable-next-line class-methods-use-this
+  getCaptcha(e: MouseEvent): void {
+    e.preventDefault();
   }
 
   // eslint-disable-next-line class-methods-use-this
@@ -68,10 +94,5 @@ export class LoginComponent implements OnInit {
       };
     }
     return null;
-  }
-
-  // eslint-disable-next-line class-methods-use-this
-  login() {
-    console.log('1');
   }
 }
