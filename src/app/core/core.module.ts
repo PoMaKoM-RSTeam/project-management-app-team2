@@ -9,6 +9,7 @@ import { ConfirmationModalComponent } from './components/confirmation-modal/conf
 import { GlobalSearchComponent } from './components/global-search/global-search.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { ZorroModule } from './zorro/zorro.module';
+import { LocalizationModule } from '../localization/localization.module';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ZorroModule } from './zorro/zorro.module';
     CommonModule,
     CoreRoutingModule,
     ZorroModule,
+    LocalizationModule,
   ],
   exports: [
     NavigationComponent,

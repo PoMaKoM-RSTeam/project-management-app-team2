@@ -1,0 +1,11 @@
+{
+  "HOME": {
+    "SELECT": "Change language"
+  },
+  "NAV": {
+    "WELCOME": "Welcome Page",
+    "AUTHORIZATION": "Authorization",
+    "WORKSPACE": "Workspace",
+    "PROFILE": "Profile"
+  }
+}

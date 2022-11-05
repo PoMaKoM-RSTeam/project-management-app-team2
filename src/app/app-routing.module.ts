@@ -6,6 +6,7 @@ const routes: Routes = [
   { path: 'workspace', loadChildren: () => import('./work-space/work-space.module').then((m) => m.WorkSpaceModule) },
   { path: 'profile', loadChildren: () => import('./profile/profile.module').then((m) => m.ProfileModule) },
   { path: '', loadChildren: () => import('./welcome/welcome.module').then((m) => m.WelcomeModule) },
+
 ];
 
 @NgModule({
