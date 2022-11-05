@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {
   FormControl, UntypedFormBuilder, UntypedFormGroup, ValidationErrors, Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
+import { LoginService } from '../../services/login-service';
 
 @Component({
   selector: 'app-login',
@@ -24,7 +26,11 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  constructor(private fb: UntypedFormBuilder) {}
+  constructor(
+    private fb: UntypedFormBuilder,
+    private loginService: LoginService,
+    private rout: Router,
+  ) {}
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
@@ -72,6 +78,8 @@ export class LoginComponent implements OnInit {
 
   // eslint-disable-next-line class-methods-use-this
   login() {
+    this.loginService.getDateAuth(this.validateForm.value.userName);
+    this.rout.navigate(['']);
     console.log('1');
   }
 }

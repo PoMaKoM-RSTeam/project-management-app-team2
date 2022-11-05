@@ -8,6 +8,7 @@ import { LogoutComponent } from './components/logout/logout.component';
 import { LoginComponent } from './components/login/login.component';
 import { ZorroModule } from '../core/zorro/zorro.module';
 import { RegisterComponent } from './components/register/register.component';
+import { LoginService } from './services/login-service';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,9 @@ import { RegisterComponent } from './components/register/register.component';
     LoginComponent,
     RegisterComponent,
 
+  ],
+  providers: [
+    LoginService,
   ],
   imports: [
     CommonModule,
