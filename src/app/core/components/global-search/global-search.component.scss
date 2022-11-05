@@ -1,0 +1,30 @@
+.login-form {
+  display: flex;
+  height: 32px;
+  transition: 1s;
+
+  &__input {
+    width: 100px;
+  }
+
+  &__input:hover,
+  &__input:focus {
+    width: 200px;
+    margin-left: -200px;
+
+    @media screen and (max-width: 768px) {
+      width: 130px;
+      margin-left: -130px;
+    }
+  }
+
+}
+
+
+.login-form-forgot {
+  float: right;
+}
+
+.login-form-button {
+  width: 70px;
+}

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NZ_I18N, en_US } from 'ng-zorro-antd/i18n';
+import { ReactiveFormsModule } from '@angular/forms';
 import { CoreRoutingModule } from './core-routing.module';
 import { CoreComponent } from './core.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -25,9 +26,11 @@ import { LocalizationModule } from '../localization/localization.module';
     CoreRoutingModule,
     ZorroModule,
     LocalizationModule,
+    ReactiveFormsModule,
   ],
   exports: [
     NavigationComponent,
+    HeaderComponent,
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US },
