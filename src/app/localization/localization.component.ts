@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { LocalStorageService } from '../core/services/localstorage.service';
+import { LocalStorageService } from '../core/services/localStorage.service';
 
 @Component({
   selector: 'app-localization',
