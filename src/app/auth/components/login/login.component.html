@@ -23,11 +23,14 @@
             validateForm.get('password')?.errors && 
             validateForm.get('password')?.touched? 'error' : ''
             }}"
-               nzPrefixIcon="lock">
+            nzPrefixIcon="lock">
             <input type="password" nz-input formControlName="password" placeholder="Password" />
           </nz-input-group>
-          <small *ngIf="validateForm.get('password')?.touched && validateForm.get('password')?.getError('invalidPassword')">
-             {{validateForm.get('password')?.errors?.['invalidPassword']}}
+          <small *ngIf="validateForm.get('password')?.getError('invalidPassword') && 
+            validateForm.get('password')?.invalid &&
+            (validateForm.get('password')?.dirty || 
+            validateForm.get('password')?.touched)">
+            {{validateForm.get('password')?.errors?.['invalidPassword']}}
           </small>
       </nz-form-item>
 

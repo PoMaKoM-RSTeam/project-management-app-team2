@@ -31,8 +31,10 @@
               validateForm.get('password')?.touched   ? 'error' : ''}}"
           />
           <small *ngIf="
-          validateForm.get('password')?.touched && 
-          validateForm.get('password')?.getError('invalidPassword')">
+          validateForm.get('password')?.getError('invalidPassword')
+          && validateForm.get('password')?.invalid &&
+          (validateForm.get('password')?.dirty || validateForm.get('password')?.touched)
+          ">
              {{validateForm.get('password')?.errors?.['invalidPassword']}}
           </small>
         </nz-input-group>
