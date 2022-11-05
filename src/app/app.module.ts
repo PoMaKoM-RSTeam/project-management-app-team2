@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { CoreModule } from './core/core.module';
+import { LocalizationModule } from './localization/localization.module';
 
 registerLocaleData(en);
 
@@ -23,6 +24,7 @@ registerLocaleData(en);
     HttpClientModule,
     BrowserAnimationsModule,
     CoreModule,
+    LocalizationModule,
   ],
 
   bootstrap: [AppComponent],
