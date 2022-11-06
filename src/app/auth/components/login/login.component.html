@@ -35,6 +35,6 @@
           </small>
       </nz-form-item>
       <a  routerLink="/auth/registration">Register</a>
-      <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'" [disabled]="validateForm.invalid" (click)="login()">Log in</button>
+      <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'" type="button" [disabled]="validateForm.invalid" (click)="login()">Log in</button>
     </form>
   </section>
