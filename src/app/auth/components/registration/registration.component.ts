@@ -3,6 +3,7 @@ import {
   FormControl,
   UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, ValidationErrors, Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { NzFormTooltipIcon } from 'ng-zorro-antd/form';
 
@@ -20,7 +21,7 @@ export class RegistrationComponent implements OnInit {
     theme: 'twotone',
   };
 
-  constructor(private fb: UntypedFormBuilder) {}
+  constructor(private fb: UntypedFormBuilder, private rout:Router) {}
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
@@ -93,5 +94,9 @@ export class RegistrationComponent implements OnInit {
       };
     }
     return null;
+  }
+
+  registration() {
+    this.rout.navigate(['/auth/login']);
   }
 }
