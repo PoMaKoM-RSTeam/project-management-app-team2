@@ -1,17 +1,18 @@
 
-    <section class="login-page">
+    <section *ngIf="!isLogin" class="login-page">
     <!-- <a routerLink="/auth" class="link-back" >Back</a> -->
     <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
       <nz-form-item>
           <nz-input-group class="{{
             validateForm.get('userName')?.errors && 
-            validateForm.get('userName')?.touched  ? 'error' : 'valid'
+            validateForm.get('userName')?.touched  ? 'error' : ''
             }}"
              nzPrefixIcon="user">
             <input type="text" nz-input formControlName="userName" placeholder="Name" />
           </nz-input-group>
           <small *ngIf="validateForm.get('userName')?.errors?.['required'] && validateForm.get('userName')?.touched ">
-            Please your username!
+            <!-- Please your username! -->
+              {{'AUTH.REQUIRED_NAME' | translate}}
           </small>
           <small *ngIf="validateForm.get('userName')?.getError('minlength')">
             Username must contain more than 6 characters!

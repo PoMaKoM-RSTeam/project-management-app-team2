@@ -13,6 +13,8 @@ import { LoginService } from '../../services/login-service';
 export class LoginComponent implements OnInit {
   validateForm!: UntypedFormGroup;
 
+  isLogin: string | null = localStorage.getItem('login');
+
   submitForm(): void {
     if (this.validateForm.valid) {
       console.log('submit', this.validateForm.value);
@@ -76,10 +78,8 @@ export class LoginComponent implements OnInit {
     return null;
   }
 
-  // eslint-disable-next-line class-methods-use-this
   login() {
     this.loginService.getDateAuth(this.validateForm.value.userName);
     this.rout.navigate(['']);
-    console.log('1');
   }
 }

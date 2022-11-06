@@ -9,6 +9,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ZorroModule } from '../core/zorro/zorro.module';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginService } from './services/login-service';
+import { LocalizationModule } from '../localization/localization.module';
 
 @NgModule({
   declarations: [
@@ -18,14 +19,15 @@ import { LoginService } from './services/login-service';
     RegisterComponent,
 
   ],
-  providers: [
-    LoginService,
-  ],
   imports: [
     CommonModule,
     AuthRoutingModule,
     ZorroModule,
     ReactiveFormsModule,
+    LocalizationModule,
+  ],
+  providers: [
+    LoginService,
   ],
 })
 export class AuthModule { }

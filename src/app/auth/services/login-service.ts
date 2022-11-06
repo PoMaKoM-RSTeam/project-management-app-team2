@@ -8,7 +8,8 @@ export class LoginService {
   auth = this.authSubject.asObservable();
 
   getDateAuth(date: any) {
-    this.authSubject.next(localStorage.setItem('login', date));
+    localStorage.setItem('login', date);
+    this.authSubject.next(date);
     console.log(date);
   }
 }

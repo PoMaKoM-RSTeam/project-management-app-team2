@@ -1,1 +1,3 @@
-<p>logout works!</p>
+<div class="logout" *ngIf="loginStorage">
+<a routerLink="/auth/login" (click)="logout()">logout</a>
+</div>
