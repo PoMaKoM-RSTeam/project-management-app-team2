@@ -26,9 +26,9 @@
     margin: 10% 50% auto 45%;
   }
 
-  input{
+  .userName{
     &.ng-valid{
-      border-bottom: 0.3px solid rgb(68, 156, 214);
+      border-bottom: 0.5px solid rgb(68, 156, 214);
     }
   }
 
@@ -49,11 +49,6 @@
     border-bottom: 2px solid rgb(255, 0, 0);
   }
 
-  .error:hover{
-    border-bottom: 2px solid rgb(255, 0, 0);
-
-  }
-
-  small{
+  .notification{
     color: rgb(255, 0, 0) ;
   }

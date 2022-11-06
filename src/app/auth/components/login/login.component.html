@@ -1,6 +1,5 @@
 
     <section *ngIf="!isLogin" class="login-page">
-    <!-- <a routerLink="/auth" class="link-back" >Back</a> -->
     <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
       <nz-form-item>
           <nz-input-group class="{{
@@ -8,14 +7,14 @@
             validateForm.get('userName')?.touched  ? 'error' : ''
             }}"
              nzPrefixIcon="user">
-            <input type="text" nz-input formControlName="userName" placeholder="Name" />
+            <input class="userName" type="text" nz-input formControlName="userName" placeholder="{{'AUTH.NAME' | translate}}" />
           </nz-input-group>
-          <small *ngIf="validateForm.get('userName')?.errors?.['required'] && validateForm.get('userName')?.touched ">
-            <!-- Please your username! -->
+          <small class="notification" *ngIf="validateForm.get('userName')?.errors?.['required'] && validateForm.get('userName')?.touched ">
               {{'AUTH.REQUIRED_NAME' | translate}}
           </small>
-          <small *ngIf="validateForm.get('userName')?.getError('minlength')">
-            Username must contain more than 6 characters!
+          <small class="notification" *ngIf="validateForm.get('userName')?.getError('minlength')">
+            {{'AUTH.MINLENGTH_NAME' | translate}}
+
           </small>
       </nz-form-item>
 
@@ -25,16 +24,19 @@
             validateForm.get('password')?.touched? 'error' : ''
             }}"
             nzPrefixIcon="lock">
-            <input type="password" nz-input formControlName="password" placeholder="Password" />
+            <input type="password" nz-input formControlName="password" placeholder="{{'AUTH.PASSWORD' | translate}}" />
           </nz-input-group>
-          <small *ngIf="validateForm.get('password')?.getError('invalidPassword') && 
+          <small class="notification" *ngIf="validateForm.get('password')?.getError('invalidPassword') && 
             validateForm.get('password')?.invalid &&
             (validateForm.get('password')?.dirty || 
             validateForm.get('password')?.touched)">
-            {{validateForm.get('password')?.errors?.['invalidPassword']}}
+            {{validateForm.get('password')?.errors?.['invalidPassword'] | translate}}
           </small>
       </nz-form-item>
       <a  routerLink="/auth/registration">Register</a>
-      <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'" type="button" [disabled]="validateForm.invalid" (click)="login()">Log in</button>
+      <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'" 
+        type="button" [disabled]="validateForm.invalid" (click)="login()">
+          Log in
+      </button>
     </form>
   </section>
