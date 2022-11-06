@@ -7,5 +7,8 @@
     "AUTHORIZATION": "Autorisierung",
     "WORKSPACE": "Arbeitsbereich",
     "PROFILE": "Profil"
+  },
+  "FOOTER": {
+    "TEAM": "Unser Team:"
   }
 }
