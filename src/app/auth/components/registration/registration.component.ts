@@ -7,12 +7,12 @@ import {
 import { NzFormTooltipIcon } from 'ng-zorro-antd/form';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
+  selector: 'app-registration',
+  templateUrl: './registration.component.html',
 
-  styleUrls: ['./register.component.scss'],
+  styleUrls: ['./registration.component.scss'],
 })
-export class RegisterComponent implements OnInit {
+export class RegistrationComponent implements OnInit {
   validateForm!: UntypedFormGroup;
 
   captchaTooltipIcon: NzFormTooltipIcon = {
@@ -46,7 +46,6 @@ export class RegisterComponent implements OnInit {
   }
 
   updateConfirmValidator(): void {
-    /** wait for refresh value */
     Promise.resolve().then(() => this.validateForm.controls['checkPassword'].updateValueAndValidity());
   }
 
