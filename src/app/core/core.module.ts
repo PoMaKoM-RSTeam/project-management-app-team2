@@ -31,6 +31,7 @@ import { LocalizationModule } from '../localization/localization.module';
   exports: [
     NavigationComponent,
     HeaderComponent,
+    FooterComponent,
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US },
