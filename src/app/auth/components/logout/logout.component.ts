@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginService } from '../../services/login-service';
+import { TranslateService } from '@ngx-translate/core';
+import { ChangeLanguageService } from 'src/app/core/services/changeLanguage.service';
 
 @Component({
   selector: 'app-logout',
@@ -10,13 +11,15 @@ import { LoginService } from '../../services/login-service';
 export class LogoutComponent implements OnInit {
   loginStorage: string | null = null;
 
-  constructor(private loginService: LoginService, private rout: Router) {}
+  constructor(
+    private rout: Router,
+    public translate: TranslateService,
+    private languageService: ChangeLanguageService,
+  ) {}
 
   ngOnInit() {
-    this.loginService.auth.subscribe((e:string) => {
-      this.loginStorage = e;
-      return this.loginStorage;
-    });
+    this.loginStorage = localStorage.getItem('login');
+    this.languageService.language$.subscribe((value) => this.translate.use(value));
   }
 
   logout() {

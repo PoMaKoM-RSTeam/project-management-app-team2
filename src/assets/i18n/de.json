@@ -25,6 +25,7 @@
     "ERROR_EMAIL": "Bitte geben Sie eine gültige E-Mail-Adresse an!",
     "REGISTRATION": "Registrierung",
     "CHECK_PASSWORD": "Bitte bestätigen Sie das Passwort!",
-    "INCORRECT_PASSWORD": "Das Passwort ist falsch! Bitte überprüfen Sie das Passwort!"
+    "INCORRECT_PASSWORD": "Das Passwort ist falsch! Bitte überprüfen Sie das Passwort!",
+    "LOGOUT": "Aussteigen"
   }
 }

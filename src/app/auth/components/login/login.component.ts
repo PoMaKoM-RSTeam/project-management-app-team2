@@ -57,7 +57,6 @@ export class LoginComponent implements OnInit {
     const passwordLength = control.value && control.value.length > 7;
     if (!passwordLength) {
       return {
-        // invalidPassword: 'The password must be at least 8 characters long!',
         invalidPassword: 'AUTH.MINLENGTH_PASSWORD',
       };
     } if ((!(/[A-Z]/.test(control.value)))) {
