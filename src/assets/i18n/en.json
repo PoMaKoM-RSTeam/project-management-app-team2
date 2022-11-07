@@ -17,6 +17,14 @@
     "PASSWORD_UPPERCASE": "The password must contain uppercase letters!",
     "PASSWORD_LOWERCASE":"The password must contain lowercase letters!",
     "PASSWORD_NUMBER": "The password must contain numbers!",
-    "PASSWORD_CHARACTERS": "The password must contain characters: e.g., ! @ # ? ]!"
+    "PASSWORD_CHARACTERS": "The password must contain characters: e.g., ! @ # ? ]!",
+    "BACK": "Back",
+    "EMAIL": "E-mail",
+    "CONFIRM_PASSWORD": "Confirm Password",
+    "ENTER_EMAIL": "Please enter your e-mail!",
+    "ERROR_EMAIL": "Please provide a valid email address!",
+    "REGISTRATION": "Registration",
+    "CHECK_PASSWORD": "Please confirm your password!",
+    "INCORRECT_PASSWORD": "The password is incorrect! Please check the password!"
   }
 }

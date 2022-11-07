@@ -4,8 +4,10 @@ import {
   UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, ValidationErrors, Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 import { NzFormTooltipIcon } from 'ng-zorro-antd/form';
+import { ChangeLanguageService } from 'src/app/core/services/changeLanguage.service';
 
 @Component({
   selector: 'app-registration',
@@ -21,15 +23,21 @@ export class RegistrationComponent implements OnInit {
     theme: 'twotone',
   };
 
-  constructor(private fb: UntypedFormBuilder, private rout:Router) {}
+  constructor(
+    private fb: UntypedFormBuilder,
+    private rout:Router,
+    public translate: TranslateService,
+    private languageService: ChangeLanguageService,
+  ) {}
 
   ngOnInit(): void {
+    this.languageService.language$.subscribe((value) => this.translate.use(value));
+
     this.validateForm = this.fb.group({
       email: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required, this.validatorsPassword]],
       checkPassword: [null, [Validators.required, this.confirmationValidator]],
       nickname: [null, [Validators.required, Validators.minLength(6)]],
-      agree: [false],
     });
   }
 
@@ -69,28 +77,28 @@ export class RegistrationComponent implements OnInit {
     const passwordLength = control.value && control.value.length > 7;
     if (!passwordLength) {
       return {
-        invalidPassword: 'The password must be at least 8 characters long!',
+        invalidPassword: 'AUTH.MINLENGTH_PASSWORD',
       };
     } if ((!(/[A-Z]/.test(control.value)))) {
       return {
-        invalidPassword: 'The password must contain uppercase letters!',
+        invalidPassword: 'AUTH.PASSWORD_UPPERCASE',
       };
     }
     if ((!(/[a-z]/.test(control.value)))) {
       return {
-        invalidPassword: 'The password must contain lowercase letters!',
+        invalidPassword: 'AUTH.PASSWORD_LOWERCASE',
       };
     }
 
     if ((!(/[0-9]/.test(control.value)))) {
       return {
-        invalidPassword: 'The password must contain numbers!',
+        invalidPassword: 'AUTH.PASSWORD_NUMBER',
       };
     }
 
     if ((!(/[!/@,/\]e#?$g%^&.*]/.test(control.value)))) {
       return {
-        invalidPassword: 'The password must contain characters: e.g., ! @ # ? ]!',
+        invalidPassword: 'AUTH.PASSWORD_CHARACTERS',
       };
     }
     return null;
