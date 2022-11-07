@@ -26,6 +26,7 @@
     "REGISTRATION": "Registration",
     "CHECK_PASSWORD": "Please confirm your password!",
     "INCORRECT_PASSWORD": "The password is incorrect! Please check the password!",
-    "LOGOUT": "Logout"
+    "LOGOUT": "Logout",
+    "LOGIN": "Log in"
   }
 }

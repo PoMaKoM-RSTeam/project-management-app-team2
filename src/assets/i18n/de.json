@@ -26,6 +26,7 @@
     "REGISTRATION": "Registrierung",
     "CHECK_PASSWORD": "Bitte bestätigen Sie das Passwort!",
     "INCORRECT_PASSWORD": "Das Passwort ist falsch! Bitte überprüfen Sie das Passwort!",
-    "LOGOUT": "Aussteigen"
+    "LOGOUT": "Aussteigen",
+    "LOGIN": "Autorisierter"
   }
 }
