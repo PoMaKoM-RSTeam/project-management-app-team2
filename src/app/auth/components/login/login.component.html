@@ -33,7 +33,7 @@
             {{validateForm.get('password')?.errors?.['invalidPassword'] | translate}}
           </small>
       </nz-form-item>
-      <a  routerLink="/auth/registration">{{'AUTH.REGISTRATION' | translate}}</a>
+      <a class="link-registr"  routerLink="/auth/registration">{{'AUTH.REGISTRATION' | translate}}</a>
       <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'" 
         type="button" [disabled]="validateForm.invalid" (click)="login()">
         {{'AUTH.LOGIN' | translate}}
