@@ -1,0 +1,56 @@
+  .login-form {
+    max-width: 300px;
+  }
+
+  .login-form-button {
+    width: 100%;
+    }
+        
+  .ant-form{
+    width: 60%;
+  }
+
+  .login-form-button {
+    max-width: 200px;
+    width: 60%;
+    display: block;
+    margin: 16px auto;
+  }
+
+  .login-page{
+    max-width: 480px;
+    width: 100%;
+    margin: 10% 50% auto 45%;
+  }
+
+  .userName{
+    &.ng-valid{
+      border-bottom: 0.5px solid rgb(68, 156, 214);
+    }
+  }
+
+  .ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover {
+    border-color: #b9b9b9;
+    border-right-width: 0px;
+    z-index: 0;
+  }
+
+  .ant-input-affix-wrapper:focus, .ant-input-affix-wrapper-focused {
+    border-color: #b9b9b9;
+    box-shadow: 0 0 0 2px rgba(192, 192, 192, 0.2);
+    border-right-width: 1px;
+    outline: 0;
+  }
+
+  .error{
+    border-bottom: 2px solid rgb(255, 0, 0);
+  }
+
+  .notification{
+    color: rgb(255, 0, 0) ;
+  }
+
+  .link-registr{
+    font-size: 15px;
+  }
+
