@@ -28,5 +28,7 @@
     "INCORRECT_PASSWORD": "The password is incorrect! Please check the password!",
     "LOGOUT": "Logout",
     "LOGIN": "Log in"
+  "FOOTER": {
+    "TEAM": "Our team:"
   }
 }

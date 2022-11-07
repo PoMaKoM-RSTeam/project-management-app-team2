@@ -28,5 +28,7 @@
     "INCORRECT_PASSWORD": "Das Passwort ist falsch! Bitte überprüfen Sie das Passwort!",
     "LOGOUT": "Aussteigen",
     "LOGIN": "Autorisierter"
+  "FOOTER": {
+    "TEAM": "Unser Team:"
   }
 }
