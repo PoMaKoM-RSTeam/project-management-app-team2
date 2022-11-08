@@ -71,7 +71,7 @@
           <small class="notification" *ngIf="validateForm.get('nickname')?.errors?.['required'] && validateForm.get('nickname')?.touched">
             {{'AUTH.REQUIRED_NAME' | translate}}
           </small>
-          <small class="notification" *ngIf="validateForm.get('nickname')?.getError('minlength')">{{'AUTH.MINLENGTH_NAME' | translate}}</small>
+          <small class="notification" *ngIf="validateForm.get('nickname')?.getError('minlength')">{{'AUTH.MIN_LENGTH_NAME' | translate}}</small>
         </nz-input-group>
       </nz-form-item>
     
