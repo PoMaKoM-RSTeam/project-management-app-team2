@@ -28,6 +28,12 @@
     "INCORRECT_PASSWORD": "Das Passwort ist falsch! Bitte überprüfen Sie das Passwort!",
     "LOGOUT": "Aussteigen",
     "LOGIN": "Autorisierter"
+  },
+  "WORKSPACE": {
+    "BOARD": "Board",
+    "CREATE_BOARD": "Board erstellen"
+
+  },
   "FOOTER": {
     "TEAM": "Unser Team:"
   }
