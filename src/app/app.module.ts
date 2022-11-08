@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { CoreModule } from './core/core.module';
 import { LocalizationModule } from './localization/localization.module';
+import { tokenInterceptorProviders } from './auth/interceptors/tokenInterceptor.provider';
 
 registerLocaleData(en);
 
@@ -26,7 +27,7 @@ registerLocaleData(en);
     CoreModule,
     LocalizationModule,
   ],
-
+  providers: [tokenInterceptorProviders],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
