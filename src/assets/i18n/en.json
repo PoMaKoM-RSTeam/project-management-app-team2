@@ -31,7 +31,8 @@
   },
   "WORKSPACE": {
     "BOARD": "Board",
-    "CREATE_BOARD": "Create board"
+    "CREATE_BOARD": "Create board",
+    "DELETE": "DELETE"
   },
   "FOOTER": {
     "TEAM": "Our team:"

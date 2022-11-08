@@ -31,7 +31,8 @@
   },
   "WORKSPACE": {
     "BOARD": "Доска",
-    "CREATE_BOARD":"Создать доску"
+    "CREATE_BOARD":"Создать доску",
+    "DELETE": "Удалить"
   },
   "FOOTER": {
     "TEAM": "Наша команда:"

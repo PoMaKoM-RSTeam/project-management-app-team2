@@ -31,7 +31,8 @@
   },
   "WORKSPACE": {
     "BOARD": "Дошка",
-    "CREATE_BOARD": "Стварыць дошку"
+    "CREATE_BOARD": "Стварыць дошку",
+    "DELETE": "Выдаліць"
   },
   "FOOTER": {
     "TEAM": "Наша каманда:"
