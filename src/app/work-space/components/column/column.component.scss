@@ -90,6 +90,14 @@
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     &:hover {
       cursor: pointer;
+      background: darken($color: #ffffff, $amount: 10);
     }
   }
+}
+
+.alert {
+  color: #ff4d4f;
+  font-size: 0.8rem;
+  margin-right: auto;
+  margin-top: -20px;  
 }
