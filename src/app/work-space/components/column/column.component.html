@@ -1,0 +1,16 @@
+<div class="column">
+  <div class="column__title">
+    <h2 class="column__order">01</h2>
+    <h3 *ngIf="!isTitleClicked" class="column__h3" (click)="onTitleClick();">{{title}}</h3>
+    <form class="column__form" [formGroup]="inputForm" *ngIf="isTitleClicked" (ngSubmit)="onSubmitForm()" autofocus>
+      <input formControlName="myInput" class="column__input" type="text" (blur)="onSubmitForm()" [(ngModel)]="title" autofocus >
+    </form>
+
+
+    <button class="column__delete">. . .</button>
+  </div>
+
+  
+  <div class="column__tasks"></div>
+  <button class="column__button">+ Add card</button>
+</div>
