@@ -16,4 +16,9 @@ export class WorkSpaceComponent implements OnInit {
   ngOnInit(): void {
     this.languageService.language$.subscribe((value) => this.translate.use(value));
   }
+
+  // eslint-disable-next-line class-methods-use-this
+  deleteBoard() {
+
+  }
 }
