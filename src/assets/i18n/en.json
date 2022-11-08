@@ -12,8 +12,8 @@
     "NAME": "Username",
     "PASSWORD": "Password",
     "REQUIRED_NAME": "Please enter your username!",
-    "MINLENGTH_NAME": "The user name must contain at least 6 characters!",
-    "MINLENGTH_PASSWORD": "The password must be at least 8 characters long!",
+    "MIN_LENGTH_NAME": "The user name must contain at least 6 characters!",
+    "MIN_LENGTH_PASSWORD": "The password must be at least 8 characters long!",
     "PASSWORD_UPPERCASE": "The password must contain uppercase letters!",
     "PASSWORD_LOWERCASE": "The password must contain lowercase letters!",
     "PASSWORD_NUMBER": "The password must contain numbers!",
@@ -28,6 +28,10 @@
     "INCORRECT_PASSWORD": "The password is incorrect! Please check the password!",
     "LOGOUT": "Logout",
     "LOGIN": "Log in"
+  },
+  "WORKSPACE": {
+    "BOARD": "Board",
+    "CREATE_BOARD": "Create board"
   },
   "FOOTER": {
     "TEAM": "Our team:"
