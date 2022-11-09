@@ -1,10 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './core/guards/auth-guard';
 
 const routes: Routes = [
   { path: 'auth', loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule) },
-  { path: 'workspace', loadChildren: () => import('./work-space/work-space.module').then((m) => m.WorkSpaceModule) },
-  { path: 'profile', loadChildren: () => import('./profile/profile.module').then((m) => m.ProfileModule) },
+  {
+    path: 'workspace',
+    loadChildren: () => import('./work-space/work-space.module').then((m) => m.WorkSpaceModule),
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./profile/profile.module').then((m) => m.ProfileModule),
+    canActivate: [AuthGuard],
+  },
   { path: '', loadChildren: () => import('./welcome/welcome.module').then((m) => m.WelcomeModule) },
 
 ];

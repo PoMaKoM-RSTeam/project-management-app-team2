@@ -10,6 +10,8 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { CoreModule } from './core/core.module';
 import { LocalizationModule } from './localization/localization.module';
+import { AuthModule } from './auth/auth.module';
+import { AuthGuard } from './core/guards/auth-guard';
 
 registerLocaleData(en);
 
@@ -25,8 +27,10 @@ registerLocaleData(en);
     BrowserAnimationsModule,
     CoreModule,
     LocalizationModule,
+    AuthModule,
   ],
 
   bootstrap: [AppComponent],
+  providers: [AuthGuard],
 })
 export class AppModule { }
