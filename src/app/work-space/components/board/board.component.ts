@@ -14,7 +14,7 @@ export interface Column {
 })
 export class BoardComponent {
   board = {
-    title: 'Welcome Page',
+    title: 'Test board',
     owner: 'kate4ka',
     users: ['IMask', 'kate4ka2'],
     _id: '636ab9589d9152c02a88d2f3',
