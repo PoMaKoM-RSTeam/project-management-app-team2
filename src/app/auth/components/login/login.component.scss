@@ -4,9 +4,9 @@
 
   .login-form-button {
     width: 100%;
-    }
+  }
         
-  .ant-form{
+  .ant-form {
     width: 60%;
   }
 
@@ -17,14 +17,14 @@
     margin: 16px auto;
   }
 
-  .login-page{
+  .login-page {
     max-width: 480px;
     width: 100%;
     margin: 10% 50% auto 45%;
   }
 
-  .userName{
-    &.ng-valid{
+  .userName {
+    &.ng-valid {
       border-bottom: 0.5px solid rgb(68, 156, 214);
     }
   }
@@ -42,15 +42,15 @@
     outline: 0;
   }
 
-  .error{
+  .error {
     border-bottom: 2px solid rgb(255, 0, 0);
   }
 
-  .notification{
+  .notification {
     color: rgb(255, 0, 0) ;
   }
 
-  .link-registr{
+  .link-registr {
     font-size: 15px;
   }
 

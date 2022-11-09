@@ -29,8 +29,10 @@ registerLocaleData(en);
     LocalizationModule,
     AuthModule,
   ],
-  providers: [tokenInterceptorProviders],
+  providers: [
+    tokenInterceptorProviders,
+    AuthGuard,
+  ],
   bootstrap: [AppComponent],
-  providers: [AuthGuard],
 })
 export class AppModule { }

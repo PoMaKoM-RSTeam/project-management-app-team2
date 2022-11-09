@@ -7,11 +7,11 @@
     margin-bottom: 8px;
   }
     
-  .input{
+  .input {
     width: 60%;
   }
 
-  .register-page{
+  .register-page {
     max-width: 500px;
     width: 60%;
     display: flex;
@@ -20,12 +20,12 @@
     margin: 5% 60% auto 40%;
   }
 
-  .ant-form{
+  .ant-form {
     width: 100%;
   }
       
-  .valid{
-    &.ng-valid{
+  .valid {
+    &.ng-valid {
       border-bottom: 2px solid rgb(68, 156, 214);
     }
   }
@@ -42,7 +42,8 @@
     border-right-width: 1px;
     outline: 0;
   }
-  .error{
+
+  .error {
     border-bottom: 2px solid rgb(255, 0, 0);
   }
 
@@ -58,21 +59,21 @@
     outline: 0;
   }
 
-  .notification{
+  .notification {
     color: rgb(255, 0, 0) ;
     font-size: 75%;
   }
 
-  .ant-form-item{
+  .ant-form-item {
     height: 35px;
   }
   
-  .registr-btn{
+  .registr-btn {
     padding: 0 30px;
     margin: 0 40px;
   }
 
-  .link-back{
+  .link-back {
     margin: 20px 0;
     font-size: 18px;
     width: 50px;
