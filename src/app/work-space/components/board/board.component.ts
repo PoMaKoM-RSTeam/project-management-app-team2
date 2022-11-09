@@ -52,7 +52,7 @@ export class BoardComponent {
     console.log(this.columns);
     this.columns.forEach((el) => {
       // eslint-disable-next-line no-param-reassign
-      el.order = (this.columns.indexOf(el) + 1);
+      el.order = this.columns.indexOf(el) + 1;
     });
   }
 }

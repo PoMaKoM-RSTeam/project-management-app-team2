@@ -1,9 +1,19 @@
 <section class="board">
-  <h1 class="board__title">{{board.title}}</h1>
-  <div class="board__columns" cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="drop($event)">
-    <app-column class="board__column" *ngFor="let column of columns" [column]="column"  cdkDrag></app-column>
-    <div class="board__create-button" [cdkDragDisabled]="true" cdkDrag>Create new column</div>
-
+  <h1 class="board__title">{{ board.title }}</h1>
+  <div
+    class="board__columns"
+    cdkDropList
+    cdkDropListOrientation="horizontal"
+    (cdkDropListDropped)="drop($event)"
+  >
+    <app-column
+      class="board__column"
+      *ngFor="let column of columns"
+      [column]="column"
+      cdkDrag
+    ></app-column>
+    <div class="board__create-button" [cdkDragDisabled]="true" cdkDrag>
+      Create new column
+    </div>
   </div>
-
 </section>
