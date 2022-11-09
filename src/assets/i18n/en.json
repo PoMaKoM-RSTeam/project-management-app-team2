@@ -8,14 +8,14 @@
     "WORKSPACE": "Workspace",
     "PROFILE": "Profile"
   },
-  "AUTH":{
-    "NAME":"Username",
-    "PASSWORD":"Password",
+  "AUTH": {
+    "NAME": "Username",
+    "PASSWORD": "Password",
     "REQUIRED_NAME": "Please enter your username!",
     "MIN_LENGTH_NAME": "The user name must contain at least 6 characters!",
     "MIN_LENGTH_PASSWORD": "The password must be at least 8 characters long!",
     "PASSWORD_UPPERCASE": "The password must contain uppercase letters!",
-    "PASSWORD_LOWERCASE":"The password must contain lowercase letters!",
+    "PASSWORD_LOWERCASE": "The password must contain lowercase letters!",
     "PASSWORD_NUMBER": "The password must contain numbers!",
     "PASSWORD_CHARACTERS": "The password must contain characters: e.g., ! @ # ? ]!",
     "BACK": "Back",
