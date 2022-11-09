@@ -3,11 +3,10 @@
     <div class="boards">
         <a routerLink="/workspace/boards">{{'WORKSPACE.CREATE_BOARD' | translate}}</a>
         <div>
-        <a routerLink="/workspace/boards">
+        <a routerLink="/workspace/boards" [queryParams]="{id: '636ab9589d9152c02a88d2f3'}">
                 <h2>NAME</h2>
         </a>
         <button (click)="deleteBoard()">DELETE</button>
         </div>
     </div>
 </section>
-

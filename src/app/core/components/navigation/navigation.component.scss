@@ -1,10 +1,10 @@
 .wrapper {
   width: 240px;
-  height: calc(100vh - 118px);
+  height: calc(100vh - 120px);
 }
 
 button {
-  margin-bottom: 43px;
+  margin-bottom: 45px;
 }
 
 .ant-menu {
@@ -15,4 +15,5 @@ button {
   position: absolute;
   left: 0;
   top: 43px;
+  z-index: 10;
 }

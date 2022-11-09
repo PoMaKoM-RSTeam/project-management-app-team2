@@ -21,6 +21,4 @@ export class ChangeLanguageService {
   updateLanguage(text: string) {
     this.pagesLanguage$.next(text);
   }
-
-
 }
