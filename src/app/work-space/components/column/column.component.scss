@@ -11,9 +11,9 @@
   padding: 15px;
   width: 350px;
 	min-height: 400px;
-	margin: 30px;
-	box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);  
-	border-radius: 15px;  
+	margin: 20px;
+	box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+	border-radius: 15px;
 	background: rgba(255, 255, 255, 0.1);
 	overflow: hidden;
 	display: flex;
@@ -32,48 +32,50 @@
     width: 100%;
   }
 
-  &__input {    
+  &__input {
     padding: 2px;
     padding-left: 7px;
     background-color: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.5);    
-    border-radius: 15px;  
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
     font-size: 1.7em;
     font-weight: 600;
     max-width: 75%;
     outline: none;
   }
 
-  &__form {        
-    max-width: 75%;  
-    height: 43px; 
+  &__form {
+    max-width: 75%;
+    height: 43px;
   }
 
   &__order {
     position: absolute;
-    top: -20px;
+    top: 50px;
     right: 50px;
     font-size: 8em;
     color: rgba(255, 255, 255, 0.05);
     pointer-events: none;
   }
 
-  &__delete {    
+  &__delete {
     padding: 5px;
     background-color: transparent;
     outline: none;
-    border: none; 
+    border: none;
     margin-top: 5px;
     margin-bottom: auto;
     &:hover {
       cursor: pointer;
-    }   
+    }
   }
 
   &__h3 {
     font-size: 1.8em;
     color: #ffffff;
     font-weight: 600;
+    padding: 2px;
+    padding-left: 7px;
   }
 
   &__button {
@@ -99,5 +101,5 @@
   color: #ff4d4f;
   font-size: 0.8rem;
   margin-right: auto;
-  margin-top: -20px;  
+  margin-top: -20px;
 }

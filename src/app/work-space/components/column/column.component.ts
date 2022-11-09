@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {
   FormControl, FormGroup, UntypedFormGroup, Validators,
 } from '@angular/forms';
@@ -9,6 +9,8 @@ import {
   styleUrls: ['./column.component.scss'],
 })
 export class ColumnComponent implements OnInit {
+  @Input() column: any;
+
   title = 'Title';
 
   isTitleClicked = false;
@@ -25,11 +27,11 @@ export class ColumnComponent implements OnInit {
     console.log(this.title);
   }
 
-  onTitleClick() {
+  onTitleClick(): void {
     this.isTitleClicked = true;
   }
 
-  onSubmitForm() {
+  onSubmitForm(): void {
     this.isTitleClicked = false;
   }
 }
