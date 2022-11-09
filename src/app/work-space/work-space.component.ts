@@ -8,6 +8,8 @@ import { ChangeLanguageService } from '../core/services/changeLanguage.service';
   styleUrls: ['./work-space.component.scss'],
 })
 export class WorkSpaceComponent implements OnInit {
+  nameBoard: string | null = null;
+
   constructor(
     public translate: TranslateService,
     private languageService: ChangeLanguageService,
@@ -15,6 +17,8 @@ export class WorkSpaceComponent implements OnInit {
 
   ngOnInit(): void {
     this.languageService.language$.subscribe((value) => this.translate.use(value));
+
+    this.nameBoard = 'NAME';
   }
 
   // eslint-disable-next-line class-methods-use-this

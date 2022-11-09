@@ -4,7 +4,7 @@
         <a routerLink="/workspace/boards">{{'WORKSPACE.CREATE_BOARD' | translate}}</a>
         <div>
             <a routerLink="/workspace/boards">
-                <h2>NAME</h2>
+                <h2>{{nameBoard}}</h2>
             </a>
             <button (click)="deleteBoard()">{{'WORKSPACE.DELETE' | translate}}</button>
         </div>
