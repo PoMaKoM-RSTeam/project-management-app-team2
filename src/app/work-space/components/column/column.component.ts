@@ -14,6 +14,8 @@ export class ColumnComponent {
 
   title = 'Title';
 
+  prevTitle = '';
+
   isTitleClicked = false;
 
   inputForm!: UntypedFormGroup;
@@ -25,10 +27,15 @@ export class ColumnComponent {
   }
 
   onTitleClick(): void {
+    this.prevTitle = this.column.title;
     this.isTitleClicked = true;
   }
 
   onSubmitForm(): void {
     this.isTitleClicked = false;
+  }
+
+  onCancelSubmit() {
+    this.column.title = this.prevTitle;
   }
 }
