@@ -1,15 +1,16 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {
   FormControl, FormGroup, UntypedFormGroup, Validators,
 } from '@angular/forms';
+import { Column } from '../board/board.component';
 
 @Component({
   selector: 'app-column',
   templateUrl: './column.component.html',
   styleUrls: ['./column.component.scss'],
 })
-export class ColumnComponent implements OnInit {
-  @Input() column: any;
+export class ColumnComponent {
+  @Input() column!: Column;
 
   title = 'Title';
 
@@ -21,10 +22,6 @@ export class ColumnComponent implements OnInit {
     this.inputForm = new FormGroup({
       myInput: new FormControl(this.title, Validators.required),
     });
-  }
-
-  ngOnInit(): void {
-    console.log(this.title);
   }
 
   onTitleClick(): void {

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
-interface Column {
+export interface Column {
   _id: string;
   title: string;
   order: number;
@@ -49,7 +49,6 @@ export class BoardComponent {
 
   drop(event: CdkDragDrop<Column[]>) {
     moveItemInArray(this.columns, event.previousIndex, event.currentIndex);
-    console.log(this.columns);
     this.columns.forEach((el) => {
       // eslint-disable-next-line no-param-reassign
       el.order = this.columns.indexOf(el) + 1;
