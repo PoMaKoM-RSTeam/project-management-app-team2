@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import {
   FormControl, FormGroup, UntypedFormGroup, Validators,
 } from '@angular/forms';
-import { Column } from '../board/board.component';
+import { Column } from '../../pages/board/board.component';
 
 @Component({
   selector: 'app-column',
