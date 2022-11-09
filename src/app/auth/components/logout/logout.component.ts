@@ -15,15 +15,16 @@ export class LogoutComponent implements OnInit {
     private rout: Router,
     public translate: TranslateService,
     private languageService: ChangeLanguageService,
+    private changeLanguageService: ChangeLanguageService,
   ) {}
 
   ngOnInit() {
-    this.loginStorage = localStorage.getItem('login');
+    this.loginStorage = this.changeLanguageService.getFromLocalStorage('login');
     this.languageService.language$.subscribe((value) => this.translate.use(value));
   }
 
   logout() {
-    localStorage.removeItem('login');
+    this.changeLanguageService.deleteFromLocalStorage('login');
     this.rout.navigate(['/auth/login']);
   }
 }
