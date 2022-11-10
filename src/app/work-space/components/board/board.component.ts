@@ -15,7 +15,22 @@ import { ActivatedRoute } from '@angular/router';
 export class BoardComponent implements OnInit {
   board: BoardResponse | undefined;
 
-  columns!: Array<ColumnResponse>;
+  title!: string;
+
+  subTitle!: string;
+
+  yes!: string;
+
+  no!: string;
+
+  columns: Array<ColumnResponse> = [
+    {
+      _id: 'ggddvddd',
+      title: 'Angular',
+      order: 1,
+      boardId: 'gbsgsas',
+    },
+  ];
 
   param = '';
 
@@ -37,9 +52,9 @@ export class BoardComponent implements OnInit {
     this.httpService.getBoardById(this.param).subscribe((board) => {
       this.board = board;
     });
-    this.httpService.getAllColumns(this.param).subscribe((columns) => {
-      this.columns = columns;
-    });
+    /*     this.httpService.getAllColumns(this.param).subscribe((columns) => {
+          this.columns = columns;
+        }); */
   }
 
   drop(event: CdkDragDrop<ColumnResponse[]>) {
@@ -50,17 +65,21 @@ export class BoardComponent implements OnInit {
   }
 
   deleteColumn(id: string) {
+    this.translate.get('MODAL.TITLE').subscribe((res: string) => { this.title = res; });
+    this.translate.get('MODAL.SUB_TITLE').subscribe((res: string) => { this.subTitle = res; });
+    this.translate.get('MODAL.YES').subscribe((res: string) => { this.yes = res; });
+    this.translate.get('MODAL.NO').subscribe((res: string) => { this.no = res; });
     this.modal.confirm({
-      nzTitle: 'Are you sure delete this column?',
-      nzContent: '<b style="color: red;">This action cannot be undone</b>',
-      nzOkText: 'Yes',
+      nzTitle: this.title,
+      nzContent: `<b style="color: red;">${this.subTitle}</b>`,
+      nzOkText: this.yes,
       nzOkType: 'primary',
       nzOkDanger: true,
       nzOnOk: () => {
         this.columns = this.columns.filter((item) => item._id !== id);
         this.httpService.deleteColumn(this.board!._id, id);
       },
-      nzCancelText: 'No',
+      nzCancelText: this.no,
       nzOnCancel: () => console.log('Cancel'),
     });
   }
