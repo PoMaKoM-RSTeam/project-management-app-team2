@@ -15,32 +15,7 @@ import { ActivatedRoute } from '@angular/router';
 export class BoardComponent implements OnInit {
   board: BoardResponse | undefined;
 
-  columns: Array<ColumnResponse> = [
-    {
-      _id: '111',
-      title: 'TO DO',
-      order: 1,
-      boardId: '636ab9589d9152c02a88d2f3',
-    },
-    {
-      _id: '222',
-      title: 'DOING',
-      order: 2,
-      boardId: '636ab9589d9152c02a88d2f3',
-    },
-    {
-      _id: '333',
-      title: 'DONE',
-      order: 3,
-      boardId: '636ab9589d9152c02a88d2f3',
-    },
-    {
-      _id: '444',
-      title: 'TESTING',
-      order: 4,
-      boardId: '636ab9589d9152c02a88d2f3',
-    },
-  ];
+  columns!: Array<ColumnResponse>;
 
   param = '';
 
@@ -61,6 +36,9 @@ export class BoardComponent implements OnInit {
     });
     this.httpService.getBoardById(this.param).subscribe((board) => {
       this.board = board;
+    });
+    this.httpService.getAllColumns(this.param).subscribe((columns) => {
+      this.columns = columns;
     });
   }
 

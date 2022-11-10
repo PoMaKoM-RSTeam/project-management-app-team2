@@ -79,7 +79,7 @@ export class HTTPService {
 
   // COLUMNS
   getAllColumns(boardId: string): Observable<ColumnResponse[]> {
-    return this.http.get<ColumnResponse[]>(`${Routes.AllBoards}/${boardId}${Routes.AllColumns}`);
+    return this.http.get<ColumnResponse[]>(`${Routes.AllBoards}/${boardId}/${Routes.AllColumns}`);
   }
 
   createColumn(boardId: string, column: ColumnDTO): Observable<ColumnResponse> {
