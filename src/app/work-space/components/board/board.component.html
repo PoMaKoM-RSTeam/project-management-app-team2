@@ -1,6 +1,8 @@
-<section class="board">
-  <h1 class="board__title">{{ board.title }}
-  </h1>
+<div *ngIf="!board" class="spinner">
+  <nz-spin nzSimple></nz-spin>
+</div>
+<section *ngIf="board" class="board">
+  <h1 class="board__title">{{ board.title }}</h1>
   <div
     class="board__columns"
     cdkDropList

@@ -21,13 +21,13 @@ export class TokenInterceptor implements HttpInterceptor {
     }
     if (!token || request.url.includes('sign')) {
       const replacedUnAuthRequest = request.clone({
-        url: `${environment.PATH}:${environment.PORT}/${request.url}`,
+        url: `${environment.PATH}${request.url}`,
       });
       return next.handle(replacedUnAuthRequest);
     }
 
     const replacedAuthRequest = request.clone({
-      url: `${environment.PATH}:${environment.PORT}${request.url}`,
+      url: `${environment.PATH}${request.url}`,
       headers: request.headers.set('Authorization', `Bearer ${token}`),
     });
     return next.handle(replacedAuthRequest);

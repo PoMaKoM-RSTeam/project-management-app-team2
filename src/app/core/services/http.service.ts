@@ -50,6 +50,10 @@ export class HTTPService {
     return this.http.get<BoardResponse[]>(`${Routes.AllBoards}`);
   }
 
+  getBoardById(boardId: string): Observable<BoardResponse> {
+    return this.http.get<BoardResponse>(`${Routes.AllBoards}/${boardId}`);
+  }
+
   createBoard(board: BoardDTO): Observable<BoardResponse> {
     return this.http.post<BoardResponse>(`${Routes.AllBoards}`, board);
   }

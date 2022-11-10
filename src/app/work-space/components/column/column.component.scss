@@ -101,6 +101,11 @@
       background: darken($color: #ffffff, $amount: 10);
     }
   }
+
+  &__icon {
+    font-size: 2rem;
+    color: #ffffff;
+  }
 }
 
 .alert {
@@ -110,14 +115,5 @@
   margin-top: -20px;
 }
 
-.close {
-  color: #ffffff;
-  font-size: 1.5rem;
-  border-radius: 100%;
-  border: 3px solid #ffffff;
-  padding: 1px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
 

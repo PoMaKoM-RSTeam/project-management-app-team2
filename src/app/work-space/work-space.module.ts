@@ -8,7 +8,7 @@ import { WorkSpaceComponent } from './work-space.component';
 import { ColumnComponent } from './components/column/column.component';
 import { BoardComponent } from './components/board/board.component';
 import { LocalizationModule } from '../localization/localization.module';
-import { CoreModule } from '../core/core.module';
+// import { CoreModule } from '../core/core.module';
 import { ZorroModule } from '../core/zorro/zorro.module';
 
 @NgModule({
@@ -20,7 +20,6 @@ import { ZorroModule } from '../core/zorro/zorro.module';
   imports: [
     CommonModule,
     FormsModule,
-    CoreModule,
     ZorroModule,
     ReactiveFormsModule,
     WorkSpaceRoutingModule,
