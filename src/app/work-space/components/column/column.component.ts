@@ -1,16 +1,18 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {
   FormControl, FormGroup, UntypedFormGroup, Validators,
 } from '@angular/forms';
-import { Column } from '../board/board.component';
+import { TranslateService } from '@ngx-translate/core';
+import { ColumnResponse } from 'src/app/core/models/project-manager.model';
+import { ChangeLanguageService } from 'src/app/core/services/changeLanguage.service';
 
 @Component({
   selector: 'app-column',
   templateUrl: './column.component.html',
   styleUrls: ['./column.component.scss'],
 })
-export class ColumnComponent {
-  @Input() column!: Column;
+export class ColumnComponent implements OnInit {
+  @Input() column!: ColumnResponse;
 
   title = 'Title';
 
@@ -20,10 +22,17 @@ export class ColumnComponent {
 
   inputForm!: UntypedFormGroup;
 
-  constructor() {
+  constructor(
+    public translate: TranslateService,
+    private languageService: ChangeLanguageService,
+  ) {
     this.inputForm = new FormGroup({
       myInput: new FormControl(this.title, Validators.required),
     });
+  }
+
+  ngOnInit(): void {
+    this.languageService.language$.subscribe((value) => this.translate.use(value));
   }
 
   onTitleClick(): void {

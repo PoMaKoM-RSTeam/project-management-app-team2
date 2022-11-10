@@ -1,5 +1,6 @@
 <section class="board">
-  <h1 class="board__title">{{ board.title }}</h1>
+  <h1 class="board__title">{{ board.title }}
+  </h1>
   <div
     class="board__columns"
     cdkDropList
@@ -13,7 +14,7 @@
       cdkDrag
     ></app-column>
     <div class="board__create-button" [cdkDragDisabled]="true" cdkDrag>
-      Create new column
+      {{"BOARD.CREATE" | translate}}
     </div>
   </div>
 </section>

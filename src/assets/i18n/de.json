@@ -35,5 +35,10 @@
   },
   "FOOTER": {
     "TEAM": "Unser Team:"
+  },
+  "BOARD": {
+    "CREATE": "Neues Board erstellen",
+    "ADD_CARD": "Karte hinzufügen",
+    "REQUIRED_INPUT": "Bitte Titel eingeben!"
   }
 }

@@ -47,6 +47,13 @@
   &__form {
     max-width: 75%;
     height: 43px;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+  }
+
+  &__icon:hover {
+    cursor: pointer;
   }
 
   &__order {

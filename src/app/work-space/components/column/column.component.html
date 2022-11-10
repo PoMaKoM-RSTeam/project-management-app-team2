@@ -4,11 +4,13 @@
     <h3 *ngIf="!isTitleClicked" class="column__h3" (click)="onTitleClick();">{{column.title}}</h3>
     <form class="column__form" [formGroup]="inputForm" *ngIf="isTitleClicked" (ngSubmit)="onSubmitForm()" autofocus>
       <input formControlName="myInput" class="column__input"  type="text" [(ngModel)]="column.title" autofocus >
+      <span class="column__icon" nz-icon [nzType]="'check-circle'" [nzTheme]="'twotone'" [nzTwotoneColor]="'#52c41a'" style="font-size: 2rem"></span>
+      <span class="column__icon" nz-icon [nzType]="'close'" [nzTheme]="'outline'" style="color: #cc0a00; font-size: 1.5rem"></span>
     </form>
     <button class="column__delete">. . .</button>
   </div>
-  <div class="alert" *ngIf="inputForm.get('myInput')?.errors?.['required']">Please input title!</div>
-  
+  <div class="alert" *ngIf="inputForm.get('myInput')?.errors?.['required']">{{"BOARD.REQUIRED_INPUT"| translate}}</div>
+
   <div class="column__tasks"></div>
-  <button class="column__button">+ Add card</button>
+  <button class="column__button">+{{"BOARD.ADD_CARD"| translate}}</button>
 </div>
