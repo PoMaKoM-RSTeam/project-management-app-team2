@@ -3,12 +3,11 @@ import { CommonModule } from '@angular/common';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { WorkSpaceRoutingModule } from './work-space-routing.module';
-import { WorkSpaceComponent } from './work-space.component';
+import { WorkSpaceRoutingModule } from './workspace-routing.module';
+import { WorkSpaceComponent } from './workspace.component';
 import { BoardComponent } from './pages/board/board.component';
 import { ColumnComponent } from './components/column/column.component';
 import { LocalizationModule } from '../localization/localization.module';
-// import { CoreModule } from '../core/core.module';
 import { ZorroModule } from '../core/zorro/zorro.module';
 
 @NgModule({

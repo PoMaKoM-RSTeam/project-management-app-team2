@@ -3,9 +3,9 @@ import { TranslateService } from '@ngx-translate/core';
 import { ChangeLanguageService } from '../core/services/changeLanguage.service';
 
 @Component({
-  selector: 'app-work-space',
-  templateUrl: './work-space.component.html',
-  styleUrls: ['./work-space.component.scss'],
+  selector: 'app-workspace',
+  templateUrl: './workspace.component.html',
+  styleUrls: ['./workspace.component.scss'],
 })
 export class WorkSpaceComponent implements OnInit {
   nameBoard: string | null = null;
