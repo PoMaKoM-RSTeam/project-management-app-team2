@@ -7,9 +7,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-
 import { CoreModule } from './core/core.module';
 import { LocalizationModule } from './localization/localization.module';
+import { AuthModule } from './auth/auth.module';
+import { AuthGuard } from './core/guards/auth-guard';
 import { tokenInterceptorProviders } from './auth/interceptors/tokenInterceptor.provider';
 
 registerLocaleData(en);
@@ -26,8 +27,12 @@ registerLocaleData(en);
     BrowserAnimationsModule,
     CoreModule,
     LocalizationModule,
+    AuthModule,
   ],
-  providers: [tokenInterceptorProviders],
+  providers: [
+    tokenInterceptorProviders,
+    AuthGuard,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

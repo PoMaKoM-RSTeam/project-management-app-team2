@@ -24,14 +24,15 @@
     "ENTER_EMAIL": "Please enter your e-mail!",
     "ERROR_EMAIL": "Please provide a valid email address!",
     "REGISTRATION": "Registration",
-    "CHECK_PASSWORD": "Please confirm your password!",
+    "CHECK_PASSWORD": "Please, confirm your password!",
     "INCORRECT_PASSWORD": "The password is incorrect! Please check the password!",
     "LOGOUT": "Logout",
     "LOGIN": "Login"
   },
   "WORKSPACE": {
     "BOARD": "Board",
-    "CREATE_BOARD": "Create board"
+    "CREATE_BOARD": "Create board",
+    "DELETE": "DELETE"
   },
   "FOOTER": {
     "TEAM": "Our team:"

@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  FormControl, UntypedFormBuilder, UntypedFormGroup, ValidationErrors, Validators,
+  UntypedFormBuilder, UntypedFormGroup, Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ChangeLanguageService } from 'src/app/core/services/changeLanguage.service';
 import { LoginService } from '../../services/login-service';
+import { AuthValidator } from '../../validators/auth-validator';
 
 @Component({
   selector: 'app-login',
@@ -48,40 +49,9 @@ export class LoginComponent implements OnInit {
       ]],
       password: [null, [
         Validators.required,
-        this.validatorsPassword]],
+        AuthValidator.validatorsPassword,
+      ]],
     });
-  }
-
-  // eslint-disable-next-line class-methods-use-this
-  validatorsPassword(control: FormControl):ValidationErrors | null {
-    const passwordLength = control.value && control.value.length > 7;
-    if (!passwordLength) {
-      return {
-        invalidPassword: 'AUTH.MIN_LENGTH_PASSWORD',
-      };
-    } if ((!(/[A-Z]/.test(control.value)))) {
-      return {
-        invalidPassword: 'AUTH.PASSWORD_UPPERCASE',
-      };
-    }
-    if ((!(/[a-z]/.test(control.value)))) {
-      return {
-        invalidPassword: 'AUTH.PASSWORD_LOWERCASE!',
-      };
-    }
-
-    if ((!(/[0-9]/.test(control.value)))) {
-      return {
-        invalidPassword: 'AUTH.PASSWORD_NUMBER',
-      };
-    }
-
-    if ((!(/[!/@,/\]e#?$g%^&.*]/.test(control.value)))) {
-      return {
-        invalidPassword: 'AUTH.PASSWORD_CHARACTERS',
-      };
-    }
-    return null;
   }
 
   login() {

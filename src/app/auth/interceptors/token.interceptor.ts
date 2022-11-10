@@ -12,10 +12,11 @@ import { StorageKeys } from '../../core/models/project-manager.model';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
-  constructor(private localStorageService: ChangeLanguageService) { }
+  constructor(private changeLanguageService: ChangeLanguageService) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    const token = this.localStorageService.getFromLocalStorage(StorageKeys.Token);
+    const token = this.changeLanguageService.getFromLocalStorage(StorageKeys.Token);
+
     if (request.url.includes('.json')) {
       return next.handle(request);
     }

@@ -21,4 +21,8 @@ export class ChangeLanguageService {
   updateLanguage(text: string) {
     this.pagesLanguage$.next(text);
   }
+
+  deleteFromLocalStorage(key: string) {
+    return localStorage.removeItem(key);
+  }
 }

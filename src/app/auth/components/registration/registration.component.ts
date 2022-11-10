@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  FormControl,
-  UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, ValidationErrors, Validators,
+  UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
 import { NzFormTooltipIcon } from 'ng-zorro-antd/form';
 import { ChangeLanguageService } from 'src/app/core/services/changeLanguage.service';
+import { AuthValidator } from '../../validators/auth-validator';
 
 @Component({
   selector: 'app-registration',
@@ -34,10 +34,22 @@ export class RegistrationComponent implements OnInit {
     this.languageService.language$.subscribe((value) => this.translate.use(value));
 
     this.validateForm = this.fb.group({
-      email: [null, [Validators.required, Validators.email]],
-      password: [null, [Validators.required, this.validatorsPassword]],
-      checkPassword: [null, [Validators.required, this.confirmationValidator]],
-      nickname: [null, [Validators.required, Validators.minLength(6)]],
+      email: [null, [
+        Validators.required,
+        Validators.email,
+      ]],
+      password: [null, [
+        Validators.required,
+        AuthValidator.validatorsPassword,
+      ]],
+      checkPassword: [null, [
+        Validators.required,
+        this.confirmationValidator,
+      ]],
+      nickname: [null, [
+        Validators.required,
+        Validators.minLength(6),
+      ]],
     });
   }
 
@@ -70,38 +82,6 @@ export class RegistrationComponent implements OnInit {
   // eslint-disable-next-line class-methods-use-this
   getCaptcha(e: MouseEvent): void {
     e.preventDefault();
-  }
-
-  // eslint-disable-next-line class-methods-use-this
-  validatorsPassword(control: FormControl):ValidationErrors | null {
-    const passwordLength = control.value && control.value.length > 7;
-    if (!passwordLength) {
-      return {
-        invalidPassword: 'AUTH.MIN_LENGTH_PASSWORD',
-      };
-    } if ((!(/[A-Z]/.test(control.value)))) {
-      return {
-        invalidPassword: 'AUTH.PASSWORD_UPPERCASE',
-      };
-    }
-    if ((!(/[a-z]/.test(control.value)))) {
-      return {
-        invalidPassword: 'AUTH.PASSWORD_LOWERCASE',
-      };
-    }
-
-    if ((!(/[0-9]/.test(control.value)))) {
-      return {
-        invalidPassword: 'AUTH.PASSWORD_NUMBER',
-      };
-    }
-
-    if ((!(/[!/@,/\]e#?$g%^&.*]/.test(control.value)))) {
-      return {
-        invalidPassword: 'AUTH.PASSWORD_CHARACTERS',
-      };
-    }
-    return null;
   }
 
   registration() {

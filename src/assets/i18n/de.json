@@ -24,14 +24,15 @@
     "ENTER_EMAIL": "Bitte geben Sie Ihre E-Mail-Adresse ein!",
     "ERROR_EMAIL": "Bitte geben Sie eine gültige E-Mail-Adresse an!",
     "REGISTRATION": "Registrierung",
-    "CHECK_PASSWORD": "Bitte bestätigen Sie das Passwort!",
+    "CHECK_PASSWORD": "Bitte, bestätigen Sie das Passwort!",
     "INCORRECT_PASSWORD": "Das Passwort ist falsch! Bitte überprüfen Sie das Passwort!",
     "LOGOUT": "Aussteigen",
     "LOGIN": "Autorisierter"
   },
   "WORKSPACE": {
     "BOARD": "Board",
-    "CREATE_BOARD": "Board erstellen"
+    "CREATE_BOARD": "Board erstellen",
+    "DELETE": "Entfernen"
   },
   "FOOTER": {
     "TEAM": "Unser Team:"
