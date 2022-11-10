@@ -8,6 +8,8 @@ import { WorkSpaceComponent } from './work-space.component';
 import { BoardComponent } from './pages/board/board.component';
 import { ColumnComponent } from './components/column/column.component';
 import { LocalizationModule } from '../localization/localization.module';
+// import { CoreModule } from '../core/core.module';
+import { ZorroModule } from '../core/zorro/zorro.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import { LocalizationModule } from '../localization/localization.module';
   imports: [
     CommonModule,
     FormsModule,
+    ZorroModule,
     ReactiveFormsModule,
     WorkSpaceRoutingModule,
     LocalizationModule,
