@@ -2,14 +2,25 @@
   <div class="column__title">
     <h2 class="column__order">{{column.order<10?'0'+column.order: column.order}}</h2>
     <h3 *ngIf="!isTitleClicked" class="column__h3" (click)="onTitleClick();">{{column.title}}</h3>
-    <form class="column__form" [formGroup]="inputForm" *ngIf="isTitleClicked" (ngSubmit)="onSubmitForm()" autofocus>
+    <form class="column__form" [formGroup]="inputForm" *ngIf="isTitleClicked" autofocus>
       <input formControlName="myInput" class="column__input"  type="text" [(ngModel)]="column.title" autofocus >
-      <span class="column__icon" nz-icon [nzType]="'check-circle'" [nzTheme]="'twotone'" [nzTwotoneColor]="'#52c41a'" style="font-size: 2rem"></span>
-      <span class="column__icon" nz-icon [nzType]="'close'" [nzTheme]="'outline'" style="color: #cc0a00; font-size: 1.5rem"></span>
+      <span class="column__icon check" nz-icon [nzType]="'check-circle'" nzTheme="outline" (click)="onSubmitForm()" style="font-size: 2rem; color: #ffffff;"></span>
+
+      <span class="column__icon close"
+            nz-icon [nzType]="'close'"
+            [nzTheme]="'outline'"
+            (click)="onCancelSubmit()">
+      </span>
     </form>
-    <button class="column__delete">. . .</button>
+    <button nz-dropdown [nzDropdownMenu]="menu" class="column__delete">. . .</button>
+    <nz-dropdown-menu #menu="nzDropdownMenu">
+      <ul nz-menu nzSelectable style="padding: 4px;">
+        <li style="color: #b03063;" nz-menu-item (click)="onDeleteColumn(column._id)">Delete column</li>
+      </ul>
+    </nz-dropdown-menu>
   </div>
   <div class="alert" *ngIf="inputForm.get('myInput')?.errors?.['required']">{{"BOARD.REQUIRED_INPUT"| translate}}</div>
+  <div class="alert" *ngIf="inputForm.get('myInput')?.errors?.['maxlength']">{{"BOARD.REQUIRED_MAX_VALUE"| translate}}</div>
 
   <div class="column__tasks"></div>
   <button class="column__button">+{{"BOARD.ADD_CARD"| translate}}</button>

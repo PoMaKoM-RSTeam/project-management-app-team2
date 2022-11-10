@@ -66,4 +66,9 @@ export class BoardComponent implements OnInit {
       el.order = this.columns.indexOf(el) + 1;
     });
   }
+
+  deleteColumn(id: any) {
+    console.log(id);
+    console.log(this.board);
+  }
 }

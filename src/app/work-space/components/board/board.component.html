@@ -12,6 +12,7 @@
       *ngFor="let column of columns"
       [column]="column"
       cdkDrag
+      (deleteColumn)="deleteColumn($event)"
     ></app-column>
     <div class="board__create-button" [cdkDragDisabled]="true" cdkDrag>
       {{"BOARD.CREATE" | translate}}

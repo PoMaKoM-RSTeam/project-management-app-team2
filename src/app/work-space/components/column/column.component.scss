@@ -33,7 +33,6 @@
   }
 
   &__input {
-    padding: 2px;
     padding-left: 7px;
     background-color: transparent;
     border: 1px solid rgba(255, 255, 255, 0.5);
@@ -105,8 +104,20 @@
 }
 
 .alert {
-  color: #ff4d4f;
+  color: #ffd5d6;
   font-size: 0.8rem;
   margin-right: auto;
   margin-top: -20px;
 }
+
+.close {
+  color: #ffffff;
+  font-size: 1.5rem;
+  border-radius: 100%;
+  border: 3px solid #ffffff;
+  padding: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+

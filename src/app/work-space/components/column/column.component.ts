@@ -1,4 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  Component, EventEmitter, Input, OnInit, Output,
+} from '@angular/core';
 import {
   FormControl, FormGroup, UntypedFormGroup, Validators,
 } from '@angular/forms';
@@ -14,6 +16,8 @@ import { ChangeLanguageService } from 'src/app/core/services/changeLanguage.serv
 export class ColumnComponent implements OnInit {
   @Input() column!: ColumnResponse;
 
+  @Output() deleteColumn = new EventEmitter<string>();
+
   title = 'Title';
 
   prevTitle = '';
@@ -27,7 +31,7 @@ export class ColumnComponent implements OnInit {
     private languageService: ChangeLanguageService,
   ) {
     this.inputForm = new FormGroup({
-      myInput: new FormControl(this.title, Validators.required),
+      myInput: new FormControl(this.title, [Validators.required, Validators.maxLength(15)]),
     });
   }
 
@@ -41,10 +45,17 @@ export class ColumnComponent implements OnInit {
   }
 
   onSubmitForm(): void {
+    if (this.column.title) {
+      this.isTitleClicked = false;
+    }
+  }
+
+  onCancelSubmit(): void {
+    this.column.title = this.prevTitle;
     this.isTitleClicked = false;
   }
 
-  onCancelSubmit() {
-    this.column.title = this.prevTitle;
+  onDeleteColumn(col: string) {
+    this.deleteColumn.emit(col);
   }
 }
