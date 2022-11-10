@@ -33,7 +33,6 @@
   }
 
   &__input {
-    padding: 2px;
     padding-left: 7px;
     background-color: transparent;
     border: 1px solid rgba(255, 255, 255, 0.5);
@@ -47,6 +46,13 @@
   &__form {
     max-width: 75%;
     height: 43px;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+  }
+
+  &__icon:hover {
+    cursor: pointer;
   }
 
   &__order {
@@ -95,11 +101,19 @@
       background: darken($color: #ffffff, $amount: 10);
     }
   }
+
+  &__icon {
+    font-size: 2rem;
+    color: #ffffff;
+  }
 }
 
 .alert {
-  color: #ff4d4f;
+  color: #ffd5d6;
   font-size: 0.8rem;
   margin-right: auto;
   margin-top: -20px;
 }
+
+
+

@@ -1,57 +1,86 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { BoardResponse, ColumnResponse } from 'src/app/core/models/project-manager.model';
+import { TranslateService } from '@ngx-translate/core';
+import { ChangeLanguageService } from 'src/app/core/services/changeLanguage.service';
+import { HTTPService } from 'src/app/core/services/http.service';
+import { NzModalService } from 'ng-zorro-antd/modal';
+import { ActivatedRoute } from '@angular/router';
 
-export interface Column {
-  _id: string;
-  title: string;
-  order: number;
-  boardId: string;
-}
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.scss'],
 })
-export class BoardComponent {
-  board = {
-    title: 'Test board',
-    owner: 'kate4ka',
-    users: ['IMask', 'kate4ka2'],
-    _id: '636ab9589d9152c02a88d2f3',
-  };
+export class BoardComponent implements OnInit {
+  board: BoardResponse | undefined;
 
-  columns: Array<Column> = [
+  title!: string;
+
+  subTitle!: string;
+
+  yes!: string;
+
+  no!: string;
+
+  columns: Array<ColumnResponse> = [
     {
-      _id: '111',
-      title: 'TO DO',
+      _id: 'ggddvddd',
+      title: 'Angular',
       order: 1,
-      boardId: '636ab9589d9152c02a88d2f3',
-    },
-    {
-      _id: '222',
-      title: 'DOING',
-      order: 2,
-      boardId: '636ab9589d9152c02a88d2f3',
-    },
-    {
-      _id: '333',
-      title: 'DONE',
-      order: 3,
-      boardId: '636ab9589d9152c02a88d2f3',
-    },
-    {
-      _id: '444',
-      title: 'TESTING',
-      order: 4,
-      boardId: '636ab9589d9152c02a88d2f3',
+      boardId: 'gbsgsas',
     },
   ];
 
-  drop(event: CdkDragDrop<Column[]>) {
+  param = '';
+
+  constructor(
+    public translate: TranslateService,
+    private languageService: ChangeLanguageService,
+    private httpService: HTTPService,
+    private modal: NzModalService,
+    private activatedRoute: ActivatedRoute,
+  ) { }
+
+  ngOnInit(): void {
+    this.languageService.language$.subscribe((value) => this.translate.use(value));
+    this.activatedRoute.queryParams.subscribe((param) => {
+      const data = param['id'];
+      this.param = data;
+      console.log(this.param);
+    });
+    this.httpService.getBoardById(this.param).subscribe((board) => {
+      this.board = board;
+    });
+    /*     this.httpService.getAllColumns(this.param).subscribe((columns) => {
+          this.columns = columns;
+        }); */
+  }
+
+  drop(event: CdkDragDrop<ColumnResponse[]>) {
     moveItemInArray(this.columns, event.previousIndex, event.currentIndex);
     this.columns.forEach((el) => {
-      // eslint-disable-next-line no-param-reassign
       el.order = this.columns.indexOf(el) + 1;
+    });
+  }
+
+  deleteColumn(id: string) {
+    this.translate.get('MODAL.TITLE').subscribe((res: string) => { this.title = res; });
+    this.translate.get('MODAL.SUB_TITLE').subscribe((res: string) => { this.subTitle = res; });
+    this.translate.get('MODAL.YES').subscribe((res: string) => { this.yes = res; });
+    this.translate.get('MODAL.NO').subscribe((res: string) => { this.no = res; });
+    this.modal.confirm({
+      nzTitle: this.title,
+      nzContent: `<b style="color: red;">${this.subTitle}</b>`,
+      nzOkText: this.yes,
+      nzOkType: 'primary',
+      nzOkDanger: true,
+      nzOnOk: () => {
+        this.columns = this.columns.filter((item) => item._id !== id);
+        this.httpService.deleteColumn(this.board!._id, id);
+      },
+      nzCancelText: this.no,
+      nzOnCancel: () => console.log('Cancel'),
     });
   }
 }

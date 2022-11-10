@@ -21,16 +21,12 @@ import {
   UpdatePointsDTO,
   UpdatePointDTO,
 } from '../models/project-manager.model';
-import { LocalStorageService } from './localStorage.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class HTTPService {
-  constructor(
-    private http: HttpClient,
-    private localStorageService: LocalStorageService,
-  ) {}
+  constructor(private http: HttpClient) { }
 
   // USER
   getAllUsers(): Observable<SignUpResponse[]> {
@@ -52,6 +48,10 @@ export class HTTPService {
   // BOARDS
   getAllBoards(): Observable<BoardResponse[]> {
     return this.http.get<BoardResponse[]>(`${Routes.AllBoards}`);
+  }
+
+  getBoardById(boardId: string): Observable<BoardResponse> {
+    return this.http.get<BoardResponse>(`${Routes.AllBoards}/${boardId}`);
   }
 
   createBoard(board: BoardDTO): Observable<BoardResponse> {
@@ -79,7 +79,7 @@ export class HTTPService {
 
   // COLUMNS
   getAllColumns(boardId: string): Observable<ColumnResponse[]> {
-    return this.http.get<ColumnResponse[]>(`${Routes.AllBoards}/${boardId}${Routes.AllColumns}`);
+    return this.http.get<ColumnResponse[]>(`${Routes.AllBoards}/${boardId}/${Routes.AllColumns}`);
   }
 
   createColumn(boardId: string, column: ColumnDTO): Observable<ColumnResponse> {
@@ -170,7 +170,7 @@ export class HTTPService {
     });
   }
 
-  createFile(boardId:string, taskId: string, file: File): Observable<FileResponse> {
+  createFile(boardId: string, taskId: string, file: File): Observable<FileResponse> {
     const formData = new FormData();
     formData.append('file', file);
     formData.append('boardId', boardId);

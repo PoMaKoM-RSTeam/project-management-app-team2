@@ -7,24 +7,27 @@ import {
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { LocalStorageService } from '../../core/services/localStorage.service';
+import { ChangeLanguageService } from '../../core/services/changeLanguage.service';
 import { StorageKeys } from '../../core/models/project-manager.model';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
-  constructor(private localStorageService: LocalStorageService) {}
+  constructor(private localStorageService: ChangeLanguageService) { }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const token = this.localStorageService.getFromLocalStorage(StorageKeys.Token);
+    if (request.url.includes('.json')) {
+      return next.handle(request);
+    }
     if (!token || request.url.includes('sign')) {
       const replacedUnAuthRequest = request.clone({
-        url: `${environment.PATH}:${environment.PORT}/${request.url}`,
+        url: `${environment.PATH}${request.url}`,
       });
       return next.handle(replacedUnAuthRequest);
     }
 
     const replacedAuthRequest = request.clone({
-      url: `${environment.PATH}:${environment.PORT}${request.url}`,
+      url: `${environment.PATH}${request.url}`,
       headers: request.headers.set('Authorization', `Bearer ${token}`),
     });
     return next.handle(replacedAuthRequest);
