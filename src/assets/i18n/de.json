@@ -32,7 +32,12 @@
   "WORKSPACE": {
     "BOARD": "Bretter",
     "CREATE_BOARD": "Board erstellen",
-    "DELETE": "Entfernen"
+    "DELETE": "Entfernen",
+    "CREATE": "Schaffen",
+    "INF-TEXT": "Bitte geben Sie Benutzernamen über",
+    "TITLE": "titel",
+    "OWNER": "eigentümer",
+    "USERS": "benutzer"
   },
   "FOOTER": {
     "TEAM": "Unser Team:"

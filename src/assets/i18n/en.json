@@ -32,7 +32,12 @@
   "WORKSPACE": {
     "BOARD": "Boards",
     "CREATE_BOARD": "Create board",
-    "DELETE": "DELETE"
+    "DELETE": "DELETE",
+    "CREATE": "Create",
+    "INF-TEXT": "Please enter usernames via",
+    "TITLE": "title",
+    "OWNER": "owner",
+    "USERS": "users"
   },
   "FOOTER": {
     "TEAM": "Our team:"
