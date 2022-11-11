@@ -1,26 +1,19 @@
 <section class="workspace">
     <h1>{{'WORKSPACE.BOARD' | translate}}</h1>
     <div class="boards">
-        <a class="board" routerLink="/workspace/boards">
-            <div class="link-board">{{'WORKSPACE.CREATE_BOARD' | translate}}</div>  
-        </a>
-        <div class="board">
-            <a routerLink="/workspace/boards" [queryParams]="{id: '636ab9589d9152c02a88d2f3'}">
-                <h2>{{nameBoard}}</h2>
-            </a>
-            <button (click)="deleteBoard()">{{'WORKSPACE.DELETE' | translate}}</button>
+        <div class="board"  (click)="createForm()">
+            <span class="link-board">{{'WORKSPACE.CREATE_BOARD' | translate}}</span>  
         </div>
-        <div class="board">
-            <a routerLink="/workspace/boards" [queryParams]="{id: '636ab9589d9152c02a88d2f3'}">
-                <h2>{{nameBoard}}</h2>
+        <div class="board" *ngFor="let board of boards">
+            <a class="title" routerLink="/workspace/boards" [queryParams]="{id: board._id}">
+                {{board.title}}
             </a>
-            <button (click)="deleteBoard()">{{'WORKSPACE.DELETE' | translate}}</button>
-        </div>
-        <div>
-            <a routerLink="/workspace/boards" [queryParams]="{id: '636ab9589d9152c02a88d2f3'}">
-                <h2>{{nameBoard}}</h2>
-            </a>
-            <button (click)="deleteBoard()">{{'WORKSPACE.DELETE' | translate}}</button>
+            <div class="owner">{{board.owner}}</div>
+            <div class="users">
+                <span class="user" *ngFor="let user of board.users">{{user }}</span>
+            </div>
+            <button class="btn-delete" (click)="deleteBoard()">{{'WORKSPACE.DELETE' | translate}}</button>
         </div>
     </div>
+    <app-create-board></app-create-board>
 </section>
