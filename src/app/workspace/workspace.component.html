@@ -1,7 +1,21 @@
 <section class="workspace">
     <h1>{{'WORKSPACE.BOARD' | translate}}</h1>
     <div class="boards">
-        <a routerLink="/workspace/boards">{{'WORKSPACE.CREATE_BOARD' | translate}}</a>
+        <a class="board" routerLink="/workspace/boards">
+            <div class="link-board">{{'WORKSPACE.CREATE_BOARD' | translate}}</div>  
+        </a>
+        <div class="board">
+            <a routerLink="/workspace/boards" [queryParams]="{id: '636ab9589d9152c02a88d2f3'}">
+                <h2>{{nameBoard}}</h2>
+            </a>
+            <button (click)="deleteBoard()">{{'WORKSPACE.DELETE' | translate}}</button>
+        </div>
+        <div class="board">
+            <a routerLink="/workspace/boards" [queryParams]="{id: '636ab9589d9152c02a88d2f3'}">
+                <h2>{{nameBoard}}</h2>
+            </a>
+            <button (click)="deleteBoard()">{{'WORKSPACE.DELETE' | translate}}</button>
+        </div>
         <div>
             <a routerLink="/workspace/boards" [queryParams]="{id: '636ab9589d9152c02a88d2f3'}">
                 <h2>{{nameBoard}}</h2>
