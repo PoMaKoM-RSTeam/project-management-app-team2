@@ -5,6 +5,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { BoardDTO } from 'src/app/core/models/project-manager.model';
 import { ChangeLanguageService } from 'src/app/core/services/changeLanguage.service';
+import { HTTPService } from 'src/app/core/services/http.service';
 import { CreateBoardService } from '../../services/create-board-services';
 
 @Component({
@@ -21,6 +22,7 @@ export class CreateBoardComponent implements OnInit {
     public translate: TranslateService,
     private languageService: ChangeLanguageService,
     private createFormService:CreateBoardService,
+    private httpService: HTTPService,
   ) {
     this.formCreateBoard = new FormGroup({
       title: new FormControl(null, Validators.required),
@@ -38,6 +40,7 @@ export class CreateBoardComponent implements OnInit {
 
   closeCreateBoard() {
     this.createFormService.stateFormBoard(false);
+    this.formCreateBoard.reset();
   }
 
   createBoard() {
@@ -46,8 +49,13 @@ export class CreateBoardComponent implements OnInit {
       owner: this.formCreateBoard.value.owner,
       users: this.formCreateBoard.value.users.split(','),
     };
+
     this.createFormService.stateFormBoard(false);
     this.formCreateBoard.reset();
-    this.createFormService.postBoard(formBoard);
+    console.log(formBoard, 'formBoard');
+
+    this.httpService.createBoard(formBoard).subscribe((e) => {
+      this.createFormService.updateBoards(e);
+    });
   }
 }

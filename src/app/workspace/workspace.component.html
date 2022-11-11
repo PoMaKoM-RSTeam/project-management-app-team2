@@ -12,7 +12,7 @@
             <div class="users">
                 <span class="user" *ngFor="let user of board.users">{{user }}</span>
             </div>
-            <button class="btn-delete" (click)="deleteBoard()">{{'WORKSPACE.DELETE' | translate}}</button>
+            <button class="btn-delete" (click)="deleteBoard(board._id)">{{'WORKSPACE.DELETE' | translate}}</button>
         </div>
     </div>
     <app-create-board></app-create-board>

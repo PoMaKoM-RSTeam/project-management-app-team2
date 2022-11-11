@@ -29,17 +29,22 @@ export class WorkSpaceComponent implements OnInit {
   ngOnInit(): void {
     this.languageService.language$.subscribe((value) => this.translate.use(value));
 
-    this.nameBoard = 'NAME';
-
     this.httpService.getAllBoards().subscribe((e) => {
       this.boards = e;
-      return this.boards;
+    });
+
+    this.createFormService.boards$.subscribe(() => {
+      this.httpService.getAllBoards().subscribe((boards) => {
+        this.boards = boards;
+      });
     });
   }
 
-  // eslint-disable-next-line class-methods-use-this
-  deleteBoard() {
-    console.log('1');
+  deleteBoard(id:string) {
+    this.httpService.deleteBoard(id).subscribe((e) => e);
+    this.httpService.getAllBoards().subscribe((e) => {
+      this.boards = e.filter((el) => el._id !== id);
+    });
   }
 
   createForm() {

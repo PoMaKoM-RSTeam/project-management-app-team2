@@ -1,11 +1,13 @@
 <div class="wrapper-board" *ngIf="isCreationFormBoardOpen">
     <button class="btn-close" (click)="closeCreateBoard()">X</button>
-    <form class="form-board" [formGroup]="formCreateBoard">
+    <form class="form-board" [formGroup]="formCreateBoard"(ngSubmit)="createBoard()">
         <input class="input" type="text" formControlName="title" placeholder="{{'WORKSPACE.TITLE' | translate}}">
         <input class="input" type="text" formControlName="owner" placeholder="{{'WORKSPACE.OWNER' | translate}}">
         <input class="input" type="text" formControlName="users" placeholder="{{'WORKSPACE.USERS' | translate}}">
-        <div class="text-info">{{'WORKSPACE.INF-TEXT' | translate}} <span class="symbol">' , ' !</span></div>
-        <button class="btn-create" [disabled]="formCreateBoard.invalid" (click)="createBoard()">
+        <div class="text-info">{{'WORKSPACE.INF-TEXT' | translate}} 
+            <span class="symbol">' , ' !</span>
+        </div>
+        <button class="btn-create" [disabled]="formCreateBoard.invalid" type="submit">
             {{'WORKSPACE.CREATE' | translate}}
         </button>
     </form>
