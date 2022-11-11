@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BoardComponent } from './pages/board/board.component';
-import { WorkSpaceComponent } from './work-space.component';
+import { WorkspaceComponent } from './workspace.component';
 
 const routes: Routes = [
-  { path: '', component: WorkSpaceComponent },
+  { path: '', component: WorkspaceComponent },
   { path: 'boards', component: BoardComponent },
 ];
 
@@ -12,4 +12,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class WorkSpaceRoutingModule { }
+export class WorkspaceRoutingModule { }

@@ -46,7 +46,7 @@
   "MODAL": {
     "TITLE": "Are you sure delete this column?",
     "SUB_TITLE": "This action cannot be undone",
-    "YES": "Yes",
+    "CONFIRM": "Yes",
     "NO": "No"
   }
 }

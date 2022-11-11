@@ -46,7 +46,7 @@
   "MODAL": {
     "TITLE": "Sind Sie sicher, dass Sie diese Spalte löschen?",
     "SUB_TITLE": "Diese Aktion kann nicht rückgängig gemacht werden",
-    "YES": "Ja",
+    "CONFIRM": "Ja",
     "NO": "Nein"
   }
 }

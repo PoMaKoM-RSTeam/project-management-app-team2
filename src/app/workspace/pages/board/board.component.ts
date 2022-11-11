@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { BoardResponse, ColumnResponse } from 'src/app/core/models/project-manager.model';
+import {
+  BoardResponse,
+  ColumnResponse,
+} from 'src/app/core/models/project-manager.model';
 import { TranslateService } from '@ngx-translate/core';
 import { ChangeLanguageService } from 'src/app/core/services/changeLanguage.service';
 import { HTTPService } from 'src/app/core/services/http.service';
@@ -19,20 +22,15 @@ export class BoardComponent implements OnInit {
 
   subTitle!: string;
 
-  yes!: string;
+  confirm!: string;
 
-  no!: string;
+  cancel!: string;
 
-  columns: Array<ColumnResponse> = [
-    {
-      _id: 'ggddvddd',
-      title: 'Angular',
-      order: 1,
-      boardId: 'gbsgsas',
-    },
-  ];
+  columns!: Array<ColumnResponse>;
 
   param = '';
+
+  snowModal = false;
 
   constructor(
     public translate: TranslateService,
@@ -52,9 +50,9 @@ export class BoardComponent implements OnInit {
     this.httpService.getBoardById(this.param).subscribe((board) => {
       this.board = board;
     });
-    /*     this.httpService.getAllColumns(this.param).subscribe((columns) => {
-          this.columns = columns;
-        }); */
+    this.httpService.getAllColumns(this.param).subscribe((columns) => {
+      this.columns = columns;
+    });
   }
 
   drop(event: CdkDragDrop<ColumnResponse[]>) {
@@ -65,22 +63,54 @@ export class BoardComponent implements OnInit {
   }
 
   deleteColumn(id: string) {
-    this.translate.get('MODAL.TITLE').subscribe((res: string) => { this.title = res; });
-    this.translate.get('MODAL.SUB_TITLE').subscribe((res: string) => { this.subTitle = res; });
-    this.translate.get('MODAL.YES').subscribe((res: string) => { this.yes = res; });
-    this.translate.get('MODAL.NO').subscribe((res: string) => { this.no = res; });
+    this.translate.get('MODAL.TITLE').subscribe((res: string) => {
+      this.title = res;
+    });
+    this.translate.get('MODAL.SUB_TITLE').subscribe((res: string) => {
+      this.subTitle = res;
+    });
+    this.translate.get('MODAL.CONFIRM').subscribe((res: string) => {
+      this.confirm = res;
+    });
+    this.translate.get('MODAL.NO').subscribe((res: string) => {
+      this.cancel = res;
+    });
     this.modal.confirm({
       nzTitle: this.title,
       nzContent: `<b style="color: red;">${this.subTitle}</b>`,
-      nzOkText: this.yes,
+      nzOkText: this.confirm,
       nzOkType: 'primary',
       nzOkDanger: true,
       nzOnOk: () => {
         this.columns = this.columns.filter((item) => item._id !== id);
-        this.httpService.deleteColumn(this.board!._id, id);
+        this.httpService.deleteColumn(this.board!._id, id).subscribe((data) => console.log(data));
       },
-      nzCancelText: this.no,
-      nzOnCancel: () => console.log('Cancel'),
+      nzCancelText: this.cancel,
+      nzOnCancel: () => console.log('cancel'),
     });
+  }
+
+  onCreateColumn() {
+    this.snowModal = true;
+  }
+
+  createColumn(value: string) {
+    if (value) {
+      this.httpService.createColumn(this.board!._id, {
+        title: value,
+        order: this.columns.length + 1,
+      }).subscribe((data) => {
+        this.columns.push(
+          {
+            title: data.title,
+            order: data.order,
+            boardId: data.boardId,
+            _id: data._id,
+          },
+        );
+        console.log(data);
+      });
+      this.snowModal = false;
+    }
   }
 }

@@ -16,8 +16,13 @@
       cdkDrag
       (deleteColumn)="deleteColumn($event)"
     ></app-column>
-    <div class="board__create-button" [cdkDragDisabled]="true" cdkDrag>
-      {{"BOARD.CREATE" | translate}}
+    <div style="display: flex; flex-direction: column; gap: 20px;">
+      <div class="board__create-button" [cdkDragDisabled]="true" cdkDrag (click)="onCreateColumn()">
+        {{"BOARD.CREATE" | translate}}
+      </div>
+      <app-create-column-modal *ngIf="snowModal" (createColumn)="createColumn($event)"></app-create-column-modal>
     </div>
+
   </div>
+
 </section>

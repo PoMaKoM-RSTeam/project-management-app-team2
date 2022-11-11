@@ -1,0 +1,8 @@
+<div class="create-column">
+  <form class="create-column__form" [formGroup]="modalForm" (ngSubmit)="onSubmit()" autofocus>
+    <input formControlName="modalFormInput" class="create-column__input"  type="text" autofocus placeholder="Column title">
+    <div class="alert" *ngIf="modalForm.get('modalFormInput')?.errors?.['required']">{{"BOARD.REQUIRED_INPUT"| translate}}</div>
+    <div class="alert" *ngIf="modalForm.get('modalFormInput')?.errors?.['maxlength']">{{"BOARD.REQUIRED_MAX_VALUE"| translate}}</div>
+    <button class="create-column__button" type="submit">Create column</button>
+  </form>
+</div>
