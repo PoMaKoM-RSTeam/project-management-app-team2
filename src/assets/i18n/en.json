@@ -30,7 +30,7 @@
     "LOGIN": "Login"
   },
   "WORKSPACE": {
-    "BOARD": "Board",
+    "BOARD": "Boards",
     "CREATE_BOARD": "Create board",
     "DELETE": "DELETE"
   },
