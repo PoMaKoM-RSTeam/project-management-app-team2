@@ -108,7 +108,6 @@ export class BoardComponent implements OnInit {
             _id: data._id,
           },
         );
-        console.log(data);
       });
       this.snowModal = false;
     }

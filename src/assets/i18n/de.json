@@ -48,5 +48,9 @@
     "SUB_TITLE": "Diese Aktion kann nicht rückgängig gemacht werden",
     "CONFIRM": "Ja",
     "NO": "Nein"
+  },
+  "COLUMN_MODAL": {
+    "TITLE": "Spaltentitel",
+    "BUTTON": "Spalte erstellen"
   }
 }

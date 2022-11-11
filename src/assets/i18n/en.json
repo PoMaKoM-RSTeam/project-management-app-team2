@@ -48,5 +48,9 @@
     "SUB_TITLE": "This action cannot be undone",
     "CONFIRM": "Yes",
     "NO": "No"
+  },
+  "COLUMN_MODAL": {
+    "TITLE": "Column title",
+    "BUTTON": "Create column"
   }
 }
