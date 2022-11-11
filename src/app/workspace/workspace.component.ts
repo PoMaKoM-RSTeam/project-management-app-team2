@@ -33,10 +33,8 @@ export class WorkSpaceComponent implements OnInit {
       this.boards = e;
     });
 
-    this.createFormService.boards$.subscribe(() => {
-      this.httpService.getAllBoards().subscribe((boards) => {
-        this.boards = boards;
-      });
+    this.createFormService.boards$.subscribe((boards) => {
+      this.boards.push(boards);
     });
   }
 

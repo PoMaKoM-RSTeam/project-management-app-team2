@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
-import { BoardDTO } from 'src/app/core/models/project-manager.model';
+import { BoardResponse } from 'src/app/core/models/project-manager.model';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +9,7 @@ import { BoardDTO } from 'src/app/core/models/project-manager.model';
 export class CreateBoardService {
   private isCreateBoardOpen$$ = new BehaviorSubject<boolean>(false);
 
-  private boards$$ = new Subject<BoardDTO>();
+  private boards$$ = new Subject<BoardResponse>();
 
   public isCreateBoardOpen$ = this.isCreateBoardOpen$$.asObservable();
 
@@ -19,7 +19,7 @@ export class CreateBoardService {
     this.isCreateBoardOpen$$.next(ev);
   }
 
-  updateBoards(formsBoards: BoardDTO) {
+  updateBoards(formsBoards: BoardResponse) {
     this.boards$$.next(formsBoards);
   }
 }
