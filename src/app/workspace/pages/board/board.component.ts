@@ -60,6 +60,12 @@ export class BoardComponent implements OnInit {
     this.columns.forEach((el) => {
       el.order = this.columns.indexOf(el) + 1;
     });
+    this.columns.forEach((el) => {
+      this.httpService.updateColumnsSet([{
+        order: el.order,
+        _id: el._id,
+      }]).subscribe((data) => console.log(data));
+    });
   }
 
   deleteColumn(id: string) {
@@ -72,7 +78,7 @@ export class BoardComponent implements OnInit {
     this.translate.get('MODAL.CONFIRM').subscribe((res: string) => {
       this.confirm = res;
     });
-    this.translate.get('MODAL.NO').subscribe((res: string) => {
+    this.translate.get('MODAL.CANCEL').subscribe((res: string) => {
       this.cancel = res;
     });
     this.modal.confirm({
@@ -84,6 +90,13 @@ export class BoardComponent implements OnInit {
       nzOnOk: () => {
         this.columns = this.columns.filter((item) => item._id !== id);
         this.httpService.deleteColumn(this.board!._id, id).subscribe((data) => console.log(data));
+        this.columns.forEach((el) => {
+          el.order = this.columns.indexOf(el) + 1;
+          this.httpService.updateColumnsSet([{
+            order: el.order,
+            _id: el._id,
+          }]).subscribe((data) => console.log(data));
+        });
       },
       nzCancelText: this.cancel,
       nzOnCancel: () => console.log('cancel'),
