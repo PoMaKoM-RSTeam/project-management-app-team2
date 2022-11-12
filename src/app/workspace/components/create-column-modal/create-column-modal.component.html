@@ -5,4 +5,10 @@
     <div class="alert" *ngIf="modalForm.get('modalFormInput')?.errors?.['maxlength']">{{"BOARD.REQUIRED_MAX_VALUE"| translate}}</div>
     <button class="create-column__button" type="submit">{{"COLUMN_MODAL.BUTTON" | translate }}</button>
   </form>
+  <span class="create-column__close-button"
+  nz-icon [nzType]="'close-circle'"
+  [nzTheme]="'outline'"
+  (click)="onCloseModalWindow()"
+  >
+</span>
 </div>

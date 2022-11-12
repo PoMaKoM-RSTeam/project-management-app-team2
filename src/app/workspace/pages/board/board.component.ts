@@ -125,4 +125,8 @@ export class BoardComponent implements OnInit {
       this.snowModal = false;
     }
   }
+
+  closeOpen(bool: boolean) {
+    this.snowModal = bool;
+  }
 }

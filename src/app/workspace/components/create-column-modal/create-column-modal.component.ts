@@ -17,6 +17,8 @@ export class CreateColumnModalComponent implements OnInit {
 
   @Output() createColumn = new EventEmitter<string>();
 
+  @Output() closeOpen = new EventEmitter<boolean>();
+
   constructor(
     public translate: TranslateService,
     private languageService: ChangeLanguageService,
@@ -32,5 +34,9 @@ export class CreateColumnModalComponent implements OnInit {
 
   onSubmit() {
     this.createColumn.emit(this.modalForm.value.modalFormInput);
+  }
+
+  onCloseModalWindow() {
+    this.closeOpen.emit(false);
   }
 }
