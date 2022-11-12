@@ -9,6 +9,7 @@ import { ChangeLanguageService } from 'src/app/core/services/changeLanguage.serv
 import { HTTPService } from 'src/app/core/services/http.service';
 import { NzModalService } from 'ng-zorro-antd/modal';
 import { ActivatedRoute } from '@angular/router';
+import { NavigationService } from 'src/app/core/services/navigation.service';
 
 @Component({
   selector: 'app-board',
@@ -32,12 +33,15 @@ export class BoardComponent implements OnInit {
 
   snowModal = false;
 
+  isCollapsed = false;
+
   constructor(
     public translate: TranslateService,
     private languageService: ChangeLanguageService,
     private httpService: HTTPService,
     private modal: NzModalService,
     private activatedRoute: ActivatedRoute,
+    private navigationService: NavigationService,
   ) { }
 
   ngOnInit(): void {
@@ -53,6 +57,7 @@ export class BoardComponent implements OnInit {
     this.httpService.getAllColumns(this.param).subscribe((columns) => {
       this.columns = columns.sort((a, b) => a.order - b.order);
     });
+    this.navigationService.collaps.subscribe((data) => { this.isCollapsed = data; });
   }
 
   drop(event: CdkDragDrop<ColumnResponse[]>) {
