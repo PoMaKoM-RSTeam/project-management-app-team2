@@ -51,7 +51,7 @@ export class BoardComponent implements OnInit {
       this.board = board;
     });
     this.httpService.getAllColumns(this.param).subscribe((columns) => {
-      this.columns = columns;
+      this.columns = columns.sort((a, b) => a.order - b.order);
     });
   }
 
