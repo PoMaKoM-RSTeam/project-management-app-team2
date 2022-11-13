@@ -10,6 +10,7 @@ import { ColumnComponent } from './components/column/column.component';
 import { LocalizationModule } from '../localization/localization.module';
 import { ZorroModule } from '../core/zorro/zorro.module';
 import { CreateBoardComponent } from './components/create-board/create-board.component';
+import { AddUsersFormComponent } from './components/add-users-form/add-users-form.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { CreateBoardComponent } from './components/create-board/create-board.com
     ColumnComponent,
     BoardComponent,
     CreateBoardComponent,
+    AddUsersFormComponent,
   ],
   imports: [
     CommonModule,
@@ -26,6 +28,7 @@ import { CreateBoardComponent } from './components/create-board/create-board.com
     WorkSpaceRoutingModule,
     LocalizationModule,
     DragDropModule,
+    ZorroModule,
   ],
 })
 export class WorkSpaceModule { }
