@@ -7,6 +7,7 @@
             <app-add-users-form></app-add-users-form>
             <div class="users">
                 <div class="user" *ngFor="let userName of usersName">
+                    <button class="btn-delete-user" type="button" (click)="removeUser(userName)">X</button>
                     <img src="assets/images/user-profile.svg" width="50px" alt="user-icon">
                     <span>{{userName}}</span>
                 </div>

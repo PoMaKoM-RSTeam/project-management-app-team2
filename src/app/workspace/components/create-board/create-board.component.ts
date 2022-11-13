@@ -73,4 +73,8 @@ export class CreateBoardComponent implements OnInit {
       this.createFormService.updateBoards(e);
     });
   }
+
+  removeUser(userName: any) {
+    this.usersName = this.usersName.filter((e) => e !== userName);
+  }
 }

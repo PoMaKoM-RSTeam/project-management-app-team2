@@ -25,6 +25,16 @@
             height: 40px;
             cursor: pointer;
             margin: 0 0 15px;
+            border-radius: 20px;
+            background-color: rgb(0 204 255 / 50%);
+            color: #fff;
+            border: 1px outset #fff;
+            cursor: pointer;
+            transition: all 1s;
+            &:hover {
+                border: 3px inset #fff;
+                transition: all 1s;
+            }
         }
         .form-board {
             display: flex;
@@ -36,6 +46,8 @@
                 height: 40px;
                 border-radius: 10px;
                 padding: 10px;
+                outline: none;
+                border: 1px solid #fff;
             }
             .users {
                 display: flex;
@@ -49,6 +61,19 @@
                     align-items:center;
                     max-width: 70px;
                     text-align: center;
+                    .btn-delete-user {
+                        border-radius: 15px;
+                        background-color: rgb(0 204 255 / 50%);
+                        color: #fff;
+                        border: 1px outset #fff;
+                        margin-left: 40px;
+                        cursor: pointer;
+                        &:hover {
+                            border: 3px inset #fff;
+                            transform: translate(5px, 5px);
+                            transition: all 1s;
+                        }
+                    }
                 }
             }
             .btn-create {
