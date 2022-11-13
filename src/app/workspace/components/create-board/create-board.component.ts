@@ -74,7 +74,7 @@ export class CreateBoardComponent implements OnInit {
     });
   }
 
-  removeUser(userName: any) {
+  removeUser(userName: string) {
     this.usersName = this.usersName.filter((e) => e !== userName);
   }
 }
