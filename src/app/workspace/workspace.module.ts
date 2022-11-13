@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { WorkspaceRoutingModule } from './workspace-routing.module';
-import { WorkspaceComponent } from './workspace.component';
+import { WorkSpaceComponent } from './workspace.component';
 import { BoardComponent } from './pages/board/board.component';
 import { ColumnComponent } from './components/column/column.component';
 import { LocalizationModule } from '../localization/localization.module';
@@ -16,7 +16,7 @@ import { CreateColumnModalComponent } from './components/create-column-modal/cre
 
 @NgModule({
   declarations: [
-    WorkspaceComponent,
+    WorkSpaceComponent,
     ColumnComponent,
     BoardComponent,
     CreateBoardComponent,
