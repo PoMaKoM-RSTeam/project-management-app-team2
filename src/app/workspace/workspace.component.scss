@@ -1,84 +1,124 @@
-h1 {
-    padding: 20px 0 20px;
-    font-size: 30px;
-    font-weight: 500;
-    margin: 0;
-}
 
 .workspace {
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
-}
 
-.boards {
-    display: flex;
-    gap: 25px;
-    width: 100vw;
-    align-items: center;
-    padding-left: 270px;
-    flex-wrap: wrap;
-    .board {
-        width: 290px;
-        min-height: 180px;
+    .title-boards {
+        padding: 20px 0 20px;
+        font-size: 30px;
+        font-weight: 500;
+        margin: 0;
+    }
+    .boards {
         display: flex;
+        gap: 25px;
         align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        box-shadow: 20px 20px 50px rgb(0 0 0 / 20%);
-        border-radius: 15px;
-        background: rgba(255, 255, 255, 0.1);
-        border: 1px outset rgb(255 255 255 / 50%);
-        transition: 1s;
-        &:hover {
-            box-shadow: 10px 10px 10px rgb(0 0 0 / 40%);
-            border: 1px outset rgba(255, 255, 255, 60%);
-            background: rgba(255, 255, 255, 15%);
-            // font-size: 18px;
-            transition: 1s;
-        }
-        .title {
-            margin: 0 0 10px;
-            background-color: rgb(208 205 205 / 50%);
-            padding: 0 20px;
-            border-radius: 10px;
-            font-size: 22px;
-            color: #000;
-        }
-        .link-board {
-            color: #fff;
-        }
-        .owner, .users {
-            height: auto;
-            font-size: 15px;
-            border-bottom: 2px solid rgb(255 255 255 / 20%);
-            background: rgba(255, 255, 255, 15%);
-            border-radius: 10px;
-            padding-left: 10px;
-            width: 70%;
-            text-align: end;
-            padding-right: 15px;
+        padding-left: 270px;
+        flex-wrap: wrap;
+        overflow-x: auto;
+        width: 100vw;
+        height: calc(100vh - 270px);
+        .board {
+            width: 290px;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: flex-end;
+            align-items: center;
+            flex-direction: column;
+            box-shadow: 20px 20px 50px rgb(0 0 0 / 20%);
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px outset rgb(255 255 255 / 50%);
+            transition: 1s;
+            word-break: break-all;
+            line-height: 27px;
+            padding: 5px;
+            gap: 15px;
+            &:hover {
+                box-shadow: 10px 10px 10px rgb(0 0 0 / 40%);
+                border: 1px outset rgba(255, 255, 255, 60%);
+                transform: translateY(10px);
+                transition: 1s;
+            }
+        .create-board {
+            display: flex;
+            align-items:center;
+            justify-content: center;
         }
-        .owner {
-            font-size: 18px;
-            margin: 0 0 10px;
-            width: 80%;
-            text-align: start;
-            justify-content: flex-start;
-        }
-        .users {        
-            gap: 5px;
-        }
-        .btn-delete {
-            background-color: rgb(255 255 255 / 35%);
-            border: 0;
-            margin: 25px 0 5px;
-            padding: 2px 20px;
-            border-radius: 10px;
+            .title-board {
+                background-color: rgb(208 205 205 / 20%);
+                padding: 0 20px;
+                border-radius: 10px;
+                font-size: 25px;
+                color: rgb(255, 255, 255);
+                width: 100%;
+                text-align: center;
+                padding: 5px 0;
+                text-shadow: 1px -2px #030000;
+                font-weight: 600;
+                text-transform: capitalize;
+                &:hover {
+                    background-color: rgb(110 250 102 / 50%);
+                }
+            }
+            .link-board {
+                color: #fff;
+            }
+            .owner, .users {
+                height: auto;
+                font-size: 15px;
+                border-bottom: 2px solid rgb(255 255 255 / 70%);
+                background: rgb(0 0 0 / 10%);
+                border-radius: 10px;
+                padding-left: 10px;
+                width: 70%;
+                text-align: end;
+                padding-right: 15px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+            }
+            .owner {
+                font-size: 18px;
+                margin: 15px 0 10px;
+                width: 80%;
+                text-align: start;
+            }
+            .users {        
+                gap: 5px;
+                text-align: left;
+            }
+            .btn-delete {
+                background-color: rgb(255 255 255 / 20%);
+                border: 0;
+                padding: 5px 0px;
+                border-radius: 10px;
+                width: 100%;
+                color: #fff;
+                cursor: pointer;
+                &:hover {
+                    background-color: rgb(110 250 102 / 50%);
+                    font-size: 20px;
+                    font-weight: 500;
+                    transition: all 1s;
+                }
+            }
         }
     }
 }
+
+::-webkit-scrollbar {
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: hsla(0, 0%, 100%, 0.1);
+    backdrop-filter: blur(5px);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsla(0, 0%, 100%, 0.5);
+    border-radius: 10px;
+    width: 2px;
+    backdrop-filter: blur(5px);
+  }
+  
