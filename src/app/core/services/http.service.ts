@@ -91,7 +91,7 @@ export class HTTPService {
   }
 
   editColumn(boardId: string, columnId: string, column: ColumnDTO): Observable<BoardResponse> {
-    return this.http.put<BoardResponse>(`${Routes.AllBoards}/${boardId}${Routes.AllColumns}/${columnId}`, column);
+    return this.http.put<BoardResponse>(`${Routes.AllBoards}/${boardId}/${Routes.AllColumns}/${columnId}`, column);
   }
 
   deleteColumn(boardId: string, columnId: string): Observable<BoardResponse> {

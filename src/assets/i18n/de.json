@@ -52,5 +52,8 @@
   "COLUMN_MODAL": {
     "TITLE": "Spaltentitel",
     "BUTTON": "Spalte erstellen"
+  },
+  "COLUMN": {
+    "BUTTON": "Neue Spalte erstellen"
   }
 }

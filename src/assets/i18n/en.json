@@ -52,5 +52,8 @@
   "COLUMN_MODAL": {
     "TITLE": "Column title",
     "BUTTON": "Create column"
+  },
+  "COLUMN": {
+    "BUTTON": "Create new column"
   }
 }

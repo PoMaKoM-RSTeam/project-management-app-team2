@@ -10,6 +10,9 @@ import { HTTPService } from 'src/app/core/services/http.service';
 import { NzModalService } from 'ng-zorro-antd/modal';
 import { ActivatedRoute } from '@angular/router';
 import { NavigationService } from 'src/app/core/services/navigation.service';
+import {
+  FormControl, FormGroup, UntypedFormGroup, Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-board',
@@ -35,6 +38,16 @@ export class BoardComponent implements OnInit {
 
   isCollapsed = false;
 
+  isTitleClicked = '';
+
+  inputForm!: UntypedFormGroup;
+
+  columnTitle = 'Title';
+
+  prevTitle = '';
+
+  isForbidChangeTitle = false;
+
   constructor(
     public translate: TranslateService,
     private languageService: ChangeLanguageService,
@@ -42,7 +55,11 @@ export class BoardComponent implements OnInit {
     private modal: NzModalService,
     private activatedRoute: ActivatedRoute,
     private navigationService: NavigationService,
-  ) { }
+  ) {
+    this.inputForm = new FormGroup({
+      myInput: new FormControl('', [Validators.required, Validators.maxLength(15)]),
+    });
+  }
 
   ngOnInit(): void {
     this.languageService.language$.subscribe((value) => this.translate.use(value));
@@ -134,4 +151,34 @@ export class BoardComponent implements OnInit {
   closeOpen(bool: boolean) {
     this.snowModal = bool;
   }
+
+  onTitleClick(title: string, id: string): void {
+    if (!this.isForbidChangeTitle) {
+      this.prevTitle = title;
+      this.isTitleClicked = id;
+      this.isForbidChangeTitle = true;
+    }
+  }
+
+  onSubmitForm(str: ColumnResponse): void {
+    if (str.title) {
+      this.isTitleClicked = '';
+      // eslint-disable-next-line no-return-assign
+      this.columns.forEach((el) => (el._id === str._id ? el.title = str.title : el.title));
+      this.httpService.editColumn(this.board!._id, str._id, {
+        title: str.title,
+        order: str.order,
+      }).subscribe((el) => console.log(el));
+      this.isForbidChangeTitle = false;
+    }
+  }
+
+  /*   onCancelSubmit(): void {
+      this.column.title = this.prevTitle;
+      this.isTitleClicked = false;
+    } */
+
+  /* onDeleteColumn(col: string) {
+   this.deleteColumn.emit(col);
+ }  */
 }
