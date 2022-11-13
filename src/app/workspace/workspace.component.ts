@@ -2,10 +2,11 @@ import {
   Component, OnInit,
 } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { BoardResponse } from '../core/models/project-manager.model';
+import { BoardResponse, SignUpResponse } from '../core/models/project-manager.model';
 import { ChangeLanguageService } from '../core/services/changeLanguage.service';
 import { HTTPService } from '../core/services/http.service';
 import { CreateBoardService } from './services/create-board-services';
+import { GetUsersServices } from './services/get-users-services';
 
 @Component({
   selector: 'app-workspace',
@@ -19,11 +20,14 @@ export class WorkSpaceComponent implements OnInit {
 
   boards: BoardResponse[] = [];
 
+  users: SignUpResponse[] = [];
+
   constructor(
     public translate: TranslateService,
     private languageService: ChangeLanguageService,
     private createFormService:CreateBoardService,
     private httpService:HTTPService,
+    private getUsersServices:GetUsersServices,
   ) { }
 
   ngOnInit(): void {
@@ -39,13 +43,15 @@ export class WorkSpaceComponent implements OnInit {
   }
 
   deleteBoard(id:string) {
-    this.httpService.deleteBoard(id).subscribe((e) => e);
-    this.httpService.getAllBoards().subscribe((e) => {
-      this.boards = e.filter((el) => el._id !== id);
+    this.httpService.deleteBoard(id).subscribe((e) => {
+      this.boards = this.boards.filter((el: BoardResponse) => el._id !== e._id);
     });
   }
 
   createForm() {
     this.createFormService.stateFormBoard(true);
+    this.httpService.getAllUsers().subscribe((user) => {
+      this.getUsersServices.getUsers(user);
+    });
   }
 }
