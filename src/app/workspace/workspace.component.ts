@@ -13,6 +13,7 @@ import { GetUsersServices } from './services/get-users-services';
   templateUrl: './workspace.component.html',
   styleUrls: ['./workspace.component.scss'],
 })
+
 export class WorkSpaceComponent implements OnInit {
   isStateFormBoard: boolean | null = null;
 

@@ -95,7 +95,7 @@ export class HTTPService {
   }
 
   deleteColumn(boardId: string, columnId: string): Observable<BoardResponse> {
-    return this.http.delete<BoardResponse>(`${Routes.AllBoards}/${boardId}${Routes.AllColumns}/${columnId}`);
+    return this.http.delete<BoardResponse>(`${Routes.AllBoards}/${boardId}/${Routes.AllColumns}/${columnId}`);
   }
 
   getColumnsSetByColumnIds(userId: string, columnIds: string[]): Observable<ColumnResponse[]> {

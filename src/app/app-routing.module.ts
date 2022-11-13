@@ -6,7 +6,9 @@ const routes: Routes = [
   { path: 'auth', loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule) },
   {
     path: 'workspace',
-    loadChildren: () => import('./workspace/workspace.module').then((m) => m.WorkSpaceModule),
+
+    loadChildren: () => import('./workspace/workspace.module').then((m) => m.WorkspaceModule),
+
     canActivate: [AuthGuard],
   },
   {
