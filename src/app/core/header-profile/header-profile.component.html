@@ -1,0 +1,38 @@
+<div class="header__profile">
+  <a nz-dropdown [nzDropdownMenu]="menu">
+    <span>{{userName}}</span>
+    <span nz-icon nzType="user" nzTheme="outline" style="color: #1890ff;"></span>
+    <span nz-icon nzType="down"></span>
+  </a>
+  <nz-dropdown-menu #menu="nzDropdownMenu">
+    <ul nz-menu>
+      <li nz-menu-item
+        nzDisabled="{{isAuth}}"
+        routerLink="/auth/login"
+      >
+        <a>Login</a>
+      </li>
+      <li nz-menu-item
+        nzDisabled="{{isAuth}}"
+        routerLink="/auth/registration"
+      >
+        <a>SignUp</a>
+      </li>
+      <li nz-menu-divider></li>
+      <li nz-menu-item nzDisabled="{{!isAuth}}">
+        <app-confirmation-modal
+          [modalText]="'CONFIRMATION_FORM.TEXT_DELETE_USER'"
+          [isButton]="false"
+          [onDelete]="deleteUser"
+        >
+          Done
+        </app-confirmation-modal>
+      </li>
+      <li nz-menu-item
+        nzDisabled="{{!isAuth}}"
+        (click)="logout()"><a>Logout</a></li>
+    </ul>
+  </nz-dropdown-menu>
+  <!-- kate4ka
+  <span nz-icon nzType="user" nzTheme="outline" style="color: #1890ff;"></span> -->
+</div>

@@ -21,9 +21,13 @@ export class AuthService {
 
   private userName$$ = new BehaviorSubject('');
 
+  private userId$$ = new BehaviorSubject('');
+
   public isAuthorized$ = this.isAuthorized$$.asObservable();
 
-  private userName$ = this.userName$$.asObservable();
+  public userName$ = this.userName$$.asObservable();
+
+  public userId$ = this.userId$$.asObservable();
 
   redirectUrl: string | null = null;
 
@@ -31,7 +35,11 @@ export class AuthService {
     private http: HttpClient,
     private localStorageService: LocalStorageService,
     private router: Router,
-  ) { }
+  ) {
+    this.userName$$.next(this.localStorageService.getFromLocalStorage(StorageKeys.Login) || '');
+    this.userId$$.next(this.localStorageService.getFromLocalStorage(StorageKeys.UserId) || '');
+    this.isAuthorized$$.next(!!this.userName$$.value);
+  }
 
   signUp(newUser: SignUpDTO) {
     const login$: Observable<SignUpResponse> = this.http.post<SignUpResponse>(`${Routes.SignUp}`, newUser);
@@ -54,10 +62,17 @@ export class AuthService {
         this.localStorageService.setInLocalStorage(StorageKeys.Token, result.token);
         this.localStorageService.setInLocalStorage(StorageKeys.Login, user.login);
         this.router.navigateByUrl('workspace');
+        this.http.get<SignUpResponse[]>(`${Routes.AllUsers}`)
+          .subscribe({
+            next: (res) => {
+              const userId = res.filter((item) => item.login === user.login)[0]!._id;
+              this.localStorageService.setInLocalStorage(StorageKeys.UserId, userId);
+              this.userId$$.next(userId);
+            },
+          });
       },
       error: () => {
-        this.isAuthorized$$.next(false);
-        this.userName$$.next('');
+        this.logout();
       },
     });
     return login$;
@@ -65,9 +80,17 @@ export class AuthService {
 
   logout() {
     this.isAuthorized$$.next(false);
+    this.userName$$.next('');
+    this.userId$$.next('');
+    this.localStorageService.clearStorage();
+    this.router.navigate(['/auth/login']);
   }
 
   isAuthorized() {
     return this.isAuthorized$$.value;
+  }
+
+  getUserName() {
+    return this.userName$$.value;
   }
 }

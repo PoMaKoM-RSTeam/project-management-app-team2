@@ -60,9 +60,7 @@ export class RegistrationComponent implements OnInit {
   }
 
   submitForm(): void {
-    if (this.validateForm.valid) {
-      console.log('submit', this.validateForm.value);
-    } else {
+    if (!this.validateForm.valid) {
       Object.values(this.validateForm.controls).forEach((control) => {
         if (control.invalid) {
           control.markAsDirty();

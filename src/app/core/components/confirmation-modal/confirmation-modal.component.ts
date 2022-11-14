@@ -12,6 +12,10 @@ export class ConfirmationModalComponent {
 
   @Input() modalText: string = '';
 
+  @Input() isButton: boolean = true;
+
+  @Input() onDelete!: () => void;
+
   constructor(
     private languageService: ChangeLanguageService,
   ) {}
@@ -21,12 +25,11 @@ export class ConfirmationModalComponent {
   }
 
   handleOk(): void {
-    console.log('Button ok clicked!');
+    this.onDelete();
     this.isVisible = false;
   }
 
   handleCancel(): void {
-    console.log('Button cancel clicked!');
     this.isVisible = false;
   }
 }

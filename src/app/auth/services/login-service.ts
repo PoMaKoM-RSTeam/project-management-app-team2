@@ -12,6 +12,5 @@ export class LoginService {
   getDateAuth(data: any) {
     localStorage.setItem('login', data);
     this.authSubject.next(data);
-    console.log(data);
   }
 }

@@ -20,9 +20,7 @@ export class LoginComponent implements OnInit {
   isLogin: string | null = localStorage.getItem('login');
 
   submitForm(): void {
-    if (this.validateForm.valid) {
-      console.log('submit', this.validateForm.value);
-    } else {
+    if (!this.validateForm.valid) {
       Object.values(this.validateForm.controls).forEach((control) => {
         if (control.invalid) {
           control.markAsDirty();
@@ -57,9 +55,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    // console.log(this.validateForm.value);
     this.authService.signIn(this.validateForm.value);
-    // this.loginService.getDateAuth(this.validateForm.value.userName);
     this.rout.navigate(['']);
   }
 }
