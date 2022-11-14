@@ -5,11 +5,13 @@ import { BehaviorSubject } from 'rxjs';
 export class LoginService {
   private authSubject = new BehaviorSubject<any>('');
 
+  // constructor ( a)
+
   auth = this.authSubject.asObservable();
 
-  getDateAuth(date: any) {
-    localStorage.setItem('login', date);
-    this.authSubject.next(date);
-    console.log(date);
+  getDateAuth(data: any) {
+    localStorage.setItem('login', data);
+    this.authSubject.next(data);
+    console.log(data);
   }
 }

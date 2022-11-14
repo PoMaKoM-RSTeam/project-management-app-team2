@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ChangeLanguageService } from '../../services/changeLanguage.service';
 // import { NzModalRef, NzModalService } from 'ng-zorro-antd/modal';
 
 @Component({
@@ -9,7 +10,11 @@ import { Component } from '@angular/core';
 export class ConfirmationModalComponent {
   isVisible = false;
 
-  // constructor() {}
+  @Input() modalText: string = '';
+
+  constructor(
+    private languageService: ChangeLanguageService,
+  ) {}
 
   showModal(): void {
     this.isVisible = true;

@@ -13,6 +13,7 @@ export enum Routes {
 }
 export enum StorageKeys {
   Token = 'token',
+  Login = 'login',
 }
 
 export interface ErrorResponse {

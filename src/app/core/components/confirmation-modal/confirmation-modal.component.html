@@ -1,8 +1,12 @@
-<button nz-button [nzType]="'primary'" (click)="showModal()"><span>Show Modal</span></button>
-    <nz-modal [(nzVisible)]="isVisible" nzTitle="The first Modal" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+<button nz-button [nzType]="'primary'" (click)="showModal()"><span>{{'CONFIRMATION_FORM.BUTTON_NAME' | translate}}</span></button>
+    <nz-modal
+      [(nzVisible)]="isVisible"
+      nzTitle="{{'CONFIRMATION_FORM.TITLE' | translate}}"
+      nzOkText="{{'CONFIRMATION_FORM.CONFIRM' | translate}}"
+      nzCancelText="{{'CONFIRMATION_FORM.CANCEL' | translate}}"
+      (nzOnCancel)="handleCancel()"
+      (nzOnOk)="handleOk()">
       <ng-container *nzModalContent>
-        <p>Content one</p>
-        <p>Content two</p>
-        <p>Content three</p>
+        <p>{{modalText | translate}}</p>
       </ng-container>
     </nz-modal>

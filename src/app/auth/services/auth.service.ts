@@ -19,7 +19,11 @@ import { LocalStorageService } from '../../core/services/localStorage.service';
 export class AuthService {
   private isAuthorized$$ = new BehaviorSubject(false);
 
+  private userName$$ = new BehaviorSubject('');
+
   public isAuthorized$ = this.isAuthorized$$.asObservable();
+
+  private userName$ = this.userName$$.asObservable();
 
   redirectUrl: string | null = null;
 
@@ -46,10 +50,15 @@ export class AuthService {
     login$.subscribe({
       next: (result) => {
         this.isAuthorized$$.next(true);
+        this.userName$$.next(user.login);
         this.localStorageService.setInLocalStorage(StorageKeys.Token, result.token);
+        this.localStorageService.setInLocalStorage(StorageKeys.Login, user.login);
         this.router.navigateByUrl('workspace');
       },
-      error: () => this.isAuthorized$$.next(false),
+      error: () => {
+        this.isAuthorized$$.next(false);
+        this.userName$$.next('');
+      },
     });
     return login$;
   }

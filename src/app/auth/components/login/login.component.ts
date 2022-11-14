@@ -5,6 +5,7 @@ import {
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ChangeLanguageService } from 'src/app/core/services/changeLanguage.service';
+import { AuthService } from '../../services/auth.service';
 import { LoginService } from '../../services/login-service';
 import { AuthValidator } from '../../validators/auth-validator';
 
@@ -34,6 +35,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: UntypedFormBuilder,
     private loginService: LoginService,
+    private authService: AuthService,
     private rout: Router,
     public translate: TranslateService,
     private languageService: ChangeLanguageService,
@@ -43,7 +45,7 @@ export class LoginComponent implements OnInit {
     this.languageService.language$.subscribe((value) => this.translate.use(value));
 
     this.validateForm = this.fb.group({
-      userName: [null, [
+      login: [null, [
         Validators.required,
         Validators.minLength(6),
       ]],
@@ -55,7 +57,9 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.loginService.getDateAuth(this.validateForm.value.userName);
+    // console.log(this.validateForm.value);
+    this.authService.signIn(this.validateForm.value);
+    // this.loginService.getDateAuth(this.validateForm.value.userName);
     this.rout.navigate(['']);
   }
 }

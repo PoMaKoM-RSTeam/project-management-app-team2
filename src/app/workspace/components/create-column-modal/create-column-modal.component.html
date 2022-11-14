@@ -1,0 +1,14 @@
+<div class="create-column">
+  <form class="create-column__form" [formGroup]="modalForm" (ngSubmit)="onSubmit()" autofocus>
+    <input formControlName="modalFormInput" class="create-column__input"  type="text" autofocus placeholder="{{('COLUMN_MODAL.TITLE' | translate)}}">
+    <div class="alert" *ngIf="modalForm.get('modalFormInput')?.errors?.['required']">{{"BOARD.REQUIRED_INPUT"| translate}}</div>
+    <div class="alert" *ngIf="modalForm.get('modalFormInput')?.errors?.['maxlength']">{{"BOARD.REQUIRED_MAX_VALUE"| translate}}</div>
+    <button class="create-column__button" type="submit">{{"COLUMN_MODAL.BUTTON" | translate }}</button>
+  </form>
+  <span class="create-column__close-button"
+  nz-icon [nzType]="'close-circle'"
+  [nzTheme]="'outline'"
+  (click)="onCloseModalWindow()"
+  >
+</span>
+</div>
