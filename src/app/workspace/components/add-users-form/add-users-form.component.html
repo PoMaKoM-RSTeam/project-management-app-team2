@@ -1,0 +1,8 @@
+<form  [formGroup]="userName" >
+    <select  class="input" formControlName="name" selected="selected">
+      <option ngValue="Выберите пользователя" selected disabled>{{'WORKSPACE.USER_SELECTION' | translate}}</option>
+      <option *ngFor="let user of userStorage" selected  [ngValue]="user" >
+        <span (click)="clickUser(user.name)">{{ user.name }}</span>
+      </option>
+    </select>
+</form>
