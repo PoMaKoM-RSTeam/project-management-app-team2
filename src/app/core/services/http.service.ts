@@ -116,7 +116,7 @@ export class HTTPService {
 
   // TASKS
   getAllTasks(boardId: string, columnId: string): Observable<TaskResponse[]> {
-    return this.http.get<TaskResponse[]>(`${Routes.AllBoards}/${boardId}${Routes.AllColumns}/${columnId}/${Routes.AllTasks}`);
+    return this.http.get<TaskResponse[]>(`${Routes.AllBoards}/${boardId}/${Routes.AllColumns}/${columnId}/${Routes.AllTasks}`);
   }
 
   createTask(boardId: string, columnId: string, task: TaskDTO): Observable<TaskResponse> {

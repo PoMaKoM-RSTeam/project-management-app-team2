@@ -13,15 +13,9 @@
       transition: '1.5s'
     }"
   >
-<!--     <app-column
-      class="board__column"
-      *ngFor="let column of columns"
-      [column]="column"
-      cdkDrag
-      (deleteColumn)="deleteColumn($event)"
-    ></app-column> -->
+  <div cdkDropListGroup style="display: flex;">
 
-    <div class="column" *ngFor="let column of columns" cdkDrag>
+    <div class="column" *ngFor="let column of columns" cdkDrag >
       <div class="column__title">
         <h2 class="column__order">{{column.order<10?'0'+column.order: column.order}}</h2>
         <h3 #h3 *ngIf="!(isTitleClicked === column._id)" class="column__h3" (click)="onTitleClick(column.title, column._id);">{{column.title}}</h3>
@@ -46,11 +40,22 @@
 <!--       <div class="alert" *ngIf="inputForm.get('myInput')?.errors?.['required']">{{"BOARD.REQUIRED_INPUT"| translate}}</div>
       <div class="alert" *ngIf="inputForm.get('myInput')?.errors?.['maxlength']">{{"BOARD.REQUIRED_MAX_VALUE"| translate}}</div> -->
 
-      <div class="column__tasks"></div>
-      <button class="column__button">+{{"BOARD.ADD_CARD"| translate}}</button>
+      <div class="column__tasks" cdkDropList [cdkDropListData]="column.tasks" (cdkDropListDropped)="dropTasks($event)">
+        <div cdkDrag *ngFor="let task of column.tasks" style="margin-bottom: 20px;">
+          <app-task [task]="task"></app-task>
+        </div>
+        <!-- <div cdkDrag *ngFor="let task of column.tasks" style="border: red 1px solid">
+          <h3>{{task.title}}</h3>
+          <p>{{task.description}}</p>
+        </div> -->
+        <!-- <app-task cdkDrag *ngFor="let task of column.tasks" [task]="task"></app-task> -->
+      </div>
+
+      <button class="column__button" (click)="onTaskModalOpen(board._id, column._id)">+{{"BOARD.ADD_CARD"| translate}}</button>
+
     </div>
 
-
+  </div>
 
 
     <div style="display: flex; flex-direction: column; gap: 20px;">
@@ -64,6 +69,9 @@
 
   <div class="overlay" *ngIf="snowModal">
     <app-create-column-modal (createColumn)="createColumn($event)"  (closeOpen)="closeOpen($event)"></app-create-column-modal>
+  </div>
+  <div class="overlay" *ngIf="isCreateTaskModalOpen">
+    <app-create-task-modal [boardId] = "boardId" [columnId]="columnId" (createTask)="createTask($event)"></app-create-task-modal>
   </div>
 
 </section>

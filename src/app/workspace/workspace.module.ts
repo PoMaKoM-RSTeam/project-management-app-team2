@@ -11,6 +11,8 @@ import { LocalizationModule } from '../localization/localization.module';
 // import { CoreModule } from '../core/core.module';
 import { ZorroModule } from '../core/zorro/zorro.module';
 import { CreateColumnModalComponent } from './components/create-column-modal/create-column-modal.component';
+import { CreateTaskModalComponent } from './components/create-task-modal/create-task-modal.component';
+import { TaskComponent } from './components/task/task.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { CreateColumnModalComponent } from './components/create-column-modal/cre
     ColumnComponent,
     BoardComponent,
     CreateColumnModalComponent,
+    CreateTaskModalComponent,
+    TaskComponent,
   ],
   imports: [
     CommonModule,

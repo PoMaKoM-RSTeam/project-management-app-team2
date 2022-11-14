@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import {
   BoardResponse,
   ColumnResponse,
+  TaskResponse,
 } from 'src/app/core/models/project-manager.model';
 import { TranslateService } from '@ngx-translate/core';
 import { ChangeLanguageService } from 'src/app/core/services/changeLanguage.service';
@@ -48,6 +49,12 @@ export class BoardComponent implements OnInit {
 
   isForbidChangeTitle = false;
 
+  isCreateTaskModalOpen = false;
+
+  boardId = '';
+
+  columnId = '';
+
   constructor(
     public translate: TranslateService,
     private languageService: ChangeLanguageService,
@@ -73,6 +80,12 @@ export class BoardComponent implements OnInit {
     });
     this.httpService.getAllColumns(this.param).subscribe((columns) => {
       this.columns = columns.sort((a, b) => a.order - b.order);
+      this.columns.forEach((item) => {
+        this.httpService.getAllTasks(item.boardId, item._id)
+          .subscribe((data) => {
+            item.tasks! = data;
+          });
+      });
     });
     this.navigationService.collaps.subscribe((data) => { this.isCollapsed = data; });
   }
@@ -88,6 +101,20 @@ export class BoardComponent implements OnInit {
         _id: el._id,
       }]).subscribe((data) => console.log(data));
     });
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  dropTasks(event: CdkDragDrop<any>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex,
+      );
+    }
   }
 
   deleteColumn(id: string) {
@@ -173,12 +200,14 @@ export class BoardComponent implements OnInit {
     }
   }
 
-  /*   onCancelSubmit(): void {
-      this.column.title = this.prevTitle;
-      this.isTitleClicked = false;
-    } */
+  onTaskModalOpen(boardId: string, columnId: string) {
+    this.boardId = boardId;
+    this.columnId = columnId;
+    this.isCreateTaskModalOpen = true;
+  }
 
-  /* onDeleteColumn(col: string) {
-   this.deleteColumn.emit(col);
- }  */
+  // eslint-disable-next-line class-methods-use-this
+  createTask(task: TaskResponse) {
+    console.log(task);
+  }
 }
