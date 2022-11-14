@@ -4,11 +4,10 @@ import {
 import {
   FormControl, FormGroup, UntypedFormGroup, Validators,
 } from '@angular/forms';
-import { Column } from '../../pages/board/board.component';
+// import { Column } from '../../pages/board/board.component';
 import { TranslateService } from '@ngx-translate/core';
 import { ColumnResponse } from 'src/app/core/models/project-manager.model';
 import { ChangeLanguageService } from 'src/app/core/services/changeLanguage.service';
-
 
 @Component({
   selector: 'app-column',

@@ -20,6 +20,7 @@ import { LocalizationModule } from '../localization/localization.module';
     NavigationComponent,
     ConfirmationModalComponent,
     GlobalSearchComponent,
+    ConfirmationModalComponent,
   ],
   imports: [
     CommonModule,

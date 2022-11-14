@@ -9,8 +9,8 @@ import {
   SignUpResponse,
   StorageKeys,
   Routes,
-} from '../models/project-manager.model';
-import { LocalStorageService } from './localStorage.service';
+} from '../../core/models/project-manager.model';
+import { LocalStorageService } from '../../core/services/localStorage.service';
 
 @Injectable({
   providedIn: 'root',
@@ -24,8 +24,8 @@ export class AuthService {
   redirectUrl: string | null = null;
 
   constructor(
-    private localStorageService: LocalStorageService,
     private http: HttpClient,
+    private localStorageService: LocalStorageService,
     private router: Router,
   ) { }
 
