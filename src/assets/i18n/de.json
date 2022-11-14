@@ -31,9 +31,14 @@
     "LOGIN": "Autorisierter"
   },
   "WORKSPACE": {
-    "BOARD": "Board",
+    "BOARD": "Bretter",
     "CREATE_BOARD": "Board erstellen",
-    "DELETE": "Entfernen"
+    "DELETE": "Entfernen",
+    "CREATE": "Schaffen",
+    "TITLE": "titel",
+    "OWNER": "eigentümer",
+    "USERS": "benutzer",
+    "USER_SELECTION": "Wählen Sie einen Benutzer aus"
   },
   "FOOTER": {
     "TEAM": "Unser Team:"

@@ -31,9 +31,14 @@
     "LOGIN": "Login"
   },
   "WORKSPACE": {
-    "BOARD": "Board",
+    "BOARD": "Boards",
     "CREATE_BOARD": "Create board",
-    "DELETE": "DELETE"
+    "DELETE": "DELETE",
+    "CREATE": "Create",
+    "TITLE": "title",
+    "OWNER": "owner",
+    "USERS": "users",
+    "USER_SELECTION": "Select a user"
   },
   "FOOTER": {
     "TEAM": "Our team:"
