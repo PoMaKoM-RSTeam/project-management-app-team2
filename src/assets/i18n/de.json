@@ -34,10 +34,10 @@
     "CREATE_BOARD": "Board erstellen",
     "DELETE": "Entfernen",
     "CREATE": "Schaffen",
-    "INF-TEXT": "Bitte geben Sie Benutzernamen über",
     "TITLE": "titel",
     "OWNER": "eigentümer",
-    "USERS": "benutzer"
+    "USERS": "benutzer",
+    "USER_SELECTION": "Wählen Sie einen Benutzer aus"
   },
   "FOOTER": {
     "TEAM": "Unser Team:"

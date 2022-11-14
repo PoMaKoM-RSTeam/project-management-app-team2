@@ -34,10 +34,10 @@
     "CREATE_BOARD": "Create board",
     "DELETE": "DELETE",
     "CREATE": "Create",
-    "INF-TEXT": "Please enter usernames via",
     "TITLE": "title",
     "OWNER": "owner",
-    "USERS": "users"
+    "USERS": "users",
+    "USER_SELECTION": "Select a user"
   },
   "FOOTER": {
     "TEAM": "Our team:"
