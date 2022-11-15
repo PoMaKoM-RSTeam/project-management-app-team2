@@ -10,6 +10,7 @@
   },
   "AUTH": {
     "NAME": "Benutzername",
+    "USER_LOGIN": "Anmeldung",
     "PASSWORD": "Passwort",
     "REQUIRED_NAME": "Bitte geben Sie Ihren Benutzernamen ein!",
     "MIN_LENGTH_NAME": "Der Benutzername muss mindestens 6 Zeichen lang sein!",
@@ -30,9 +31,14 @@
     "LOGIN": "Autorisierter"
   },
   "WORKSPACE": {
-    "BOARD": "Board",
+    "BOARD": "Bretter",
     "CREATE_BOARD": "Board erstellen",
-    "DELETE": "Entfernen"
+    "DELETE": "Entfernen",
+    "CREATE": "Schaffen",
+    "TITLE": "titel",
+    "OWNER": "eigentümer",
+    "USERS": "benutzer",
+    "USER_SELECTION": "Wählen Sie einen Benutzer aus"
   },
   "FOOTER": {
     "TEAM": "Unser Team:"
@@ -46,6 +52,16 @@
   "MODAL": {
     "TITLE": "Sind Sie sicher, dass Sie diese Spalte löschen?",
     "SUB_TITLE": "Diese Aktion kann nicht rückgängig gemacht werden",
+    "CONFIRM": "Ja",
+    "CANCEL": "Nein"
+  },
+  "CONFIRMATION_FORM": {
+    "BUTTON_NAME": "Löschen",
+    "TITLE": "Löschbestätigung",
+    "TEXT_DELETE_USER": "Möchten Sie den aktuellen Benutzer wirklich löschen?",
+    "TEXT_DELETE_BOARD": "Möchten Sie das aktuelle Board wirklich löschen?",
+    "TEXT_DELETE_COLUMN": "Möchten Sie die aktuelle Spalte wirklich löschen?",
+    "TEXT_DELETE_TASK": "Möchten Sie die aktuelle Aufgabe wirklich löschen?",
     "CONFIRM": "Ja",
     "CANCEL": "Nein"
   },

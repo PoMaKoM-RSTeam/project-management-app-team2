@@ -1,0 +1,116 @@
+.section-create-board {
+    max-width: 100vw;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(10px);
+    overflow-x: auto;
+    width: 100vw;
+    height: calc(100vh - 200px);
+    .wrapper-board {
+        text-align: end;
+        max-width: 420px;
+        gap: 15px;
+        position: absolute;
+        top: 50px;
+        left: 47%;
+        padding: 25px;
+        background-color: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+        .btn-close {
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            margin: 0 0 15px;
+            border-radius: 20px;
+            background-color: rgb(0 204 255 / 50%);
+            color: #fff;
+            border: 1px outset #fff;
+            cursor: pointer;
+            transition: all 1s;
+            &:hover {
+                border: 3px inset #fff;
+                transition: all 1s;
+            }
+        }
+        .form-board {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            .input {
+                width: 371px;
+                height: 40px;
+                border-radius: 10px;
+                padding: 10px;
+                outline: none;
+                border: 1px solid #fff;
+            }
+            .users {
+                display: flex;
+                gap: 10px;
+                flex-wrap: wrap;
+                padding: 5px 10px;
+                justify-content: center;
+                color: #fff;
+                .user {
+                    display: flex;
+                    flex-direction: column;
+                    align-items:center;
+                    max-width: 70px;
+                    text-align: center;
+                    .btn-delete-user {
+                        border-radius: 15px;
+                        background-color: rgb(0 204 255 / 50%);
+                        color: #fff;
+                        border: 1px outset #fff;
+                        margin-left: 40px;
+                        cursor: pointer;
+                        &:hover {
+                            border: 3px inset #fff;
+                            transform: translate(5px, 5px);
+                            transition: all 1s;
+                        }
+                    }
+                }
+            }
+            .btn-create {
+                padding: 5px;
+                width: 100%;
+                border-color: #40a9ff;
+                background: #40a9ff;
+                color: rgb(255, 255, 255);
+                font-size: 17px;
+                &:disabled {
+                    background-color:rgba(255, 255, 255, 0.25);
+                    color: rgba(0,0,0, 50%);
+                    border: none;
+                }
+                &:valid:hover {
+                    background: hsla(123deg, 100%, 50%, 0.4);
+                    border-color: hsla(123deg, 100%, 50%, 0.1);
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+::-webkit-scrollbar {
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: hsla(0, 0%, 100%, 0.1);
+    backdrop-filter: blur(5px);
+}
+  
+::-webkit-scrollbar-thumb {
+    background: hsla(0, 0%, 100%, 0.5);
+    border-radius: 10px;
+    width: 2px;
+    backdrop-filter: blur(5px);
+}

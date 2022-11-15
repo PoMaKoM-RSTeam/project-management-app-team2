@@ -1,1 +1,13 @@
-<p>confirmation-modal works!</p>
+<a nz-typography *ngIf="!isButton" (click)="showModal()">Delete user</a>
+<button *ngIf="isButton" nz-button [nzType]="'primary'" (click)="showModal()"><span>{{'CONFIRMATION_FORM.BUTTON_NAME' | translate}}</span></button>
+    <nz-modal
+      [(nzVisible)]="isVisible"
+      nzTitle="{{'CONFIRMATION_FORM.TITLE' | translate}}"
+      nzOkText="{{'CONFIRMATION_FORM.CONFIRM' | translate}}"
+      nzCancelText="{{'CONFIRMATION_FORM.CANCEL' | translate}}"
+      (nzOnCancel)="handleCancel()"
+      (nzOnOk)="handleOk()">
+      <ng-container *nzModalContent>
+        <p>{{modalText | translate}}</p>
+      </ng-container>
+    </nz-modal>

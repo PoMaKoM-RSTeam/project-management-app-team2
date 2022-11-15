@@ -89,6 +89,7 @@ export class BoardComponent implements OnInit {
     this.httpService.getBoardById(this.param).subscribe((board) => {
       this.board = board;
     });
+
     this.httpService.getAllColumns(this.param).subscribe((columns) => {
       this.columns = columns.sort((a, b) => a.order - b.order);
       this.columns.forEach((item) => {
@@ -109,6 +110,7 @@ export class BoardComponent implements OnInit {
     this.columns.forEach((el) => {
       el.order = this.columns.indexOf(el) + 1;
     });
+
     this.columns.forEach((el) => {
       this.httpService
         .updateColumnsSet([
