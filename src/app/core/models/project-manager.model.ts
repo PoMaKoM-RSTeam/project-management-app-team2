@@ -66,6 +66,7 @@ export interface ColumnResponse {
   title: string;
   order: number;
   boardId: string;
+  tasks?: TaskResponse[];
 }
 
 export interface UpdateColumnDTO {
@@ -80,7 +81,6 @@ export interface ColumnFromSetDTO {
 }
 
 export interface TaskDTO {
-  _id: string;
   title: string;
   order: number;
   description: string;

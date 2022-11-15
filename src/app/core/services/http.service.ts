@@ -91,7 +91,7 @@ export class HTTPService {
   }
 
   editColumn(boardId: string, columnId: string, column: ColumnDTO): Observable<BoardResponse> {
-    return this.http.put<BoardResponse>(`${Routes.AllBoards}/${boardId}${Routes.AllColumns}/${columnId}`, column);
+    return this.http.put<BoardResponse>(`${Routes.AllBoards}/${boardId}/${Routes.AllColumns}/${columnId}`, column);
   }
 
   deleteColumn(boardId: string, columnId: string): Observable<BoardResponse> {
@@ -116,7 +116,7 @@ export class HTTPService {
 
   // TASKS
   getAllTasks(boardId: string, columnId: string): Observable<TaskResponse[]> {
-    return this.http.get<TaskResponse[]>(`${Routes.AllBoards}/${boardId}${Routes.AllColumns}/${columnId}/${Routes.AllTasks}`);
+    return this.http.get<TaskResponse[]>(`${Routes.AllBoards}/${boardId}/${Routes.AllColumns}/${columnId}/${Routes.AllTasks}`);
   }
 
   createTask(boardId: string, columnId: string, task: TaskDTO): Observable<TaskResponse> {
@@ -134,7 +134,7 @@ export class HTTPService {
     task: UpdateTaskDTO,
   ): Observable<TaskResponse> {
     return this.http.put<TaskResponse>(
-      `${Routes.AllBoards}/${boardId}${Routes.AllColumns}/${columnId}/${Routes.AllTasks}/${taskId}`,
+      `${Routes.AllBoards}/${boardId}/${Routes.AllColumns}/${columnId}/${Routes.AllTasks}/${taskId}`,
       task,
     );
   }

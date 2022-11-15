@@ -13,6 +13,8 @@ import { ZorroModule } from '../core/zorro/zorro.module';
 import { CreateBoardComponent } from './components/create-board/create-board.component';
 import { AddUsersFormComponent } from './components/add-users-form/add-users-form.component';
 import { CreateColumnModalComponent } from './components/create-column-modal/create-column-modal.component';
+import { CreateTaskModalComponent } from './components/create-task-modal/create-task-modal.component';
+import { TaskComponent } from './components/task/task.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { CreateColumnModalComponent } from './components/create-column-modal/cre
     CreateBoardComponent,
     AddUsersFormComponent,
     CreateColumnModalComponent,
+    CreateTaskModalComponent,
+    TaskComponent,
   ],
   imports: [
     CommonModule,
