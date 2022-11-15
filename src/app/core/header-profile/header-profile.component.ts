@@ -31,11 +31,11 @@ export class HeaderProfileComponent implements OnInit {
     });
   }
 
-  logout() {
+  logout(): void {
     this.authService.logout();
   }
 
-  deleteUser = () => {
+  deleteUser = (): void => {
     this.httpService.deleteUser(this.userId).subscribe({
       next: () => this.logout(),
     });
