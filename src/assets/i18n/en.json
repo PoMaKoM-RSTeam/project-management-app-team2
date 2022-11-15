@@ -10,6 +10,7 @@
   },
   "AUTH": {
     "NAME": "Username",
+    "USER_LOGIN": "Login",
     "PASSWORD": "Password",
     "REQUIRED_NAME": "Please enter your username!",
     "MIN_LENGTH_NAME": "The user name must contain at least 6 characters!",
@@ -51,6 +52,16 @@
   "MODAL": {
     "TITLE": "Are you sure delete this column?",
     "SUB_TITLE": "This action cannot be undone",
+    "CONFIRM": "Yes",
+    "CANCEL": "No"
+  },
+  "CONFIRMATION_FORM": {
+    "BUTTON_NAME": "Delete",
+    "TITLE": "Deletion confirmation",
+    "TEXT_DELETE_USER": "Are you sure you want to delete the current user?",
+    "TEXT_DELETE_BOARD": "Are you sure you want to delete the current board?",
+    "TEXT_DELETE_COLUMN": "Are you sure you want to delete the current column?",
+    "TEXT_DELETE_TASK": "Are you sure you want to delete the current task?",
     "CONFIRM": "Yes",
     "CANCEL": "No"
   },

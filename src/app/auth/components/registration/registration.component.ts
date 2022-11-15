@@ -7,6 +7,7 @@ import { TranslateService } from '@ngx-translate/core';
 
 import { NzFormTooltipIcon } from 'ng-zorro-antd/form';
 import { ChangeLanguageService } from 'src/app/core/services/changeLanguage.service';
+import { AuthService } from '../../services/auth.service';
 import { AuthValidator } from '../../validators/auth-validator';
 
 @Component({
@@ -28,6 +29,7 @@ export class RegistrationComponent implements OnInit {
     private rout:Router,
     public translate: TranslateService,
     private languageService: ChangeLanguageService,
+    private authService: AuthService,
   ) {}
 
   ngOnInit(): void {
@@ -46,17 +48,19 @@ export class RegistrationComponent implements OnInit {
         Validators.required,
         this.confirmationValidator,
       ]],
-      nickname: [null, [
+      login: [null, [
         Validators.required,
         Validators.minLength(6),
+      ]],
+      name: [null, [
+        Validators.required,
+        Validators.minLength(1),
       ]],
     });
   }
 
   submitForm(): void {
-    if (this.validateForm.valid) {
-      console.log('submit', this.validateForm.value);
-    } else {
+    if (!this.validateForm.valid) {
       Object.values(this.validateForm.controls).forEach((control) => {
         if (control.invalid) {
           control.markAsDirty();
@@ -85,6 +89,13 @@ export class RegistrationComponent implements OnInit {
   }
 
   registration() {
+    const userData = {
+      name: this.validateForm.value.name,
+      login: this.validateForm.value.login,
+      password: this.validateForm.value.password,
+    };
+
+    this.authService.signUp(userData);
     this.rout.navigate(['/auth/login']);
   }
 }

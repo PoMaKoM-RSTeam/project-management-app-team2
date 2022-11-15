@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ChangeLanguageService } from 'src/app/core/services/changeLanguage.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-logout',
@@ -16,6 +17,7 @@ export class LogoutComponent implements OnInit {
     public translate: TranslateService,
     private languageService: ChangeLanguageService,
     private changeLanguageService: ChangeLanguageService,
+    private authService: AuthService,
   ) {}
 
   ngOnInit() {
@@ -25,6 +27,7 @@ export class LogoutComponent implements OnInit {
 
   logout() {
     this.changeLanguageService.deleteFromLocalStorage('login');
+    this.authService.logout();
     this.rout.navigate(['/auth/login']);
   }
 }
