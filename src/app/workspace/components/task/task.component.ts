@@ -17,11 +17,11 @@ export class TaskComponent {
 
   constructor(public translate: TranslateService, private httpService: HTTPService) { }
 
-  onDelete() {
+  onDelete = () => {
     this.httpService.deleteTask(
       this.task.boardId,
       this.task.columnId,
       this.task._id,
     ).subscribe((data) => this.deleteTask.emit(data));
-  }
+  };
 }
