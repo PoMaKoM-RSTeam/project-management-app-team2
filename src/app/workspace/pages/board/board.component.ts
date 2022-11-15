@@ -123,7 +123,6 @@ export class BoardComponent implements OnInit {
     });
   }
 
-  // eslint-disable-next-line class-methods-use-this
   dropTasks(event: CdkDragDrop<any>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(
@@ -253,12 +252,18 @@ export class BoardComponent implements OnInit {
     this.isCreateTaskModalOpen = true;
   }
 
-  // eslint-disable-next-line class-methods-use-this
   createTask(task: TaskResponse) {
     this.columns.find((el) => el._id === task.columnId)?.tasks?.push(task);
   }
 
   isModalTaskOpen(bool: boolean) {
     this.isCreateTaskModalOpen = bool;
+  }
+
+  deleteTask(task: TaskResponse) {
+    console.log(task);
+    this.columns.forEach((item) => {
+      item.tasks = item.tasks!.filter((el) => el._id !== task._id);
+    });
   }
 }

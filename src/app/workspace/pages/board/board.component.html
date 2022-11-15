@@ -42,7 +42,7 @@
 
       <div class="column__tasks" cdkDropList [cdkDropListData]="column.tasks" (cdkDropListDropped)="dropTasks($event)">
         <div cdkDrag *ngFor="let task of column.tasks" style="margin-bottom: 20px;">
-          <app-task [task]="task"></app-task>
+          <app-task [task]="task" (deleteTask)="deleteTask($event)"></app-task>
         </div>
       </div>
       <button class="column__button" (click)="onTaskModalOpen(board._id, column._id)">+{{"BOARD.ADD_CARD"| translate}}</button>

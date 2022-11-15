@@ -1,6 +1,16 @@
 <div class="task">
   <h3 class="task__title">{{task.title}}</h3>
-  <p class="task__decription">{{task.description}}</p>
+  <p class="task__description">{{task.description}}</p>
+  <span nz-icon nzType="comment" nzTheme="outline" class="task__comments"></span>
+  <span
+      class="task__close-button"
+      nz-icon
+      [nzType]="'close-circle'"
+      [nzTheme]="'outline'"
+      (click)="onDelete()"
+      title="Delete task">
+
+    </span>
 </div>
 
 
