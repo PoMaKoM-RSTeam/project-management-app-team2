@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import {
+  CdkDragDrop,
+  moveItemInArray,
+  transferArrayItem,
+} from '@angular/cdk/drag-drop';
 import {
   BoardResponse,
   ColumnResponse,
@@ -12,7 +16,10 @@ import { NzModalService } from 'ng-zorro-antd/modal';
 import { ActivatedRoute } from '@angular/router';
 import { NavigationService } from 'src/app/core/services/navigation.service';
 import {
-  FormControl, FormGroup, UntypedFormGroup, Validators,
+  FormControl,
+  FormGroup,
+  UntypedFormGroup,
+  Validators,
 } from '@angular/forms';
 
 @Component({
@@ -66,7 +73,10 @@ export class BoardComponent implements OnInit {
     private navigationService: NavigationService,
   ) {
     this.inputForm = new FormGroup({
-      myInput: new FormControl('', [Validators.required, Validators.maxLength(15)]),
+      myInput: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(15),
+      ]),
     });
   }
 
@@ -75,7 +85,6 @@ export class BoardComponent implements OnInit {
     this.activatedRoute.queryParams.subscribe((param) => {
       const data = param['id'];
       this.param = data;
-      console.log(this.param);
     });
     this.httpService.getBoardById(this.param).subscribe((board) => {
       this.board = board;
@@ -83,13 +92,16 @@ export class BoardComponent implements OnInit {
     this.httpService.getAllColumns(this.param).subscribe((columns) => {
       this.columns = columns.sort((a, b) => a.order - b.order);
       this.columns.forEach((item) => {
-        this.httpService.getAllTasks(item.boardId, item._id)
+        this.httpService
+          .getAllTasks(item.boardId, item._id)
           .subscribe((data) => {
-            item.tasks! = data;
+            item.tasks! = data.sort((a, b) => a.order - b.order);
           });
       });
     });
-    this.navigationService.collaps.subscribe((data) => { this.isCollapsed = data; });
+    this.navigationService.collaps.subscribe((data) => {
+      this.isCollapsed = data;
+    });
   }
 
   drop(event: CdkDragDrop<ColumnResponse[]>) {
@@ -98,17 +110,25 @@ export class BoardComponent implements OnInit {
       el.order = this.columns.indexOf(el) + 1;
     });
     this.columns.forEach((el) => {
-      this.httpService.updateColumnsSet([{
-        order: el.order,
-        _id: el._id,
-      }]).subscribe((data) => console.log(data));
+      this.httpService
+        .updateColumnsSet([
+          {
+            order: el.order,
+            _id: el._id,
+          },
+        ])
+        .subscribe((data) => console.log(data));
     });
   }
 
   // eslint-disable-next-line class-methods-use-this
   dropTasks(event: CdkDragDrop<any>) {
     if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+      moveItemInArray(
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex,
+      );
     } else {
       transferArrayItem(
         event.previousContainer.data,
@@ -119,14 +139,17 @@ export class BoardComponent implements OnInit {
     }
     this.columns.forEach((item) => {
       item.tasks!.forEach((el) => {
-        this.httpService.updateTask(item.boardId, item._id, el._id, {
-          title: el.title,
-          order: (item.tasks!.indexOf(el) + 1),
-          description: el.description,
-          columnId: item._id,
-          userId: el.userId,
-          users: el.users,
-        }).subscribe((data) => data);
+        el.order = item.tasks!.indexOf(el) + 1;
+        this.httpService
+          .updateTask(item.boardId, item._id, el._id, {
+            title: el.title,
+            order: el.order,
+            description: el.description,
+            columnId: item._id,
+            userId: el.userId,
+            users: el.users,
+          })
+          .subscribe((data) => data);
       });
     });
   }
@@ -152,13 +175,19 @@ export class BoardComponent implements OnInit {
       nzOkDanger: true,
       nzOnOk: () => {
         this.columns = this.columns.filter((item) => item._id !== id);
-        this.httpService.deleteColumn(this.board!._id, id).subscribe((data) => console.log(data));
+        this.httpService
+          .deleteColumn(this.board!._id, id)
+          .subscribe((data) => console.log(data));
         this.columns.forEach((el) => {
           el.order = this.columns.indexOf(el) + 1;
-          this.httpService.updateColumnsSet([{
-            order: el.order,
-            _id: el._id,
-          }]).subscribe((data) => console.log(data));
+          this.httpService
+            .updateColumnsSet([
+              {
+                order: el.order,
+                _id: el._id,
+              },
+            ])
+            .subscribe((data) => console.log(data));
         });
       },
       nzCancelText: this.cancel,
@@ -172,19 +201,19 @@ export class BoardComponent implements OnInit {
 
   createColumn(value: string) {
     if (value) {
-      this.httpService.createColumn(this.board!._id, {
-        title: value,
-        order: this.columns.length + 1,
-      }).subscribe((data) => {
-        this.columns.push(
-          {
+      this.httpService
+        .createColumn(this.board!._id, {
+          title: value,
+          order: this.columns.length + 1,
+        })
+        .subscribe((data) => {
+          this.columns.push({
             title: data.title,
             order: data.order,
             boardId: data.boardId,
             _id: data._id,
-          },
-        );
-      });
+          });
+        });
       this.snowModal = false;
     }
   }
@@ -205,11 +234,13 @@ export class BoardComponent implements OnInit {
     if (str.title) {
       this.isTitleClicked = '';
       // eslint-disable-next-line no-return-assign
-      this.columns.forEach((el) => (el._id === str._id ? el.title = str.title : el.title));
-      this.httpService.editColumn(this.board!._id, str._id, {
-        title: str.title,
-        order: str.order,
-      }).subscribe((el) => console.log(el));
+      this.columns.forEach((el) => (el._id === str._id ? (el.title = str.title) : el.title));
+      this.httpService
+        .editColumn(this.board!._id, str._id, {
+          title: str.title,
+          order: str.order,
+        })
+        .subscribe((el) => el);
       this.isForbidChangeTitle = false;
     }
   }
@@ -222,6 +253,10 @@ export class BoardComponent implements OnInit {
 
   // eslint-disable-next-line class-methods-use-this
   createTask(task: TaskResponse) {
-    console.log(task);
+    this.columns.find((el) => el._id === task.columnId)?.tasks?.push(task);
+  }
+
+  isModalTaskOpen(bool: boolean) {
+    this.isCreateTaskModalOpen = bool;
   }
 }

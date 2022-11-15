@@ -44,17 +44,9 @@
         <div cdkDrag *ngFor="let task of column.tasks" style="margin-bottom: 20px;">
           <app-task [task]="task"></app-task>
         </div>
-        <!-- <div cdkDrag *ngFor="let task of column.tasks" style="border: red 1px solid">
-          <h3>{{task.title}}</h3>
-          <p>{{task.description}}</p>
-        </div> -->
-        <!-- <app-task cdkDrag *ngFor="let task of column.tasks" [task]="task"></app-task> -->
       </div>
-
       <button class="column__button" (click)="onTaskModalOpen(board._id, column._id)">+{{"BOARD.ADD_CARD"| translate}}</button>
-
     </div>
-
   </div>
 
 
@@ -65,13 +57,11 @@
     </div>
   </div>
 
-
-
   <div class="overlay" *ngIf="snowModal">
     <app-create-column-modal (createColumn)="createColumn($event)"  (closeOpen)="closeOpen($event)"></app-create-column-modal>
   </div>
   <div class="overlay" *ngIf="isCreateTaskModalOpen">
-    <app-create-task-modal [boardId] = "boardId" [columnId]="columnId" (createTask)="createTask($event)"></app-create-task-modal>
+    <app-create-task-modal [boardId] = "boardId" [columnId]="columnId" (createTask)="createTask($event)" (isModalTaskOpen)="isModalTaskOpen($event)"></app-create-task-modal>
   </div>
 
 </section>

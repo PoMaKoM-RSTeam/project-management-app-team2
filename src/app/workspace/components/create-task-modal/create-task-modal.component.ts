@@ -23,7 +23,7 @@ export class CreateTaskModalComponent implements OnInit {
 
   @Output() createColumn = new EventEmitter<string>();
 
-  @Output() closeOpen = new EventEmitter<boolean>();
+  @Output() isModalTaskOpen = new EventEmitter<boolean>();
 
   @Output() createTask = new EventEmitter<TaskResponse>();
 
@@ -60,11 +60,13 @@ export class CreateTaskModalComponent implements OnInit {
       description: this.modalForm.value.description,
       userId: this.userId,
       users: [],
-    }).subscribe((data) => this.createTask.emit(data));
+    }).subscribe((data) => {
+      this.createTask.emit(data);
+      this.isModalTaskOpen.emit(false);
+    });
   }
 
-  // eslint-disable-next-line class-methods-use-this
-  onCloseModalWindow() {
-    this.closeOpen.emit(true);
+  onClose() {
+    this.isModalTaskOpen.emit(false);
   }
 }
