@@ -261,7 +261,6 @@ export class BoardComponent implements OnInit {
   }
 
   deleteTask(task: TaskResponse) {
-    console.log(task);
     this.columns.forEach((item) => {
       item.tasks = item.tasks!.filter((el) => el._id !== task._id);
     });
