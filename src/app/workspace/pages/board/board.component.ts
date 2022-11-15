@@ -55,6 +55,8 @@ export class BoardComponent implements OnInit {
 
   columnId = '';
 
+  userId = '';
+
   constructor(
     public translate: TranslateService,
     private languageService: ChangeLanguageService,
@@ -115,6 +117,18 @@ export class BoardComponent implements OnInit {
         event.currentIndex,
       );
     }
+    this.columns.forEach((item) => {
+      item.tasks!.forEach((el) => {
+        this.httpService.updateTask(item.boardId, item._id, el._id, {
+          title: el.title,
+          order: (item.tasks!.indexOf(el) + 1),
+          description: el.description,
+          columnId: item._id,
+          userId: el.userId,
+          users: el.users,
+        }).subscribe((data) => data);
+      });
+    });
   }
 
   deleteColumn(id: string) {

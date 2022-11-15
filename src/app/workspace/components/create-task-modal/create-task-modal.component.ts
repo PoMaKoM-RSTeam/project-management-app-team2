@@ -53,7 +53,7 @@ export class CreateTaskModalComponent implements OnInit {
   }
 
   // eslint-disable-next-line class-methods-use-this
-  onSubmit() {
+  onSubmit(): void {
     this.htttpService.createTask(this.boardId, this.columnId, {
       title: this.modalForm.value.title,
       order: this.taskCount + 1,

@@ -134,7 +134,7 @@ export class HTTPService {
     task: UpdateTaskDTO,
   ): Observable<TaskResponse> {
     return this.http.put<TaskResponse>(
-      `${Routes.AllBoards}/${boardId}${Routes.AllColumns}/${columnId}/${Routes.AllTasks}/${taskId}`,
+      `${Routes.AllBoards}/${boardId}/${Routes.AllColumns}/${columnId}/${Routes.AllTasks}/${taskId}`,
       task,
     );
   }
