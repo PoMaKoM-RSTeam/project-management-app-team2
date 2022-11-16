@@ -74,7 +74,7 @@
     "MULTIPLE_BOARDS": "Несколько досок",
     "DRAG_AND_DROP": "Drag and drop",
     "EASY_TO_USE": "Простота в использовании",
-    "WILCOME_TITLE": "Получите лучший опыт в управлении вашим проектом"
+    "WILCOME_TITLE": "Получите <span> наилучший опыт</span> в управлении вашим проектом"
   },
   "COLUMN": {
     "BUTTON": "Cоздать новую колонку"
