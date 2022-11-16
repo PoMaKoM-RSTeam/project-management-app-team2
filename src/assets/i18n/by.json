@@ -71,6 +71,12 @@
     "BUTTON": "Стварыць слупок",
     "DESCRIPTION": "Апісанне"
   },
+  "WELCOME": {
+    "MULTIPLE_BOARDS": "Некалькі дошак",
+    "DRAG_AND_DROP": "Drag and drop",
+    "EASY_TO_USE": "Прастата ў выкарыстанні",
+    "WILCOME_TITLE": "Атрымаеце <span> найлепшы вопыт </span> у кіраванні вашым праектам"
+  },
   "COLUMN": {
     "BUTTON": "Стварыць новы слупок"
   }

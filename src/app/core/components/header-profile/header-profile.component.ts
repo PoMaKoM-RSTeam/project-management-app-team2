@@ -17,7 +17,7 @@ export class HeaderProfileComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private httpService: HTTPService,
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.authService.isAuthorized$.subscribe((isAuth) => {

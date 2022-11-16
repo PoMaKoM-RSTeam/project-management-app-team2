@@ -76,7 +76,7 @@
 }
 
 ::-webkit-scrollbar {
-  height: 6px;
+  height: 8px;
   width: 6px;
 }
 
@@ -133,6 +133,7 @@
   border-top: 1px solid rgba(255, 255, 255, 0.5);
   border-left: 1px solid rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(5px);
+  max-height: calc(100vh - 340px);
 
   &:hover {
     cursor: grabbing;
@@ -229,7 +230,7 @@
 
   &__tasks {
     width: 100%;
-    height: 60vh;
+    height: 100vh;
     overflow-y: auto;
     padding-top: 10px;
   }

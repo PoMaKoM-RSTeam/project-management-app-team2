@@ -5,9 +5,11 @@
       nzTitle="{{'CONFIRMATION_FORM.TITLE' | translate}}"
       nzOkText="{{'CONFIRMATION_FORM.CONFIRM' | translate}}"
       nzCancelText="{{'CONFIRMATION_FORM.CANCEL' | translate}}"
+      nzOkDanger="true"
+      nzAutofocus="cancel"
       (nzOnCancel)="handleCancel()"
       (nzOnOk)="handleOk()">
       <ng-container *nzModalContent>
-        <p>{{modalText | translate}}</p>
+        <p><span nz-icon nzType="exclamation-circle" nzTheme="outline" style="color: orange; font-size: 2rem; margin-right: 3px;"></span> {{modalText | translate}}</p>
       </ng-container>
     </nz-modal>
