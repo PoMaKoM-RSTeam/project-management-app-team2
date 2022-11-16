@@ -18,7 +18,7 @@ export class ConfirmationModalComponent {
 
   constructor(
     private languageService: ChangeLanguageService,
-  ) {}
+  ) { }
 
   showModal(): void {
     this.isVisible = true;
