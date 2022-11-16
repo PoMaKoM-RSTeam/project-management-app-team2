@@ -10,15 +10,21 @@
         nzDisabled="{{isAuth}}"
         routerLink="/auth/login"
       >
-        <a>Login</a>
+        Login
       </li>
       <li nz-menu-item
         nzDisabled="{{isAuth}}"
         routerLink="/auth/registration"
       >
-        <a>SignUp</a>
+        SignUp
       </li>
       <li nz-menu-divider></li>
+      <li nz-menu-item
+        nzDisabled="{{!isAuth}}"
+        routerLink="/profile"
+      >
+        Edit User
+      </li>
       <li nz-menu-item nzDisabled="{{!isAuth}}">
         <app-confirmation-modal
           [modalText]="'CONFIRMATION_FORM.TEXT_DELETE_USER'"
@@ -30,7 +36,7 @@
       </li>
       <li nz-menu-item
         nzDisabled="{{!isAuth}}"
-        (click)="logout()"><a>Logout</a></li>
+        (click)="logout()">Logout</li>
     </ul>
   </nz-dropdown-menu>
   <!-- kate4ka

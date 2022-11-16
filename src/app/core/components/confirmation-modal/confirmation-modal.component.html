@@ -1,4 +1,4 @@
-<a nz-typography *ngIf="!isButton" (click)="showModal()">Delete user</a>
+<span nz-typography *ngIf="!isButton" (click)="showModal()">Delete user</span>
 <button *ngIf="isButton" nz-button [nzType]="'primary'" (click)="showModal()"><span>{{'CONFIRMATION_FORM.BUTTON_NAME' | translate}}</span></button>
     <nz-modal
       [(nzVisible)]="isVisible"
