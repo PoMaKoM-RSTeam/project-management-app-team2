@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/auth/services/auth.service';
 import { NavigationService } from '../../services/navigation.service';
 
 @Component({
@@ -6,10 +7,21 @@ import { NavigationService } from '../../services/navigation.service';
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.scss'],
 })
-export class NavigationComponent {
+export class NavigationComponent implements OnInit {
   isCollapsed = false;
 
-  constructor(private navigationService: NavigationService) { }
+  isAuth: boolean | null = null;
+
+  constructor(
+    private navigationService: NavigationService,
+    private isAuthService: AuthService,
+  ) { }
+
+  ngOnInit() {
+    this.isAuthService.isAuthorized$.subscribe((e) => {
+      this.isAuth = e;
+    });
+  }
 
   toggleCollapsed(): void {
     this.isCollapsed = !this.isCollapsed;
