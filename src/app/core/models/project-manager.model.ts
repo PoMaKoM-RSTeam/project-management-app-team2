@@ -13,6 +13,7 @@ export enum Routes {
 }
 export enum StorageKeys {
   Token = 'token',
+  UserName = 'name',
   Login = 'login',
   UserId = 'userId',
 }

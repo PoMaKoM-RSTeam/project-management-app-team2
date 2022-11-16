@@ -28,7 +28,8 @@
     "CHECK_PASSWORD": "Please, confirm your password!",
     "INCORRECT_PASSWORD": "The password is incorrect! Please check the password!",
     "LOGOUT": "Logout",
-    "LOGIN": "Login"
+    "LOGIN": "Login",
+    "EDIT_USER": "Edit user"
   },
   "WORKSPACE": {
     "BOARD": "Boards",

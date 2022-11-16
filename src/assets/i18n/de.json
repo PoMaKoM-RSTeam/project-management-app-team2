@@ -28,7 +28,8 @@
     "CHECK_PASSWORD": "Bitte, bestätigen Sie das Passwort!",
     "INCORRECT_PASSWORD": "Das Passwort ist falsch! Bitte überprüfen Sie das Passwort!",
     "LOGOUT": "Aussteigen",
-    "LOGIN": "Autorisierter"
+    "LOGIN": "Autorisierter",
+    "EDIT_USER": "Benutzer bearbeiten"
   },
   "WORKSPACE": {
     "BOARD": "Bretter",

@@ -21,11 +21,15 @@ export class AuthService {
 
   private userName$$ = new BehaviorSubject('');
 
+  private userLogin$$ = new BehaviorSubject('');
+
   private userId$$ = new BehaviorSubject('');
 
   public isAuthorized$ = this.isAuthorized$$.asObservable();
 
   public userName$ = this.userName$$.asObservable();
+
+  public userLogin$ = this.userLogin$$.asObservable();
 
   public userId$ = this.userId$$.asObservable();
 
@@ -36,9 +40,10 @@ export class AuthService {
     private localStorageService: LocalStorageService,
     private router: Router,
   ) {
-    this.userName$$.next(this.localStorageService.getFromLocalStorage(StorageKeys.Login) || '');
+    this.userName$$.next(this.localStorageService.getFromLocalStorage(StorageKeys.UserName) || '');
+    this.userLogin$$.next(this.localStorageService.getFromLocalStorage(StorageKeys.Login) || '');
     this.userId$$.next(this.localStorageService.getFromLocalStorage(StorageKeys.UserId) || '');
-    this.isAuthorized$$.next(!!this.userName$$.value);
+    this.isAuthorized$$.next(!!this.userLogin$$.value);
   }
 
   signUp(newUser: SignUpDTO) {
@@ -58,16 +63,18 @@ export class AuthService {
     login$.subscribe({
       next: (result) => {
         this.isAuthorized$$.next(true);
-        this.userName$$.next(user.login);
+        this.userLogin$$.next(user.login);
         this.localStorageService.setInLocalStorage(StorageKeys.Token, result.token);
         this.localStorageService.setInLocalStorage(StorageKeys.Login, user.login);
         this.router.navigateByUrl('workspace');
         this.http.get<SignUpResponse[]>(`${Routes.AllUsers}`)
           .subscribe({
             next: (res) => {
-              const userId = res.filter((item) => item.login === user.login)[0]!._id;
-              this.localStorageService.setInLocalStorage(StorageKeys.UserId, userId);
-              this.userId$$.next(userId);
+              const currentUser = res.filter((item) => item.login === user.login)[0];
+              this.localStorageService.setInLocalStorage(StorageKeys.UserId, currentUser._id);
+              this.localStorageService.setInLocalStorage(StorageKeys.UserName, currentUser.name);
+              this.userId$$.next(currentUser._id);
+              this.userName$$.next(currentUser.name);
             },
           });
       },
@@ -81,6 +88,7 @@ export class AuthService {
   logout() {
     this.isAuthorized$$.next(false);
     this.userName$$.next('');
+    this.userLogin$$.next('');
     this.userId$$.next('');
     this.localStorageService.clearStorage();
     this.router.navigate(['/auth/login']);
@@ -88,6 +96,13 @@ export class AuthService {
 
   isAuthorized() {
     return this.isAuthorized$$.value;
+  }
+
+  setNewLogin(name: string, login: string) {
+    this.userName$$.next(name);
+    this.userLogin$$.next(name);
+    this.localStorageService.setInLocalStorage(StorageKeys.Login, login);
+    this.localStorageService.setInLocalStorage(StorageKeys.UserName, name);
   }
 
   getUserName() {
