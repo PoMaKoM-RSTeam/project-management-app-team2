@@ -10,7 +10,6 @@ import { ConfirmationModalComponent } from './components/confirmation-modal/conf
 import { GlobalSearchComponent } from './components/global-search/global-search.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { HeaderProfileComponent } from './header-profile/header-profile.component';
-// import { LogoutComponent } from '../auth/components/logout/logout.component';
 import { ZorroModule } from './zorro/zorro.module';
 import { LocalizationModule } from '../localization/localization.module';
 
@@ -23,7 +22,6 @@ import { LocalizationModule } from '../localization/localization.module';
     ConfirmationModalComponent,
     GlobalSearchComponent,
     HeaderProfileComponent,
-    // LogoutComponent,
     ConfirmationModalComponent,
   ],
   imports: [

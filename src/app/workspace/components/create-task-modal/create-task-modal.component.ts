@@ -52,7 +52,6 @@ export class CreateTaskModalComponent implements OnInit {
       .subscribe((data) => { this.taskCount = data.length; });
   }
 
-  // eslint-disable-next-line class-methods-use-this
   onSubmit(): void {
     this.htttpService.createTask(this.boardId, this.columnId, {
       title: this.modalForm.value.title,

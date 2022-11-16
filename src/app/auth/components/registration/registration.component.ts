@@ -26,11 +26,11 @@ export class RegistrationComponent implements OnInit {
 
   constructor(
     private fb: UntypedFormBuilder,
-    private rout:Router,
+    private rout: Router,
     public translate: TranslateService,
     private languageService: ChangeLanguageService,
     private authService: AuthService,
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.languageService.language$.subscribe((value) => this.translate.use(value));
@@ -74,7 +74,7 @@ export class RegistrationComponent implements OnInit {
     Promise.resolve().then(() => this.validateForm.controls['checkPassword'].updateValueAndValidity());
   }
 
-  confirmationValidator = (control: UntypedFormControl): { [s: string]: boolean } => {
+  confirmationValidator = (control: UntypedFormControl): { [s: string]: boolean; } => {
     if (!control.value) {
       return { required: true };
     } if (control.value !== this.validateForm.controls['password'].value) {
@@ -83,7 +83,6 @@ export class RegistrationComponent implements OnInit {
     return {};
   };
 
-  // eslint-disable-next-line class-methods-use-this
   getCaptcha(e: MouseEvent): void {
     e.preventDefault();
   }

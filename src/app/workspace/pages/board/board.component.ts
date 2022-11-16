@@ -239,12 +239,11 @@ export class BoardComponent implements OnInit {
     this.isCreateTaskModalOpen = bool;
   }
 
-
   deleteTask(task: TaskResponse) {
     this.columns.forEach((item) => {
       item.tasks = item.tasks!.filter((el) => el._id !== task._id);
     });
-  }  
+  }
 
   defineColumnId(id: string) {
     this.boardIdForDelete = id;
