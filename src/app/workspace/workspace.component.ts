@@ -23,12 +23,14 @@ export class WorkSpaceComponent implements OnInit {
 
   users: SignUpResponse[] = [];
 
+  boardIdforDelete = '';
+
   constructor(
     public translate: TranslateService,
     private languageService: ChangeLanguageService,
-    private createFormService:CreateBoardService,
-    private httpService:HTTPService,
-    private getUsersServices:GetUsersServices,
+    private createFormService: CreateBoardService,
+    private httpService: HTTPService,
+    private getUsersServices: GetUsersServices,
   ) { }
 
   ngOnInit(): void {
@@ -43,11 +45,12 @@ export class WorkSpaceComponent implements OnInit {
     });
   }
 
-  deleteBoard(id:string) {
-    this.httpService.deleteBoard(id).subscribe((e) => {
+  deleteBoard = () => {
+    this.httpService.deleteBoard(this.boardIdforDelete).subscribe((e) => {
       this.boards = this.boards.filter((el: BoardResponse) => el._id !== e._id);
     });
-  }
+    this.boardIdforDelete = '';
+  };
 
   createForm() {
     this.createFormService.stateFormBoard(true);

@@ -15,6 +15,7 @@ import { AddUsersFormComponent } from './components/add-users-form/add-users-for
 import { CreateColumnModalComponent } from './components/create-column-modal/create-column-modal.component';
 import { CreateTaskModalComponent } from './components/create-task-modal/create-task-modal.component';
 import { TaskComponent } from './components/task/task.component';
+import { CoreModule } from '../core/core.module';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { TaskComponent } from './components/task/task.component';
     LocalizationModule,
     DragDropModule,
     ZorroModule,
+    CoreModule,
   ],
 })
 export class WorkspaceModule { }

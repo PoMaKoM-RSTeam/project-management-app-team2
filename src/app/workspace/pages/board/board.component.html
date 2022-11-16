@@ -32,7 +32,6 @@
         <button nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu" class="column__delete">. . .</button>
         <nz-dropdown-menu #menu="nzDropdownMenu">
           <ul nz-menu nzSelectable style="padding: 4px;">
-
             <li nz-menu-item (click)="deleteColumn(column._id)"><span nz-icon nzType="delete" nzTheme="outline" style="color: #da0b42; font-size: 2em;" ></span></li>
           </ul>
         </nz-dropdown-menu>

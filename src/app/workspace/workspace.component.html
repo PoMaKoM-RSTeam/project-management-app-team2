@@ -2,9 +2,19 @@
     <h1 class="title-boards">{{'WORKSPACE.BOARD' | translate}}</h1>
     <div class="boards">
         <div class="board create-board"  (click)="createForm()">
-            <span class="link-board">{{'WORKSPACE.CREATE_BOARD' | translate}}</span>  
+            <span class="link-board">{{'WORKSPACE.CREATE_BOARD' | translate}}</span>
         </div>
         <div class="board" *ngFor="let board of boards">
+          <button nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu" class="board__delete">. . .</button>
+            <nz-dropdown-menu #menu="nzDropdownMenu">
+              <ul nz-menu nzSelectable>
+                <li nz-menu-item (click)="boardIdforDelete = board._id"> <app-confirmation-modal
+                  [modalText]="'CONFIRMATION_FORM.TEXT_DELETE_BOARD'"
+                  [onDelete]="deleteBoard"
+                >
+                </app-confirmation-modal></li>
+              </ul>
+            </nz-dropdown-menu>
             <a class="title-board" routerLink="/workspace/boards" [queryParams]="{id: board._id}">
                 {{board.title}}
                 <div class="owner">
@@ -14,7 +24,13 @@
                     <span class="user" *ngFor="let user of board.users">{{user }}</span>
                 </div>
             </a>
-            <button class="btn-delete" (click)="deleteBoard(board._id)">{{'WORKSPACE.DELETE' | translate}}</button>
+<!--             <button class="btn-delete" (click)="boardIdforDelete = board._id">
+              <app-confirmation-modal
+              [modalText]="'CONFIRMATION_FORM.TEXT_DELETE_BOARD'"
+              [onDelete]="deleteBoard"
+            >
+            </app-confirmation-modal></button> -->
+
         </div>
     </div>
     <app-create-board></app-create-board>
