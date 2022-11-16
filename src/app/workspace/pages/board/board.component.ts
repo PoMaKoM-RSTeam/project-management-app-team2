@@ -238,4 +238,8 @@ export class BoardComponent implements OnInit {
   isModalTaskOpen(bool: boolean) {
     this.isCreateTaskModalOpen = bool;
   }
+
+  defineColumnId(id: string) {
+    this.boardIdForDelete = id;
+  }
 }
