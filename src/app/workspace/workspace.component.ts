@@ -5,6 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { BoardResponse, SignUpResponse } from '../core/models/project-manager.model';
 import { ChangeLanguageService } from '../core/services/changeLanguage.service';
 import { HTTPService } from '../core/services/http.service';
+import { NavigationService } from '../core/services/navigation.service';
 import { CreateBoardService } from './services/create-board-services';
 import { GetUsersServices } from './services/get-users-services';
 
@@ -23,7 +24,9 @@ export class WorkSpaceComponent implements OnInit {
 
   users: SignUpResponse[] = [];
 
-  boardIdforDelete = '';
+  boardIdForDelete = '';
+
+  navigationClose = false;
 
   constructor(
     public translate: TranslateService,
@@ -31,6 +34,7 @@ export class WorkSpaceComponent implements OnInit {
     private createFormService: CreateBoardService,
     private httpService: HTTPService,
     private getUsersServices: GetUsersServices,
+    private navigationService: NavigationService,
   ) { }
 
   ngOnInit(): void {
@@ -43,13 +47,15 @@ export class WorkSpaceComponent implements OnInit {
     this.createFormService.boards$.subscribe((boards) => {
       this.boards.push(boards);
     });
+
+    this.navigationService.collaps.subscribe((data) => { this.navigationClose = data; });
   }
 
   deleteBoard = () => {
-    this.httpService.deleteBoard(this.boardIdforDelete).subscribe((e) => {
+    this.httpService.deleteBoard(this.boardIdForDelete).subscribe((e) => {
       this.boards = this.boards.filter((el: BoardResponse) => el._id !== e._id);
     });
-    this.boardIdforDelete = '';
+    this.boardIdForDelete = '';
   };
 
   createForm() {

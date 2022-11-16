@@ -1,6 +1,9 @@
 <section class="workspace">
     <h1 class="title-boards">{{'WORKSPACE.BOARD' | translate}}</h1>
-    <div class="boards">
+    <div class="boards" [ngStyle]="{
+      paddingLeft: navigationClose? '100px': '260px',
+      transition: '1.5s'
+    }">
         <div class="board create-board"  (click)="createForm()">
             <span class="link-board">{{'WORKSPACE.CREATE_BOARD' | translate}}</span>
         </div>
@@ -8,7 +11,7 @@
           <button nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu" class="board__delete">. . .</button>
             <nz-dropdown-menu #menu="nzDropdownMenu">
               <ul nz-menu nzSelectable>
-                <li nz-menu-item (click)="boardIdforDelete = board._id"> <app-confirmation-modal
+                <li nz-menu-item (click)="boardIdForDelete = board._id"> <app-confirmation-modal
                   [modalText]="'CONFIRMATION_FORM.TEXT_DELETE_BOARD'"
                   [onDelete]="deleteBoard"
                 >
@@ -24,13 +27,6 @@
                     <span class="user" *ngFor="let user of board.users">{{user }}</span>
                 </div>
             </a>
-<!--             <button class="btn-delete" (click)="boardIdforDelete = board._id">
-              <app-confirmation-modal
-              [modalText]="'CONFIRMATION_FORM.TEXT_DELETE_BOARD'"
-              [onDelete]="deleteBoard"
-            >
-            </app-confirmation-modal></button> -->
-
         </div>
     </div>
     <app-create-board></app-create-board>
