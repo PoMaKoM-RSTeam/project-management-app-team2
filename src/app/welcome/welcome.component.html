@@ -1,1 +1,36 @@
-<p>welcome works!</p>
+<section class="wrapper-section-page">
+    <div class="auth" *ngIf="!isAuth">
+        <a class="link-auth" routerLink="/auth/login">Авторизация</a>
+        <a class="link-registration" routerLink="/auth/registration">Регистрация</a>
+    </div>
+<div class="welcome-page">
+    <div class="wrapper-title">
+        <div class="bubbles">
+            <span class="bubble"></span>
+            <span class="bubble-mini"></span>
+            <span class="bubble-big"></span>
+            <span class="bubble-mini-right"></span>
+            <span class="bubble-mini-right-small"></span>
+            <span class="bubble-big-right"></span>
+            </div>
+        <div class="wrapper-square">
+            <span class="square-big"></span>
+            <span class="square-small"></span>
+        </div>
+        <h1>Get the <span class="title">best experience</span> in managing your project</h1>
+    </div>
+    <div class="wrapper-square-low">
+    <span class="square-small-low"></span>
+
+    <span class="square-small-multiple">Multiple boards</span>
+    <span class="square-small-drag">Drag and drop</span>
+    <span class="square-small-custom">простота в использовании</span>
+
+    </div>
+
+</div>
+<div class="wrapper-square-right">
+    <span class="square-small-right"></span>
+    <span class="square-big-right"></span>
+</div>
+</section>
