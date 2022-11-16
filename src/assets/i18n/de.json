@@ -71,6 +71,12 @@
     "BUTTON": "Spalte erstellen",
     "DESCRIPTION": "Beschreibung"
   },
+  "WELCOME": {
+    "MULTIPLE_BOARDS": "Mehrere Boards",
+    "DRAG_AND_DROP": "Drag and drop",
+    "EASY_TO_USE": "Einfach zu bedienen",
+    "WILCOME_TITLE": "Holen Sie sich die <span> beste Erfahrung</span> bei der Verwaltung Ihres Projekts"
+  },
   "COLUMN": {
     "BUTTON": "Neue Spalte erstellen"
   }

@@ -140,7 +140,7 @@ export class HTTPService {
   }
 
   deleteTask(boardId: string, columnId: string, taskId: string): Observable<TaskResponse> {
-    return this.http.delete<TaskResponse>(`${Routes.AllBoards}/${boardId}${Routes.AllColumns}/${columnId}/${Routes.AllTasks}/${taskId}`);
+    return this.http.delete<TaskResponse>(`${Routes.AllBoards}/${boardId}/${Routes.AllColumns}/${columnId}/${Routes.AllTasks}/${taskId}`);
   }
 
   getTasksSet(tasksId: string[], userId: string, search: string): Observable<TaskResponse[]> {
