@@ -64,6 +64,8 @@ export class BoardComponent implements OnInit {
 
   userId = '';
 
+  boardIdForDelete = '';
+
   constructor(
     public translate: TranslateService,
     private languageService: ChangeLanguageService,
@@ -155,46 +157,23 @@ export class BoardComponent implements OnInit {
     });
   }
 
-  deleteColumn(id: string) {
-    this.translate.get('MODAL.TITLE').subscribe((res: string) => {
-      this.title = res;
+  deleteColumn = () => {
+    this.columns = this.columns.filter((item) => item._id !== this.boardIdForDelete);
+    this.httpService
+      .deleteColumn(this.board!._id, this.boardIdForDelete)
+      .subscribe((data) => console.log(data));
+    this.columns.forEach((el) => {
+      el.order = this.columns.indexOf(el) + 1;
+      this.httpService
+        .updateColumnsSet([
+          {
+            order: el.order,
+            _id: el._id,
+          },
+        ])
+        .subscribe((data) => console.log(data));
     });
-    this.translate.get('MODAL.SUB_TITLE').subscribe((res: string) => {
-      this.subTitle = res;
-    });
-    this.translate.get('MODAL.CONFIRM').subscribe((res: string) => {
-      this.confirm = res;
-    });
-    this.translate.get('MODAL.CANCEL').subscribe((res: string) => {
-      this.cancel = res;
-    });
-    this.modal.confirm({
-      nzTitle: this.title,
-      nzContent: `<b style="color: red;">${this.subTitle}</b>`,
-      nzOkText: this.confirm,
-      nzOkType: 'primary',
-      nzOkDanger: true,
-      nzOnOk: () => {
-        this.columns = this.columns.filter((item) => item._id !== id);
-        this.httpService
-          .deleteColumn(this.board!._id, id)
-          .subscribe((data) => console.log(data));
-        this.columns.forEach((el) => {
-          el.order = this.columns.indexOf(el) + 1;
-          this.httpService
-            .updateColumnsSet([
-              {
-                order: el.order,
-                _id: el._id,
-              },
-            ])
-            .subscribe((data) => console.log(data));
-        });
-      },
-      nzCancelText: this.cancel,
-      nzOnCancel: () => console.log('cancel'),
-    });
-  }
+  };
 
   onCreateColumn() {
     this.snowModal = true;
@@ -260,9 +239,14 @@ export class BoardComponent implements OnInit {
     this.isCreateTaskModalOpen = bool;
   }
 
+
   deleteTask(task: TaskResponse) {
     this.columns.forEach((item) => {
       item.tasks = item.tasks!.filter((el) => el._id !== task._id);
     });
+  }  
+
+  defineColumnId(id: string) {
+    this.boardIdForDelete = id;
   }
 }
