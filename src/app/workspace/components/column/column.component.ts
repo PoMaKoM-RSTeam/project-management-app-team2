@@ -18,7 +18,7 @@ export class ColumnComponent implements OnInit {
 
   @Output() deleteColumn = new EventEmitter<string>();
 
-  title = 'Title';
+  columnTitle = 'Title';
 
   prevTitle = '';
 
@@ -31,7 +31,7 @@ export class ColumnComponent implements OnInit {
     private languageService: ChangeLanguageService,
   ) {
     this.inputForm = new FormGroup({
-      myInput: new FormControl(this.title, [Validators.required, Validators.maxLength(15)]),
+      myInput: new FormControl(this.columnTitle, [Validators.required, Validators.maxLength(15)]),
     });
   }
 

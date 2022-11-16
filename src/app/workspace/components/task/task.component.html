@@ -1,0 +1,20 @@
+<div class="task">
+  <h3 class="task__title">{{task.title}}</h3>
+  <p class="task__description">{{task.description}}</p>
+  <span nz-icon nzType="comment" nzTheme="outline" class="task__comments"></span>
+
+  <button nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu" class="task__close-button">. . .</button>
+  <nz-dropdown-menu #menu="nzDropdownMenu">
+    <ul nz-menu nzSelectable>
+      <li nz-menu-item>
+        <app-confirmation-modal
+            [onDelete] = "onDelete"
+            [modalText]="'CONFIRMATION_FORM.TEXT_DELETE_TASK'">
+        </app-confirmation-modal>
+      </li>
+    </ul>
+  </nz-dropdown-menu>
+</div>
+
+
+

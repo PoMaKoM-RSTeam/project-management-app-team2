@@ -67,12 +67,16 @@
   },
   "COLUMN_MODAL": {
     "TITLE": "Spaltentitel",
-    "BUTTON": "Spalte erstellen"
+    "BUTTON": "Spalte erstellen",
+    "DESCRIPTION": "Beschreibung"
   },
   "WELCOME": {
     "MULTIPLE_BOARDS": "Mehrere Boards",
     "DRAG_AND_DROP": "Drag and drop",
     "EASY_TO_USE": "Einfach zu bedienen",
     "WILCOME_TITLE": "Holen Sie sich die beste Erfahrung bei der Verwaltung Ihres Projekts"
+  },
+  "COLUMN": {
+    "BUTTON": "Neue Spalte erstellen"
   }
 }

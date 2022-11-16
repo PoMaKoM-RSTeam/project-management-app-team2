@@ -11,6 +11,8 @@
   padding: 15px;
   width: 350px;
 	min-height: 400px;
+  flex-shrink: 0;
+  flex-grow: 0;
 	margin: 20px;
 	box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
 	border-radius: 15px;
