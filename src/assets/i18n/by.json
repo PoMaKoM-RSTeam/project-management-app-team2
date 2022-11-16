@@ -68,5 +68,11 @@
   "COLUMN_MODAL": {
     "TITLE": "Назва слупка",
     "BUTTON": "Стварыць слупок"
+  },
+  "WELCOME": {
+    "MULTIPLE_BOARDS": "Некалькі дошак",
+    "DRAG_AND_DROP": "Drag and drop",
+    "EASY_TO_USE": "Прастата ў выкарыстанні",
+    "WILCOME_TITLE": "Атрымаеце лепшы вопыт кіравання сваім праектам"
   }
 }

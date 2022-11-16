@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { WelcomeRoutingModule } from './welcome-routing.module';
 import { WelcomeComponent } from './welcome.component';
+import { LocalizationModule } from '../localization/localization.module';
 
 @NgModule({
   declarations: [
@@ -11,6 +12,7 @@ import { WelcomeComponent } from './welcome.component';
   imports: [
     CommonModule,
     WelcomeRoutingModule,
+    LocalizationModule,
   ],
 })
 export class WelcomeModule { }
