@@ -1,9 +1,9 @@
 <div *ngIf="isAuth" class="wrapper">
-  <button nz-button nzType="primary" (click)="toggleCollapsed()">
+  <button class="primary" nz-button nzType="primary" (click)="toggleCollapsed()">
     <span nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></span>
   </button>
-  <ul nz-menu nzMode="inline" nzTheme="dark" [nzInlineCollapsed]="isCollapsed">
-    <li nz-menu-item nz-tooltip nzTooltipPlacement="right" [nzTooltipTitle]="isCollapsed ? 'Welcome Page' : ''"
+  <ul class="navigation" nz-menu nzMode="inline" nzTheme="dark" [nzInlineCollapsed]="isCollapsed">
+    <li class="link-nav" nz-menu-item nz-tooltip nzTooltipPlacement="right" [nzTooltipTitle]="isCollapsed ? 'Welcome Page' : ''"
       nzSelected>
       <a routerLink="" routerLinkActive="active">
         <span nz-icon nzType="mail"></span>
@@ -11,7 +11,7 @@
       </a>
     </li>
 
-    <li nz-menu-item nz-tooltip nzTooltipPlacement="right" [nzTooltipTitle]="isCollapsed ? 'Authorization' : ''">
+    <li  nz-menu-item nz-tooltip nzTooltipPlacement="right" [nzTooltipTitle]="isCollapsed ? 'Authorization' : ''">
       <a
         routerLink="auth" routerLinkActive="active">
         <span nz-icon nzType="appstore"></span>
