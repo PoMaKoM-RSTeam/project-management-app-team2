@@ -28,7 +28,8 @@
     "CHECK_PASSWORD": "Пожалуйста, подтвердите пароль!",
     "INCORRECT_PASSWORD": "Пароль неверен! Пожалуйста, проверьте пароль!",
     "LOGOUT": "Выйти",
-    "LOGIN": "Авторизоваться"
+    "LOGIN": "Авторизоваться",
+    "EDIT_USER": "Изменить пользователя"
   },
   "WORKSPACE": {
     "BOARD": "Доски",
@@ -67,8 +68,14 @@
   },
   "COLUMN_MODAL": {
     "TITLE": "Название колонки",
-    "BUTTON": "Создать колонку",
-    "DESCRIPTION": "Описание"
+  "BUTTON": "Создать колонку",
+  "DESCRIPTION": "Описание"
+  },
+  "WELCOME": {
+    "MULTIPLE_BOARDS": "Несколько досок",
+    "DRAG_AND_DROP": "Drag and drop",
+    "EASY_TO_USE": "Простота в использовании",
+    "WILCOME_TITLE": "Получите <span> наилучший опыт</span> в управлении вашим проектом"
   },
   "COLUMN": {
     "BUTTON": "Cоздать новую колонку"

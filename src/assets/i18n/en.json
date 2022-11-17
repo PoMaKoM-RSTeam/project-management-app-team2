@@ -28,7 +28,8 @@
     "CHECK_PASSWORD": "Please, confirm your password!",
     "INCORRECT_PASSWORD": "The password is incorrect! Please check the password!",
     "LOGOUT": "Logout",
-    "LOGIN": "Login"
+    "LOGIN": "Login",
+    "EDIT_USER": "Edit user"
   },
   "WORKSPACE": {
     "BOARD": "Boards",
@@ -69,6 +70,12 @@
     "TITLE": "Column title",
     "BUTTON": "Create column",
     "DESCRIPTION": "Description"
+  },
+  "WELCOME": {
+    "MULTIPLE_BOARDS": "Multiple boards",
+    "DRAG_AND_DROP": "Drag and drop",
+    "EASY_TO_USE": "Easy to use",
+    "WILCOME_TITLE": "Get the <span> best experience</span> in managing your project"
   },
   "COLUMN": {
     "BUTTON": "Create new column"
