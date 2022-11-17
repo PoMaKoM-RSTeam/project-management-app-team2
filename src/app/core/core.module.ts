@@ -12,6 +12,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { HeaderProfileComponent } from './header-profile/header-profile.component';
 import { ZorroModule } from './zorro/zorro.module';
 import { LocalizationModule } from '../localization/localization.module';
+import { UserLogoPipe } from './pipes/user-logo.pipe';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { LocalizationModule } from '../localization/localization.module';
     GlobalSearchComponent,
     HeaderProfileComponent,
     ConfirmationModalComponent,
+    UserLogoPipe,
   ],
   imports: [
     CommonModule,
@@ -36,6 +38,7 @@ import { LocalizationModule } from '../localization/localization.module';
     HeaderComponent,
     FooterComponent,
     ConfirmationModalComponent,
+    UserLogoPipe,
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US },

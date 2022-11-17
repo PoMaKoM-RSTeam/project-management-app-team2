@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { NavigationService } from '../../services/navigation.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { NavigationService } from '../../services/navigation.service';
 export class NavigationComponent {
   isCollapsed = false;
 
-  constructor(private navigationService: NavigationService) { }
+  constructor(private navigationService: NavigationService, public route: Router) { }
 
   toggleCollapsed(): void {
     this.isCollapsed = !this.isCollapsed;

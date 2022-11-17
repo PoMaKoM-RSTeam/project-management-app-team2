@@ -192,6 +192,7 @@ export class BoardComponent implements OnInit {
             order: data.order,
             boardId: data.boardId,
             _id: data._id,
+            tasks: [],
           });
         });
       this.snowModal = false;
@@ -232,7 +233,7 @@ export class BoardComponent implements OnInit {
   }
 
   createTask(task: TaskResponse) {
-    this.columns.find((el) => el._id === task.columnId)?.tasks?.push(task);
+    this.columns.find((el) => el._id === task.columnId)!.tasks!.push(task);
   }
 
   isModalTaskOpen(bool: boolean) {

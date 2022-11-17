@@ -1,0 +1,8 @@
+<div class="comment-block">
+  <div class="comment-block__comments">
+    <app-comment *ngFor="let comment of comments" [comment]="comment"></app-comment>
+  </div>
+  <form [formGroup]="commentForm" class="comment-block__form" (ngSubmit)="onSubmit()">
+    <input type="text" class="comment-block__input" formControlName="message">
+  </form>
+</div>
