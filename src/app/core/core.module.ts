@@ -13,6 +13,7 @@ import { HeaderProfileComponent } from './components/header-profile/header-profi
 import { ZorroModule } from './zorro/zorro.module';
 import { LocalizationModule } from '../localization/localization.module';
 import { UserLogoPipe } from './pipes/user-logo.pipe';
+import { UserLogoComponent } from './components/user-logo/user-logo.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { UserLogoPipe } from './pipes/user-logo.pipe';
     HeaderProfileComponent,
     ConfirmationModalComponent,
     UserLogoPipe,
+    UserLogoComponent,
   ],
   imports: [
     CommonModule,
@@ -39,6 +41,7 @@ import { UserLogoPipe } from './pipes/user-logo.pipe';
     FooterComponent,
     ConfirmationModalComponent,
     UserLogoPipe,
+    UserLogoComponent,
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US },

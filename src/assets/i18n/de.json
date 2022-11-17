@@ -79,5 +79,8 @@
   },
   "COLUMN": {
     "BUTTON": "Neue Spalte erstellen"
+  },
+  "COMMENTS": {
+    "PLACEHOLDER": "Kommentare..."
   }
 }
