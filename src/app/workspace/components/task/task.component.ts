@@ -4,6 +4,7 @@ import {
 import { TranslateService } from '@ngx-translate/core';
 import { HTTPService } from '../../../core/services/http.service';
 import { TaskResponse } from '../../../core/models/project-manager.model';
+import { EditTaskServie } from '../../services/edit-task-service';
 
 @Component({
   selector: 'app-task',
@@ -15,7 +16,11 @@ export class TaskComponent {
 
   @Output() deleteTask = new EventEmitter<TaskResponse>();
 
-  constructor(public translate: TranslateService, private httpService: HTTPService) { }
+  constructor(
+    public translate: TranslateService,
+    private httpService: HTTPService,
+    private editTaskServie: EditTaskServie,
+  ) { }
 
   onDelete = () => {
     this.httpService.deleteTask(
@@ -24,4 +29,8 @@ export class TaskComponent {
       this.task._id,
     ).subscribe((data) => this.deleteTask.emit(data));
   };
+
+  clickTask(task:any) {
+    this.editTaskServie.getTask(task);
+  }
 }

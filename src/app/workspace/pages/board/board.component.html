@@ -66,5 +66,6 @@
   <div class="overlay" *ngIf="isCreateTaskModalOpen">
     <app-create-task-modal [boardId] = "boardId" [columnId]="columnId" (createTask)="createTask($event)" (isModalTaskOpen)="isModalTaskOpen($event)"></app-create-task-modal>
   </div>
+  <app-edit-task-modal></app-edit-task-modal>
 
 </section>

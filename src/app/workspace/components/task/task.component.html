@@ -1,4 +1,4 @@
-<div class="task">
+<div class="task" (click)="clickTask(task)">
   <h3 class="task__title">{{task.title}}</h3>
   <p class="task__description">{{task.description}}</p>
   <span nz-icon nzType="comment" nzTheme="outline" class="task__comments"></span>
@@ -15,6 +15,5 @@
     </ul>
   </nz-dropdown-menu>
 </div>
-
 
 

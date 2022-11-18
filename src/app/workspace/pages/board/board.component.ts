@@ -21,6 +21,7 @@ import {
   UntypedFormGroup,
   Validators,
 } from '@angular/forms';
+import { EditTaskServie } from '../../services/edit-task-service';
 
 @Component({
   selector: 'app-board',
@@ -73,6 +74,8 @@ export class BoardComponent implements OnInit {
     private modal: NzModalService,
     private activatedRoute: ActivatedRoute,
     private navigationService: NavigationService,
+    private editTaskServie: EditTaskServie,
+
   ) {
     this.inputForm = new FormGroup({
       myInput: new FormControl('', [
@@ -104,6 +107,15 @@ export class BoardComponent implements OnInit {
     });
     this.navigationService.collaps.subscribe((data) => {
       this.isCollapsed = data;
+    });
+
+    this.editTaskServie.task$.subscribe((e) => {
+      console.log(e, 'col');
+      this.columns.forEach((colum) => {
+        if (colum.tasks?.includes(e)) {
+          console.log(e.title);
+        }
+      });
     });
   }
 
@@ -239,12 +251,11 @@ export class BoardComponent implements OnInit {
     this.isCreateTaskModalOpen = bool;
   }
 
-
   deleteTask(task: TaskResponse) {
     this.columns.forEach((item) => {
       item.tasks = item.tasks!.filter((el) => el._id !== task._id);
     });
-  }  
+  }
 
   defineColumnId(id: string) {
     this.boardIdForDelete = id;
