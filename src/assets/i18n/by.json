@@ -72,8 +72,13 @@
     "BUTTON": "Стварыць слупок",
     "DESCRIPTION": "Апісанне"
   },
+  "TASK_MODAL": {
+    "TITLE": "Назва задачы",
+    "BUTTON": "Стварыць задачу",
+    "DESCRIPTION": "Апісанне"
+  },
   "WELCOME": {
-    "MULTIPLE_BOARDS": "Некалькі дошак",
+    "MULTIPLE_BOARDS": "Неабмежаваная колькасць дошак",
     "DRAG_AND_DROP": "Drag and drop",
     "EASY_TO_USE": "Прастата ў выкарыстанні",
     "WILCOME_TITLE": "Атрымаеце <span> найлепшы вопыт </span> у кіраванні вашым праектам"

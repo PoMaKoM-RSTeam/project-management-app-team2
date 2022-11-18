@@ -72,6 +72,11 @@
     "BUTTON": "Create column",
     "DESCRIPTION": "Description"
   },
+  "TASK_MODAL": {
+    "TITLE": "Task title",
+    "BUTTON": "Create task",
+    "DESCRIPTION": "Description"
+  },
   "WELCOME": {
     "MULTIPLE_BOARDS": "Multiple boards",
     "DRAG_AND_DROP": "Drag and drop",
