@@ -26,10 +26,7 @@ export class EditTaskModalComponent implements OnInit {
         title: new FormControl(this.task?.title),
         description: new FormControl(this.task?.description),
       });
-      console.log(this.task);
     });
-
-    console.log(this.task?.title, '1');
   }
 
   editTask() {

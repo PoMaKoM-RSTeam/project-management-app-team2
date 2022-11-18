@@ -109,12 +109,14 @@ export class BoardComponent implements OnInit {
       this.isCollapsed = data;
     });
 
-    this.editTaskServie.task$.subscribe((e) => {
-      console.log(e, 'col');
-      this.columns.forEach((colum) => {
-        if (colum.tasks?.includes(e)) {
-          console.log(e.title);
-        }
+    this.editTaskServie.task$.subscribe((taskService) => {
+      this.columns.forEach((column) => {
+        column.tasks?.forEach((task) => {
+          if (taskService._id === task._id) {
+            task.title = taskService.title;
+            task.description = taskService.description;
+          }
+        });
       });
     });
   }
