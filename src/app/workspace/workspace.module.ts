@@ -16,6 +16,7 @@ import { CreateColumnModalComponent } from './components/create-column-modal/cre
 import { CreateTaskModalComponent } from './components/create-task-modal/create-task-modal.component';
 import { TaskComponent } from './components/task/task.component';
 import { CoreModule } from '../core/core.module';
+import { EditTaskModalComponent } from './components/edit-task-modal/edit-task-modal.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { CoreModule } from '../core/core.module';
     CreateColumnModalComponent,
     CreateTaskModalComponent,
     TaskComponent,
+    EditTaskModalComponent,
   ],
   imports: [
     CommonModule,

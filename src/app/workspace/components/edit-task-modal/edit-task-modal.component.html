@@ -1,0 +1,10 @@
+<div class="edit-modal" *ngIf="task">
+    <form class="form-modal" [formGroup]="editFormTask" ngSubmit="editTask">
+        <input formControlName="title" type="text" value="{{task.title}}">
+        <input formControlName="description" type="text" value="{{task.description}}">
+        <div>пользователь
+            <span *ngFor="let user of task.users">{{user}}</span>
+        </div>
+        <button type="button" (click)="editTask()">Save</button>
+    </form>
+</div>

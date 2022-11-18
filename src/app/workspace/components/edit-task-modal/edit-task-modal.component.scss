@@ -1,0 +1,13 @@
+
+.edit-modal {
+    position: absolute;
+    top: 120px;
+    left: 270px;
+    color: #000;
+    .form-modal {
+        display: flex;
+        flex-direction: column;
+        max-width: 480px;
+        width: 320px;
+    }
+}
