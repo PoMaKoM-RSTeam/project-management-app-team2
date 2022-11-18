@@ -1,4 +1,4 @@
-<div class="edit-modal" *ngIf="task">
+<div class="edit-modal" *ngIf="isEditTask">
     <form class="form-modal" [formGroup]="editFormTask" ngSubmit="editTask">
         <input formControlName="title" type="text" value="{{task.title}}">
         <input formControlName="description" type="text" value="{{task.description}}">

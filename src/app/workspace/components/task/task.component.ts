@@ -32,5 +32,6 @@ export class TaskComponent {
 
   clickTask(task:any) {
     this.editTaskServie.getTask(task);
+    this.editTaskServie.openEditMpdal(true);
   }
 }

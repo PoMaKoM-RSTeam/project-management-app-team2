@@ -14,6 +14,8 @@ export class EditTaskModalComponent implements OnInit {
 
   editFormTask!: FormGroup;
 
+  isEditTask: boolean | null = null;
+
   constructor(
     private editTaskServie: EditTaskServie,
     private httpService: HTTPService,
@@ -26,6 +28,9 @@ export class EditTaskModalComponent implements OnInit {
         title: new FormControl(this.task?.title),
         description: new FormControl(this.task?.description),
       });
+    });
+    this.editTaskServie.openEditModal$.subscribe((isEditTask) => {
+      this.isEditTask = isEditTask;
     });
   }
 
@@ -40,5 +45,6 @@ export class EditTaskModalComponent implements OnInit {
     };
     this.httpService.updateTask(this.task.boardId, this.task.columnId, this.task._id, resultTask)
       .subscribe((e) => this.editTaskServie.setTask(e));
+    this.editTaskServie.openEditMpdal(false);
   }
 }

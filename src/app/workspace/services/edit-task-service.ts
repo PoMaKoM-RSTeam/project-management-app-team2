@@ -9,7 +9,11 @@ import { TaskResponse } from 'src/app/core/models/project-manager.model';
 export class EditTaskServie {
   private task$$ = new Subject<TaskResponse>();
 
+  private openEditModal$$ = new Subject<boolean>();
+
   task$ = this.task$$.asObservable();
+
+  openEditModal$ = this.openEditModal$$.asObservable();
 
   getTask(task:TaskResponse) {
     return this.task$$.next(task);
@@ -17,5 +21,9 @@ export class EditTaskServie {
 
   setTask(task:TaskResponse) {
     return this.task$$.next(task);
+  }
+
+  openEditMpdal(isEditTask: boolean) {
+    return this.openEditModal$$.next(isEditTask);
   }
 }
