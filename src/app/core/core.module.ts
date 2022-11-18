@@ -13,6 +13,7 @@ import { HeaderProfileComponent } from './components/header-profile/header-profi
 // import { LogoutComponent } from '../auth/components/logout/logout.component';
 import { ZorroModule } from './zorro/zorro.module';
 import { LocalizationModule } from '../localization/localization.module';
+import { LogoTreeDComponent } from './components/logo-tree-d/logo-tree-d.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { LocalizationModule } from '../localization/localization.module';
     HeaderProfileComponent,
     // LogoutComponent,
     ConfirmationModalComponent,
+    LogoTreeDComponent,
   ],
   imports: [
     CommonModule,

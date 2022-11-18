@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.logo_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.glass {
+  width: 300px;
+  height: 180px;
+  position: relative;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-right: 2px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 2 px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 5px 45px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(2px);
+  overflow: hidden;
+  backdrop-filter: blur(2px);
+}
+
+.text_container {
+  width: 270px;
+  height: 150px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+  vertical-align: middle;
+}
+
+.glass:hover {
+  cursor: pointer;
+}
+
+.glass::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.4);
+  transform: skewX(45deg) translateX(380px);
+  transition: 0.5s;
+  filter: blur(2px);
+}
+
+.glass:hover::before {
+  transform: skewX(45deg) translateX(-140px);
+  cursor: pointer;
+}
+
+.project {
+  width: 270px;
+  height: 54px;
+  font-family: "Roboto";
+  font-weight: 700;
+  font-size: 56px;
+  background: -webkit-linear-gradient(0.95turn, #2265fe, #2ff8ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 54px;
+}
+
+.manager {
+  width: 270px;
+  height: 54px;
+  font-family: "Roboto";
+  font-weight: 700;
+  font-size: 56px;
+  background: -webkit-linear-gradient(0.95turn, #2265fe, #2ff8ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 10px;
+  line-height: 54px;
+}
+
+.line_up {
+  width: 270px;
+  height: 6px;
+  background: linear-gradient(0.25turn, #2265fe, #2ff8ff);
+}
+
+.line_down {
+  width: 270px;
+  height: 6px;
+  background: linear-gradient(0.25turn, #2265fe, #2ff8ff);
+}
+
+.logo {
+  width: 150px;
+  height: 150px;
+  background-image: url('./assets/images/favicon_logo_cube_resize.png');
+}
+
+.canvas {
+  width: 240px;
+  height: 240px;
+  background: transparent;
+}
