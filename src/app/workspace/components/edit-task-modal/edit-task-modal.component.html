@@ -12,9 +12,13 @@
                   </span>
                 </option>
               </select>
-              <div *ngFor="let userss of this.usersArray">
-                <span>{{userss}}</span>
-              </div>
+              <div class="users">
+                <span class="user"  *ngFor="let user of this.usersArray">
+                  <button class="btn-delete-user" type="button" (click)="removeUserTask(user)">X</button>
+                  <img src="assets/images/user-profile.svg" width="50px" alt="user-icon">
+                  {{user}}
+                </span>
+            </div>
             <button class="btn-save" type="button" (click)="editTask()">Save</button>
         </form>
     </div>

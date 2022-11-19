@@ -69,4 +69,9 @@ export class EditTaskModalComponent implements OnInit {
     }
     return this.usersArray.push(userText);
   }
+
+  removeUserTask(user: string) {
+    console.log(user, 'del');
+    this.usersArray = this.usersArray.filter((us) => us !== user);
+  }
 }
