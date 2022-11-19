@@ -85,5 +85,8 @@
   },
   "COLUMN": {
     "BUTTON": "Cоздать новую колонку"
+  },
+  "COMMENTS": {
+    "PLACEHOLDER": "Комментарии..."
   }
 }
