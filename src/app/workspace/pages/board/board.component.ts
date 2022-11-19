@@ -67,6 +67,8 @@ export class BoardComponent implements OnInit {
 
   boardIdForDelete = '';
 
+  users: string[] = [];
+
   constructor(
     public translate: TranslateService,
     private languageService: ChangeLanguageService,
@@ -102,9 +104,18 @@ export class BoardComponent implements OnInit {
           .getAllTasks(item.boardId, item._id)
           .subscribe((data) => {
             item.tasks! = data.sort((a, b) => a.order - b.order);
+            this.board?.users.forEach((user) => {
+              item.tasks?.forEach((task) => {
+                if (!task.users.includes(user)) {
+                  task.users.push(user);
+                  console.log(task.users, 'board');
+                }
+              });
+            });
           });
       });
     });
+
     this.navigationService.collaps.subscribe((data) => {
       this.isCollapsed = data;
     });
@@ -119,6 +130,8 @@ export class BoardComponent implements OnInit {
         });
       });
     });
+
+    this.httpService.getAllBoards().subscribe((e) => console.log(this.columns, e, 'asdas'));
   }
 
   drop(event: CdkDragDrop<ColumnResponse[]>) {

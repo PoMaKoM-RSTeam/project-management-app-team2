@@ -16,6 +16,8 @@ export class EditTaskModalComponent implements OnInit {
 
   isEditTask: boolean | null = null;
 
+  usersArray: string[] = [];
+
   constructor(
     private editTaskServie: EditTaskServie,
     private httpService: HTTPService,
@@ -27,7 +29,12 @@ export class EditTaskModalComponent implements OnInit {
       this.editFormTask = new FormGroup({
         title: new FormControl(this.task?.title),
         description: new FormControl(this.task?.description),
+        user: new FormControl('Выберите пользователя'),
       });
+      this.httpService.getTask(this.task.boardId, this.task.columnId, this.task._id)
+        .subscribe((e) => {
+          this.usersArray = e.users;
+        });
     });
     this.editTaskServie.openEditModal$.subscribe((isEditTask) => {
       this.isEditTask = isEditTask;
@@ -41,15 +48,25 @@ export class EditTaskModalComponent implements OnInit {
       description: this.editFormTask.value.description,
       columnId: this.task.columnId,
       userId: this.task.userId,
-      users: this.task.users,
+      users: this.usersArray,
     };
     this.httpService.updateTask(this.task.boardId, this.task.columnId, this.task._id, resultTask)
-      .subscribe((e) => this.editTaskServie.setTask(e));
+      .subscribe((e) => {
+        this.editTaskServie.setTask(e);
+      });
     this.editTaskServie.openEditMpdal(false);
   }
 
   closeEditTask() {
     this.editTaskServie.openEditMpdal(false);
     this.editFormTask.reset();
+  }
+
+  addUserTask() {
+    const userText = this.editFormTask.value.user;
+    if (this.usersArray.includes(userText)) {
+      return this.usersArray;
+    }
+    return this.usersArray.push(userText);
   }
 }
