@@ -1,7 +1,8 @@
 <div class="header__profile">
   <a nz-dropdown [nzDropdownMenu]="menu">
-    <span>{{userName}}</span>
-    <span nz-icon nzType="user" nzTheme="outline" style="color: #1890ff;"></span>
+
+    <app-user-logo *ngIf="userName" [userName]="userName"></app-user-logo>
+    <span nz-icon *ngIf="!userName" nzType="user" nzTheme="outline" style="color: #1890ff; font-size: 1.5rem"></span>
     <span nz-icon nzType="down"></span>
   </a>
   <nz-dropdown-menu #menu="nzDropdownMenu">
@@ -39,6 +40,5 @@
         (click)="logout()">{{'AUTH.LOGOUT' | translate}}</li>
     </ul>
   </nz-dropdown-menu>
-  <!-- kate4ka
-  <span nz-icon nzType="user" nzTheme="outline" style="color: #1890ff;"></span> -->
+
 </div>

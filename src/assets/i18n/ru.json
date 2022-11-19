@@ -34,7 +34,7 @@
   },
   "WORKSPACE": {
     "BOARD": "Доски",
-    "CREATE_BOARD":"Создать доску",
+    "CREATE_BOARD": "Создать доску",
     "DELETE": "Удалить",
     "CREATE": "Создать",
     "TITLE": "заголовок",
@@ -69,8 +69,8 @@
   },
   "COLUMN_MODAL": {
     "TITLE": "Название колонки",
-  "BUTTON": "Создать колонку",
-  "DESCRIPTION": "Описание"
+    "BUTTON": "Создать колонку",
+    "DESCRIPTION": "Описание"
   },
   "WELCOME": {
     "MULTIPLE_BOARDS": "Несколько досок",
@@ -80,5 +80,8 @@
   },
   "COLUMN": {
     "BUTTON": "Cоздать новую колонку"
+  },
+  "COMMENTS": {
+    "PLACEHOLDER": "Комментарии..."
   }
 }

@@ -80,5 +80,8 @@
   },
   "COLUMN": {
     "BUTTON": "Create new column"
+  },
+  "COMMENTS": {
+    "PLACEHOLDER": "Comments..."
   }
 }
