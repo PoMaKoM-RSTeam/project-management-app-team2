@@ -1,10 +1,18 @@
-<div class="edit-modal" *ngIf="isEditTask">
-    <form class="form-modal" [formGroup]="editFormTask" ngSubmit="editTask">
-        <input formControlName="title" type="text" value="{{task.title}}">
-        <input formControlName="description" type="text" value="{{task.description}}">
-        <div>пользователь
-            <span *ngFor="let user of task.users">{{user}}</span>
-        </div>
-        <button type="button" (click)="editTask()">Save</button>
-    </form>
+<div class="wrapper-edit-modal" *ngIf="isEditTask">
+    <div class="edit-modal">
+        <button class="btn-close" (click)="closeEditTask()">X</button>
+        <form class="form-modal" [formGroup]="editFormTask" ngSubmit="editTask">
+            <input class="input-edit" formControlName="title" type="text" value="{{task.title}}">
+            <input class="input-edit" formControlName="description" type="text" value="{{task.description}}">
+            <form>
+                <select  class="input-user" selected="selected">
+                  <option ngValue="Выберите пользователя" selected disabled>{{'WORKSPACE.USER_SELECTION' | translate}}</option>
+                  <option *ngFor="let user of task.users" selected  [ngValue]="user" >
+                    <span>{{user}}</span>
+                  </option>
+                </select>
+            </form>
+            <button class="btn-save" type="button" (click)="editTask()">Save</button>
+        </form>
+    </div>
 </div>

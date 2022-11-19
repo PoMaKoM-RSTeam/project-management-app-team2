@@ -47,4 +47,9 @@ export class EditTaskModalComponent implements OnInit {
       .subscribe((e) => this.editTaskServie.setTask(e));
     this.editTaskServie.openEditMpdal(false);
   }
+
+  closeEditTask() {
+    this.editTaskServie.openEditMpdal(false);
+    this.editFormTask.reset();
+  }
 }
