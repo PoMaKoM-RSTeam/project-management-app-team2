@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { PointResponse, StorageKeys, TaskResponse } from 'src/app/core/models/project-manager.model';
+import { PointResponse, TaskResponse } from 'src/app/core/models/project-manager.model';
 import { HTTPService } from 'src/app/core/services/http.service';
 import { TranslateService } from '@ngx-translate/core';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 @Component({
   selector: 'app-comments-block',
@@ -10,7 +11,7 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./comments-block.component.scss'],
 })
 export class CommentsBlockComponent implements OnInit {
-  userName: string | undefined = undefined;
+  userName: string = '';
 
   @Input() task!: TaskResponse;
 
@@ -24,16 +25,20 @@ export class CommentsBlockComponent implements OnInit {
     message: new FormControl('', Validators.required),
   });
 
-  constructor(private httpService: HTTPService, public translate: TranslateService) { }
+  constructor(
+    private httpService: HTTPService,
+    public translate: TranslateService,
+    private authService: AuthService,
+  ) { }
 
-  ngOnInit() {
-    this.userName = localStorage.getItem(StorageKeys.UserName)!;
-    this.userId = localStorage.getItem(StorageKeys.UserId)!;
+  ngOnInit(): void {
+    this.authService.userName$.subscribe((data) => { this.userName = data; });
+    this.authService.userId$.subscribe((data) => { this.userId = data; });
     this.httpService.getPointsByTaskId(this.task._id)
       .subscribe((data) => { this.comments = data; });
   }
 
-  onSubmit() {
+  onSubmit(): void {
     this.httpService.createPoint({
       title: `${this.commentForm.value.message}&${this.userId}`,
       taskId: this.task._id,
