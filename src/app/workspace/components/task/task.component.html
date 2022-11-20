@@ -1,6 +1,9 @@
 <div class="task" (click)="clickTask(task)">
   <h3 class="task__title">{{task.title}}</h3>
   <p class="task__description">{{task.description}}</p>
+  <div class="user-task">
+    <span *ngFor="let user of usersTask">{{user}}</span>
+  </div>
   <span nz-icon nzType="comment" nzTheme="outline" class="task__comments"></span>
 
   <button nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu" class="task__close-button">. . .</button>

@@ -11,9 +11,21 @@ export class EditTaskServie {
 
   private openEditModal$$ = new Subject<boolean>();
 
+  private taskData$$ = new Subject<any>();
+
   task$ = this.task$$.asObservable();
 
   openEditModal$ = this.openEditModal$$.asObservable();
+
+  taskData$ = this.taskData$$.asObservable();
+
+  getTaskData(idT:string, usersT: string[]) {
+    const taskData = {
+      id: idT,
+      users: usersT,
+    };
+    this.taskData$$.next(taskData);
+  }
 
   getTask(task:TaskResponse) {
     return this.task$$.next(task);

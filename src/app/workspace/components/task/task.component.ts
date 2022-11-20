@@ -1,5 +1,5 @@
 import {
-  Component, EventEmitter, Input, Output,
+  Component, EventEmitter, Input, OnInit, Output,
 } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { HTTPService } from '../../../core/services/http.service';
@@ -11,16 +11,31 @@ import { EditTaskServie } from '../../services/edit-task-service';
   templateUrl: './task.component.html',
   styleUrls: ['./task.component.scss'],
 })
-export class TaskComponent {
+export class TaskComponent implements OnInit {
   @Input() task!: TaskResponse;
 
   @Output() deleteTask = new EventEmitter<TaskResponse>();
+
+  usersTask: string[] = [];
 
   constructor(
     public translate: TranslateService,
     private httpService: HTTPService,
     private editTaskServie: EditTaskServie,
   ) { }
+
+  ngOnInit() {
+    this.httpService.getTask(this.task.boardId, this.task.columnId, this.task._id)
+      .subscribe((e) => {
+        this.usersTask = e.users.filter((user) => !this.usersTask.includes(user));
+      });
+
+    this.editTaskServie.taskData$.subscribe((e) => {
+      if (e.id === this.task._id) {
+        this.usersTask = e.users.filter((user:string) => !this.usersTask.includes(user));
+      }
+    });
+  }
 
   onDelete = () => {
     this.httpService.deleteTask(

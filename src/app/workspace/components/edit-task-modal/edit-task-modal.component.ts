@@ -34,6 +34,7 @@ export class EditTaskModalComponent implements OnInit {
       this.httpService.getTask(this.task.boardId, this.task.columnId, this.task._id)
         .subscribe((e) => {
           this.usersArray = e.users;
+          this.editTaskServie.getTaskData(e._id, e.users);
         });
     });
     this.editTaskServie.openEditModal$.subscribe((isEditTask) => {
@@ -59,7 +60,7 @@ export class EditTaskModalComponent implements OnInit {
 
   closeEditTask() {
     this.editTaskServie.openEditMpdal(false);
-    this.editFormTask.reset();
+    this.editTaskServie.getTaskData(this.task._id, this.usersArray);
   }
 
   addUserTask() {
@@ -71,7 +72,6 @@ export class EditTaskModalComponent implements OnInit {
   }
 
   removeUserTask(user: string) {
-    console.log(user, 'del');
     this.usersArray = this.usersArray.filter((us) => us !== user);
   }
 }
