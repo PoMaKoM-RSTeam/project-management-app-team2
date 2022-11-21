@@ -30,9 +30,9 @@ export class TaskComponent implements OnInit {
         this.usersTask = e.users.filter((user) => !this.usersTask.includes(user));
       });
 
-    this.editTaskServie.taskData$.subscribe((e) => {
-      if (e.id === this.task._id) {
-        this.usersTask = e.users.filter((user:string) => !this.usersTask.includes(user));
+    this.editTaskServie.taskSet$.subscribe((e) => {
+      if (this.task._id === e.id) {
+        this.usersTask = e.users;
       }
     });
   }

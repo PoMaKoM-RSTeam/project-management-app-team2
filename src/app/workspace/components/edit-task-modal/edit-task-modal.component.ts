@@ -31,17 +31,15 @@ export class EditTaskModalComponent implements OnInit {
         description: new FormControl(this.task?.description),
         user: new FormControl('Выберите пользователя'),
       });
+      this.usersArray = [];
       this.httpService.getTask(this.task.boardId, this.task.columnId, this.task._id)
         .subscribe((e) => {
           this.usersArray = e.users;
-          this.editTaskServie.getTaskData(e._id, e.users);
         });
     });
+
     this.editTaskServie.openEditModal$.subscribe((isEditTask) => {
       this.isEditTask = isEditTask;
-    });
-    this.editTaskServie.taskData$.subscribe((el) => {
-      this.usersArray = el.users.filter((e: any) => this.usersArray.includes(e));
     });
   }
 
@@ -56,14 +54,13 @@ export class EditTaskModalComponent implements OnInit {
     };
     this.httpService.updateTask(this.task.boardId, this.task.columnId, this.task._id, resultTask)
       .subscribe((e) => {
-        this.editTaskServie.setTask(e);
+        this.editTaskServie.setTask(e._id, e.users);
       });
     this.editTaskServie.openEditMpdal(false);
   }
 
   closeEditTask() {
     this.editTaskServie.openEditMpdal(false);
-    this.editTaskServie.getTaskData(this.task._id, this.usersArray);
   }
 
   addUserTask() {
