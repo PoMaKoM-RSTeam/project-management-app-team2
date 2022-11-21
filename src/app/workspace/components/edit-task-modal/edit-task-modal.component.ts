@@ -40,6 +40,9 @@ export class EditTaskModalComponent implements OnInit {
     this.editTaskServie.openEditModal$.subscribe((isEditTask) => {
       this.isEditTask = isEditTask;
     });
+    this.editTaskServie.taskData$.subscribe((el) => {
+      this.usersArray = el.users.filter((e: any) => this.usersArray.includes(e));
+    });
   }
 
   editTask() {
@@ -56,11 +59,13 @@ export class EditTaskModalComponent implements OnInit {
         this.editTaskServie.setTask(e);
       });
     this.editTaskServie.openEditMpdal(false);
+    this.usersArray = [];
   }
 
   closeEditTask() {
     this.editTaskServie.openEditMpdal(false);
     this.editTaskServie.getTaskData(this.task._id, this.usersArray);
+    this.usersArray = [];
   }
 
   addUserTask() {
