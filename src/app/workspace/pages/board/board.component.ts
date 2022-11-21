@@ -101,13 +101,6 @@ export class BoardComponent implements OnInit {
           .getAllTasks(item.boardId, item._id)
           .subscribe((data) => {
             item.tasks! = data.sort((a, b) => a.order - b.order);
-            this.board?.users.forEach((user) => {
-              item.tasks?.forEach((task) => {
-                if (!task.users.includes(user)) {
-                  task.users.push(user);
-                }
-              });
-            });
           });
       });
     });
@@ -122,6 +115,7 @@ export class BoardComponent implements OnInit {
           if (taskService._id === task._id) {
             task.title = taskService.title;
             task.description = taskService.description;
+            task.users = this.board!.users;
           }
         });
       });
