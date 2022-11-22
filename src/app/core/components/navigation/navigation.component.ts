@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth/services/auth.service';
+import { Router } from '@angular/router';
 import { NavigationService } from '../../services/navigation.service';
 
 @Component({
@@ -15,6 +16,7 @@ export class NavigationComponent implements OnInit {
   constructor(
     private navigationService: NavigationService,
     private isAuthService: AuthService,
+    public route: Router,
   ) { }
 
   ngOnInit() {

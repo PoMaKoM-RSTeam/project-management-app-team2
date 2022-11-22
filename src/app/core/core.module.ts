@@ -10,9 +10,10 @@ import { ConfirmationModalComponent } from './components/confirmation-modal/conf
 import { GlobalSearchComponent } from './components/global-search/global-search.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { HeaderProfileComponent } from './components/header-profile/header-profile.component';
-// import { LogoutComponent } from '../auth/components/logout/logout.component';
 import { ZorroModule } from './zorro/zorro.module';
 import { LocalizationModule } from '../localization/localization.module';
+import { UserLogoPipe } from './pipes/user-logo.pipe';
+import { UserLogoComponent } from './components/user-logo/user-logo.component';
 
 @NgModule({
   declarations: [
@@ -23,8 +24,9 @@ import { LocalizationModule } from '../localization/localization.module';
     ConfirmationModalComponent,
     GlobalSearchComponent,
     HeaderProfileComponent,
-    // LogoutComponent,
     ConfirmationModalComponent,
+    UserLogoPipe,
+    UserLogoComponent,
   ],
   imports: [
     CommonModule,
@@ -38,6 +40,8 @@ import { LocalizationModule } from '../localization/localization.module';
     HeaderComponent,
     FooterComponent,
     ConfirmationModalComponent,
+    UserLogoPipe,
+    UserLogoComponent,
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US },

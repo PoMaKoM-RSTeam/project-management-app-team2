@@ -17,6 +17,8 @@ import { CreateTaskModalComponent } from './components/create-task-modal/create-
 import { TaskComponent } from './components/task/task.component';
 import { CoreModule } from '../core/core.module';
 import { EditTaskModalComponent } from './components/edit-task-modal/edit-task-modal.component';
+import { CommentComponent } from './components/comment/comment.component';
+import { CommentsBlockComponent } from './components/comments-block/comments-block.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { EditTaskModalComponent } from './components/edit-task-modal/edit-task-m
     CreateTaskModalComponent,
     TaskComponent,
     EditTaskModalComponent,
+    CommentComponent,
+    CommentsBlockComponent,
   ],
   imports: [
     CommonModule,

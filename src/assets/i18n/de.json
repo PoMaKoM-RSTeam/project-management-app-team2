@@ -29,7 +29,8 @@
     "INCORRECT_PASSWORD": "Das Passwort ist falsch! Bitte überprüfen Sie das Passwort!",
     "LOGOUT": "Aussteigen",
     "LOGIN": "Autorisierter",
-    "EDIT_USER": "Benutzer bearbeiten"
+    "EDIT_USER": "Benutzer bearbeiten",
+    "DELETE_USER": "Benutzer löschen"
   },
   "WORKSPACE": {
     "BOARD": "Bretter",
@@ -79,5 +80,8 @@
   },
   "COLUMN": {
     "BUTTON": "Neue Spalte erstellen"
+  },
+  "COMMENTS": {
+    "PLACEHOLDER": "Kommentare..."
   }
 }

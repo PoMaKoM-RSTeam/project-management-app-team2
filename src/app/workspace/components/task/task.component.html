@@ -5,6 +5,7 @@
     <span *ngFor="let user of usersTask">{{user}}</span>
   </div>
   <span nz-icon nzType="comment" nzTheme="outline" class="task__comments"></span>
+  <app-comments-block [task]="task"></app-comments-block>
 
   <button nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu" class="task__close-button">. . .</button>
   <nz-dropdown-menu #menu="nzDropdownMenu">

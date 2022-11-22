@@ -29,7 +29,8 @@
     "INCORRECT_PASSWORD": "The password is incorrect! Please check the password!",
     "LOGOUT": "Logout",
     "LOGIN": "Login",
-    "EDIT_USER": "Edit user"
+    "EDIT_USER": "Edit user",
+    "DELETE_USER": "Delete user"
   },
   "WORKSPACE": {
     "BOARD": "Boards",
@@ -79,5 +80,8 @@
   },
   "COLUMN": {
     "BUTTON": "Create new column"
+  },
+  "COMMENTS": {
+    "PLACEHOLDER": "Comments..."
   }
 }
