@@ -83,5 +83,8 @@
   },
   "COMMENTS": {
     "PLACEHOLDER": "Comments..."
+  },
+  "TASK": {
+    "SAVE": "Save"
   }
 }
