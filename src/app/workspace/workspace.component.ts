@@ -2,10 +2,11 @@ import {
   Component, OnInit,
 } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { BoardResponse, SignUpResponse } from '../core/models/project-manager.model';
+import { BoardResponse, SignUpResponse, TaskResponse } from '../core/models/project-manager.model';
 import { ChangeLanguageService } from '../core/services/changeLanguage.service';
 import { HTTPService } from '../core/services/http.service';
 import { NavigationService } from '../core/services/navigation.service';
+import { SearchService } from '../core/services/search.service';
 import { CreateBoardService } from './services/create-board-services';
 import { GetUsersServices } from './services/get-users-services';
 
@@ -28,6 +29,10 @@ export class WorkSpaceComponent implements OnInit {
 
   navigationClose = false;
 
+  searchResults: TaskResponse[] | undefined;
+
+  searchString: string = '';
+
   constructor(
     public translate: TranslateService,
     private languageService: ChangeLanguageService,
@@ -35,6 +40,7 @@ export class WorkSpaceComponent implements OnInit {
     private httpService: HTTPService,
     private getUsersServices: GetUsersServices,
     private navigationService: NavigationService,
+    private searchService: SearchService,
   ) { }
 
   ngOnInit(): void {
@@ -49,6 +55,14 @@ export class WorkSpaceComponent implements OnInit {
     });
 
     this.navigationService.collaps.subscribe((data) => { this.navigationClose = data; });
+
+    this.searchService.results$.subscribe((searchResults) => {
+      this.searchResults = searchResults;
+    });
+
+    this.searchService.searchString$.subscribe((searchString) => {
+      this.searchString = searchString;
+    });
   }
 
   deleteBoard = () => {

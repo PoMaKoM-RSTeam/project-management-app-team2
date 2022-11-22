@@ -1,0 +1,9 @@
+<h2>Searching results: {{(searchResult | async)!.length}}</h2>
+<div class="search-results" *ngIf="searchResult" style="width: 100%">
+  <div *ngFor="let item of searchResult | async" class="search-item" style="width: 200px;">
+    <p><span>Title: </span> {{item.title}}</p>
+    <p><span>Description: </span> {{item.description.length < 71 ?  item.description:  (item.description| slice: 0: 70) + '...'}}</p>
+    <a  routerLink="/workspace/boards"
+    [queryParams]="{ id: item.boardId }">Go to board...</a>
+  </div>
+</div>

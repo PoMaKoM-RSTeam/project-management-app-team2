@@ -18,6 +18,7 @@ import { TaskComponent } from './components/task/task.component';
 import { CoreModule } from '../core/core.module';
 import { CommentComponent } from './components/comment/comment.component';
 import { CommentsBlockComponent } from './components/comments-block/comments-block.component';
+import { SearchResultsComponent } from './components/search-results/search-results.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { CommentsBlockComponent } from './components/comments-block/comments-blo
     TaskComponent,
     CommentComponent,
     CommentsBlockComponent,
+    SearchResultsComponent,
   ],
   imports: [
     CommonModule,

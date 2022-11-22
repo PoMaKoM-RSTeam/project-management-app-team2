@@ -101,10 +101,6 @@ export class BoardComponent implements OnInit {
             item.tasks! = data.sort((a, b) => a.order - b.order);
           });
       });
-
-      const colId: string[] = [];
-      this.columns.forEach((el) => colId.push(el._id));
-      this.httpService.getTasksSet(colId, this.userId, 'ffff').subscribe((data) => console.log('taskSet', data));
     });
     this.navigationService.collaps.subscribe((data) => {
       this.isCollapsed = data;
