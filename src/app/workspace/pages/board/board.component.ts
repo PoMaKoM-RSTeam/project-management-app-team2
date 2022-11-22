@@ -109,7 +109,7 @@ export class BoardComponent implements OnInit {
       this.isCollapsed = data;
     });
 
-    this.editTaskServie.task$.subscribe((taskService) => {
+    this.editTaskServie.taskData$.subscribe((taskService) => {
       this.columns.forEach((column) => {
         column.tasks?.forEach((task) => {
           if (taskService._id === task._id) {

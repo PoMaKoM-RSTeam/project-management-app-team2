@@ -1,4 +1,4 @@
-<div class="wrapper-edit-modal" *ngIf="isEditTask">
+<div class="wrapper-edit-modal" *ngIf="openEditTaskModal">
     <div class="edit-modal">
         <button class="btn-close" (click)="closeEditTask()">X</button>
         <form class="form-modal" [formGroup]="editFormTask">
@@ -13,7 +13,7 @@
                 </option>
               </select>
               <div class="users">
-                <span class="user"  *ngFor="let user of this.usersArray">
+                <span class="user"  *ngFor="let user of this.users">
                   <button class="btn-delete-user" type="button" (click)="removeUserTask(user)">X</button>
                   <img src="assets/images/user-profile.svg" width="50px" alt="user-icon">
                   {{user}}

@@ -14,9 +14,9 @@ export class EditTaskModalComponent implements OnInit {
 
   editFormTask!: FormGroup;
 
-  isEditTask: boolean | null = null;
+  openEditTaskModal: boolean | null = null;
 
-  usersArray: string[] = [];
+  users: string[] = [];
 
   constructor(
     private editTaskServie: EditTaskServie,
@@ -24,22 +24,22 @@ export class EditTaskModalComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.editTaskServie.task$.subscribe((task) => {
+    this.editTaskServie.taskData$.subscribe((task) => {
       this.task = task;
       this.editFormTask = new FormGroup({
         title: new FormControl(this.task?.title),
         description: new FormControl(this.task?.description),
         user: new FormControl('Выберите пользователя'),
       });
-      this.usersArray = [];
+      this.users = [];
       this.httpService.getTask(this.task.boardId, this.task.columnId, this.task._id)
-        .subscribe((e) => {
-          this.usersArray = e.users;
+        .subscribe((taskData) => {
+          this.users = taskData.users;
         });
     });
 
-    this.editTaskServie.openEditModal$.subscribe((isEditTask) => {
-      this.isEditTask = isEditTask;
+    this.editTaskServie.openEditTaskModal$.subscribe((openEditTaskModal) => {
+      this.openEditTaskModal = openEditTaskModal;
     });
   }
 
@@ -50,29 +50,30 @@ export class EditTaskModalComponent implements OnInit {
       description: this.editFormTask.value.description,
       columnId: this.task.columnId,
       userId: this.task.userId,
-      users: this.usersArray,
+      users: this.users,
     };
     this.httpService.updateTask(this.task.boardId, this.task.columnId, this.task._id, resultTask)
-      .subscribe((e) => {
-        this.editTaskServie.setTask(e._id, e.users);
+      .subscribe((taskData) => {
+        this.editTaskServie.getTaskIdUsers(taskData._id, taskData.users);
       });
-    this.editTaskServie.openEditMpdal(false);
+    return this.editTaskServie.openEditTaskModal(false);
   }
 
   closeEditTask() {
-    this.editTaskServie.openEditMpdal(false);
-    this.editFormTask.reset();
+    this.editTaskServie.openEditTaskModal(false);
+    return this.editFormTask.reset();
   }
 
   addUserTask() {
-    const userText = this.editFormTask.value.user;
-    if (this.usersArray.includes(userText)) {
-      return this.usersArray;
+    const userForm = this.editFormTask.value.user;
+    if (this.users.includes(userForm)) {
+      return this.users;
     }
-    return this.usersArray.push(userText);
+    return this.users.push(userForm);
   }
 
   removeUserTask(user: string) {
-    this.usersArray = this.usersArray.filter((us) => us !== user);
+    this.users = this.users.filter((userTask) => userTask !== user);
+    return this.users;
   }
 }

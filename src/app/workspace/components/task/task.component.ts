@@ -26,13 +26,13 @@ export class TaskComponent implements OnInit {
 
   ngOnInit() {
     this.httpService.getTask(this.task.boardId, this.task.columnId, this.task._id)
-      .subscribe((e) => {
-        this.usersTask = e.users.filter((user) => !this.usersTask.includes(user));
+      .subscribe((taskData) => {
+        this.usersTask = taskData.users.filter((user) => !this.usersTask.includes(user));
       });
 
-    this.editTaskServie.taskSet$.subscribe((e) => {
-      if (this.task._id === e.id) {
-        this.usersTask = e.users;
+    this.editTaskServie.taskUserId$.subscribe((taskData) => {
+      if (this.task._id === taskData.id) {
+        this.usersTask = taskData.users;
       }
     });
   }
@@ -45,8 +45,8 @@ export class TaskComponent implements OnInit {
     ).subscribe((data) => this.deleteTask.emit(data));
   };
 
-  clickTask(task:any) {
-    this.editTaskServie.getTask(task);
-    this.editTaskServie.openEditMpdal(true);
+  clickTask(taskData: TaskResponse) {
+    this.editTaskServie.getTaskData(taskData);
+    this.editTaskServie.openEditTaskModal(true);
   }
 }
