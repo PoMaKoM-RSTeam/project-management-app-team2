@@ -1,8 +1,10 @@
-<div class="task" (click)="clickTask(task)">
-  <h3 class="task__title">{{task.title}}</h3>
-  <p class="task__description">{{task.description}}</p>
-  <div class="user-task">
-    <span *ngFor="let user of usersTask">{{user}}</span>
+<div class="task">
+  <div class="task__info" (click)="clickTask(task)">
+    <h3 class="task__title">{{task.title}}</h3>
+    <p class="task__description">{{task.description}}</p>
+    <div class="task__user">
+      <span class="user" *ngFor="let user of usersTask">{{user[0] | uppercase}}</span>
+    </div>
   </div>
   <span nz-icon nzType="comment" nzTheme="outline" class="task__comments"></span>
   <app-comments-block [task]="task"></app-comments-block>
