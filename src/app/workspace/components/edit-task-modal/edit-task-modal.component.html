@@ -1,25 +1,29 @@
 <div class="wrapper-edit-modal" *ngIf="openEditTaskModal">
-    <div class="edit-modal">
-        <button class="btn-close" (click)="closeEditTask()">X</button>
-        <form class="form-modal" [formGroup]="editFormTask">
-            <input class="input-edit" formControlName="title" type="text" value="{{task.title}}">
-            <input class="input-edit" formControlName="description" type="text" value="{{task.description}}">
-            <select  class="input-user" formControlName="user" selected="selected" (change)="addUserTask()">
-                <option ngValue="Выберите пользователя" selected disabled>{{'WORKSPACE.USER_SELECTION' | translate}}</option>
-                <option *ngFor="let user of task.users" selected  [ngValue]="user" >
-                  <span (change)="addUserTask()">
-                    {{ user }}
-                  </span>
-                </option>
-              </select>
-              <div class="users">
-                <span class="user"  *ngFor="let user of this.users">
-                  <button class="btn-delete-user" type="button" (click)="removeUserTask(user)">X</button>
-                  <img src="assets/images/user-profile.svg" width="50px" alt="user-icon">
-                  {{user}}
-                </span>
-            </div>
-            <button class="btn-save" type="button" (click)="editTask()">Save</button>
-        </form>
-    </div>
+  <div class="edit-modal">
+    <button class="btn-close" (click)="closeEditTask()">X</button>
+    <form class="form-modal" [formGroup]="editFormTask">
+      <textarea class="input-edit" name="description" wrap="soft" cols="5" rows="3"
+        formControlName="title" type="text" value="{{task.title}}">
+      </textarea>
+      <textarea class="input-edit" name="description" wrap="soft" cols="5" rows="3"
+        formControlName="description" type="text" value="{{task.description}}">
+      </textarea>
+      <select  class="input-user" formControlName="user" selected="selected" (change)="addUserTask()">
+        <option ngValue="Выберите пользователя" selected disabled>{{'WORKSPACE.USER_SELECTION' | translate}}</option>
+        <option *ngFor="let user of task.users" selected  [ngValue]="user" >
+          <span (change)="addUserTask()">
+            {{ user }}
+          </span>
+        </option>
+      </select>
+      <div class="users">
+        <span class="user"  *ngFor="let user of this.users">
+          <button class="btn-delete-user" type="button" (click)="removeUserTask(user)">X</button>
+          <img src="assets/images/user-profile.svg" width="50px" alt="user-icon">
+          {{user}}
+        </span>
+      </div>
+      <button class="btn-save" type="button" (click)="editTask()">{{'TASK.SAVE' | translate}}</button>
+    </form>
+  </div>
 </div>
