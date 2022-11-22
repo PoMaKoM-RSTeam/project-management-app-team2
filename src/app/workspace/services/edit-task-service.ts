@@ -13,8 +13,6 @@ export class EditTaskServie {
 
   private openEditModal$$ = new Subject<boolean>();
 
-  private taskData$$ = new Subject<any>();
-
   private users$$ = new BehaviorSubject<string[]>([]);
 
   task$ = this.task$$.asObservable();
@@ -23,17 +21,7 @@ export class EditTaskServie {
 
   openEditModal$ = this.openEditModal$$.asObservable();
 
-  taskData$ = this.taskData$$.asObservable();
-
   users$ = this.users$$.asObservable();
-
-  getTaskData(idT:string, usersT: string[]) {
-    const taskData = {
-      id: idT,
-      users: usersT,
-    };
-    this.taskData$$.next(taskData);
-  }
 
   getTask(task:TaskResponse) {
     return this.task$$.next(task);
