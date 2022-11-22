@@ -55,7 +55,9 @@ export class EditTaskModalComponent implements OnInit {
     this.httpService.updateTask(this.task.boardId, this.task.columnId, this.task._id, resultTask)
       .subscribe((taskData) => {
         this.editTaskServie.getTaskIdUsers(taskData._id, taskData.users);
+        this.editTaskServie.getTaskData(taskData);
       });
+
     return this.editTaskServie.openEditTaskModal(false);
   }
 
