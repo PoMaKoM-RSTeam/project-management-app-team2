@@ -88,5 +88,12 @@
   },
   "COMMENTS": {
     "PLACEHOLDER": "Comments..."
+  },
+  "SEARCH": {
+    "RESULTS": "Search results",
+    "TITLE": "Title",
+    "DESCRIPTION": "Description",
+    "LINK": "Go to board...",
+    "CLEAN": "Clear results"
   }
 }

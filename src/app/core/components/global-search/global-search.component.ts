@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { debounceTime, distinctUntilChanged } from 'rxjs';
 import { AuthService } from 'src/app/auth/services/auth.service';
+import { TranslateService } from '@ngx-translate/core';
 import { HTTPService } from '../../services/http.service';
 import { SearchService } from '../../services/search.service';
 
@@ -22,6 +23,7 @@ export class GlobalSearchComponent implements OnInit {
     private httpService: HTTPService,
     private searchService: SearchService,
     private authService: AuthService,
+    public translate: TranslateService,
   ) { }
 
   ngOnInit(): void {
@@ -34,8 +36,7 @@ export class GlobalSearchComponent implements OnInit {
     });
 
     this.validateForm.get('search')!.valueChanges.pipe(
-      /*       filter((item: string) => item!.length >= 2), */
-      debounceTime(500),
+      debounceTime(800),
       distinctUntilChanged(),
     ).subscribe((searchString: string) => {
       this.searchService.updateSearchData(searchString);

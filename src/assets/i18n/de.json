@@ -88,5 +88,12 @@
   },
   "COMMENTS": {
     "PLACEHOLDER": "Kommentare..."
+  },
+  "SEARCH": {
+    "RESULTS": "Suchergebnisse",
+    "TITLE": "Titel",
+    "DESCRIPTION": "Beschreibung",
+    "LINK": "Zur Tafel gehen...",
+    "CLEAN": "Klare Ergebnisse"
   }
 }

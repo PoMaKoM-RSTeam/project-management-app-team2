@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { SearchService } from 'src/app/core/services/search.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-search-results',
@@ -9,5 +10,5 @@ import { SearchService } from 'src/app/core/services/search.service';
 export class SearchResultsComponent {
   searchResult = this.searchService.getSearchResult();
 
-  constructor(private searchService: SearchService) { }
+  constructor(private searchService: SearchService, public translate: TranslateService) { }
 }
