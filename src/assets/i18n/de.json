@@ -72,6 +72,11 @@
     "BUTTON": "Spalte erstellen",
     "DESCRIPTION": "Beschreibung"
   },
+  "TASK_MODAL": {
+    "TITLE": "Titel der Aufgabe",
+    "BUTTON": "Aufgabe erstellen",
+    "DESCRIPTION": "Beschreibung"
+  },
   "WELCOME": {
     "MULTIPLE_BOARDS": "Mehrere Boards",
     "DRAG_AND_DROP": "Drag and drop",
@@ -83,5 +88,12 @@
   },
   "COMMENTS": {
     "PLACEHOLDER": "Kommentare..."
+  },
+  "SEARCH": {
+    "RESULTS": "Suchergebnisse",
+    "TITLE": "Titel",
+    "DESCRIPTION": "Beschreibung",
+    "LINK": "Zur Tafel gehen...",
+    "CLEAN": "Klare Ergebnisse"
   }
 }
