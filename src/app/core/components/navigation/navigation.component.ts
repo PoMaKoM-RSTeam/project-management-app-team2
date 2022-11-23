@@ -13,6 +13,8 @@ export class NavigationComponent implements OnInit {
 
   isAuth: boolean | null = null;
 
+  url: string = '';
+
   constructor(
     private navigationService: NavigationService,
     private isAuthService: AuthService,
@@ -22,6 +24,9 @@ export class NavigationComponent implements OnInit {
   ngOnInit() {
     this.isAuthService.isAuthorized$.subscribe((e) => {
       this.isAuth = e;
+    });
+    this.navigationService.navUrl.subscribe((url) => {
+      this.url = url;
     });
   }
 

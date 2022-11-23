@@ -72,8 +72,13 @@
     "BUTTON": "Создать колонку",
     "DESCRIPTION": "Описание"
   },
+  "TASK_MODAL": {
+    "TITLE": "Название задачи",
+    "BUTTON": "Создать задачу",
+    "DESCRIPTION": "Описание"
+  },
   "WELCOME": {
-    "MULTIPLE_BOARDS": "Несколько досок",
+    "MULTIPLE_BOARDS": "Неограниченное количество досок",
     "DRAG_AND_DROP": "Drag and drop",
     "EASY_TO_USE": "Простота в использовании",
     "WILCOME_TITLE": "Получите <span> наилучший опыт</span> в управлении вашим проектом"
@@ -86,5 +91,12 @@
   },
   "TASK": {
     "SAVE": "Сохранить"
+  },
+  "SEARCH": {
+    "RESULTS": "Результаты поиска",
+    "TITLE": "Название",
+    "DESCRIPTION": "Описание",
+    "LINK": "Перейти к доске...",
+    "CLEAN": "Очистить результаты"
   }
 }
