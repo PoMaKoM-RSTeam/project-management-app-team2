@@ -1,0 +1,9 @@
+<h2>{{'SEARCH.RESULTS' | translate}}: {{(searchResult | async)!.length}}</h2>
+<div class="search-results" *ngIf="searchResult" style="width: 100%">
+  <div *ngFor="let item of searchResult | async" class="search-item" style="width: 200px;">
+    <p><span>{{'SEARCH.TITLE' | translate}}: </span> {{item.title}}</p>
+    <p><span>{{'SEARCH.DESCRIPTION' | translate}}: </span> {{item.description.length < 71 ?  item.description:  (item.description| slice: 0: 70) + '...'}}</p>
+    <a  routerLink="/workspace/boards"
+    [queryParams]="{ id: item.boardId }">{{'SEARCH.LINK' | translate}}</a>
+  </div>
+</div>

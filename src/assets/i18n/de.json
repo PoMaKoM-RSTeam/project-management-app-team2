@@ -72,6 +72,11 @@
     "BUTTON": "Spalte erstellen",
     "DESCRIPTION": "Beschreibung"
   },
+  "TASK_MODAL": {
+    "TITLE": "Titel der Aufgabe",
+    "BUTTON": "Aufgabe erstellen",
+    "DESCRIPTION": "Beschreibung"
+  },
   "WELCOME": {
     "MULTIPLE_BOARDS": "Mehrere Boards",
     "DRAG_AND_DROP": "Drag and drop",
@@ -81,9 +86,21 @@
   "COLUMN": {
     "BUTTON": "Neue Spalte erstellen"
   },
+<<<<<<< HEAD
   "ERRORS": {
     "BOARDS": "Dieses Board wurde wahrscheinlich entfernt.",
     "TASK": "Dieses Problem wurde wahrscheinlich gelöscht.",
     "AUTH": "Das Token ist abgelaufen. Neuautorisierung erforderlich"
+=======
+  "COMMENTS": {
+    "PLACEHOLDER": "Kommentare..."
+  },
+  "SEARCH": {
+    "RESULTS": "Suchergebnisse",
+    "TITLE": "Titel",
+    "DESCRIPTION": "Beschreibung",
+    "LINK": "Zur Tafel gehen...",
+    "CLEAN": "Klare Ergebnisse"
+>>>>>>> c55e394518d0d02f7a9cc9db7d8e7a6e907dbf5c
   }
 }

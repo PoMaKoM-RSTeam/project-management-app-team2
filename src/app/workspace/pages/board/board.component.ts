@@ -241,7 +241,7 @@ export class BoardComponent implements OnInit {
   }
 
   createTask(task: TaskResponse) {
-    this.columns.find((el) => el._id === task.columnId)?.tasks?.push(task);
+    this.columns.find((el) => el._id === task.columnId)!.tasks!.push(task);
   }
 
   isModalTaskOpen(bool: boolean) {

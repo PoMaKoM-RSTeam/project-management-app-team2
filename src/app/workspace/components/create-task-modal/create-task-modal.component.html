@@ -1,9 +1,9 @@
 
   <div class="modal">
     <form class="modal__form" [formGroup]="modalForm" (ngSubmit)="onSubmit()" autofocus>
-      <input type="text" formControlName="title" class="modal__input" autofocus placeholder="{{('COLUMN_MODAL.TITLE' | translate)}}"/>
-      <input type="text" formControlName="description" class="modal__input" autofocus placeholder="{{('COLUMN_MODAL.DESCRIPTION' | translate)}}"/>
-      <button class="modal__button" type="submit">{{"COLUMN_MODAL.BUTTON" | translate }}</button>
+      <input type="text" formControlName="title" class="modal__input" autofocus placeholder="{{('TASK_MODAL.TITLE' | translate)}}"/>
+      <input type="text" formControlName="description" class="modal__input" autofocus placeholder="{{('TASK_MODAL.DESCRIPTION' | translate)}}"/>
+      <button class="modal__button" type="submit">{{"TASK_MODAL.BUTTON" | translate }}</button>
     </form>
 
     <span

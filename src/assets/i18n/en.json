@@ -72,6 +72,11 @@
     "BUTTON": "Create column",
     "DESCRIPTION": "Description"
   },
+  "TASK_MODAL": {
+    "TITLE": "Task title",
+    "BUTTON": "Create task",
+    "DESCRIPTION": "Description"
+  },
   "WELCOME": {
     "MULTIPLE_BOARDS": "Multiple boards",
     "DRAG_AND_DROP": "Drag and drop",
@@ -81,9 +86,21 @@
   "COLUMN": {
     "BUTTON": "Create new column"
   },
+<<<<<<< HEAD
   "ERRORS": {
     "BOARDS": "This board has probably been removed.",
     "TASK": "This issue has probably been deleted.",
     "AUTH": "The token has expired. Reauthorization required"
+=======
+  "COMMENTS": {
+    "PLACEHOLDER": "Comments..."
+  },
+  "SEARCH": {
+    "RESULTS": "Search results",
+    "TITLE": "Title",
+    "DESCRIPTION": "Description",
+    "LINK": "Go to board...",
+    "CLEAN": "Clear results"
+>>>>>>> c55e394518d0d02f7a9cc9db7d8e7a6e907dbf5c
   }
 }
