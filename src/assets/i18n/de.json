@@ -80,5 +80,10 @@
   },
   "COLUMN": {
     "BUTTON": "Neue Spalte erstellen"
+  },
+  "ERRORS": {
+    "BOARDS": "Dieses Board wurde wahrscheinlich entfernt.",
+    "TASK": "Dieses Problem wurde wahrscheinlich gelöscht.",
+    "AUTH": "Das Token ist abgelaufen. Neuautorisierung erforderlich"
   }
 }

@@ -1,6 +1,23 @@
-<div *ngIf="!board" class="spinner">
+<div *ngIf="!board && isBoardIdCorrect" class="spinner">
   <nz-spin nzSimple></nz-spin>
 </div>
+<nz-result
+  *ngIf="!isBoardIdCorrect"
+  class="error-massage"
+  nzStatus="404"
+  nzTitle="404"
+  nzSubTitle="{{'ERRORS.BOARDS' | translate}}"
+>
+  <div nz-result-extra>
+    <button
+      nz-button
+      nzType="primary"
+      routerLink="/workspace"
+    >
+      {{"AUTH.BACK" | translate}}
+    </button>
+  </div>
+</nz-result>
 <section *ngIf="board" class="board">
   <h1 class="board__title">{{ board.title }}</h1>
   <div

@@ -4,8 +4,9 @@ import {
   HttpHandler,
   HttpEvent,
   HttpInterceptor,
+  HttpErrorResponse,
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ChangeLanguageService } from '../../core/services/changeLanguage.service';
 import { StorageKeys } from '../../core/models/project-manager.model';
@@ -31,6 +32,14 @@ export class TokenInterceptor implements HttpInterceptor {
       url: `${environment.PATH}${request.url}`,
       headers: request.headers.set('Authorization', `Bearer ${token}`),
     });
-    return next.handle(replacedAuthRequest);
+    return next.handle(replacedAuthRequest)
+      .pipe(
+        catchError((err) => {
+          if (err instanceof HttpErrorResponse && err.status === 401) {
+            console.warn('token expired');
+          }
+          return throwError(err);
+        }),
+      );
   }
 }

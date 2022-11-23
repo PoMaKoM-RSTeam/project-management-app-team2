@@ -28,6 +28,8 @@ import {
   styleUrls: ['./board.component.scss'],
 })
 export class BoardComponent implements OnInit {
+  isBoardIdCorrect = true;
+
   board: BoardResponse | undefined;
 
   title!: string;
@@ -88,8 +90,14 @@ export class BoardComponent implements OnInit {
       const data = param['id'];
       this.param = data;
     });
-    this.httpService.getBoardById(this.param).subscribe((board) => {
-      this.board = board;
+    this.httpService.getBoardById(this.param).subscribe({
+      next: (board) => {
+        this.board = board;
+      },
+      error: () => {
+        this.board = undefined;
+        this.isBoardIdCorrect = false;
+      },
     });
 
     this.httpService.getAllColumns(this.param).subscribe((columns) => {
@@ -192,6 +200,7 @@ export class BoardComponent implements OnInit {
             order: data.order,
             boardId: data.boardId,
             _id: data._id,
+            tasks: [],
           });
         });
       this.snowModal = false;
@@ -239,12 +248,11 @@ export class BoardComponent implements OnInit {
     this.isCreateTaskModalOpen = bool;
   }
 
-
   deleteTask(task: TaskResponse) {
     this.columns.forEach((item) => {
       item.tasks = item.tasks!.filter((el) => el._id !== task._id);
     });
-  }  
+  }
 
   defineColumnId(id: string) {
     this.boardIdForDelete = id;
