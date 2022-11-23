@@ -27,7 +27,7 @@ export class WorkSpaceComponent implements OnInit {
 
   boardIdForDelete = '';
 
-  navigationClose = false;
+  isNavigationClose = false;
 
   searchResults: TaskResponse[] | undefined;
 
@@ -54,7 +54,7 @@ export class WorkSpaceComponent implements OnInit {
       this.boards.push(boards);
     });
 
-    this.navigationService.collaps.subscribe((data) => { this.navigationClose = data; });
+    this.navigationService.collaps.subscribe((data) => { this.isNavigationClose = data; });
 
     this.searchService.results$.subscribe((searchResults) => {
       this.searchResults = searchResults;
