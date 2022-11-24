@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        this.showSearch = event.url.includes('workspace');
+        this.showSearch = event.url.includes('workspace') && !event.url.includes('board');
         this.navigationService.updateUrl(event.url);
       }
     });

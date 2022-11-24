@@ -14,6 +14,7 @@ import { ChangeLanguageService } from 'src/app/core/services/changeLanguage.serv
 import { HTTPService } from 'src/app/core/services/http.service';
 import { NzModalService } from 'ng-zorro-antd/modal';
 import { ActivatedRoute } from '@angular/router';
+
 import { NavigationService } from 'src/app/core/services/navigation.service';
 import {
   FormControl,
@@ -65,6 +66,8 @@ export class BoardComponent implements OnInit {
   userId = '';
 
   boardIdForDelete = '';
+
+  isFilterOpen = false;
 
   constructor(
     public translate: TranslateService,
@@ -248,5 +251,10 @@ export class BoardComponent implements OnInit {
 
   defineColumnId(id: string) {
     this.boardIdForDelete = id;
+  }
+
+  onFilterPush() {
+    this.isFilterOpen = !this.isFilterOpen;
+    console.log(this.isFilterOpen);
   }
 }

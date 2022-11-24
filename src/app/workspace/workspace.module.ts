@@ -19,6 +19,7 @@ import { CoreModule } from '../core/core.module';
 import { CommentComponent } from './components/comment/comment.component';
 import { CommentsBlockComponent } from './components/comments-block/comments-block.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
+import { FilterWindowComponent } from './components/filter-window/filter-window.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { SearchResultsComponent } from './components/search-results/search-resul
     CommentComponent,
     CommentsBlockComponent,
     SearchResultsComponent,
+    FilterWindowComponent,
   ],
   imports: [
     CommonModule,

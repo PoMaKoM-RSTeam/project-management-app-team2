@@ -3,6 +3,8 @@
   <nz-spin nzSimple></nz-spin>
 </div>
 <section *ngIf="board" class="board">
+  <button class="board__filter" (click)="onFilterPush()"><span class="board__filter-icon" nz-icon nzType="filter" nzTheme="outline"></span></button>
+  <app-filter-window class="board__filter-options" *ngIf="isFilterOpen"></app-filter-window>
   <h1 class="board__title">{{ board.title }}</h1>
   <div
     class="board__columns"
