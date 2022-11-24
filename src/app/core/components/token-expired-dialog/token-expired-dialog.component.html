@@ -1,0 +1,15 @@
+    <nz-modal
+      [(nzVisible)]="isDialogVisible"
+      nzTitle="{{'ERRORS.AUTH_TITLE' | translate}}"
+      nzOkText="{{'AUTH.LOGIN' | translate}}"
+      nzCancelText="{{'AUTH.LOGOUT' | translate}}"
+      nzOkDanger="true"
+      nzAutofocus="cancel"
+      nzClassName = "token-expired-modal"
+      (nzOnCancel)="redirectToWelcomePage()"
+      (nzOnOk)="redirectToLogin()"
+      nzCentered>
+      <ng-container *nzModalContent>
+        <p><span nz-icon nzType="exclamation-circle" nzTheme="outline" style="color: orange; font-size: 2rem; margin-right: 3px;"></span> {{'ERRORS.AUTH' | translate}}</p>
+      </ng-container>
+    </nz-modal>

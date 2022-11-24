@@ -86,12 +86,12 @@
   "COLUMN": {
     "BUTTON": "Neue Spalte erstellen"
   },
-<<<<<<< HEAD
   "ERRORS": {
     "BOARDS": "Dieses Board wurde wahrscheinlich entfernt.",
     "TASK": "Dieses Problem wurde wahrscheinlich gelöscht.",
-    "AUTH": "Das Token ist abgelaufen. Neuautorisierung erforderlich"
-=======
+    "AUTH": "Das Token ist abgelaufen. Neuautorisierung erforderlich",
+    "AUTH_TITLE": "Autorisierung fehlgeschlagen"
+  },
   "COMMENTS": {
     "PLACEHOLDER": "Kommentare..."
   },
@@ -101,6 +101,5 @@
     "DESCRIPTION": "Beschreibung",
     "LINK": "Zur Tafel gehen...",
     "CLEAN": "Klare Ergebnisse"
->>>>>>> c55e394518d0d02f7a9cc9db7d8e7a6e907dbf5c
   }
 }

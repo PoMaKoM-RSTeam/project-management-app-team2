@@ -86,12 +86,12 @@
   "COLUMN": {
     "BUTTON": "Create new column"
   },
-<<<<<<< HEAD
   "ERRORS": {
     "BOARDS": "This board has probably been removed.",
     "TASK": "This issue has probably been deleted.",
-    "AUTH": "The token has expired. Reauthorization required"
-=======
+    "AUTH": "The token has expired. Reauthorization required",
+    "AUTH_TITLE": "Authorization failed"
+  },
   "COMMENTS": {
     "PLACEHOLDER": "Comments..."
   },
@@ -101,6 +101,5 @@
     "DESCRIPTION": "Description",
     "LINK": "Go to board...",
     "CLEAN": "Clear results"
->>>>>>> c55e394518d0d02f7a9cc9db7d8e7a6e907dbf5c
   }
 }
