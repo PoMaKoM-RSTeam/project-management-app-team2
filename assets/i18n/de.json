@@ -1,0 +1,105 @@
+{
+  "HOME": {
+    "SELECT": "Sprache ändern"
+  },
+  "NAV": {
+    "WELCOME": "Willkommensseite",
+    "AUTHORIZATION": "Autorisierung",
+    "WORKSPACE": "Arbeitsbereich",
+    "PROFILE": "Profil"
+  },
+  "AUTH": {
+    "NAME": "Benutzername",
+    "USER_LOGIN": "Anmeldung",
+    "PASSWORD": "Passwort",
+    "REQUIRED_NAME": "Bitte geben Sie Ihren Benutzernamen ein!",
+    "MIN_LENGTH_NAME": "Der Benutzername muss mindestens 6 Zeichen lang sein!",
+    "MIN_LENGTH_PASSWORD": "Das Passwort muss mindestens 8 Zeichen lang sein!",
+    "PASSWORD_UPPERCASE": "Das Passwort muss Großbuchstaben enthalten!",
+    "PASSWORD_LOWERCASE": "Das Passwort muss Kleinbuchstaben enthalten!",
+    "PASSWORD_NUMBER": "Das Passwort muss Ziffern enthalten!",
+    "PASSWORD_CHARACTERS": "Das Passwort muss Zeichen enthalten: z.B., ! @ # ? ]!",
+    "BACK": "Zurück",
+    "EMAIL": "E-Mail-Adresse",
+    "CONFIRM_PASSWORD": "Passwort bestätigen",
+    "ENTER_EMAIL": "Bitte geben Sie Ihre E-Mail-Adresse ein!",
+    "ERROR_EMAIL": "Bitte geben Sie eine gültige E-Mail-Adresse an!",
+    "REGISTRATION": "Registrierung",
+    "CHECK_PASSWORD": "Bitte, bestätigen Sie das Passwort!",
+    "INCORRECT_PASSWORD": "Das Passwort ist falsch! Bitte überprüfen Sie das Passwort!",
+    "LOGOUT": "Aussteigen",
+    "LOGIN": "Autorisierter",
+    "EDIT_USER": "Benutzer bearbeiten",
+    "DELETE_USER": "Benutzer löschen"
+  },
+  "WORKSPACE": {
+    "BOARD": "Bretter",
+    "CREATE_BOARD": "Board erstellen",
+    "DELETE": "Entfernen",
+    "CREATE": "Schaffen",
+    "TITLE": "titel",
+    "OWNER": "eigentümer",
+    "USERS": "benutzer",
+    "USER_SELECTION": "Wählen Sie einen Benutzer aus"
+  },
+  "FOOTER": {
+    "TEAM": "Unser Team:"
+  },
+  "BOARD": {
+    "CREATE": "Neues Board erstellen",
+    "ADD_CARD": "Karte hinzufügen",
+    "REQUIRED_INPUT": "Bitte Titel eingeben!",
+    "REQUIRED_MAX_VALUE": "maximale Länge 15 Zeichen"
+  },
+  "MODAL": {
+    "TITLE": "Sind Sie sicher, dass Sie diese Spalte löschen?",
+    "SUB_TITLE": "Diese Aktion kann nicht rückgängig gemacht werden",
+    "CONFIRM": "Ja",
+    "CANCEL": "Nein"
+  },
+  "CONFIRMATION_FORM": {
+    "BUTTON_NAME": "Löschen",
+    "TITLE": "Löschbestätigung",
+    "TEXT_DELETE_USER": "Möchten Sie den aktuellen Benutzer wirklich löschen?",
+    "TEXT_DELETE_BOARD": "Möchten Sie das aktuelle Board wirklich löschen?",
+    "TEXT_DELETE_COLUMN": "Möchten Sie die aktuelle Spalte wirklich löschen?",
+    "TEXT_DELETE_TASK": "Möchten Sie die aktuelle Aufgabe wirklich löschen?",
+    "CONFIRM": "Ja",
+    "CANCEL": "Nein"
+  },
+  "COLUMN_MODAL": {
+    "TITLE": "Spaltentitel",
+    "BUTTON": "Spalte erstellen",
+    "DESCRIPTION": "Beschreibung"
+  },
+  "TASK_MODAL": {
+    "TITLE": "Titel der Aufgabe",
+    "BUTTON": "Aufgabe erstellen",
+    "DESCRIPTION": "Beschreibung"
+  },
+  "WELCOME": {
+    "MULTIPLE_BOARDS": "Mehrere Boards",
+    "DRAG_AND_DROP": "Drag and drop",
+    "EASY_TO_USE": "Einfach zu bedienen",
+    "WILCOME_TITLE": "Holen Sie sich die <span> beste Erfahrung</span> bei der Verwaltung Ihres Projekts"
+  },
+  "COLUMN": {
+    "BUTTON": "Neue Spalte erstellen"
+  },
+  "ERRORS": {
+    "BOARDS": "Dieses Board wurde wahrscheinlich entfernt.",
+    "TASK": "Dieses Problem wurde wahrscheinlich gelöscht.",
+    "AUTH": "Das Token ist abgelaufen. Neuautorisierung erforderlich",
+    "AUTH_TITLE": "Autorisierung fehlgeschlagen"
+  },
+  "COMMENTS": {
+    "PLACEHOLDER": "Kommentare..."
+  },
+  "SEARCH": {
+    "RESULTS": "Suchergebnisse",
+    "TITLE": "Titel",
+    "DESCRIPTION": "Beschreibung",
+    "LINK": "Zur Tafel gehen...",
+    "CLEAN": "Klare Ergebnisse"
+  }
+}

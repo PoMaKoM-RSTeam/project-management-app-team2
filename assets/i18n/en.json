@@ -1,0 +1,105 @@
+{
+  "HOME": {
+    "SELECT": "Change language"
+  },
+  "NAV": {
+    "WELCOME": "Welcome Page",
+    "AUTHORIZATION": "Authorization",
+    "WORKSPACE": "Workspace",
+    "PROFILE": "Profile"
+  },
+  "AUTH": {
+    "NAME": "Username",
+    "USER_LOGIN": "Login",
+    "PASSWORD": "Password",
+    "REQUIRED_NAME": "Please enter your username!",
+    "MIN_LENGTH_NAME": "The user name must contain at least 6 characters!",
+    "MIN_LENGTH_PASSWORD": "The password must be at least 8 characters long!",
+    "PASSWORD_UPPERCASE": "The password must contain uppercase letters!",
+    "PASSWORD_LOWERCASE": "The password must contain lowercase letters!",
+    "PASSWORD_NUMBER": "The password must contain numbers!",
+    "PASSWORD_CHARACTERS": "The password must contain characters: e.g., ! @ # ? ]!",
+    "BACK": "Back",
+    "EMAIL": "E-mail",
+    "CONFIRM_PASSWORD": "Confirm Password",
+    "ENTER_EMAIL": "Please enter your e-mail!",
+    "ERROR_EMAIL": "Please provide a valid email address!",
+    "REGISTRATION": "Registration",
+    "CHECK_PASSWORD": "Please, confirm your password!",
+    "INCORRECT_PASSWORD": "The password is incorrect! Please check the password!",
+    "LOGOUT": "Logout",
+    "LOGIN": "Login",
+    "EDIT_USER": "Edit user",
+    "DELETE_USER": "Delete user"
+  },
+  "WORKSPACE": {
+    "BOARD": "Boards",
+    "CREATE_BOARD": "Create board",
+    "DELETE": "DELETE",
+    "CREATE": "Create",
+    "TITLE": "title",
+    "OWNER": "owner",
+    "USERS": "users",
+    "USER_SELECTION": "Select a user"
+  },
+  "FOOTER": {
+    "TEAM": "Our team:"
+  },
+  "BOARD": {
+    "CREATE": "Create new column",
+    "ADD_CARD": "Add card",
+    "REQUIRED_INPUT": "Please input title!",
+    "REQUIRED_MAX_VALUE": "maximum length 15 characters"
+  },
+  "MODAL": {
+    "TITLE": "Are you sure delete this column?",
+    "SUB_TITLE": "This action cannot be undone",
+    "CONFIRM": "Yes",
+    "CANCEL": "No"
+  },
+  "CONFIRMATION_FORM": {
+    "BUTTON_NAME": "Delete",
+    "TITLE": "Deletion confirmation",
+    "TEXT_DELETE_USER": "Are you sure you want to delete the current user?",
+    "TEXT_DELETE_BOARD": "Are you sure you want to delete the current board?",
+    "TEXT_DELETE_COLUMN": "Are you sure you want to delete the current column?",
+    "TEXT_DELETE_TASK": "Are you sure you want to delete the current task?",
+    "CONFIRM": "Yes",
+    "CANCEL": "No"
+  },
+  "COLUMN_MODAL": {
+    "TITLE": "Column title",
+    "BUTTON": "Create column",
+    "DESCRIPTION": "Description"
+  },
+  "TASK_MODAL": {
+    "TITLE": "Task title",
+    "BUTTON": "Create task",
+    "DESCRIPTION": "Description"
+  },
+  "WELCOME": {
+    "MULTIPLE_BOARDS": "Multiple boards",
+    "DRAG_AND_DROP": "Drag and drop",
+    "EASY_TO_USE": "Easy to use",
+    "WILCOME_TITLE": "Get the <span> best experience</span> in managing your project"
+  },
+  "COLUMN": {
+    "BUTTON": "Create new column"
+  },
+  "ERRORS": {
+    "BOARDS": "This board has probably been removed.",
+    "TASK": "This issue has probably been deleted.",
+    "AUTH": "The token has expired. Reauthorization required",
+    "AUTH_TITLE": "Authorization failed"
+  },
+  "COMMENTS": {
+    "PLACEHOLDER": "Comments..."
+  },
+  "SEARCH": {
+    "RESULTS": "Search results",
+    "TITLE": "Title",
+    "DESCRIPTION": "Description",
+    "LINK": "Go to board...",
+    "CLEAN": "Clear results"
+  }
+}
