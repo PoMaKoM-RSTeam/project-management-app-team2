@@ -153,3 +153,8 @@ export interface UpdatePointDTO {
   title: string;
   done: boolean;
 }
+
+export interface TaskData {
+  id: string,
+  users: string[]
+}

@@ -124,7 +124,7 @@ export class HTTPService {
   }
 
   getTask(boardId: string, columnId: string, taskId: string): Observable<TaskResponse> {
-    return this.http.get<TaskResponse>(`${Routes.AllBoards}/${boardId}${Routes.AllColumns}/${columnId}/${Routes.AllTasks}/${taskId}`);
+    return this.http.get<TaskResponse>(`${Routes.AllBoards}/${boardId}/${Routes.AllColumns}/${columnId}/${Routes.AllTasks}/${taskId}`);
   }
 
   updateTask(

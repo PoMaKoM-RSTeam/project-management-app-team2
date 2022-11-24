@@ -23,6 +23,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { FilterService } from '../../services/filter.service';
+import { EditTaskServie } from '../../services/edit-task-service';
+
 
 @Component({
   selector: 'app-board',
@@ -80,6 +82,7 @@ export class BoardComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private navigationService: NavigationService,
     private filterService: FilterService,
+    private editTaskServie: EditTaskServie,
   ) {
     this.inputForm = new FormGroup({
       myInput: new FormControl('', [
@@ -109,9 +112,21 @@ export class BoardComponent implements OnInit {
           });
       });
     });
+
     this.navigationService.collaps.subscribe((data) => {
       this.isCollapsed = data;
     });
+
+    this.editTaskServie.taskData$.subscribe((taskService) => {
+      this.columns.forEach((column) => {
+        column.tasks?.forEach((task) => {
+          if (taskService._id === task._id) {
+            task.title = taskService.title;
+            task.description = taskService.description;
+            task.users = this.board!.users;
+          }
+        });
+      });
 
     this.filterService.filterInputValue$.subscribe((data) => {
       this.filterInputValue = data;
