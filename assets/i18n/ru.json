@@ -81,7 +81,9 @@
     "MULTIPLE_BOARDS": "Неограниченное количество досок",
     "DRAG_AND_DROP": "Drag and drop",
     "EASY_TO_USE": "Простота в использовании",
-    "WILCOME_TITLE": "Получите <span> наилучший опыт</span> в управлении вашим проектом"
+    "TITLE_START": "Получите",
+    "TITLE_CENTER": "наилучший опыт",
+    "TITLE_END": "в управлении вашим проектом"
   },
   "COLUMN": {
     "BUTTON": "Cоздать новую колонку"
@@ -95,11 +97,17 @@
   "COMMENTS": {
     "PLACEHOLDER": "Комментарии..."
   },
+  "TASK": {
+    "SAVE": "Сохранить"
+  },
   "SEARCH": {
     "RESULTS": "Результаты поиска",
     "TITLE": "Название",
     "DESCRIPTION": "Описание",
     "LINK": "Перейти к доске...",
     "CLEAN": "Очистить результаты"
+  },
+  "FILTER": {
+    "FILTER": "Фильтры"
   }
 }
