@@ -20,6 +20,7 @@ import { CommentComponent } from './components/comment/comment.component';
 import { CommentsBlockComponent } from './components/comments-block/comments-block.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
 import { FilterWindowComponent } from './components/filter-window/filter-window.component';
+import { TaskFilterPipe } from './pipes/task-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { FilterWindowComponent } from './components/filter-window/filter-window.
     CommentsBlockComponent,
     SearchResultsComponent,
     FilterWindowComponent,
+    TaskFilterPipe,
   ],
   imports: [
     CommonModule,

@@ -22,6 +22,7 @@ import {
   UntypedFormGroup,
   Validators,
 } from '@angular/forms';
+import { FilterService } from '../../services/filter.service';
 
 @Component({
   selector: 'app-board',
@@ -69,6 +70,8 @@ export class BoardComponent implements OnInit {
 
   isFilterOpen = false;
 
+  filterInputValue = '';
+
   constructor(
     public translate: TranslateService,
     private languageService: ChangeLanguageService,
@@ -76,6 +79,7 @@ export class BoardComponent implements OnInit {
     private modal: NzModalService,
     private activatedRoute: ActivatedRoute,
     private navigationService: NavigationService,
+    private filterService: FilterService,
   ) {
     this.inputForm = new FormGroup({
       myInput: new FormControl('', [
@@ -107,6 +111,10 @@ export class BoardComponent implements OnInit {
     });
     this.navigationService.collaps.subscribe((data) => {
       this.isCollapsed = data;
+    });
+
+    this.filterService.filterInputValue$.subscribe((data) => {
+      this.filterInputValue = data;
     });
   }
 

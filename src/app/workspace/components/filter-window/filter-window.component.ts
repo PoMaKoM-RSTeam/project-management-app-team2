@@ -7,6 +7,7 @@ import {
   FormGroup,
   UntypedFormGroup,
 } from '@angular/forms';
+import { FilterService } from '../../services/filter.service';
 
 @Component({
   selector: 'app-filter-window',
@@ -15,6 +16,8 @@ import {
 })
 export class FilterWindowComponent implements OnInit {
   filterForm!: UntypedFormGroup;
+
+  constructor(private filterService: FilterService) { }
 
   ngOnInit(): void {
     this.filterForm = new FormGroup({
@@ -25,7 +28,7 @@ export class FilterWindowComponent implements OnInit {
       debounceTime(800),
       distinctUntilChanged(),
     ).subscribe((searchString: string) => {
-      console.log(searchString);
+      this.filterService.updateFilterString(searchString.toLowerCase().trim());
     });
   }
 }

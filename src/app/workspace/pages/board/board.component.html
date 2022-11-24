@@ -47,7 +47,7 @@
       <div class="alert" *ngIf="inputForm.get('myInput')?.errors?.['maxlength']">{{"BOARD.REQUIRED_MAX_VALUE"| translate}}</div> -->
 
       <div class="column__tasks" cdkDropList [cdkDropListData]="column.tasks" (cdkDropListDropped)="dropTasks($event)">
-        <div cdkDrag *ngFor="let task of column.tasks" style="margin-bottom: 20px;">
+        <div cdkDrag *ngFor="let task of column.tasks | taskFilter: filterInputValue" style="margin-bottom: 20px;">
           <app-task [task]="task" (deleteTask)="deleteTask($event)"></app-task>
         </div>
       </div>
