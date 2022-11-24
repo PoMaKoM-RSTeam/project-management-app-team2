@@ -6,7 +6,7 @@ import { TaskResponse } from 'src/app/core/models/project-manager.model';
   providedIn: 'root',
 })
 
-export class EditTaskServie {
+export class EditTaskService {
   private taskData$$ = new Subject<TaskResponse>();
 
   private taskUserId$$ = new Subject<any>();

@@ -1,0 +1,28 @@
+::ng-deep .confirmation-modal {
+  .ant-modal-content,.ant-modal-header {
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+    background-color: transparent;
+    color: #fff;
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+  }
+  .ng-star-inserted {
+    color: #fff;
+  }
+
+  .ant-btn {
+    border: 1px solid white;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 500;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    .ng-star-inserted {
+    color: #000;
+
+    }
+    &:hover {
+      cursor: pointer;
+      background: darken($color: #ffffff, $amount: 10);
+    }
+  }
+}

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { TaskResponse, UpdateTaskDTO } from 'src/app/core/models/project-manager.model';
 import { HTTPService } from 'src/app/core/services/http.service';
-import { EditTaskServie } from '../../services/edit-task-service';
+import { EditTaskService } from '../../services/edit-task-service';
 
 @Component({
   selector: 'app-edit-task-modal',
@@ -19,12 +19,12 @@ export class EditTaskModalComponent implements OnInit {
   users: string[] = [];
 
   constructor(
-    private editTaskServie: EditTaskServie,
+    private editTaskService: EditTaskService,
     private httpService: HTTPService,
   ) { }
 
   ngOnInit() {
-    this.editTaskServie.taskData$.subscribe((task) => {
+    this.editTaskService.taskData$.subscribe((task) => {
       this.task = task;
       this.editFormTask = new FormGroup({
         title: new FormControl(this.task?.title),
@@ -38,7 +38,7 @@ export class EditTaskModalComponent implements OnInit {
         });
     });
 
-    this.editTaskServie.openEditTaskModal$.subscribe((openEditTaskModal) => {
+    this.editTaskService.openEditTaskModal$.subscribe((openEditTaskModal) => {
       this.openEditTaskModal = openEditTaskModal;
     });
   }
@@ -54,15 +54,15 @@ export class EditTaskModalComponent implements OnInit {
     };
     this.httpService.updateTask(this.task.boardId, this.task.columnId, this.task._id, resultTask)
       .subscribe((taskData) => {
-        this.editTaskServie.getTaskIdUsers(taskData._id, taskData.users);
-        this.editTaskServie.getTaskData(taskData);
+        this.editTaskService.getTaskIdUsers(taskData._id, taskData.users);
+        this.editTaskService.getTaskData(taskData);
       });
 
-    return this.editTaskServie.openEditTaskModal(false);
+    return this.editTaskService.openEditTaskModal(false);
   }
 
   closeEditTask() {
-    this.editTaskServie.openEditTaskModal(false);
+    this.editTaskService.openEditTaskModal(false);
     return this.editFormTask.reset();
   }
 
