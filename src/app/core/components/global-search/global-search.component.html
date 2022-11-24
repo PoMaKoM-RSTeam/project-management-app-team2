@@ -1,4 +1,4 @@
 <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()" tabindex="1">
   <input type="text" nzPrefixIcon="search" class="login-form__input" nz-input formControlName="search" placeholder="Search..." />
-  <button nz-button class="login-form-button" [nzType]="'primary'" (click)="clearInput()" disabled="{{disabled}}">{{'SEARCH.CLEAN' | translate}}</button>
+  <button nz-button class="login-form-button" [nzType]="'primary'" (click)="clearInput()" disabled="{{disabled}}"><span nz-icon nzType="clear" nzTheme="outline" class="login-form__clear" ></span></button>
 </form>

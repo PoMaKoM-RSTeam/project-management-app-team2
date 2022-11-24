@@ -2,7 +2,7 @@
   <button class="primary" nz-button nzType="primary" (click)="toggleCollapsed()">
     <span nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></span>
   </button>
-  <ul class="navigation" nz-menu nzMode="inline" nzTheme="dark" [nzInlineCollapsed]="isCollapsed">
+  <ul class="navigation" nz-menu nzMode="inline" nzTheme="dark" [nzInlineCollapsed]="isCollapsed" [class.show]="isCollapsed">
     <li nzSelected="{{!(url.includes('auth') || url.includes('workspace') || url.includes('profile'))}}" nz-menu-item nz-tooltip nzTooltipPlacement="right" [nzTooltipTitle]="isCollapsed ? 'Welcome Page' : ''"
       >
       <a routerLink="" routerLinkActive="active">
