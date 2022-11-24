@@ -16,6 +16,7 @@ import { CreateColumnModalComponent } from './components/create-column-modal/cre
 import { CreateTaskModalComponent } from './components/create-task-modal/create-task-modal.component';
 import { TaskComponent } from './components/task/task.component';
 import { CoreModule } from '../core/core.module';
+import { EditTaskModalComponent } from './components/edit-task-modal/edit-task-modal.component';
 import { CommentComponent } from './components/comment/comment.component';
 import { CommentsBlockComponent } from './components/comments-block/comments-block.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
@@ -30,6 +31,7 @@ import { SearchResultsComponent } from './components/search-results/search-resul
     CreateColumnModalComponent,
     CreateTaskModalComponent,
     TaskComponent,
+    EditTaskModalComponent,
     CommentComponent,
     CommentsBlockComponent,
     SearchResultsComponent,

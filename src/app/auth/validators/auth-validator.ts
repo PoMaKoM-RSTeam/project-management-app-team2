@@ -7,12 +7,12 @@ export class AuthValidator {
       return {
         invalidPassword: 'AUTH.MIN_LENGTH_PASSWORD',
       };
-    } if ((!(/[A-Z]/.test(control.value)))) {
+    } if ((!(/[A-ZА-Я]/.test(control.value)))) {
       return {
         invalidPassword: 'AUTH.PASSWORD_UPPERCASE',
       };
     }
-    if ((!(/[a-z]/.test(control.value)))) {
+    if ((!(/[a-zа-я]/.test(control.value)))) {
       return {
         invalidPassword: 'AUTH.PASSWORD_LOWERCASE!',
       };

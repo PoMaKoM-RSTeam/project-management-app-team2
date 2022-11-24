@@ -21,6 +21,7 @@ import {
   UntypedFormGroup,
   Validators,
 } from '@angular/forms';
+import { EditTaskServie } from '../../services/edit-task-service';
 
 @Component({
   selector: 'app-board',
@@ -73,6 +74,7 @@ export class BoardComponent implements OnInit {
     private modal: NzModalService,
     private activatedRoute: ActivatedRoute,
     private navigationService: NavigationService,
+    private editTaskServie: EditTaskServie,
   ) {
     this.inputForm = new FormGroup({
       myInput: new FormControl('', [
@@ -102,8 +104,21 @@ export class BoardComponent implements OnInit {
           });
       });
     });
+
     this.navigationService.collaps.subscribe((data) => {
       this.isCollapsed = data;
+    });
+
+    this.editTaskServie.taskData$.subscribe((taskService) => {
+      this.columns.forEach((column) => {
+        column.tasks?.forEach((task) => {
+          if (taskService._id === task._id) {
+            task.title = taskService.title;
+            task.description = taskService.description;
+            task.users = this.board!.users;
+          }
+        });
+      });
     });
   }
 
