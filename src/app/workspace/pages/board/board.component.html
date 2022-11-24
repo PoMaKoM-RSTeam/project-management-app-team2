@@ -3,6 +3,9 @@
   <nz-spin nzSimple></nz-spin>
 </div>
 <section *ngIf="board" class="board">
+  <button class="board__filter" (click)="onFilterPush()"><span class="board__filter-icon" nz-icon nzType="filter" nzTheme="outline"></span></button>
+  <button class="board__filter-clear" (click)="onFilterClear()"><span nz-icon nzType="clear" class="board__filter-icon" nzTheme="outline"></span></button>
+  <app-filter-window class="board__filter-options" *ngIf="isFilterVisible"></app-filter-window>
   <h1 class="board__title">{{ board.title }}</h1>
   <div
     class="board__columns"
@@ -45,7 +48,7 @@
       <div class="alert" *ngIf="inputForm.get('myInput')?.errors?.['maxlength']">{{"BOARD.REQUIRED_MAX_VALUE"| translate}}</div> -->
 
       <div class="column__tasks" cdkDropList [cdkDropListData]="column.tasks" (cdkDropListDropped)="dropTasks($event)">
-        <div cdkDrag *ngFor="let task of column.tasks" style="margin-bottom: 20px;">
+        <div cdkDrag *ngFor="let task of column.tasks | taskFilter: filterInputValue" style="margin-bottom: 20px;">
           <app-task [task]="task" (deleteTask)="deleteTask($event)"></app-task>
         </div>
       </div>

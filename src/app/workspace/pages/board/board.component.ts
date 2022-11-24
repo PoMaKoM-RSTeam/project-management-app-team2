@@ -14,6 +14,7 @@ import { ChangeLanguageService } from 'src/app/core/services/changeLanguage.serv
 import { HTTPService } from 'src/app/core/services/http.service';
 import { NzModalService } from 'ng-zorro-antd/modal';
 import { ActivatedRoute } from '@angular/router';
+
 import { NavigationService } from 'src/app/core/services/navigation.service';
 import {
   FormControl,
@@ -21,7 +22,9 @@ import {
   UntypedFormGroup,
   Validators,
 } from '@angular/forms';
+import { FilterService } from '../../services/filter.service';
 import { EditTaskServie } from '../../services/edit-task-service';
+
 
 @Component({
   selector: 'app-board',
@@ -67,6 +70,10 @@ export class BoardComponent implements OnInit {
 
   boardIdForDelete = '';
 
+  isFilterVisible = false;
+
+  filterInputValue = '';
+
   constructor(
     public translate: TranslateService,
     private languageService: ChangeLanguageService,
@@ -74,6 +81,7 @@ export class BoardComponent implements OnInit {
     private modal: NzModalService,
     private activatedRoute: ActivatedRoute,
     private navigationService: NavigationService,
+    private filterService: FilterService,
     private editTaskServie: EditTaskServie,
   ) {
     this.inputForm = new FormGroup({
@@ -119,6 +127,9 @@ export class BoardComponent implements OnInit {
           }
         });
       });
+
+    this.filterService.filterInputValue$.subscribe((data) => {
+      this.filterInputValue = data;
     });
   }
 
@@ -263,5 +274,13 @@ export class BoardComponent implements OnInit {
 
   defineColumnId(id: string) {
     this.boardIdForDelete = id;
+  }
+
+  onFilterPush() {
+    this.isFilterVisible = !this.isFilterVisible;
+  }
+
+  onFilterClear() {
+    this.filterService.updateFilterString('');
   }
 }
