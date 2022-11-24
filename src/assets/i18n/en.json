@@ -88,6 +88,12 @@
   "COLUMN": {
     "BUTTON": "Create new column"
   },
+  "ERRORS": {
+    "BOARDS": "This board has probably been removed.",
+    "TASK": "This issue has probably been deleted.",
+    "AUTH": "The token has expired. Reauthorization required",
+    "AUTH_TITLE": "Authorization failed"
+  },
   "COMMENTS": {
     "PLACEHOLDER": "Comments..."
   },

@@ -32,6 +32,8 @@ import { EditTaskServie } from '../../services/edit-task-service';
   styleUrls: ['./board.component.scss'],
 })
 export class BoardComponent implements OnInit {
+  isBoardIdCorrect = true;
+
   board: BoardResponse | undefined;
 
   title!: string;
@@ -98,8 +100,14 @@ export class BoardComponent implements OnInit {
       const data = param['id'];
       this.param = data;
     });
-    this.httpService.getBoardById(this.param).subscribe((board) => {
-      this.board = board;
+    this.httpService.getBoardById(this.param).subscribe({
+      next: (board) => {
+        this.board = board;
+      },
+      error: () => {
+        this.board = undefined;
+        this.isBoardIdCorrect = false;
+      },
     });
 
     this.httpService.getAllColumns(this.param).subscribe((columns) => {
