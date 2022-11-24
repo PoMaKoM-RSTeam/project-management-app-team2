@@ -29,7 +29,7 @@ export class EditTaskModalComponent implements OnInit {
       this.editFormTask = new FormGroup({
         title: new FormControl(this.task?.title),
         description: new FormControl(this.task?.description),
-        user: new FormControl('Выберите пользователя'),
+        user: new FormControl(''),
       });
       this.users = [];
       this.httpService.getTask(this.task.boardId, this.task.columnId, this.task._id)
@@ -66,8 +66,10 @@ export class EditTaskModalComponent implements OnInit {
     return this.editFormTask.reset();
   }
 
-  addUserTask() {
-    const userForm = this.editFormTask.value.user;
+  addUserTask(user: string) {
+    console.log(user, 'dfs');
+
+    const userForm = user;
     if (this.users.includes(userForm)) {
       return this.users;
     }
