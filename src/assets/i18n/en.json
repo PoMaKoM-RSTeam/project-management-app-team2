@@ -81,7 +81,9 @@
     "MULTIPLE_BOARDS": "Multiple boards",
     "DRAG_AND_DROP": "Drag and drop",
     "EASY_TO_USE": "Easy to use",
-    "WILCOME_TITLE": "Get the <span> best experience</span> in managing your project"
+    "TITLE_START": "Get the",
+    "TITLE_CENTER": "best experience",
+    "TITLE_END": "in managing your project"
   },
   "COLUMN": {
     "BUTTON": "Create new column"
