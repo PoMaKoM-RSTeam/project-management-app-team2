@@ -95,5 +95,8 @@
     "DESCRIPTION": "Description",
     "LINK": "Go to board...",
     "CLEAN": "Clear results"
+  },
+  "FILTER": {
+    "FILTER": "Filters"
   }
 }

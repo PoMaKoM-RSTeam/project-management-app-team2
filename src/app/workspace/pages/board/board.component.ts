@@ -68,7 +68,7 @@ export class BoardComponent implements OnInit {
 
   boardIdForDelete = '';
 
-  isFilterOpen = false;
+  isFilterVisible = false;
 
   filterInputValue = '';
 
@@ -262,7 +262,7 @@ export class BoardComponent implements OnInit {
   }
 
   onFilterPush() {
-    this.isFilterOpen = !this.isFilterOpen;
+    this.isFilterVisible = !this.isFilterVisible;
   }
 
   onFilterClear() {

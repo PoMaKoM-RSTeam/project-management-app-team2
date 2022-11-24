@@ -5,7 +5,7 @@
 <section *ngIf="board" class="board">
   <button class="board__filter" (click)="onFilterPush()"><span class="board__filter-icon" nz-icon nzType="filter" nzTheme="outline"></span></button>
   <button class="board__filter-clear" (click)="onFilterClear()"><span nz-icon nzType="clear" class="board__filter-icon" nzTheme="outline"></span></button>
-  <app-filter-window class="board__filter-options" *ngIf="isFilterOpen"></app-filter-window>
+  <app-filter-window class="board__filter-options" *ngIf="isFilterVisible"></app-filter-window>
   <h1 class="board__title">{{ board.title }}</h1>
   <div
     class="board__columns"

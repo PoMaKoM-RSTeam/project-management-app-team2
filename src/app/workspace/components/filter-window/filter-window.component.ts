@@ -7,6 +7,7 @@ import {
   FormGroup,
   UntypedFormGroup,
 } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 import { FilterService } from '../../services/filter.service';
 
 @Component({
@@ -17,7 +18,7 @@ import { FilterService } from '../../services/filter.service';
 export class FilterWindowComponent implements OnInit {
   filterForm!: UntypedFormGroup;
 
-  constructor(private filterService: FilterService) { }
+  constructor(private filterService: FilterService, public translate: TranslateService) { }
 
   ngOnInit(): void {
     this.filterForm = new FormGroup({

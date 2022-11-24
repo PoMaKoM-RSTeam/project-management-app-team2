@@ -95,5 +95,8 @@
     "DESCRIPTION": "Beschreibung",
     "LINK": "Zur Tafel gehen...",
     "CLEAN": "Klare Ergebnisse"
+  },
+  "FILTER": {
+    "FILTER": "Filter"
   }
 }
