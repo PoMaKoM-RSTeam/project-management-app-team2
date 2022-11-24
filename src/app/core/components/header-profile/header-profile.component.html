@@ -9,25 +9,22 @@
     <ul nz-menu class="profile-dropdown">
       <li nz-menu-item
         nzDisabled="{{isAuth}}"
-        routerLink="/auth/login"
       >
-      <span nz-icon nzType="login" nzTheme="outline"></span>
-        {{'AUTH.LOGIN' | translate}}
+        <span nz-icon nzType="login" nzTheme="outline"></span>
+        <span routerLink="/auth/login"> {{'AUTH.LOGIN' | translate}} </span>
       </li>
       <li nz-menu-item
         nzDisabled="{{isAuth}}"
-        routerLink="/auth/registration"
       >
-      <span nz-icon nzType="user-add" nzTheme="outline"></span>
-        {{'AUTH.REGISTRATION' | translate}}
+        <span nz-icon nzType="user-add" nzTheme="outline"></span>
+        <span routerLink="/auth/registration">{{'AUTH.REGISTRATION' | translate}}</span>
       </li>
       <li nz-menu-divider></li>
       <li nz-menu-item
         nzDisabled="{{!isAuth}}"
-        routerLink="/profile"
       >
         <span nz-icon nzType="user-switch" nzTheme="outline"></span>
-        {{'AUTH.EDIT_USER' | translate}}
+        <span routerLink="/profile">{{'AUTH.EDIT_USER' | translate}}</span>
       </li>
       <li nz-menu-item nzDisabled="{{!isAuth}}">
         <span nz-icon nzType="user-delete" nzTheme="outline"></span>
@@ -43,7 +40,7 @@
         nzDisabled="{{!isAuth}}"
         (click)="logout()">
         <span nz-icon nzType="logout" nzTheme="outline"></span>
-        {{'AUTH.LOGOUT' | translate}}
+        <span>{{'AUTH.LOGOUT' | translate}}</span>
       </li>
     </ul>
   </nz-dropdown-menu>
