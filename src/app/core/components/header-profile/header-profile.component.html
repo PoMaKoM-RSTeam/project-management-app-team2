@@ -6,17 +6,19 @@
     <span nz-icon nzType="down"></span>
   </a>
   <nz-dropdown-menu #menu="nzDropdownMenu">
-    <ul nz-menu>
+    <ul nz-menu class="profile-dropdown">
       <li nz-menu-item
         nzDisabled="{{isAuth}}"
         routerLink="/auth/login"
       >
+      <span nz-icon nzType="login" nzTheme="outline"></span>
         {{'AUTH.LOGIN' | translate}}
       </li>
       <li nz-menu-item
         nzDisabled="{{isAuth}}"
         routerLink="/auth/registration"
       >
+      <span nz-icon nzType="user-add" nzTheme="outline"></span>
         {{'AUTH.REGISTRATION' | translate}}
       </li>
       <li nz-menu-divider></li>
@@ -24,9 +26,11 @@
         nzDisabled="{{!isAuth}}"
         routerLink="/profile"
       >
+        <span nz-icon nzType="user-switch" nzTheme="outline"></span>
         {{'AUTH.EDIT_USER' | translate}}
       </li>
       <li nz-menu-item nzDisabled="{{!isAuth}}">
+        <span nz-icon nzType="user-delete" nzTheme="outline"></span>
         <app-confirmation-modal
           [modalText]="'CONFIRMATION_FORM.TEXT_DELETE_USER'"
           [isButton]="false"
@@ -37,7 +41,10 @@
       </li>
       <li nz-menu-item
         nzDisabled="{{!isAuth}}"
-        (click)="logout()">{{'AUTH.LOGOUT' | translate}}</li>
+        (click)="logout()">
+        <span nz-icon nzType="logout" nzTheme="outline"></span>
+        {{'AUTH.LOGOUT' | translate}}
+      </li>
     </ul>
   </nz-dropdown-menu>
 

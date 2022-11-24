@@ -50,3 +50,10 @@
       }
     }
 }
+
+.profile-dropdown_item {
+  color: #fff;
+  &:hover {
+    color: #000;
+  }
+}
