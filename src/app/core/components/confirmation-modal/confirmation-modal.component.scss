@@ -26,3 +26,27 @@
     }
   }
 }
+.delete-btn {
+    margin-top: auto;
+    outline: none;
+    color: #000;
+    border: 1px solid white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 500;
+    background: hsla(268deg, 28%, 39%, 0.5);
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+
+    span {
+      color: #fff;
+    }
+
+    &:not([disabled]):hover {
+      background-color: #fff;
+
+      span {
+        color: #000;
+      }
+    }
+}

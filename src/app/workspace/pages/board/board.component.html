@@ -49,9 +49,18 @@
                 (click)="column.title = prevTitle; isTitleClicked = ''; this.isForbidChangeTitle = true;">
           </span>
         </form>
-        <button nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu" class="column__delete" (click)="defineColumnId(column._id)">. . .</button>
+        <button
+          nz-dropdown
+          nzTrigger="click"
+          [nzDropdownMenu]="menu"
+          class="column__delete"
+          [nzPlacement]="'bottomRight'"
+          (click)="defineColumnId(column._id)"
+          >
+            . . .
+          </button>
         <nz-dropdown-menu #menu="nzDropdownMenu">
-          <ul nz-menu nzSelectable>
+          <ul nz-menu class="dropdown-menu" nzSelectable>
             <li nz-menu-item> <app-confirmation-modal
               [modalText]="'CONFIRMATION_FORM.TEXT_DELETE_COLUMN'"
               [onDelete]="deleteColumn"

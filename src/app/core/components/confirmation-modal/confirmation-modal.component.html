@@ -1,7 +1,7 @@
 <span nz-typography *ngIf="!isButton" (click)="showModal()">
   {{'AUTH.DELETE_USER' | translate}}
 </span>
-<button *ngIf="isButton" nz-button [nzType]="'primary'" (click)="showModal()"><span>{{'CONFIRMATION_FORM.BUTTON_NAME' | translate}}</span></button>
+<button *ngIf="isButton" nz-button class="delete-btn" (click)="showModal()"><span>{{'CONFIRMATION_FORM.BUTTON_NAME' | translate}}</span></button>
     <nz-modal
       [(nzVisible)]="isVisible"
       nzTitle="{{'CONFIRMATION_FORM.TITLE' | translate}}"
