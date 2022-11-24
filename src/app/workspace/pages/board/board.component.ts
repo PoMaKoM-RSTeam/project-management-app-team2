@@ -263,6 +263,9 @@ export class BoardComponent implements OnInit {
 
   onFilterPush() {
     this.isFilterOpen = !this.isFilterOpen;
-    console.log(this.isFilterOpen);
+  }
+
+  onFilterClear() {
+    this.filterService.updateFilterString('');
   }
 }
