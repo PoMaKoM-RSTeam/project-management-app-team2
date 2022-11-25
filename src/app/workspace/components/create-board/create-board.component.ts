@@ -21,6 +21,8 @@ export class CreateBoardComponent implements OnInit {
 
   usersName: string[] = [];
 
+  allUsers: string[] = [];
+
   constructor(
     public translate: TranslateService,
     private languageService: ChangeLanguageService,
@@ -50,6 +52,14 @@ export class CreateBoardComponent implements OnInit {
       if (!e) {
         this.usersName = [];
       }
+    });
+    this.httpService.getAllUsers().subscribe((users) => {
+      users.filter((user) => {
+        if (!this.allUsers.includes(user.name)) {
+          this.allUsers.push(user.name);
+        }
+        return this.allUsers;
+      });
     });
   }
 

@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { TaskResponse, UpdateTaskDTO } from 'src/app/core/models/project-manager.model';
 import { HTTPService } from 'src/app/core/services/http.service';
 import { EditTaskServie } from '../../services/edit-task-service';
+import { SetUserServices } from '../../services/set-user-services';
 
 @Component({
   selector: 'app-edit-task-modal',
@@ -21,6 +22,7 @@ export class EditTaskModalComponent implements OnInit {
   constructor(
     private editTaskServie: EditTaskServie,
     private httpService: HTTPService,
+    private setUserServices: SetUserServices,
   ) { }
 
   ngOnInit() {
@@ -29,7 +31,6 @@ export class EditTaskModalComponent implements OnInit {
       this.editFormTask = new FormGroup({
         title: new FormControl(this.task?.title),
         description: new FormControl(this.task?.description),
-        user: new FormControl(''),
       });
       this.users = [];
       this.httpService.getTask(this.task.boardId, this.task.columnId, this.task._id)
@@ -40,6 +41,13 @@ export class EditTaskModalComponent implements OnInit {
 
     this.editTaskServie.openEditTaskModal$.subscribe((openEditTaskModal) => {
       this.openEditTaskModal = openEditTaskModal;
+    });
+
+    this.setUserServices.userName$.subscribe((user) => {
+      if (this.users.includes(user)) {
+        return this.users;
+      }
+      return this.users.push(user);
     });
   }
 
@@ -64,16 +72,6 @@ export class EditTaskModalComponent implements OnInit {
   closeEditTask() {
     this.editTaskServie.openEditTaskModal(false);
     return this.editFormTask.reset();
-  }
-
-  addUserTask(user: string) {
-    console.log(user, 'dfs');
-
-    const userForm = user;
-    if (this.users.includes(userForm)) {
-      return this.users;
-    }
-    return this.users.push(userForm);
   }
 
   removeUserTask(user: string) {

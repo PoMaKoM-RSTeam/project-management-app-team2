@@ -15,7 +15,6 @@
     justify-content: space-between;
     width: 85%;
     position: relative;
-    // right: 10px;
     top: 2px;
     color: #FFF;
     font-size: 40px;
@@ -31,7 +30,7 @@
     list-style-type: none;
     padding: 2%;
     background-color: rgba(30, 150, 230, 0.8);
-    border-radius: 0 30px 0 30px;
+    border-radius: 0 5px 0 30px;
     cursor: pointer;
     max-height: 300px;
     height: calc(100vh - 100px);

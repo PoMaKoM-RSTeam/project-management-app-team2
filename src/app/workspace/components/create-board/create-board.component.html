@@ -1,7 +1,7 @@
 <div class="section-create-board" *ngIf="isCreationFormBoardOpen">
     <div class="wrapper-board">
         <div class="board-header">
-            <app-add-users-form></app-add-users-form>
+            <app-add-users-form [userName]="allUsers"></app-add-users-form>
             <button class="btn-close" (click)="closeCreateBoard()">X</button>
         </div>
         <form class="form-board" [formGroup]="formCreateBoard"(ngSubmit)="createBoard()">
