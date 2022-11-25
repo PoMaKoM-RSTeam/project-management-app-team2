@@ -5,6 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { HTTPService } from '../../../core/services/http.service';
 import { TaskResponse } from '../../../core/models/project-manager.model';
 import { EditTaskService } from '../../services/edit-task-service';
+import { CommentsCounterService } from '../../services/comments-counter.service';
 
 @Component({
   selector: 'app-task',
@@ -24,6 +25,7 @@ export class TaskComponent implements OnInit {
     public translate: TranslateService,
     private httpService: HTTPService,
     private editTaskService: EditTaskService,
+    private commentsCounterService: CommentsCounterService,
   ) { }
 
   ngOnInit() {
@@ -40,6 +42,12 @@ export class TaskComponent implements OnInit {
 
     this.httpService.getPointsByTaskId(this.task._id)
       .subscribe((data) => { this.commentsCount = data.length; });
+
+    this.commentsCounterService.counter.subscribe((data) => {
+      if (this.task._id === data.taskId) {
+        this.commentsCount = data.count;
+      }
+    });
   }
 
   onDelete = () => {
