@@ -15,6 +15,7 @@
   <div class="header__search" *ngIf="showSearch">
     <app-global-search></app-global-search>
   </div>
+  <span nz-icon nzType="file-add" nzTheme="outline" (click)="createForm()" class="header__create-board" title="{{'HEADER.CREATE_BOARD' | translate}}"></span>
   <div class="header__select">
     <app-localization></app-localization>
   </div>

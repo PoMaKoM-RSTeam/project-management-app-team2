@@ -11,11 +11,15 @@
     background: none;
     color: white;
     margin-right: 10px;
+    &::placeholder{
+      font-size: 0.8rem;
+    }
     @media screen and (max-width: 768px) {
       width: 70px;
       margin-right: 5px;
       font-size: 14px;
     }
+
   }
 
   &__input:hover,
@@ -24,8 +28,8 @@
     margin-left: -200px;
 
     @media screen and (max-width: 768px) {
-      width: 120px;
-      margin-left: -120px;
+      width: 95px;
+      margin-left: -95px;
     }
   }
 
@@ -48,6 +52,13 @@
   font-size: 1.5rem;
   @media screen and (max-width: 768px) {
     font-size: 1rem;
+  }
+}
+
+::ng-deep .ant-btn-primary:disabled {
+  background: none;
+  &:hover {
+    background: none;
   }
 }
 
