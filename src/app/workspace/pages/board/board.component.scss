@@ -260,6 +260,8 @@
     font-weight: 600;
     padding: 2px;
     padding-left: 7px;
+    word-wrap: break-word;
+    max-width: 290px;
     &:hover {
       cursor: text;
     }

@@ -6,7 +6,8 @@
         </div>
         <form class="form-board" [formGroup]="formCreateBoard"(ngSubmit)="createBoard()">
             <input class="input" type="text" formControlName="title" placeholder="{{'WORKSPACE.TITLE' | translate}}">
-            <input class="input" type="text" formControlName="owner" placeholder="{{'WORKSPACE.OWNER' | translate}}">
+            <!-- <input class="input" type="text" formControlName="owner" placeholder="{{'WORKSPACE.OWNER' | translate}}"> -->
+            <h2 class="owner">{{owner}}</h2>
             <div class="users">
                 <div class="user" *ngFor="let userName of usersName">
                     <app-user-logo (click)="removeUser(userName)" [userName]="userName"></app-user-logo>

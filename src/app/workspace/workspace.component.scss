@@ -34,8 +34,11 @@
             word-break: break-all;
             line-height: 27px;
             padding: 5px;
-            gap: 15px;
+            min-height: 110px;
+            height: auto;
             cursor: pointer;
+            justify-content: center;
+            
             &:hover {
                 box-shadow: 10px 10px 10px rgb(0 0 0 / 40%);
                 border: 1px outset rgba(255, 255, 255, 60%);
@@ -54,7 +57,7 @@
                 color: rgb(255, 255, 255);
                 width: 100%;
                 text-align: center;
-                padding: 5px 0;
+                padding: 10px 0;
                 text-shadow: 1px -1px #030000;
                 font-weight: 600;
                 text-transform: capitalize;
@@ -83,10 +86,16 @@
                 text-align: start;
             }
             .users {
-                gap: 5px;
                 text-align: left;
                 background-color: rgba(0,0,0,0);
                 border: 0;
+                min-height: 30px;
+                height: auto;
+                display: flex;
+                align-items: center;
+                min-width: 250px;
+                width: 100%;
+                padding: 15px 10px 0 20px;
             }
             .btn-delete {
                 background-color: rgb(255 255 255 / 20%);

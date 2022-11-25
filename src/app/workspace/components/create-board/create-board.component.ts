@@ -1,11 +1,12 @@
 import {
-  Component, OnInit,
+  Component, Input, OnInit,
 } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
-import { BoardDTO } from 'src/app/core/models/project-manager.model';
+import { BoardDTO, BoardResponse } from 'src/app/core/models/project-manager.model';
 import { ChangeLanguageService } from 'src/app/core/services/changeLanguage.service';
 import { HTTPService } from 'src/app/core/services/http.service';
+import { LocalStorageService } from 'src/app/core/services/localStorage.service';
 import { CreateBoardService } from '../../services/create-board-services';
 import { SetUserServices } from '../../services/set-user-services';
 
@@ -23,16 +24,18 @@ export class CreateBoardComponent implements OnInit {
 
   allUsers: string[] = [];
 
+  owner: string = '';
+
   constructor(
     public translate: TranslateService,
     private languageService: ChangeLanguageService,
     private createFormService:CreateBoardService,
     private httpService: HTTPService,
     private setUserServices: SetUserServices,
+    private localStorageService: LocalStorageService,
   ) {
     this.formCreateBoard = new FormGroup({
       title: new FormControl(null, Validators.required),
-      owner: new FormControl(null, Validators.required),
     });
   }
 
@@ -58,9 +61,12 @@ export class CreateBoardComponent implements OnInit {
         if (!this.allUsers.includes(user.name)) {
           this.allUsers.push(user.name);
         }
+
         return this.allUsers;
       });
     });
+    this.owner = (JSON.stringify(this.localStorageService.getFromLocalStorage('login'))).replace(/["']/g, '');
+    console.log(this.owner, 'loc');
   }
 
   closeCreateBoard() {
@@ -71,7 +77,7 @@ export class CreateBoardComponent implements OnInit {
   createBoard() {
     const formBoard: BoardDTO = {
       title: this.formCreateBoard.value.title,
-      owner: this.formCreateBoard.value.owner,
+      owner: this.owner,
       users: this.usersName,
     };
 

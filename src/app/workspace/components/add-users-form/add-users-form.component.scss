@@ -33,7 +33,9 @@
     border-radius: 0 5px 0 30px;
     cursor: pointer;
     max-height: 300px;
-    height: calc(100vh - 100px);
+    min-height: 50px;
+    height: auto;
+    // height: calc(100vh - 100px);
     overflow-x: auto;
     .user-link {
         width: 100%;
