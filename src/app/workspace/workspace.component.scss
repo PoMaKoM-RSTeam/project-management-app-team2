@@ -48,7 +48,6 @@
             justify-content: center;
         }
             .title-board {
-                /* background-color: rgb(208 205 205 / 20%); */
                 padding: 0 20px;
                 border-radius: 10px;
                 font-size: 25px;
@@ -59,9 +58,6 @@
                 text-shadow: 1px -1px #030000;
                 font-weight: 600;
                 text-transform: capitalize;
-                &:hover {
-                    /* background-color: rgb(110 250 102 / 50%); */
-                }
             }
             .link-board {
                 color: #fff;
@@ -146,4 +142,3 @@
       cursor: pointer;
     }
   }
-

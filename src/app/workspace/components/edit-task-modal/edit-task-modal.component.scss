@@ -16,7 +16,6 @@
         align-items:center;
         position: absolute;
         top: 20%;
-        // left: 30%;
         color: #000;
         padding: 15px 10px 20px;
         background-color: rgba(255, 255, 255, 0.3);
@@ -180,6 +179,7 @@
     height: 40px;
     align-items: center;
 }
+
 .user {
     cursor: pointer;
     &:hover {
@@ -190,7 +190,6 @@
     }
 }
 
-
 .user-logo:host {
-        width: 25px;
-} 
+    width: 25px;
+}
