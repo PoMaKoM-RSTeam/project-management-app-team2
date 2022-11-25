@@ -6,6 +6,7 @@ export const environment = {
   production: false,
   PATH: 'https://final-task-backend-production.up.railway.app/',
   PORT: '3000',
+  BASE_PATH: 'http://localhost:4200/',
 };
 
 /*
