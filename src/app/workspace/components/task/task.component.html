@@ -12,8 +12,9 @@
       </span>
     </div>
   </div>
-  <span nz-icon nzType="comment" nzTheme="outline" class="task__comments"></span>
-  <app-comments-block [task]="task"></app-comments-block>
+  <nz-badge nzSize="small" [nzCount]="commentsCount" class="task__comments" [nzStyle]="{backgroundColor: '#1890ff'}">
+    <a class="task__comments"><span nz-icon nzType="comment" nzTheme="outline"></span></a>
+  </nz-badge>
 
   <button
     nz-dropdown

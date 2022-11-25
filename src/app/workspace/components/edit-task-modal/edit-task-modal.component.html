@@ -17,7 +17,7 @@
         </div>
       </div>
     </div>
-   
+
     <form class="form-modal" [formGroup]="editFormTask">
       <input class="input-edit" name="description"
         formControlName="title" type="text" value="{{task.title}}">
@@ -26,5 +26,10 @@
       </textarea>
       <button class="btn-save" type="button" (click)="editTask()">{{'TASK.SAVE' | translate}}</button>
     </form>
+    <div class="comments">
+      <app-comments-block [task]="task"></app-comments-block>
+    </div>
+
   </div>
+
 </div>

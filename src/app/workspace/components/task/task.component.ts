@@ -18,6 +18,8 @@ export class TaskComponent implements OnInit {
 
   usersTask: string[] = [];
 
+  commentsCount = 0;
+
   constructor(
     public translate: TranslateService,
     private httpService: HTTPService,
@@ -35,6 +37,9 @@ export class TaskComponent implements OnInit {
         this.usersTask = taskData.users;
       }
     });
+
+    this.httpService.getPointsByTaskId(this.task._id)
+      .subscribe((data) => { this.commentsCount = data.length; });
   }
 
   onDelete = () => {
