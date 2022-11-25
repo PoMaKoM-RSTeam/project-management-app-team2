@@ -25,7 +25,6 @@ import {
 import { FilterService } from '../../services/filter.service';
 import { EditTaskServie } from '../../services/edit-task-service';
 
-
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
@@ -136,8 +135,9 @@ export class BoardComponent implements OnInit {
         });
       });
 
-    this.filterService.filterInputValue$.subscribe((data) => {
-      this.filterInputValue = data;
+      this.filterService.filterInputValue$.subscribe((data) => {
+        this.filterInputValue = data;
+      });
     });
   }
 
