@@ -24,19 +24,19 @@
     margin-left: -200px;
 
     @media screen and (max-width: 768px) {
-      width: 130px;
-      margin-left: -130px;
+      width: 120px;
+      margin-left: -120px;
     }
   }
 
 }
-
 
 .login-form-forgot {
   float: right;
 }
 
 .ant-btn-primary {
+  padding: 3px;
   @media screen and (max-width: 768px) {
     padding: 2px;
     height: 25px;
@@ -51,6 +51,3 @@
   }
 }
 
-/* .login-form-button {
-  width: 70px;
-} */

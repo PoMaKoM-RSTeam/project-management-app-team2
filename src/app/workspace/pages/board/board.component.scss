@@ -24,6 +24,9 @@
     height: calc(100vh - 230px);
     padding-bottom: 20px;
     align-items: flex-start;
+    @media screen and (max-width:768px){
+      padding-left: 20px !important;
+    }
   }
 
   &__create-button {

@@ -18,7 +18,7 @@ button {
 :host {
   position: absolute;
   left: 0;
-  top: 43px;
+  top: 26px;
   z-index: 10;
     @media screen and (max-width: 768px) {
     top:25px
@@ -26,7 +26,7 @@ button {
 }
 
 .primary {
-  margin-bottom: 5px;
+  margin-bottom: 22px;
   @media screen and (max-width: 768px) {
     margin-bottom: 23px;
   }
@@ -36,11 +36,11 @@ button {
   background: #290052;
 }
 
-.show {
+/* .show {
   @media screen and (max-width: 768px) {
     margin-left: -260px;
-    transition: 1.5s;
+    transition: 0.2s;
   }
-}
+} */
 
 
