@@ -1,15 +1,15 @@
 <div class="section-create-board" *ngIf="isCreationFormBoardOpen">
     <div class="wrapper-board">
-        <button class="btn-close" (click)="closeCreateBoard()">X</button>
+        <div class="board-header">
+            <app-add-users-form></app-add-users-form>
+            <button class="btn-close" (click)="closeCreateBoard()">X</button>
+        </div>
         <form class="form-board" [formGroup]="formCreateBoard"(ngSubmit)="createBoard()">
             <input class="input" type="text" formControlName="title" placeholder="{{'WORKSPACE.TITLE' | translate}}">
             <input class="input" type="text" formControlName="owner" placeholder="{{'WORKSPACE.OWNER' | translate}}">
-            <app-add-users-form></app-add-users-form>
             <div class="users">
                 <div class="user" *ngFor="let userName of usersName">
-                    <button class="btn-delete-user" type="button" (click)="removeUser(userName)">X</button>
-                    <img src="assets/images/user-profile.svg" width="50px" alt="user-icon">
-                    <span>{{userName}}</span>
+                    <app-user-logo (click)="removeUser(userName)" [userName]="userName"></app-user-logo>
                 </div>
             </div>
             <button class="btn-create" [disabled]="formCreateBoard.invalid" type="submit">

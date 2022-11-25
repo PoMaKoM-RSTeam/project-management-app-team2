@@ -16,7 +16,7 @@
         align-items:center;
         position: absolute;
         top: 20%;
-        left: 30%;
+        // left: 30%;
         color: #000;
         padding: 15px 10px 20px;
         background-color: rgba(255, 255, 255, 0.3);
@@ -30,6 +30,7 @@
         border-left: 1px solid rgba(255, 255, 255, 0.5);
         box-shadow: 20px 20px 50px rgb(0 0 0 / 50%);
         background: rgba(255, 255, 255, 0.1);
+        margin: 0 auto;
         .btn-close {
             position: absolute;
             top: 6%;
@@ -143,6 +144,7 @@
 
 .wrapper-add-user {
     display: flex;
+    justify-content: space-between;
     width: 85%;
     position: relative;
     right: 10px;
@@ -187,3 +189,8 @@
         border-radius: 25px;
     }
 }
+
+
+.user-logo:host {
+        width: 25px;
+} 

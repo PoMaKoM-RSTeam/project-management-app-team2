@@ -48,7 +48,10 @@
           {{ board.owner }}
         </div>
         <div class="{{ board.users.length > 0 ? 'users' : '' }}">
-          <span class="user" *ngFor="let user of board.users">{{ user }}</span>
+          <span class="user" *ngFor="let user of board.users">
+            <app-user-logo [userName]="user"></app-user-logo>
+          </span>
+
         </div>
       </a>
     </div>
