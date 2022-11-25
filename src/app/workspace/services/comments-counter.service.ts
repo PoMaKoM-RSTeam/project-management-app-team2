@@ -1,10 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-
-interface CounterComments {
-  taskId: string;
-  count: number;
-}
+import { CounterComments } from 'src/app/core/models/project-manager.model';
 
 @Injectable({
   providedIn: 'root',

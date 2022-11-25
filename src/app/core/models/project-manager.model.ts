@@ -156,5 +156,10 @@ export interface UpdatePointDTO {
 
 export interface TaskData {
   id: string,
-  users: string[]
+  users: string[];
+}
+
+export interface CounterComments {
+  taskId: string;
+  count: number;
 }
