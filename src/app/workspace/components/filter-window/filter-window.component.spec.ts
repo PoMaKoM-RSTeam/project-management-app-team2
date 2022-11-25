@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ColumnComponent } from './column.component';
+import { FilterWindowComponent } from './filter-window.component';
 
-describe('ColumnComponent', () => {
-  let component: ColumnComponent;
-  let fixture: ComponentFixture<ColumnComponent>;
+describe('FilterWindowComponent', () => {
+  let component: FilterWindowComponent;
+  let fixture: ComponentFixture<FilterWindowComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ColumnComponent],
+      declarations: [FilterWindowComponent],
     })
       .compileComponents();
 
-    fixture = TestBed.createComponent(ColumnComponent);
+    fixture = TestBed.createComponent(FilterWindowComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

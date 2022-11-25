@@ -36,6 +36,8 @@ export class HeaderProfileComponent implements OnInit {
   }
 
   deleteUser = (): void => {
+    if (!this.isAuth) return;
+
     this.httpService.deleteUser(this.userId).subscribe({
       next: () => this.logout(),
     });

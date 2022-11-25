@@ -14,6 +14,7 @@ import { ZorroModule } from './zorro/zorro.module';
 import { LocalizationModule } from '../localization/localization.module';
 import { UserLogoPipe } from './pipes/user-logo.pipe';
 import { UserLogoComponent } from './components/user-logo/user-logo.component';
+import { TokenExpiredDialogComponent } from './components/token-expired-dialog/token-expired-dialog.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { UserLogoComponent } from './components/user-logo/user-logo.component';
     GlobalSearchComponent,
     HeaderProfileComponent,
     ConfirmationModalComponent,
+    TokenExpiredDialogComponent,
     UserLogoPipe,
     UserLogoComponent,
   ],
@@ -40,6 +42,7 @@ import { UserLogoComponent } from './components/user-logo/user-logo.component';
     HeaderComponent,
     FooterComponent,
     ConfirmationModalComponent,
+    TokenExpiredDialogComponent,
     UserLogoPipe,
     UserLogoComponent,
   ],

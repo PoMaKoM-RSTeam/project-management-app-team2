@@ -1,8 +1,27 @@
-
-<div *ngIf="!board" class="spinner">
+<div *ngIf="!board && isBoardIdCorrect" class="spinner">
   <nz-spin nzSimple></nz-spin>
 </div>
+<nz-result
+  *ngIf="!isBoardIdCorrect"
+  class="error-massage"
+  nzStatus="404"
+  nzTitle="404"
+  nzSubTitle="{{'ERRORS.BOARDS' | translate}}"
+>
+  <div nz-result-extra>
+    <button
+      nz-button
+      nzType="primary"
+      routerLink="/workspace"
+    >
+      {{"AUTH.BACK" | translate}}
+    </button>
+  </div>
+</nz-result>
 <section *ngIf="board" class="board">
+  <button class="board__filter" (click)="onFilterPush()"><span class="board__filter-icon" nz-icon nzType="filter" nzTheme="outline"></span></button>
+  <button class="board__filter-clear" (click)="onFilterClear()"><span nz-icon nzType="clear" class="board__filter-icon" nzTheme="outline"></span></button>
+  <app-filter-window class="board__filter-options" *ngIf="isFilterVisible"></app-filter-window>
   <h1 class="board__title">{{ board.title }}</h1>
   <div
     class="board__columns"
@@ -30,9 +49,18 @@
                 (click)="column.title = prevTitle; isTitleClicked = ''; this.isForbidChangeTitle = true;">
           </span>
         </form>
-        <button nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu" class="column__delete" (click)="defineColumnId(column._id)">. . .</button>
+        <button
+          nz-dropdown
+          nzTrigger="click"
+          [nzDropdownMenu]="menu"
+          class="column__delete"
+          [nzPlacement]="'bottomRight'"
+          (click)="defineColumnId(column._id)"
+          >
+            . . .
+          </button>
         <nz-dropdown-menu #menu="nzDropdownMenu">
-          <ul nz-menu nzSelectable>
+          <ul nz-menu class="dropdown-menu" nzSelectable>
             <li nz-menu-item> <app-confirmation-modal
               [modalText]="'CONFIRMATION_FORM.TEXT_DELETE_COLUMN'"
               [onDelete]="deleteColumn"
@@ -45,7 +73,7 @@
       <div class="alert" *ngIf="inputForm.get('myInput')?.errors?.['maxlength']">{{"BOARD.REQUIRED_MAX_VALUE"| translate}}</div> -->
 
       <div class="column__tasks" cdkDropList [cdkDropListData]="column.tasks" (cdkDropListDropped)="dropTasks($event)">
-        <div cdkDrag *ngFor="let task of column.tasks" style="margin-bottom: 20px;">
+        <div cdkDrag *ngFor="let task of column.tasks | taskFilter: filterInputValue" style="margin-bottom: 20px;">
           <app-task [task]="task" (deleteTask)="deleteTask($event)"></app-task>
         </div>
       </div>
@@ -67,5 +95,6 @@
   <div class="overlay" *ngIf="isCreateTaskModalOpen">
     <app-create-task-modal [boardId] = "boardId" [columnId]="columnId" (createTask)="createTask($event)" (isModalTaskOpen)="isModalTaskOpen($event)"></app-create-task-modal>
   </div>
+  <app-edit-task-modal></app-edit-task-modal>
 
 </section>
