@@ -107,6 +107,9 @@
     "LINK": "Zur Tafel gehen...",
     "CLEAN": "Klare Ergebnisse"
   },
+  "HEADER": {
+    "CREATE_BOARD": "Board erstellen"
+  },
   "FILTER": {
     "FILTER": "Filter"
   }

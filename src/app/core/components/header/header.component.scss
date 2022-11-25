@@ -8,13 +8,21 @@
   background-color: rgb(133 29 74 / 54%);
   gap: 20px;
   @media screen and (max-width: 768px) {
-    gap: 10px;
+    gap: 5px;
+    padding: 0 5px;
+    height: 50px;
   }
 
   &__logo {
     width: 150px;
     margin-right: auto;
     margin-left: 60px;
+    display: flex;
+    align-items: center;
+    @media screen and (max-width: 768px) {
+      width: 40px;
+      margin-left: 25px;
+    }
 
   }
 
@@ -31,9 +39,100 @@
   &__profile {
     margin-left: 20px;
   }
+
+  &__create-board {
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
 }
 
 svg {
   height: 2em;
   width: 2em;
 }
+
+
+.glass {
+  width: 90px;
+  height: 56px;
+  position: relative;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-right: 2px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 2 px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 5px 45px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(2px);
+  overflow: hidden;
+  backdrop-filter: blur(2px);
+  &:hover {
+    cursor: pointer;
+  }
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+}
+
+.text_container {
+  width: 100%;
+  height: 45px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+  vertical-align: middle;
+}
+
+.glass::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.4);
+  transform: skewX(45deg) translateX(115px);
+  transition: 0.5s;
+  filter: blur(2px);
+}
+
+.glass:hover::before {
+  transform: skewX(45deg) translateX(-140px);
+  cursor: pointer;
+}
+
+.project {
+  font-family: "Roboto";
+  font-weight: 600;
+  font-size: 16px;
+  background: -webkit-linear-gradient(0.95turn, #2265fe, #2ff8ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.line {
+  width: 95%;
+  height: 2px;
+  background: linear-gradient(0.25turn, #2265fe, #2ff8ff);
+}
+
+.logo {
+  width: 60px;
+  @media screen and (max-width: 768px) {
+    width: 35px;
+  }
+}
+.logo-img {
+  width: 100%;
+}
+
+

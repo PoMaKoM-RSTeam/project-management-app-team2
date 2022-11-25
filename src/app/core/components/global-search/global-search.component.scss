@@ -2,12 +2,24 @@
   display: flex;
   height: 32px;
   transition: 1s;
+  @media screen and (max-width: 768px) {
+    height: 25px;
+  }
 
   &__input {
     width: 100px;
     background: none;
     color: white;
     margin-right: 10px;
+    &::placeholder{
+      font-size: 0.8rem;
+    }
+    @media screen and (max-width: 768px) {
+      width: 70px;
+      margin-right: 5px;
+      font-size: 14px;
+    }
+
   }
 
   &__input:hover,
@@ -16,18 +28,37 @@
     margin-left: -200px;
 
     @media screen and (max-width: 768px) {
-      width: 130px;
-      margin-left: -130px;
+      width: 95px;
+      margin-left: -95px;
     }
   }
 
 }
 
-
 .login-form-forgot {
   float: right;
 }
 
-/* .login-form-button {
-  width: 70px;
-} */
+.ant-btn-primary {
+  padding: 3px;
+  @media screen and (max-width: 768px) {
+    padding: 2px;
+    height: 25px;
+  }
+}
+
+.login-form__clear {
+  color: white;
+  font-size: 1.5rem;
+  @media screen and (max-width: 768px) {
+    font-size: 1rem;
+  }
+}
+
+::ng-deep .ant-btn-primary:disabled {
+  background: none;
+  &:hover {
+    background: none;
+  }
+}
+
