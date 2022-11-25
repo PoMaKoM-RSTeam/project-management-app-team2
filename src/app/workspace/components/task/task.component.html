@@ -15,9 +15,17 @@
   <span nz-icon nzType="comment" nzTheme="outline" class="task__comments"></span>
   <app-comments-block [task]="task"></app-comments-block>
 
-  <button nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu" class="task__close-button">. . .</button>
+  <button
+    nz-dropdown
+    nzTrigger="click"
+    [nzDropdownMenu]="menu"
+    [nzPlacement]="'bottomRight'"
+    class="task__close-button"
+  >
+    . . .
+  </button>
   <nz-dropdown-menu #menu="nzDropdownMenu">
-    <ul nz-menu nzSelectable>
+    <ul nz-menu class="dropdown-menu" nzSelectable>
       <li nz-menu-item>
         <app-confirmation-modal
             [onDelete] = "onDelete"

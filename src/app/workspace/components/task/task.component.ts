@@ -4,7 +4,7 @@ import {
 import { TranslateService } from '@ngx-translate/core';
 import { HTTPService } from '../../../core/services/http.service';
 import { TaskResponse } from '../../../core/models/project-manager.model';
-import { EditTaskServie } from '../../services/edit-task-service';
+import { EditTaskService } from '../../services/edit-task-service';
 
 @Component({
   selector: 'app-task',
@@ -21,7 +21,7 @@ export class TaskComponent implements OnInit {
   constructor(
     public translate: TranslateService,
     private httpService: HTTPService,
-    private editTaskServie: EditTaskServie,
+    private editTaskService: EditTaskService,
   ) { }
 
   ngOnInit() {
@@ -30,7 +30,7 @@ export class TaskComponent implements OnInit {
         this.usersTask = taskData.users.filter((user) => !this.usersTask.includes(user));
       });
 
-    this.editTaskServie.taskUserId$.subscribe((taskData) => {
+    this.editTaskService.taskUserId$.subscribe((taskData) => {
       if (this.task._id === taskData.id) {
         this.usersTask = taskData.users;
       }
@@ -46,7 +46,7 @@ export class TaskComponent implements OnInit {
   };
 
   clickTask(taskData: TaskResponse) {
-    this.editTaskServie.getTaskData(taskData);
-    this.editTaskServie.openEditTaskModal(true);
+    this.editTaskService.getTaskData(taskData);
+    this.editTaskService.openEditTaskModal(true);
   }
 }
