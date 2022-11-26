@@ -78,9 +78,6 @@
     height: calc(100vh - 230px);
     padding-bottom: 20px;
     align-items: flex-start;
-    @media(max-width: 768px) {
-      padding-left: 50px;
-     }
   }
 
   &__create-button {
@@ -310,6 +307,7 @@
 
 .nav_close {
   padding-left: 100px;
+  
  @media(max-width: 768px) {
   padding-left: 0px;
  }

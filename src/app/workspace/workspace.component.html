@@ -10,8 +10,9 @@
   <h1 class="title-boards">{{ "WORKSPACE.BOARD" | translate }}</h1>
 
   <div
-    class="boards {{isNavigationClose? 'nav_close' : 'nav_open'}}"
+    class="boards {{isNavigationClose? 'close' : 'open'}}"
     [ngStyle]="{transition: '1.5s'}"
+
   >
     <div class="board create-board" (click)="createForm()">
       <span class="link-board">{{ "WORKSPACE.CREATE_BOARD" | translate }}</span>

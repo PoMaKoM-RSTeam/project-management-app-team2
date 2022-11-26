@@ -25,7 +25,25 @@
         padding: 0 20px 65px 20px;
         gap: 20px;
         justify-content: center;
-        @media (max-width: 560px) {
+        &.open {
+            padding-left: 260px;
+            @media(max-width: 768px) {
+                padding-left: 260px;  
+            }
+            @media(max-width: 580px) {
+                padding-left: 20%;  
+            }
+        }
+        &.close {
+            padding-left: 100px;
+            @media(max-width: 768px) {
+                padding-left: 100px;  
+            }
+            @media(max-width: 580px) {
+                padding-left: 20%;  
+            }
+        }
+        @media (max-width: 580px) {
             padding: 0 20% 65px;
         }
         .board {
@@ -162,15 +180,4 @@
       cursor: pointer;
     }
   }
-  .nav_close {
-    padding-left: 100px;
-    @media(max-width: 560px) {
-        padding-left: 0px;
-    }
-  }
-  .nav_open {
-    padding-left: 260px;
-    @media(max-width: 560px) {
-        padding-left: 0px;
-    }
-  }
+

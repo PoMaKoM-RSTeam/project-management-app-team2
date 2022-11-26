@@ -25,7 +25,7 @@
   <h1 class="board__title">{{ board.title }}</h1>
 
   <div
-    class="board__columns {{isCollapsed? 'nav_close' : 'nav_open'}}"
+    class="board__columns{{isCollapsed? 'nav_close' : 'nav_open'}}"
     cdkDropList
     cdkDropListOrientation="horizontal"
     (cdkDropListDropped)="drop($event)"
