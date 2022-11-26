@@ -113,4 +113,8 @@
   width: 80px;
   height: 80px;
   background: transparent;
+  @media (max-width: 768px) {
+    width: 40px;
+    height: 40px;
+  }
 }

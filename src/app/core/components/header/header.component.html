@@ -1,8 +1,4 @@
 <div class="header">
-<<<<<<< HEAD
-  <div class="header__logo"><app-logo-tree-d></app-logo-tree-d></div>
-  <div class="header__search">
-=======
   <div class="header__logo">
     <div class="glass">
       <div class="text_container">
@@ -13,14 +9,12 @@
       </div>
     </div>
     <div class="logo">
-      <img class="logo-img" src="assets/images/logo-cube.svg" alt="logo">
+      <app-logo-tree-d></app-logo-tree-d>
     </div>
   </div>
-  <div class="header__search" *ngIf="showSearch">
->>>>>>> develop
+  <div class="header__search">
     <app-global-search></app-global-search>
   </div>
-  <span nz-icon nzType="file-add" nzTheme="outline" (click)="createForm()" class="header__create-board" title="{{'HEADER.CREATE_BOARD' | translate}}"></span>
   <div class="header__select">
     <app-localization></app-localization>
   </div>
