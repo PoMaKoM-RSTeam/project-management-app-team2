@@ -14,7 +14,7 @@ export class AuthValidator {
     }
     if ((!(/[a-zа-я]/.test(control.value)))) {
       return {
-        invalidPassword: 'AUTH.PASSWORD_LOWERCASE!',
+        invalidPassword: 'AUTH.PASSWORD_LOWERCASE',
       };
     }
 
