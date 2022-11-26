@@ -1,107 +1,139 @@
-/* eslint-disable @typescript-eslint/no-shadow */
-import { Component, OnInit } from '@angular/core';
-import * as THREE from 'three';
+/* eslint-disable no-bitwise */
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  Input,
+  OnDestroy,
+  ViewChild,
+} from '@angular/core';
+
+import {
+  WebGLRenderer,
+  PerspectiveCamera,
+  Scene,
+  HemisphereLight,
+  DirectionalLight,
+} from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-import cube_gltf from 'src/assets/3D/logo_cube.glb';
+import { GLTFLoader, GLTF } from 'three/examples/jsm/loaders/GLTFLoader';
+import cubeGltf from '../../../../assets/3D/logo_cube.glb';
 
 @Component({
   selector: 'app-logo-tree-d',
   templateUrl: './logo-tree-d.component.html',
   styleUrls: ['./logo-tree-d.component.scss'],
 })
-export class LogoTreeDComponent implements OnInit {
-  ngOnInit(): void {
-    this.main();
-  }
+export class LogoTreeDComponent implements AfterViewInit, OnDestroy {
+  @ViewChild('canvas')
+  private canvas!: ElementRef<HTMLCanvasElement>;
 
-  main() {
-    const canvas = document.querySelector('#canvas') as HTMLCanvasElement;
-    const renderer = new THREE.WebGLRenderer({
-      canvas,
+  @Input()
+  rotationSpeed: number = 1;
+
+  private requestedFrame = 0;
+
+  private renderer: WebGLRenderer | null = null;
+
+  private camera: PerspectiveCamera | null = null;
+
+  private controls: OrbitControls | null = null;
+
+  ngAfterViewInit(): void {
+    this.renderer = new WebGLRenderer({
+      canvas: this.canvas.nativeElement,
       alpha: true,
       antialias: true,
     });
 
-    const fov = 45;
-    const aspect = 2;
-    const near = 0.1;
-    const far = 100;
-    const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-    camera.position.set(0, 10, 12);
+    const scene = new Scene();
+    let model: GLTF;
 
-    const controls = new OrbitControls(camera, canvas);
-    controls.target.set(0, 0.2, 0);
-    controls.update();
-    controls.enableZoom = false;
-    controls.enablePan = false;
-
-    const scene = new THREE.Scene();
+    {
+      const fov = 45;
+      const aspect = 2;
+      const near = 0.1;
+      const far = 100;
+      this.camera = new PerspectiveCamera(fov, aspect, near, far);
+      this.camera.position.set(0, 10, 12);
+    }
 
     {
       const skyColor = 0xabecff;
       const groundColor = 0x2c74f9;
       const intensity = 1;
-      const light = new THREE.HemisphereLight(skyColor, groundColor, intensity);
+      const light = new HemisphereLight(skyColor, groundColor, intensity);
       scene.add(light);
     }
 
     {
-      const color = 0xFFFFFF;
+      const color = 0xffffff;
       const intensity = 1;
-      const light = new THREE.DirectionalLight(color, intensity);
+      const light = new DirectionalLight(color, intensity);
       light.position.set(0, 8, 0);
       light.target.position.set(-5, 0, 0);
       scene.add(light);
       scene.add(light.target);
     }
 
-    let loadedModel: any;
-    const loader = new GLTFLoader();
-    loader.load(cube_gltf, (gltf: any) => {
-      loadedModel = gltf;
-      scene.add(gltf.scene);
-      loadedModel.scene.rotation.y = Math.PI / 5;
-      loadedModel.scene.position.y = -2;
-      loadedModel.scene.scale.set(7, 7, 7);
-    }, (xhr: any) => {
-      // eslint-disable-next-line no-mixed-operators
-      console.log(`${xhr.loaded / xhr.total * 100}%loaded`);
-    }, (error: any) => {
-      console.log('An error happened', error);
+    {
+      const modelLoader = new GLTFLoader();
+      modelLoader.load(cubeGltf, (gltf) => {
+        gltf.scene.rotation.y = -Math.PI / 8;
+        gltf.scene.position.y = -2;
+        gltf.scene.scale.set(7, 7, 7);
+        scene.add(gltf.scene);
+        model = gltf;
+      });
+    }
+
+    this.controls = new OrbitControls(this.camera, this.canvas.nativeElement);
+    this.controls.target.set(0, 0.2, 0);
+    Object.assign(this.controls, {
+      enableZoom: false,
+      enablePan: false,
+      autoRotate: true,
+      minPolarAngle: 0,
+      maxPolarAngle: Math.PI / 2,
     });
 
-    const anim = () => {
-      if (loadedModel) {
-        loadedModel.scene.rotation.y += 0.014;
+    const render = () => {
+      if (this.renderer && this.camera && this.controls) {
+        this.resizeCanvasToDisplaySize();
+        this.renderer.render(scene, this.camera);
+        this.controls.autoRotateSpeed = this.rotationSpeed;
+        this.controls.update();
       }
-      requestAnimationFrame(anim);
+      this.requestedFrame = requestAnimationFrame(render);
     };
-    anim();
 
-    function resizeRendererToDisplaySize(renderer: any) {
-      const canvas = renderer.domElement;
-      const width = canvas.clientWidth;
-      const height = canvas.clientHeight;
-      const needResize = canvas.width !== width || canvas.height !== height;
-      if (needResize) {
-        renderer.setSize(width, height, false);
-      }
-      return needResize;
+    render();
+  }
+
+  private resizeCanvasToDisplaySize() {
+    if (!this.renderer || !this.camera) {
+      return;
     }
+    const canvas = this.canvas.nativeElement;
+    const pixelRatio = window.devicePixelRatio;
+    const width = (canvas.clientWidth * pixelRatio) | 0;
+    const height = (canvas.clientHeight * pixelRatio) | 0;
+    const needResize = canvas.width !== width || canvas.height !== height;
 
-    function render() {
-      if (resizeRendererToDisplaySize(renderer)) {
-        const canvas = renderer.domElement;
-        camera.aspect = canvas.clientWidth / canvas.clientHeight;
-        camera.updateProjectionMatrix();
-      }
-
-      renderer.render(scene, camera);
-
-      requestAnimationFrame(render);
+    if (needResize) {
+      this.renderer.setSize(width, height, false);
+      this.camera.aspect = width / height;
+      this.camera.updateProjectionMatrix();
     }
+  }
 
-    requestAnimationFrame(render);
+  ngOnDestroy(): void {
+    this.renderer?.dispose();
+    this.controls?.dispose();
+    cancelAnimationFrame(this.requestedFrame);
+
+    this.renderer = null;
+    this.controls = null;
+    this.requestedFrame = 0;
   }
 }
