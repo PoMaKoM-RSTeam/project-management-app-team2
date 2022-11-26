@@ -1,8 +1,14 @@
 .wrapper {
   width: 240px;
   height: calc(100vh - 120px);
-  @media(max-width: 580px) {
-    width: 0px;
+  @media(max-width: 768px) {
+    width: 49px;
+  }
+}
+
+.link-text {
+  @media(max-width: 768px) {
+    display: none;
   }
 }
 
@@ -37,12 +43,19 @@ button {
 
 .navigation {
   background: #290052;
-  display: block;
+  @media (max-width: 768px) {
+    display: block;
+    position: relative;
+    left: -300px;
+    transition: all 1s; 
+  }
 }
 
 .close {
   background: #290052;
-  @media(max-width: 580px) {
-    display: none;
+  @media (max-width: 768px) {
+    position: relative;
+    left: 0;
+    transition: all 1s; 
   }
 }

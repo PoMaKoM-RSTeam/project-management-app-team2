@@ -7,23 +7,15 @@
       >
       <a routerLink="" routerLinkActive="active">
         <span nz-icon nzType="mail"></span>
-        <span>{{'NAV.WELCOME'| translate}}</span>
+        <span class="link-text">{{'NAV.WELCOME'| translate}}</span>
       </a>
     </li>
-
-<!--     <li nzSelected="{{url.includes('auth')}}" nz-menu-item nz-tooltip nzTooltipPlacement="right" [nzTooltipTitle]="isCollapsed ? 'Authorization' : ''">
-      <a
-        routerLink="auth" routerLinkActive="active">
-        <span nz-icon nzType="appstore"></span>
-        <span>{{'NAV.AUTHORIZATION'| translate}}</span>
-      </a>
-    </li> -->
 
     <li nzSelected="{{url.includes('workspace')}}" nz-menu-item nz-tooltip nzTooltipPlacement="right" [nzTooltipTitle]="isCollapsed ? 'Workspace' : ''">
       <a
         routerLink="workspace" routerLinkActive="active">
         <span nz-icon nzType="appstore"></span>
-        <span>{{'NAV.WORKSPACE'| translate}}</span>
+        <span class="link-text">{{'NAV.WORKSPACE'| translate}}</span>
       </a>
     </li>
 
@@ -31,7 +23,7 @@
       <a
         routerLink="profile" routerLinkActive="active">
         <span nz-icon nzType="setting"></span>
-        <span>{{'NAV.PROFILE'| translate}}</span>
+        <span class="link-text">{{'NAV.PROFILE'| translate}}</span>
       </a>
     </li>
   </ul>
