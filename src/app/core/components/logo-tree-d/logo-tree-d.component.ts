@@ -28,8 +28,7 @@ export class LogoTreeDComponent implements AfterViewInit, OnDestroy {
   @ViewChild('canvas')
   private canvas!: ElementRef<HTMLCanvasElement>;
 
-  @Input()
-  rotationSpeed: number = 1;
+  @Input() rotationSpeed: number = 4;
 
   private requestedFrame = 0;
 
@@ -47,6 +46,7 @@ export class LogoTreeDComponent implements AfterViewInit, OnDestroy {
     });
 
     const scene = new Scene();
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     let model: GLTF;
 
     {
