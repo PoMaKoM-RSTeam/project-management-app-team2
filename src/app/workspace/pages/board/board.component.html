@@ -23,15 +23,13 @@
   <button class="board__filter-clear" (click)="onFilterClear()"><span nz-icon nzType="clear" class="board__filter-icon" nzTheme="outline"></span></button>
   <app-filter-window class="board__filter-options" *ngIf="isFilterVisible"></app-filter-window>
   <h1 class="board__title">{{ board.title }}</h1>
+
   <div
-    class="board__columns"
+    class="board__columns {{isCollapsed? 'nav_close' : 'nav_open'}}"
     cdkDropList
     cdkDropListOrientation="horizontal"
     (cdkDropListDropped)="drop($event)"
-    [ngStyle]="{
-      paddingLeft: isCollapsed? '100px': '260px',
-      transition: '1.5s'
-    }"
+    [ngStyle]="{transition: '1.5s'}"
   >
   <div cdkDropListGroup style="display: flex;">
 

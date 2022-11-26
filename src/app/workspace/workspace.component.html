@@ -8,12 +8,10 @@
 
 <section class="workspace" *ngIf="!searchString">
   <h1 class="title-boards">{{ "WORKSPACE.BOARD" | translate }}</h1>
+
   <div
-    class="boards"
-    [ngStyle]="{
-      paddingLeft: isNavigationClose ? '100px' : '260px',
-      transition: '1.5s'
-    }"
+    class="boards {{isNavigationClose? 'nav_close' : 'nav_open'}}"
+    [ngStyle]="{transition: '1.5s'}"
   >
     <div class="board create-board" (click)="createForm()">
       <span class="link-board">{{ "WORKSPACE.CREATE_BOARD" | translate }}</span>

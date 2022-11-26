@@ -162,3 +162,15 @@
       cursor: pointer;
     }
   }
+  .nav_close {
+    padding-left: 100px;
+    @media(max-width: 560px) {
+        padding-left: 0px;
+    }
+  }
+  .nav_open {
+    padding-left: 260px;
+    @media(max-width: 560px) {
+        padding-left: 0px;
+    }
+  }

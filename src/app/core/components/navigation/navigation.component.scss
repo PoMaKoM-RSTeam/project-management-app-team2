@@ -1,6 +1,9 @@
 .wrapper {
   width: 240px;
   height: calc(100vh - 120px);
+  @media(max-width: 560px) {
+    width: 0px;
+  }
 }
 
 button {
@@ -25,6 +28,14 @@ button {
 
 .navigation {
   background: #290052;
+  display: block;
+
+
 }
 
-
+.close {
+  background: #290052;
+  @media(max-width: 560px) {
+    display: none;
+  }
+}
