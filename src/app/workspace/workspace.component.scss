@@ -1,28 +1,34 @@
+
 .workspace {
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
     height: 85vh;
+    overflow-x: auto;
     .title-boards {
         padding: 20px 0 20px;
         font-size: 30px;
         font-weight: 500;
         margin: 0;
         color: white;
+        @media (max-width: 520px) {
+            font-size: 25px;
+        }
     }
     .boards {
-        display: flex;
-        gap: 25px;
-        align-items: flex-start;
-        justify-content: flex-start;
         width: 100vw;
-        padding-left: 260px;
         padding-bottom: 65px;
-        flex-wrap: wrap;
-        overflow-x: auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-auto-rows: 1fr;
+        padding: 0 20px 65px 20px;
+        gap: 20px;
+        justify-content: center;
+        @media (max-width: 560px) {
+            padding: 0 20% 65px;
+        }
         .board {
-            width: 290px;
             display: flex;
             align-items: center;
             flex-direction: column;
@@ -34,11 +40,11 @@
             word-break: break-all;
             line-height: 27px;
             padding: 5px;
-            min-height: 110px;
+            min-height: 130px;
             height: auto;
             cursor: pointer;
             justify-content: center;
-            
+            position: relative;
             &:hover {
                 box-shadow: 10px 10px 10px rgb(0 0 0 / 40%);
                 border: 1px outset rgba(255, 255, 255, 60%);
@@ -61,6 +67,9 @@
                 text-shadow: 1px -1px #030000;
                 font-weight: 600;
                 text-transform: capitalize;
+                @media (max-width: 768px) {
+                    font-size: 20px;
+                }
             }
             .link-board {
                 color: #fff;
@@ -91,11 +100,11 @@
                 border: 0;
                 min-height: 30px;
                 height: auto;
-                display: flex;
-                align-items: center;
-                min-width: 250px;
-                width: 100%;
-                padding: 15px 10px 0 20px;
+                width: 86%;
+                padding: 6% 0 2% 1%;
+                flex-wrap: nowrap;
+                overflow: auto;
+                margin: 0 auto;
             }
             .btn-delete {
                 background-color: rgb(255 255 255 / 20%);
@@ -137,16 +146,18 @@
   }
 
   .board__delete {
-    position: relative;
+    position: absolute;
     font-size: 1rem;
     line-height: 100%;
     top: 0px;
-    right: -120px;
+    right: -100px;
     background: none;
     border: none;
     color: white;
     padding: 5px;
     height: 30px;
+    top: 0px;
+    right: 15px;
     &:hover {
       cursor: pointer;
     }
