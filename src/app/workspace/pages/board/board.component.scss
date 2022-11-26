@@ -12,7 +12,9 @@
   height: auto;
   text-align: center;
   padding-top: 20px;
-
+  @media screen and (max-width:768px){
+    padding-top: 10px;
+  }
   &__filter {
     color: white;
     position: absolute;
@@ -64,7 +66,11 @@
     }
   }
 
-
+  &__title {
+    @media screen and (max-width:768px){
+      margin-bottom: 5px;
+    }
+  }
 
 
   &__columns {
@@ -79,7 +85,8 @@
     padding-bottom: 20px;
     align-items: flex-start;
     @media screen and (max-width:768px){
-      padding-left: 20px !important;
+      padding-left: 10px !important;
+      height: calc(100vh - 158px);
     }
   }
 
@@ -102,6 +109,10 @@
     &:hover {
       cursor: pointer;
       background: hsla(123, 100%, 50%, 0.3);
+    }
+    @media (max-width: 768px) {
+      min-width: 280px;
+      margin: 10px;
     }
   }
 }
@@ -197,6 +208,13 @@
   border-left: 1px solid rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(5px);
   max-height: calc(100vh - 340px);
+  @media (max-width: 768px) {
+    max-height: calc(100vh - 180px);
+    margin: 10px;
+    width: 280px;
+    padding: 5px;
+    gap: 8px;
+  }
 
   &:hover {
     cursor: grabbing;
@@ -207,6 +225,9 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    @media (max-width: 768px) {
+      margin-bottom: -15px;
+    }
   }
 
   &__input {
@@ -284,6 +305,9 @@
       cursor: pointer;
       background: darken($color: #ffffff, $amount: 10);
     }
+    @media (max-width: 768px) {
+      padding: 5px 12px;
+    }
   }
 
   &__icon {
@@ -296,6 +320,9 @@
     height: 100vh;
     overflow-y: auto;
     padding-top: 10px;
+    @media (max-width: 768px) {
+      padding-top: 5px;
+    }
   }
 }
 
