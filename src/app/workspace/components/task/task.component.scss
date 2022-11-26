@@ -90,6 +90,9 @@ ul, li {
   &__comments {
     font-size: 1.5rem;
     align-self: flex-end;
+    @media (max-width: 768px) {
+      margin-right: 5px;
+    }
   }
 }
 

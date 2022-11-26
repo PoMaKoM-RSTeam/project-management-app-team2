@@ -5,7 +5,6 @@
     border-radius: 20px;
     padding: 4px;
     padding-right: 8px;
-    margin-top: 5px;
     outline: none;
     text-indent: 5px;
     &::placeholder{
@@ -19,6 +18,7 @@
     color: white;
     display: flex;
     margin-top: 30px;
+    align-items: center;
   }
 }
 
