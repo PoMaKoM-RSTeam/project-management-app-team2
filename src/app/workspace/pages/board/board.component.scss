@@ -78,6 +78,24 @@
     height: calc(100vh - 230px);
     padding-bottom: 20px;
     align-items: flex-start;
+    &.open {
+      padding-left: 260px;
+      @media(max-width: 768px) {
+          padding-left: 260px;  
+      }
+      @media(max-width: 580px) {
+          padding-left: 20%;  
+      }
+    }
+    &.close {
+        padding-left: 100px;
+        @media(max-width: 768px) {
+            padding-left: 100px;  
+        }
+        @media(max-width: 580px) {
+            padding-left: 20%;  
+        }
+    }
   }
 
   &__create-button {
@@ -305,16 +323,16 @@
   margin-top: -20px;
 }
 
-.nav_close {
-  padding-left: 100px;
+// .nav_close {
+//   padding-left: 100px;
   
- @media(max-width: 768px) {
-  padding-left: 0px;
- }
-}
-.nav_open {
-  padding-left: 260px;
-  @media(max-width: 768px) {
-    padding-left: 0px;
-   }
-}
+//  @media(max-width: 768px) {
+//   padding-left: 0px;
+//  }
+// }
+// .nav_open {
+//   padding-left: 260px;
+//   @media(max-width: 768px) {
+//     padding-left: 0px;
+//    }
+// }

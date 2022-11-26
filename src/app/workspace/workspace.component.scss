@@ -63,6 +63,7 @@
             cursor: pointer;
             justify-content: center;
             position: relative;
+            max-width: 350px;
             &:hover {
                 box-shadow: 10px 10px 10px rgb(0 0 0 / 40%);
                 border: 1px outset rgba(255, 255, 255, 60%);
