@@ -12,6 +12,7 @@ import { LocalizationModule } from './localization/localization.module';
 import { AuthModule } from './auth/auth.module';
 import { AuthGuard } from './core/guards/auth-guard';
 import { tokenInterceptorProviders } from './auth/interceptors/tokenInterceptor.provider';
+import { TokenExpiredDialogService } from './core/services/tokenExpiredDialog.service';
 
 registerLocaleData(en);
 
@@ -32,6 +33,7 @@ registerLocaleData(en);
   providers: [
     tokenInterceptorProviders,
     AuthGuard,
+    TokenExpiredDialogService,
   ],
   bootstrap: [AppComponent],
 })

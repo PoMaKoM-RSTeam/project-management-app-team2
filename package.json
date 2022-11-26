@@ -4,10 +4,12 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --base-href='https://PoMaKoM-RSTeam.github.io/project-management-app-team2/'",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "deploy": "ng deploy --base-href='https://PoMaKoM-RSTeam.github.io/project-management-app-team2/'"
+
   },
   "private": true,
   "dependencies": {
@@ -24,6 +26,7 @@
     "@ngx-translate/core": "^14.0.0",
     "@ngx-translate/http-loader": "^7.0.0",
     "@types/dagre": "^0.7.48",
+    "angular-cli-ghpages": "^1.0.5",
     "@types/three": "^0.146.0",
     "d3-drag": "^3.0.0",
     "d3-selection": "^3.0.0",

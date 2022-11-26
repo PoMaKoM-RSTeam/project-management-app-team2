@@ -1,0 +1,27 @@
+.comment-block {
+  &__input {
+    background: none;
+    border: 1px solid #e2e2e2;
+    border-radius: 20px;
+    padding: 4px;
+    padding-right: 8px;
+    margin-top: 5px;
+    outline: none;
+    text-indent: 5px;
+    &::placeholder{
+      color: #e2e2e2;
+      margin-left: 5px;
+      padding-right: 5px;
+      text-indent: 5px;
+    }
+  }
+  &__form {
+    color: white;
+    display: flex;
+    margin-top: 30px;
+  }
+}
+
+:host {
+  width: 100%;
+}

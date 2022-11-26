@@ -14,6 +14,7 @@ import { ChangeLanguageService } from 'src/app/core/services/changeLanguage.serv
 import { HTTPService } from 'src/app/core/services/http.service';
 import { NzModalService } from 'ng-zorro-antd/modal';
 import { ActivatedRoute } from '@angular/router';
+
 import { NavigationService } from 'src/app/core/services/navigation.service';
 import {
   FormControl,
@@ -21,6 +22,8 @@ import {
   UntypedFormGroup,
   Validators,
 } from '@angular/forms';
+import { FilterService } from '../../services/filter.service';
+import { EditTaskService } from '../../services/edit-task-service';
 
 @Component({
   selector: 'app-board',
@@ -28,6 +31,8 @@ import {
   styleUrls: ['./board.component.scss'],
 })
 export class BoardComponent implements OnInit {
+  isBoardIdCorrect = true;
+
   board: BoardResponse | undefined;
 
   title!: string;
@@ -66,6 +71,10 @@ export class BoardComponent implements OnInit {
 
   boardIdForDelete = '';
 
+  isFilterVisible = false;
+
+  filterInputValue = '';
+
   constructor(
     public translate: TranslateService,
     private languageService: ChangeLanguageService,
@@ -73,6 +82,8 @@ export class BoardComponent implements OnInit {
     private modal: NzModalService,
     private activatedRoute: ActivatedRoute,
     private navigationService: NavigationService,
+    private filterService: FilterService,
+    private editTaskService: EditTaskService,
   ) {
     this.inputForm = new FormGroup({
       myInput: new FormControl('', [
@@ -88,8 +99,14 @@ export class BoardComponent implements OnInit {
       const data = param['id'];
       this.param = data;
     });
-    this.httpService.getBoardById(this.param).subscribe((board) => {
-      this.board = board;
+    this.httpService.getBoardById(this.param).subscribe({
+      next: (board) => {
+        this.board = board;
+      },
+      error: () => {
+        this.board = undefined;
+        this.isBoardIdCorrect = false;
+      },
     });
 
     this.httpService.getAllColumns(this.param).subscribe((columns) => {
@@ -102,8 +119,25 @@ export class BoardComponent implements OnInit {
           });
       });
     });
+
     this.navigationService.collaps.subscribe((data) => {
       this.isCollapsed = data;
+    });
+
+    this.editTaskService.taskData$.subscribe((taskService) => {
+      this.columns.forEach((column) => {
+        column.tasks?.forEach((task) => {
+          if (taskService._id === task._id) {
+            task.title = taskService.title;
+            task.description = taskService.description;
+            task.users = this.board!.users;
+          }
+        });
+      });
+    });
+
+    this.filterService.filterInputValue$.subscribe((data) => {
+      this.filterInputValue = data;
     });
   }
 
@@ -192,6 +226,7 @@ export class BoardComponent implements OnInit {
             order: data.order,
             boardId: data.boardId,
             _id: data._id,
+            tasks: [],
           });
         });
       this.snowModal = false;
@@ -232,21 +267,28 @@ export class BoardComponent implements OnInit {
   }
 
   createTask(task: TaskResponse) {
-    this.columns.find((el) => el._id === task.columnId)?.tasks?.push(task);
+    this.columns.find((el) => el._id === task.columnId)!.tasks!.push(task);
   }
 
   isModalTaskOpen(bool: boolean) {
     this.isCreateTaskModalOpen = bool;
   }
 
-
   deleteTask(task: TaskResponse) {
     this.columns.forEach((item) => {
       item.tasks = item.tasks!.filter((el) => el._id !== task._id);
     });
-  }  
+  }
 
   defineColumnId(id: string) {
     this.boardIdForDelete = id;
+  }
+
+  onFilterPush() {
+    this.isFilterVisible = !this.isFilterVisible;
+  }
+
+  onFilterClear() {
+    this.filterService.updateFilterString('');
   }
 }

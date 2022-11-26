@@ -72,13 +72,45 @@
     "BUTTON": "Spalte erstellen",
     "DESCRIPTION": "Beschreibung"
   },
+  "TASK_MODAL": {
+    "TITLE": "Titel der Aufgabe",
+    "BUTTON": "Aufgabe erstellen",
+    "DESCRIPTION": "Beschreibung"
+  },
   "WELCOME": {
     "MULTIPLE_BOARDS": "Mehrere Boards",
     "DRAG_AND_DROP": "Drag and drop",
     "EASY_TO_USE": "Einfach zu bedienen",
-    "WILCOME_TITLE": "Holen Sie sich die <span> beste Erfahrung</span> bei der Verwaltung Ihres Projekts"
+    "TITLE_START": "Holen Sie sich die",
+    "TITLE_CENTER": "beste Erfahrung",
+    "TITLE_END": "bei der Verwaltung Ihres Projekts"
   },
   "COLUMN": {
     "BUTTON": "Neue Spalte erstellen"
+  },
+  "ERRORS": {
+    "BOARDS": "Dieses Board wurde wahrscheinlich entfernt.",
+    "TASK": "Dieses Problem wurde wahrscheinlich gelöscht.",
+    "AUTH": "Das Token ist abgelaufen. Neuautorisierung erforderlich",
+    "AUTH_TITLE": "Autorisierung fehlgeschlagen"
+  },
+  "COMMENTS": {
+    "PLACEHOLDER": "Kommentare..."
+  },
+  "TASK": {
+    "SAVE": "Speichern"
+  },
+  "SEARCH": {
+    "RESULTS": "Suchergebnisse",
+    "TITLE": "Titel",
+    "DESCRIPTION": "Beschreibung",
+    "LINK": "Zur Tafel gehen...",
+    "CLEAN": "Klare Ergebnisse"
+  },
+  "HEADER": {
+    "CREATE_BOARD": "Board erstellen"
+  },
+  "FILTER": {
+    "FILTER": "Filter"
   }
 }

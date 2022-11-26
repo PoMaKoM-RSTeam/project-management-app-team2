@@ -3,23 +3,23 @@
     <span nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></span>
   </button>
   <ul class="navigation" nz-menu nzMode="inline" nzTheme="dark" [nzInlineCollapsed]="isCollapsed">
-    <li class="link-nav" nz-menu-item nz-tooltip nzTooltipPlacement="right" [nzTooltipTitle]="isCollapsed ? 'Welcome Page' : ''"
-      nzSelected>
+    <li nzSelected="{{!(url.includes('auth') || url.includes('workspace') || url.includes('profile'))}}" nz-menu-item nz-tooltip nzTooltipPlacement="right" [nzTooltipTitle]="isCollapsed ? 'Welcome Page' : ''"
+      >
       <a routerLink="" routerLinkActive="active">
         <span nz-icon nzType="mail"></span>
         <span>{{'NAV.WELCOME'| translate}}</span>
       </a>
     </li>
 
-    <li  nz-menu-item nz-tooltip nzTooltipPlacement="right" [nzTooltipTitle]="isCollapsed ? 'Authorization' : ''">
+<!--     <li nzSelected="{{url.includes('auth')}}" nz-menu-item nz-tooltip nzTooltipPlacement="right" [nzTooltipTitle]="isCollapsed ? 'Authorization' : ''">
       <a
         routerLink="auth" routerLinkActive="active">
         <span nz-icon nzType="appstore"></span>
         <span>{{'NAV.AUTHORIZATION'| translate}}</span>
       </a>
-    </li>
+    </li> -->
 
-    <li nz-menu-item nz-tooltip nzTooltipPlacement="right" [nzTooltipTitle]="isCollapsed ? 'Workspace' : ''">
+    <li nzSelected="{{url.includes('workspace')}}" nz-menu-item nz-tooltip nzTooltipPlacement="right" [nzTooltipTitle]="isCollapsed ? 'Workspace' : ''">
       <a
         routerLink="workspace" routerLinkActive="active">
         <span nz-icon nzType="appstore"></span>
@@ -27,7 +27,7 @@
       </a>
     </li>
 
-    <li nz-menu-item nz-tooltip nzTooltipPlacement="right" [nzTooltipTitle]="isCollapsed ? 'Profile' : ''">
+    <li nzSelected="{{url.includes('profile')}}" nz-menu-item nz-tooltip nzTooltipPlacement="right" [nzTooltipTitle]="isCollapsed ? 'Profile' : ''">
       <a
         routerLink="profile" routerLinkActive="active">
         <span nz-icon nzType="setting"></span>

@@ -124,7 +124,7 @@ export class HTTPService {
   }
 
   getTask(boardId: string, columnId: string, taskId: string): Observable<TaskResponse> {
-    return this.http.get<TaskResponse>(`${Routes.AllBoards}/${boardId}${Routes.AllColumns}/${columnId}/${Routes.AllTasks}/${taskId}`);
+    return this.http.get<TaskResponse>(`${Routes.AllBoards}/${boardId}/${Routes.AllColumns}/${columnId}/${Routes.AllTasks}/${taskId}`);
   }
 
   updateTask(
@@ -143,10 +143,10 @@ export class HTTPService {
     return this.http.delete<TaskResponse>(`${Routes.AllBoards}/${boardId}/${Routes.AllColumns}/${columnId}/${Routes.AllTasks}/${taskId}`);
   }
 
-  getTasksSet(tasksId: string[], userId: string, search: string): Observable<TaskResponse[]> {
+  getTasksSet(columnId: string[], userId: string, search: string): Observable<TaskResponse[]> {
     return this.http.get<TaskResponse[]>(`${Routes.TasksSet}`, {
       params: new HttpParams()
-        .set('ids', tasksId.join(','))
+        .set('ids', columnId.join(','))
         .set('userId', userId)
         .set('search', search),
     });

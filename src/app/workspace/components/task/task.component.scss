@@ -5,6 +5,7 @@
 ul, li {
   padding: 0;
 }
+
 .task {
   padding: 15px;
   width: 96%;
@@ -21,11 +22,37 @@ ul, li {
   border-top: 1px solid rgba(255, 255, 255, 0.5);
   border-left: 1px solid rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(5px);
-
+  .task__info {
+    width: 100%;
+  }
+    .task__user {
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+      color: rgb(0, 0, 0);
+      .user {
+        border-radius: 15px;
+        background-color: rgba(189 160 196 / 50%);
+        display: flex;
+        align-items: center;
+        width: 30px;
+        justify-content: center;
+        height: 30px;
+        color: #fff;
+        border: 2px ridge #ffefef;
+        text-shadow: 1px 1px black;
+        border-right-style: inset;
+      }
+    }
   &__title {
     font-size: 1.4rem;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: white;
+    min-height: 20px;
+    height: auto;
+    word-wrap: break-word;
+    padding: 0 30px 0 15px;
+    text-align: center;
   }
 
   &__description {
@@ -33,6 +60,11 @@ ul, li {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: white;
     text-align: justify;
+    border-radius: 10px;
+    padding-left: 5px;
+    min-height: 20px;
+    height: auto;
+    word-wrap: break-word;
   }
 
   &__close-button {
@@ -52,8 +84,24 @@ ul, li {
   &__comments {
     font-size: 1.5rem;
     align-self: flex-end;
-    &:hover {
-      cursor: pointer;
-    }
+  }
+}
+
+a {
+  color:white;
+}
+
+::ng-deep .dropdown-menu {
+  background-color: transparent;
+
+  box-shadow: 5px 5px 10px rgb(0 0 0 / 50%);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+
+  .ant-dropdown-menu-item, .ant-dropdown-menu-item:hover {
+    border-radius: 15px;
+    background-color: transparent;
   }
 }

@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { ChangeLanguageService } from '../../services/changeLanguage.service';
-// import { NzModalRef, NzModalService } from 'ng-zorro-antd/modal';
 
 @Component({
   selector: 'app-confirmation-modal',

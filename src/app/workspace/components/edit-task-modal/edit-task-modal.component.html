@@ -1,0 +1,35 @@
+<div class="wrapper-edit-modal" *ngIf="openEditTaskModal">
+  <div class="edit-modal">
+  <!-- <button class="close" type="button" nz-icon nzType="close" nzTheme="outline" (click)="closeEditTask()"></button> -->
+
+    <span class="btn-close" type="button" nz-icon nzType="close" nzTheme="outline" (click)="closeEditTask()"></span>
+    <div class="wrapper-add-user" >
+      <span nz-dropdown [nzDropdownMenu]="menu" class="add-user" nz-icon nzType="user-add" nzTheme="outline"></span>
+      <nz-dropdown-menu #menu="nzDropdownMenu">
+        <ul class="users-list">
+          <li class="user-link"  *ngFor="let user of task.users" (click)="addUserTask(user)">{{user}}</li>
+        </ul>
+      </nz-dropdown-menu>
+      <div class="users" >
+          <!-- <button class="btn-delete-user" type="button" nz-icon nzType="close-circle" nzTheme="outline" (click)="removeUserTask(user)"></button> -->
+        <div class="user" *ngFor="let user of this.users" >
+          <app-user-logo (click)="removeUserTask(user)" [userName]="user"></app-user-logo>
+        </div>
+      </div>
+    </div>
+
+    <form class="form-modal" [formGroup]="editFormTask">
+      <input class="input-edit" name="description"
+        formControlName="title" type="text" value="{{task.title}}">
+      <textarea class="input-edit" name="description" wrap="soft" cols="1" rows="5"
+        formControlName="description" type="text" value="{{task.description}}">
+      </textarea>
+      <button class="btn-save" type="button" (click)="editTask()">{{'TASK.SAVE' | translate}}</button>
+    </form>
+    <div class="comments">
+      <app-comments-block [task]="task"></app-comments-block>
+    </div>
+
+  </div>
+
+</div>

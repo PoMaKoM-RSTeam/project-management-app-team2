@@ -5,6 +5,9 @@
 
 button {
   margin-bottom: 45px;
+  @media screen and (max-width: 768px) {
+    padding: 5px;
+  }
 }
 
 .ant-menu {
@@ -15,22 +18,29 @@ button {
 :host {
   position: absolute;
   left: 0;
-  top: 43px;
+  top: 26px;
   z-index: 10;
+    @media screen and (max-width: 768px) {
+    top:9px
+  }
 }
 
 .primary {
-  margin-bottom: 5px;
+  margin-bottom: 22px;
+  @media screen and (max-width: 768px) {
+    margin-bottom: 9px;
+  }
 }
 
 .navigation {
   background: #290052;
 }
 
-// .link-nav {
-//   width: 198px;
-//   height: 39px;
-//   background: rgba(255, 249, 249, 0.3);
-//   border: 1px solid rgba(255, 249, 249, 0.5);
-//   border-radius: 13px;
-// }
+/* .show {
+  @media screen and (max-width: 768px) {
+    margin-left: -260px;
+    transition: 0.2s;
+  }
+} */
+
+

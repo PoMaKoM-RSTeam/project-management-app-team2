@@ -1,0 +1,35 @@
+.comment {
+  color: white;
+  width: 100%;
+  &__user {
+    margin-bottom: 5px;
+    width: 30px;
+  }
+  &__user-logo {
+    background: #161643;
+    color: white;
+    border-radius: 100%;
+    padding: 5px;
+    margin-right: 5px;
+    display: inline-flex;
+    height: 30px;
+    width: 30px;
+    align-items: center;
+    justify-content: center;
+  }
+  &__message {
+    color: black;
+    background-color: hsla(0, 0%, 100%, 0.500);
+    border-radius: 5px;
+    padding: 5px;
+    width: calc(100% - 40px);
+    margin-left: 30px;
+    margin-top: -10px;
+    word-break: break-all;
+    text-align: left;
+  }
+}
+
+:host {
+  width: 100%;
+}

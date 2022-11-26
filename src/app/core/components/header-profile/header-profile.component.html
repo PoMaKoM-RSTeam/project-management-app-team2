@@ -1,31 +1,33 @@
 <div class="header__profile">
   <a nz-dropdown [nzDropdownMenu]="menu">
-    <span>{{userName}}</span>
-    <span nz-icon nzType="user" nzTheme="outline" style="color: #1890ff;"></span>
+
+    <app-user-logo *ngIf="userName" [userName]="userName"></app-user-logo>
+    <span nz-icon *ngIf="!userName" nzType="user" nzTheme="outline" style="color: #1890ff; font-size: 1.5rem"></span>
     <span nz-icon nzType="down"></span>
   </a>
   <nz-dropdown-menu #menu="nzDropdownMenu">
-    <ul nz-menu>
+    <ul nz-menu class="profile-dropdown">
       <li nz-menu-item
         nzDisabled="{{isAuth}}"
-        routerLink="/auth/login"
       >
-        {{'AUTH.LOGIN' | translate}}
+        <span nz-icon nzType="login" nzTheme="outline"></span>
+        <span routerLink="/auth/login"> {{'AUTH.LOGIN' | translate}} </span>
       </li>
       <li nz-menu-item
         nzDisabled="{{isAuth}}"
-        routerLink="/auth/registration"
       >
-        {{'AUTH.REGISTRATION' | translate}}
+        <span nz-icon nzType="user-add" nzTheme="outline"></span>
+        <span routerLink="/auth/registration">{{'AUTH.REGISTRATION' | translate}}</span>
       </li>
       <li nz-menu-divider></li>
       <li nz-menu-item
         nzDisabled="{{!isAuth}}"
-        routerLink="/profile"
       >
-        {{'AUTH.EDIT_USER' | translate}}
+        <span nz-icon nzType="user-switch" nzTheme="outline"></span>
+        <span routerLink="/profile">{{'AUTH.EDIT_USER' | translate}}</span>
       </li>
       <li nz-menu-item nzDisabled="{{!isAuth}}">
+        <span nz-icon nzType="user-delete" nzTheme="outline"></span>
         <app-confirmation-modal
           [modalText]="'CONFIRMATION_FORM.TEXT_DELETE_USER'"
           [isButton]="false"
@@ -36,9 +38,11 @@
       </li>
       <li nz-menu-item
         nzDisabled="{{!isAuth}}"
-        (click)="logout()">{{'AUTH.LOGOUT' | translate}}</li>
+        (click)="logout()">
+        <span nz-icon nzType="logout" nzTheme="outline"></span>
+        <span>{{'AUTH.LOGOUT' | translate}}</span>
+      </li>
     </ul>
   </nz-dropdown-menu>
-  <!-- kate4ka
-  <span nz-icon nzType="user" nzTheme="outline" style="color: #1890ff;"></span> -->
+
 </div>
