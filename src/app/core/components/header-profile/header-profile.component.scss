@@ -1,0 +1,23 @@
+::ng-deep .profile-dropdown {
+  margin-top: 24px;
+  background-color: #290052;
+  color: #fff;
+  .ant-dropdown-menu-item {
+    padding: 10px 25px;
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    font-size: 14px;
+    &:hover {
+      color: #000;
+    }
+  }
+  .ant-dropdown-menu-item-disabled {
+    color: grey;
+    span {
+      color: grey;
+      pointer-events: none;
+      padding-right: 10px;
+    }
+  }
+}
