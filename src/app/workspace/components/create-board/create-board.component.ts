@@ -35,7 +35,7 @@ export class CreateBoardComponent implements OnInit {
     private localStorageService: LocalStorageService,
   ) {
     this.formCreateBoard = new FormGroup({
-      title: new FormControl(null, Validators.required),
+      title: new FormControl(null, [Validators.required, Validators.maxLength(20)]),
     });
   }
 

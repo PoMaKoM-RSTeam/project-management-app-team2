@@ -1,18 +1,21 @@
 <div class="section-create-board" *ngIf="isCreationFormBoardOpen">
     <div class="wrapper-board">
         <div class="board-header">
-            <app-add-users-form [userName]="allUsers"></app-add-users-form>
-            <button class="btn-close" (click)="closeCreateBoard()">X</button>
+            <div class="users">
+                <app-add-users-form [userName]="allUsers"></app-add-users-form>
+                <div class="user">
+                    <app-user-logo *ngFor="let userName of usersName" (click)="removeUser(userName)" [userName]="userName"></app-user-logo>
+                    <app-user-logo [userName]="owner"></app-user-logo>
+                </div>
+            </div>
+            <span class="btn-close" type="button" nz-icon nzType="close" nzTheme="outline" (click)="closeCreateBoard()"></span>
+
         </div>
         <form class="form-board" [formGroup]="formCreateBoard"(ngSubmit)="createBoard()">
             <input class="input" type="text" formControlName="title" placeholder="{{'WORKSPACE.TITLE' | translate}}">
-            <!-- <input class="input" type="text" formControlName="owner" placeholder="{{'WORKSPACE.OWNER' | translate}}"> -->
-            <h2 class="owner">{{owner}}</h2>
-            <div class="users">
-                <div class="user" *ngFor="let userName of usersName">
-                    <app-user-logo (click)="removeUser(userName)" [userName]="userName"></app-user-logo>
-                </div>
-            </div>
+            <small class="notification" *ngIf="formCreateBoard.get('title')?.getError('maxlength')">
+                {{'BOARD.REQUIRED_BOARD_LENGTH' | translate}}
+              </small>
             <button class="btn-create" [disabled]="formCreateBoard.invalid" type="submit">
                 {{'WORKSPACE.CREATE' | translate}}
             </button>
