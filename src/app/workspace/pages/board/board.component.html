@@ -31,7 +31,7 @@
     (cdkDropListDropped)="drop($event)"
     [ngStyle]="{transition: '1.5s'}"
   >
-  <div cdkDropListGroup style="display: flex;">
+  <div class="wrapper-column" cdkDropListGroup style="display: flex;">
 
     <div class="column" *ngFor="let column of columns" cdkDrag >
       <div class="column__title">
