@@ -17,7 +17,7 @@
     position: relative;
     top: 2px;
     color: #FFF;
-    font-size: 40px;
+    font-size: 35px;
 }
 
 .users-list {
@@ -35,7 +35,6 @@
     max-height: 300px;
     min-height: 50px;
     height: auto;
-    // height: calc(100vh - 100px);
     overflow-x: auto;
     .user-link {
         width: 100%;
