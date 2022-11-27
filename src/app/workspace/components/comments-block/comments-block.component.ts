@@ -4,6 +4,7 @@ import { PointResponse, TaskResponse } from 'src/app/core/models/project-manager
 import { HTTPService } from 'src/app/core/services/http.service';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from 'src/app/auth/services/auth.service';
+import { CommentsCounterService } from '../../services/comments-counter.service';
 
 @Component({
   selector: 'app-comments-block',
@@ -29,6 +30,7 @@ export class CommentsBlockComponent implements OnInit {
     private httpService: HTTPService,
     public translate: TranslateService,
     private authService: AuthService,
+    private commentsCounterService: CommentsCounterService,
   ) { }
 
   ngOnInit(): void {
@@ -52,6 +54,10 @@ export class CommentsBlockComponent implements OnInit {
         done: false,
         _id: data._id,
       });
+
+      this.commentsCounterService.updateCounter(
+        { taskId: data.taskId, count: this.comments.length },
+      );
     });
     this.commentForm.reset();
   }

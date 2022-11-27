@@ -6,16 +6,8 @@
     <li nzSelected="{{!(url.includes('auth') || url.includes('workspace') || url.includes('profile'))}}" nz-menu-item nz-tooltip nzTooltipPlacement="right" [nzTooltipTitle]="isCollapsed ? 'Welcome Page' : ''"
       >
       <a routerLink="" routerLinkActive="active">
-        <span nz-icon nzType="mail"></span>
+        <span nz-icon nzType="home"></span>
         <span>{{'NAV.WELCOME'| translate}}</span>
-      </a>
-    </li>
-
-    <li nzSelected="{{url.includes('auth')}}" nz-menu-item nz-tooltip nzTooltipPlacement="right" [nzTooltipTitle]="isCollapsed ? 'Authorization' : ''">
-      <a
-        routerLink="auth" routerLinkActive="active">
-        <span nz-icon nzType="appstore"></span>
-        <span>{{'NAV.AUTHORIZATION'| translate}}</span>
       </a>
     </li>
 

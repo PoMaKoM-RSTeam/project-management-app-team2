@@ -1,6 +1,18 @@
 <div class="header">
-  <div class="header__logo"><img class="header__logo-image"src="assets/images/logo.png" alt="logo"></div>
-  <div class="header__search" *ngIf="showSearch">
+  <div class="header__logo">
+    <div class="glass">
+      <div class="text_container">
+        <span class="line"></span>
+        <div class="project">project</div>
+        <div class="project">manager</div>
+        <span class="line"></span>
+      </div>
+    </div>
+    <div class="logo">
+      <app-logo-tree-d></app-logo-tree-d>
+    </div>
+  </div>
+  <div class="header__search">
     <app-global-search></app-global-search>
   </div>
   <div class="header__select">

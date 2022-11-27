@@ -84,10 +84,11 @@ ul, li {
   &__comments {
     font-size: 1.5rem;
     align-self: flex-end;
-    &:hover {
-      cursor: pointer;
-    }
   }
+}
+
+a {
+  color:white;
 }
 
 ::ng-deep .dropdown-menu {

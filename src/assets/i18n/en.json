@@ -107,6 +107,9 @@
     "LINK": "Go to board...",
     "CLEAN": "Clear results"
   },
+  "HEADER": {
+    "CREATE_BOARD": "Create board"
+  },
   "FILTER": {
     "FILTER": "Filters"
   }

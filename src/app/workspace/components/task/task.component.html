@@ -3,7 +3,7 @@
     <h3 class="task__title">{{task.title}}</h3>
     <p class="task__description">
       {{task.description.length > 100?
-        task.description.slice(0,100) + ' ....' :
+        task.description.slice(0,100) + '...' :
         task.description}}
     </p>
     <div class="task__user">
@@ -12,8 +12,9 @@
       </span>
     </div>
   </div>
-  <span nz-icon nzType="comment" nzTheme="outline" class="task__comments"></span>
-  <app-comments-block [task]="task"></app-comments-block>
+  <nz-badge nzSize="small" [nzCount]="commentsCount" class="task__comments" [nzStyle]="{backgroundColor: '#1890ff'}">
+    <a class="task__comments"><span nz-icon nzType="comment" nzTheme="outline"></span></a>
+  </nz-badge>
 
   <button
     nz-dropdown
@@ -35,5 +36,6 @@
     </ul>
   </nz-dropdown-menu>
 </div>
+
 
 

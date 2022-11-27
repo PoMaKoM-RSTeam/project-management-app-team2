@@ -15,7 +15,7 @@ export class WelcomeComponent implements OnInit {
     private isAuthService: AuthService,
     public translate: TranslateService,
     private languageService: ChangeLanguageService,
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.isAuthService.isAuthorized$.subscribe((e) => {
