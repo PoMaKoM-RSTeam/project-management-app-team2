@@ -112,6 +112,7 @@
     "CREATE_BOARD": "Board erstellen"
   },
   "FILTER": {
-    "FILTER": "Filter"
+    "FILTER": "Filter",
+    "CLEAR": "Filter löschen"
   }
 }
