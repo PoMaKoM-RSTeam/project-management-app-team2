@@ -9,13 +9,13 @@
                 </div>
             </div>
             <span class="btn-close" type="button" nz-icon nzType="close" nzTheme="outline" (click)="closeCreateBoard()"></span>
-
         </div>
         <form class="form-board" [formGroup]="formCreateBoard"(ngSubmit)="createBoard()">
             <input class="input" type="text" formControlName="title" placeholder="{{'WORKSPACE.TITLE' | translate}}">
-            <small class="notification" *ngIf="formCreateBoard.get('title')?.getError('maxlength')">
-                {{'BOARD.REQUIRED_BOARD_LENGTH' | translate}}
-              </small>
+            <div class="notification" *ngIf="formCreateBoard.get('title')?.getError('maxlength')">
+                <span style="color:red; font-size: 1.6rem" nz-icon nzType="exclamation-circle" nzTheme="outline"></span>
+                <span>{{'BOARD.REQUIRED_BOARD_LENGTH' | translate}}</span> 
+            </div>
             <button class="btn-create" [disabled]="formCreateBoard.invalid" type="submit">
                 {{'WORKSPACE.CREATE' | translate}}
             </button>
