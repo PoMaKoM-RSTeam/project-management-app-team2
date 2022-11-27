@@ -1,0 +1,101 @@
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:host {
+  width: 100%;
+  min-height: 80px;
+  background-color: #677de9;
+  position: fixed;
+  bottom: 0;
+  z-index: 20;
+}
+
+.footer {
+  height: 80px;
+  background-color: #677de9;
+  padding: 20px 50px;
+  color: white;
+  font-size: 16px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__links {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+  }
+
+
+  &__nav {
+    display: flex;
+    align-items: center;
+  }
+
+  &__list {
+    display: flex;
+    gap: 50px;
+  }
+
+  &__item {
+    list-style: none;
+  }
+
+  &__link {
+    color: white;
+    text-decoration: none;
+    font-style: italic;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__logo {
+    width: 100px;
+    height: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  :host {
+    height: 60px;
+    min-height: 60px;
+
+    .footer {
+      width: 90%;
+      height: fit-content;
+
+      &__logo {
+        width: 80px;
+      }
+
+      .footer__links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        .footer__list {
+          display: flex;
+          flex-direction: column;
+          gap: 0.2rem;
+
+        }
+      }
+      .footer__nav {
+        display: none;
+        height: 0px;
+        overflow: hidden;
+      }
+
+      .our-team:focus+.footer__nav, &:hover .footer__nav{
+        display: inline;
+        // height: fit-content;
+        height: 60px;
+      }
+    }
+  }
+}

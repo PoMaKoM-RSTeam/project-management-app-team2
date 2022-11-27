@@ -1,0 +1,59 @@
+<div *ngIf="searchString" [ngStyle]="{
+  paddingLeft: isNavigationClose ? '100px' : '260px',
+  transition: '1.5s',
+  width: '100vw'
+}">
+  <app-search-results></app-search-results>
+</div>
+
+<section class="workspace" *ngIf="!searchString">
+  <h1 class="title-boards">{{ "WORKSPACE.BOARD" | translate }}</h1>
+
+  <div
+    class="boards {{isNavigationClose? 'close' : 'open'}}"
+    [ngStyle]="{transition: '1.5s'}"
+
+  >
+    <div class="board create-board" (click)="createForm()">
+      <span (click)="createForm()" class="link-board">{{ "WORKSPACE.CREATE_BOARD" | translate }}</span>
+    </div>
+    <div class="board" *ngFor="let board of boards">
+      <button
+        nz-dropdown
+        nzTrigger="click"
+        [nzDropdownMenu]="menu"
+        [nzPlacement]="'bottomRight'"
+        class="board__delete"
+      >
+        . . .
+      </button>
+      <nz-dropdown-menu #menu="nzDropdownMenu">
+        <ul nz-menu class="dropdown-menu" nzSelectable>
+          <li nz-menu-item (click)="boardIdForDelete = board._id">
+            <app-confirmation-modal
+              [modalText]="'CONFIRMATION_FORM.TEXT_DELETE_BOARD'"
+              [onDelete]="deleteBoard"
+            >
+            </app-confirmation-modal>
+          </li>
+        </ul>
+      </nz-dropdown-menu>
+      <a
+        class="title-board"
+        routerLink="/workspace/boards"
+        [queryParams]="{ id: board._id }"
+      >
+        {{ board.title }}
+        <!-- <div class="owner">
+          {{ board.owner }}
+        </div> -->
+        <div class="users">
+          <span class="user" *ngFor="let user of board.users">
+            <app-user-logo [userName]="user"></app-user-logo>
+          </span>
+        </div>
+      </a>
+    </div>
+  </div>
+  <app-create-board></app-create-board>
+</section>

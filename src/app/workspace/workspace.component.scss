@@ -1,0 +1,222 @@
+
+.workspace {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    height: 85vh;
+    overflow-x: auto;
+    .title-boards {
+        padding: 20px 0 20px;
+        font-size: 30px;
+        font-weight: 500;
+        margin: 0;
+        color: white;
+        @media (max-width: 520px) {
+            font-size: 25px;
+        }
+    }
+    .boards {
+        width: 100vw;
+        padding-bottom: 65px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-auto-rows: 1fr;
+        padding: 0 20px 65px 20px;
+        gap: 20px;
+        justify-content: center;
+        &.open {
+            padding-left: 260px;
+            @media(max-width: 768px) {
+                padding-left: 10%;
+            }
+            @media(max-width: 600px) {
+                padding-left: 20%;
+                width: 100%;
+            }
+            @media(max-width: 420px) {
+              padding-left: 35%;
+              width: 100%;
+          }
+        }
+        &.close {
+            padding-left: 100px;
+            @media(max-width: 768px) {
+                padding-left: 3%;
+            }
+            @media(max-width: 600px) {
+                padding-left: 20%;
+            }
+            @media(max-width: 420px) {
+              padding-left: 20%;
+              width: 100%;
+          }
+        }
+        @media (max-width: 580px) {
+            padding: 0 20% 65px;
+        }
+        .board {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            box-shadow: 20px 20px 50px rgb(0 0 0 / 20%);
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px outset rgb(255 255 255 / 50%);
+            transition: 1s;
+            word-break: break-all;
+            line-height: 27px;
+            padding: 5px;
+            min-height: 130px;
+            height: auto;
+            cursor: pointer;
+            justify-content: center;
+            position: relative;
+            max-width: 350px;
+            &:hover {
+                box-shadow: 10px 10px 10px rgb(0 0 0 / 40%);
+                border: 1px outset rgba(255, 255, 255, 60%);
+                transform: translateY(10px);
+                transition: 1s;
+            }
+        .create-board {
+            display: flex;
+            align-items:center;
+            justify-content: center;
+        }
+            .title-board {
+                padding: 0 20px;
+                border-radius: 10px;
+                font-size: 25px;
+                color: rgb(255, 255, 255);
+                width: 100%;
+                text-align: center;
+                padding: 10px 0;
+                text-shadow: 1px -1px #030000;
+                font-weight: 600;
+                text-transform: capitalize;
+                @media (max-width: 768px) {
+                    font-size: 20px;
+                }
+            }
+            .link-board {
+                color: #fff;
+            }
+            .owner, .users {
+                height: auto;
+                font-size: 15px;
+                border-bottom: 2px solid rgb(255 255 255 / 70%);
+                background: rgb(0 0 0 / 10%);
+                border-radius: 10px;
+                padding-left: 10px;
+                width: 70%;
+                text-align: end;
+                padding-right: 15px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+            }
+            .owner {
+                font-size: 18px;
+                margin: 15px 0 10px;
+                width: 80%;
+                text-align: start;
+            }
+            .users {
+                text-align: left;
+                background-color: rgba(0,0,0,0);
+                border: 0;
+                min-height: 30px;
+                height: auto;
+                width: 86%;
+                padding: 6% 0 2% 1%;
+                flex-wrap: nowrap;
+                overflow: auto;
+                margin: 0 auto;
+            }
+            .btn-delete {
+                background-color: rgb(255 255 255 / 20%);
+                border: 0;
+                padding: 5px 0px;
+                border-radius: 10px;
+                width: 100%;
+                color: #fff;
+                cursor: pointer;
+                &:hover {
+                    background-color: rgb(110 250 102 / 50%);
+                    font-size: 20px;
+                    font-weight: 500;
+                    transition: all 1s;
+                }
+            }
+        }
+    }
+}
+
+::-webkit-scrollbar {
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: hsla(0, 0%, 100%, 0.1);
+    backdrop-filter: blur(5px);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsla(0, 0%, 100%, 0.5);
+    border-radius: 10px;
+    width: 2px;
+    backdrop-filter: blur(5px);
+  }
+
+  ul, li {
+    padding: 0;
+    margin: 0;
+  }
+
+  .board__delete {
+    position: absolute;
+    font-size: 1rem;
+    line-height: 100%;
+    top: 0px;
+    right: -100px;
+    background: none;
+    border: none;
+    color: white;
+    padding: 5px;
+    height: 30px;
+    top: 0px;
+    right: 15px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+::ng-deep .dropdown-menu {
+  box-shadow: 5px 5px 10px rgb(0 0 0 / 50%);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+
+  .ant-dropdown-menu-item:hover {
+    border-radius: 15px;
+  }
+
+  button {
+    background: hsla(268deg, 28%, 39%, 0.5);
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+    span {
+      color: #fff;
+    }
+
+    &:not([disabled]):hover {
+      span {
+        color: #000;
+      }
+    }
+
+  }
+}
+
+

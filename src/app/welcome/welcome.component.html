@@ -1,0 +1,42 @@
+<div class="design"><span class="imagined">imagined by</span> <a class="lucia-github" href="https://github.com/lyutails" target="_blank">lyutails</a></div>
+<section class="wrapper-section-page">
+    <div class="auth" *ngIf="!isAuth">
+        <a class="link-auth" routerLink="/auth/login">{{'NAV.AUTHORIZATION' | translate}}</a>
+        <a class="link-registration" routerLink="/auth/registration">{{'AUTH.REGISTRATION' | translate}}</a>
+    </div>
+<div class="welcome-page">
+    <div class="wrapper-title">
+        <div class="bubbles">
+            <span class="bubble"></span>
+            <span class="bubble-mini"></span>
+            <span class="bubble-big"></span>
+            <span class="bubble-mini-right"></span>
+            <span class="bubble-mini-right-small"></span>
+            <span class="bubble-big-right"></span>
+            </div>
+        <div class="wrapper-square">
+            <span class="square-big"></span>
+            <span class="square-small"></span>
+        </div>
+        <h1>{{'WELCOME.TITLE_START' | translate}}
+            <span class="title">{{'WELCOME.TITLE_CENTER' | translate}}</span>
+            {{'WELCOME.TITLE_END' | translate}}
+        </h1>
+    </div>
+    <div class="wrapper-square-low">
+    <span class="square-small-low"></span>
+
+    <span class="square-small-multiple">{{'WELCOME.MULTIPLE_BOARDS' | translate}}</span>
+    <span class="square-small-drag">{{'WELCOME.DRAG_AND_DROP' | translate}}</span>
+    <span class="square-small-custom">{{'WELCOME.EASY_TO_USE' | translate}}</span>
+
+    </div>
+
+</div>
+<div class="wrapper-square-right">
+    <span class="square-small-right"></span>
+    <span class="square-big-right"></span>
+</div>
+
+</section>
+

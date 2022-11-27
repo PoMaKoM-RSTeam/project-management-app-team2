@@ -1,0 +1,28 @@
+<div class="wrapper-edit-modal" *ngIf="openEditTaskModal">
+  <div class="edit-modal">
+    
+    <span class="btn-close" type="button" nz-icon nzType="close" nzTheme="outline" (click)="closeEditTask()"></span>
+    <div class="wrapper-add-user" >
+      <app-add-users-form [userName]="task.users"></app-add-users-form>
+      <div class="users" >
+        <div class="user" *ngFor="let user of this.users" >
+          <app-user-logo (click)="removeUserTask(user)" [userName]="user"></app-user-logo>
+        </div>
+      </div>
+    </div>
+
+    <form class="form-modal" [formGroup]="editFormTask">
+      <input class="input-edit" name="description"
+        formControlName="title" type="text" value="{{task.title}}">
+      <textarea class="input-edit" name="description" wrap="soft" cols="1" rows="5"
+        formControlName="description" type="text" value="{{task.description}}">
+      </textarea>
+      <button class="btn-save" type="button" (click)="editTask()">{{'TASK.SAVE' | translate}}</button>
+    </form>
+    <div class="comments">
+      <app-comments-block [task]="task"></app-comments-block>
+    </div>
+
+  </div>
+
+</div>

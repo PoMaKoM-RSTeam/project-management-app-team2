@@ -1,0 +1,83 @@
+.login-form {
+  max-width: 300px;
+}
+
+.login-form-button {
+  width: 100%;
+}
+
+.ant-form {
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+}
+
+  .login-page {
+    max-width: 480px;
+    width: 100%;
+    margin: 10% auto auto auto;
+
+  }
+.login-form-button {
+  max-width: 200px;
+  width: 60%;
+  display: block;
+  margin: 16px auto;
+}
+
+.userName {
+  &.ng-valid {
+    border-bottom: 0.5px solid rgb(68, 156, 214);
+  }
+}
+
+::ng-deep .ant-input-affix-wrapper {
+  background: none;
+  color: white;
+  border-radius: 5px;
+}
+
+::ng-deep .ant-input {
+  background: none;
+  color: white;
+}
+
+.ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover {
+  border-color: #b9b9b9;
+  z-index: 0;
+}
+
+.ant-input-affix-wrapper:focus,
+.ant-input-affix-wrapper-focused {
+  border-color: #b9b9b9;
+  box-shadow: 0 0 0 2px rgba(192, 192, 192, 0.2);
+  border-right-width: 1px;
+  outline: 0;
+}
+
+.error {
+  border-bottom: 2px solid rgb(255, 0, 0);
+}
+
+.notification {
+  color: rgb(255, 0, 0);
+}
+
+.link-registr {
+  font-size: 15px;
+}
+
+.link-back {
+  margin: 5px 0 15px;
+  font-size: 18px;
+  width: 50px;
+  display: block;
+}

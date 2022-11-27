@@ -1,0 +1,82 @@
+.login-form {
+  display: flex;
+  height: 32px;
+  transition: 1s;
+  @media screen and (max-width: 768px) {
+    height: 25px;
+  }
+
+  &__input {
+    width: 100px;
+    background: none;
+    color: white;
+    margin-right: 10px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    &:hover {
+      box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+    }
+    &::placeholder{
+      font-size: 0.8rem;
+    }
+    @media screen and (max-width: 768px) {
+      width: 70px;
+      margin-right: 5px;
+      font-size: 14px;
+    }
+
+  }
+
+  &__input:hover,
+  &__input:focus {
+    width: 200px;
+    margin-left: -200px;
+
+    @media screen and (max-width: 768px) {
+      width: 95px;
+      margin-left: -95px;
+    }
+  }
+
+}
+
+.login-form-forgot {
+  float: right;
+}
+
+.ant-btn-primary {
+  padding: 3px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  @media screen and (max-width: 768px) {
+    padding: 2px;
+    height: 25px;
+  }
+  &:hover {
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.login-form__clear {
+  color: white;
+  font-size: 1.5rem;
+  @media screen and (max-width: 768px) {
+    font-size: 1rem;
+  }
+}
+
+::ng-deep .ant-btn-primary:disabled {
+  background: none;
+  &:hover {
+    background: none;
+  }
+}
+

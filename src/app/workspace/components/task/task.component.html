@@ -1,0 +1,41 @@
+<div class="task">
+  <div class="task__info" (click)="clickTask(task)">
+    <h3 class="task__title">{{task.title}}</h3>
+    <p class="task__description">
+      {{task.description.length > 100?
+        task.description.slice(0,100) + '...' :
+        task.description}}
+    </p>
+    <div class="task__user">
+      <span *ngFor="let user of usersTask">
+        <app-user-logo [userName]="user"></app-user-logo>
+      </span>
+    </div>
+  </div>
+  <nz-badge nzSize="small" [nzCount]="commentsCount" class="task__comments" [nzStyle]="{backgroundColor: '#1890ff'}">
+    <a class="task__comments"><span nz-icon nzType="comment" nzTheme="outline"></span></a>
+  </nz-badge>
+
+  <button
+    nz-dropdown
+    nzTrigger="click"
+    [nzDropdownMenu]="menu"
+    [nzPlacement]="'bottomRight'"
+    class="task__close-button"
+  >
+    . . .
+  </button>
+  <nz-dropdown-menu #menu="nzDropdownMenu">
+    <ul nz-menu class="dropdown-menu" nzSelectable>
+      <li nz-menu-item>
+        <app-confirmation-modal
+            [onDelete] = "onDelete"
+            [modalText]="'CONFIRMATION_FORM.TEXT_DELETE_TASK'">
+        </app-confirmation-modal>
+      </li>
+    </ul>
+  </nz-dropdown-menu>
+</div>
+
+
+

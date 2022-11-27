@@ -1,0 +1,23 @@
+<span
+  nz-typography
+  *ngIf="!isButton"
+  class="profile-dropdown_item"
+  (click)="showModal()"
+>
+  {{'AUTH.DELETE_USER' | translate}}
+</span>
+<button *ngIf="isButton" nz-button class="delete-btn" (click)="showModal()"><span>{{'CONFIRMATION_FORM.BUTTON_NAME' | translate}}</span></button>
+    <nz-modal
+      [(nzVisible)]="isVisible"
+      nzTitle="{{'CONFIRMATION_FORM.TITLE' | translate}}"
+      nzOkText="{{'CONFIRMATION_FORM.CONFIRM' | translate}}"
+      nzCancelText="{{'CONFIRMATION_FORM.CANCEL' | translate}}"
+      nzOkDanger="true"
+      nzAutofocus="cancel"
+      nzClassName = "confirmation-modal"
+      (nzOnCancel)="handleCancel()"
+      (nzOnOk)="handleOk()">
+      <ng-container *nzModalContent>
+        <p><span nz-icon nzType="exclamation-circle" nzTheme="outline" style="color: orange; font-size: 2rem; margin-right: 3px;"></span> {{modalText | translate}}</p>
+      </ng-container>
+    </nz-modal>

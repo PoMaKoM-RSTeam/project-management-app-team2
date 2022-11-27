@@ -1,0 +1,192 @@
+.section-create-board {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 11;
+    backdrop-filter: blur(10px);
+    overflow-x: auto;
+    .wrapper-board {
+        text-align: end;
+        max-width: 420px;
+        width: 70%;
+        min-width: 270px;
+        gap: 15px;
+        padding: 25px;
+        background-color: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+        margin: 0 auto;
+        position: relative;
+        top: 20%;
+        .btn-close {
+            position: absolute;
+            top: 5%;
+            right: 2%;
+            border-radius: 20px;
+            color: #fff;
+            border: 2px solid #fff;
+            cursor: pointer;
+            transition: all 1s;
+            padding: 5px;
+            font-size: 20px;
+            &:hover {
+                border: 3px solid #fff;
+                transition: all 0.3s;
+            }
+        }
+        .form-board {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            .users {
+                display: flex;
+                gap: 10px;
+                flex-wrap: wrap;
+                padding: 5px 10px;
+                justify-content: center;
+                color: #fff;
+                .user {
+                    display: flex;
+                    flex-direction: column;
+                    align-items:center;
+                    max-width: 70px;
+                    text-align: center;
+                    .btn-delete-user {
+                        border-radius: 15px;
+                        background-color: rgb(0 204 255 / 50%);
+                        color: #fff;
+                        border: 1px outset #fff;
+                        margin-left: 40px;
+                        cursor: pointer;
+                        &:hover {
+                            border: 3px inset #fff;
+                            transform: translate(5px, 5px);
+                            transition: all 1s;
+                        }
+                    }
+                }
+            }
+            .btn-create {
+                padding: 5px;
+                width: 100%;
+                border-color: #40a9ff;
+                background: #40a9ff;
+                color: rgb(255, 255, 255);
+                font-size: 17px;
+                &:disabled {
+                    background-color:rgba(255, 255, 255, 0.25);
+                    color: rgba(0,0,0, 50%);
+                    border: none;
+                }
+                &:valid:hover {
+                    background: hsla(123deg, 100%, 50%, 0.4);
+                    border-color: hsla(123deg, 100%, 50%, 0.1);
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+::-webkit-scrollbar {
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: hsla(0, 0%, 100%, 0.1);
+    backdrop-filter: blur(5px);
+}
+  
+::-webkit-scrollbar-thumb {
+    background: hsla(0, 0%, 100%, 0.5);
+    border-radius: 10px;
+    width: 2px;
+    backdrop-filter: blur(5px);
+}
+
+
+.board-header {
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+}
+
+.owner {
+    font-size: 25px;
+    text-transform: capitalize;
+    color: #fff;
+    margin: 15px 0 0 0;
+}
+
+.users {
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    align-items: center;
+    margin: 4% auto;
+}
+
+.notification {
+    display: flex;
+    align-items: center;
+    gap: 2%;
+    color: rgb(255, 255, 255);
+    font-size: 13px;
+    width: 100%;
+    text-align: start;
+    padding: 0 2% 0 2%;
+  }
+
+  .input {
+    width: 371px;
+    height: 40px;
+    border-radius: 10px;
+    padding: 10px;
+    outline: none;
+    border: 1px solid #fff;
+    background-color: rgba(0,0,0,0.1);
+    width: 100%;
+    color: #fff;
+    &::placeholder {
+        color: #fff;
+    }
+}
+
+:host {
+    ::ng-deep {
+        .user-logo {
+            width: 30px;
+            height: 30px;
+            position: relative;
+            transition: all 0.4s;
+        }
+        .user-logo:hover{
+            background: #161643;
+            color: #161643;
+            transition: all 0.4s;
+        }
+        .user-logo:hover:after {
+            position: absolute;
+            content: "";
+            top: 5px;
+            background: rgb(255, 255, 255);
+            width: 2px;
+            height: 20px;
+            transform: rotate(45deg);
+            transition: all 0.4s;
+        }
+        .user-logo:hover:before {
+            position: absolute;
+            content: "";
+            top: 5px;
+            background: rgb(255, 255, 255);
+            width: 2px;
+            height: 20px;
+            transform: rotate(314deg);
+            transition: all 0.4s;
+        }
+    }
+}

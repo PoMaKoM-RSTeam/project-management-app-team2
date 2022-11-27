@@ -1,0 +1,97 @@
+.wrapper {
+  width: 240px;
+  height: calc(100vh - 120px);
+  @media(max-width: 768px) {
+    height: calc(100vh - 110px);
+  }
+}
+
+  @media (max-width: 768px) {
+
+    .ant-menu, .wrapper {
+      width: 80px;
+    }
+    .close-wrapper {
+      width: 0px;
+    }
+    .nav-text {
+      display: none;
+    }
+    .ant-menu-item a::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: transparent;
+      content: '';
+    }
+    .ant-menu-inline-collapsed{
+      width: 0px;
+    }
+  }
+
+
+.link-text {
+  @media(max-width: 768px) {
+    display: none;
+  }
+}
+
+button {
+  margin-bottom: 45px;
+  @media screen and (max-width: 768px) {
+    padding: 5px;
+  }
+}
+
+.ant-menu {
+  height: 100%;
+  transition: 1.5s;
+}
+
+:host {
+  position: absolute;
+  left: 0;
+  top: 26px;
+  z-index: 10;
+    @media screen and (max-width: 768px) {
+    top:9px
+  }
+}
+
+.primary {
+  margin-bottom: 22px;
+  @media screen and (max-width: 768px) {
+    margin-bottom: 9px;
+  }
+}
+
+.navigation {
+  background: #290052;
+  @media (max-width: 768px) {
+    display: block;
+    position: relative;
+    left: -300px;
+    transition: all 1s;
+  }
+}
+
+.close {
+  background: #290052;
+  @media (max-width: 768px) {
+    position: relative;
+    left: 0;
+    transition: all 1s;
+  }
+}
+
+.close-wrapper {
+  width: 80px;
+  height: calc(100vh - 120px);
+  transition: 1.5s;
+
+  @media(max-width: 768px) {
+    width: 0;
+  }
+}
