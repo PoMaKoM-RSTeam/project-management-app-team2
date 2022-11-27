@@ -27,6 +27,7 @@
     "@ngx-translate/http-loader": "^7.0.0",
     "@types/dagre": "^0.7.48",
     "angular-cli-ghpages": "^1.0.5",
+    "@types/three": "^0.146.0",
     "d3-drag": "^3.0.0",
     "d3-selection": "^3.0.0",
     "d3-shape": "^3.1.0",
@@ -35,11 +36,14 @@
     "dagre-compound": "^0.0.13",
     "monaco-editor": "^0.34.1",
     "ng-zorro-antd": "^14.1.1",
+    "ngx-three": "^0.21.0",
     "rxjs": "~7.5.0",
+    "three": "^0.146.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
+    "@angular-builders/custom-webpack": "14.1.0",
     "@angular-devkit/build-angular": "^14.2.2",
     "@angular-eslint/builder": "14.1.2",
     "@angular-eslint/eslint-plugin": "14.1.2",

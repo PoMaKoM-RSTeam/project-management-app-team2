@@ -12,6 +12,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { HeaderProfileComponent } from './components/header-profile/header-profile.component';
 import { ZorroModule } from './zorro/zorro.module';
 import { LocalizationModule } from '../localization/localization.module';
+import { LogoTreeDComponent } from './components/logo-tree-d/logo-tree-d.component';
 import { UserLogoPipe } from './pipes/user-logo.pipe';
 import { UserLogoComponent } from './components/user-logo/user-logo.component';
 import { TokenExpiredDialogComponent } from './components/token-expired-dialog/token-expired-dialog.component';
@@ -26,6 +27,7 @@ import { TokenExpiredDialogComponent } from './components/token-expired-dialog/t
     GlobalSearchComponent,
     HeaderProfileComponent,
     ConfirmationModalComponent,
+    LogoTreeDComponent,
     TokenExpiredDialogComponent,
     UserLogoPipe,
     UserLogoComponent,
