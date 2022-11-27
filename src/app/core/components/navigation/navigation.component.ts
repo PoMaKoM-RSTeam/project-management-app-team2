@@ -31,8 +31,6 @@ export class NavigationComponent implements OnInit {
   }
 
   toggleCollapsed(): void {
-    console.log('1');
-
     this.isCollapsed = !this.isCollapsed;
     this.navigationService.updateCollaps(this.isCollapsed);
   }

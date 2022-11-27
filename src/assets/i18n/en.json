@@ -13,6 +13,7 @@
     "USER_LOGIN": "Login",
     "PASSWORD": "Password",
     "REQUIRED_NAME": "Please enter your username!",
+    "REQUIRED_LOGIN": "Please enter your Login!",
     "MIN_LENGTH_NAME": "The user name must contain at least 6 characters!",
     "MIN_LENGTH_PASSWORD": "The password must be at least 8 characters long!",
     "PASSWORD_UPPERCASE": "The password must contain uppercase letters!",

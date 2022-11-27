@@ -66,7 +66,6 @@ export class CreateBoardComponent implements OnInit {
       });
     });
     this.owner = (JSON.stringify(this.localStorageService.getFromLocalStorage('login'))).replace(/["']/g, '');
-    console.log(this.owner, 'loc');
   }
 
   closeCreateBoard() {
