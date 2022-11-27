@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component, OnInit,
+} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { TaskResponse, UpdateTaskDTO } from 'src/app/core/models/project-manager.model';
 import { HTTPService } from 'src/app/core/services/http.service';

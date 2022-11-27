@@ -4,11 +4,12 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --base-href='https://PoMaKoM-RSTeam.github.io/project-management-app-team2/'",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "deploy": "ng deploy --base-href='https://rolling-scopes-school.github.io/1lisaw-ANGULAR2022Q3/'"
+    "deploy": "ng deploy --base-href='https://PoMaKoM-RSTeam.github.io/project-management-app-team2/'"
+
   },
   "private": true,
   "dependencies": {

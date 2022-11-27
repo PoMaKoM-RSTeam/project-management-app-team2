@@ -119,7 +119,7 @@
                 }
             }
         }
-    }    
+    }
 }
 
 ::-webkit-scrollbar {
@@ -210,4 +210,11 @@
             transform: rotate(314deg);
         }
     }
+}
+
+.comments {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  padding: 30px;
 }
