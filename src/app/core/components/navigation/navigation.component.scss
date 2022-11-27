@@ -1,6 +1,15 @@
 .wrapper {
   width: 240px;
   height: calc(100vh - 120px);
+  @media(max-width: 768px) {
+    width: 49px;
+  }
+}
+
+.link-text {
+  @media(max-width: 768px) {
+    display: none;
+  }
 }
 
 button {
@@ -34,13 +43,19 @@ button {
 
 .navigation {
   background: #290052;
+  @media (max-width: 768px) {
+    display: block;
+    position: relative;
+    left: -300px;
+    transition: all 1s; 
+  }
 }
 
-/* .show {
-  @media screen and (max-width: 768px) {
-    margin-left: -260px;
-    transition: 0.2s;
+.close {
+  background: #290052;
+  @media (max-width: 768px) {
+    position: relative;
+    left: 0;
+    transition: all 1s; 
   }
-} */
-
-
+}

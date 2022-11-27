@@ -23,6 +23,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { FilterService } from '../../services/filter.service';
+
 import { EditTaskService } from '../../services/edit-task-service';
 
 @Component({

@@ -9,41 +9,42 @@
     backdrop-filter: blur(15px);
     overflow-x: auto;
     width: 100vw;
-    height: calc(100vh - 90px);
+    height: calc(100vh - 80px);
+    z-index: 10;
     .edit-modal {
         display: flex;
         flex-direction: column;
         align-items:center;
         position: absolute;
         top: 20%;
-        left: 30%;
         color: #000;
         padding: 15px 10px 20px;
         background-color: rgba(255, 255, 255, 0.3);
         backdrop-filter: blur(10px);
         border-radius: 10px;
         max-width: 680px;
-        min-width: 300px;
+        min-width: 280px;
         width: calc(100vw - 300px);
         position: relative;
         border-top: 1px solid rgba(255, 255, 255, 0.5);
         border-left: 1px solid rgba(255, 255, 255, 0.5);
         box-shadow: 20px 20px 50px rgb(0 0 0 / 50%);
         background: rgba(255, 255, 255, 0.1);
+        margin: 0 auto;
         .btn-close {
             position: absolute;
-            top: 6%;
-            right: 3%;
+            top: 0.5rem;
+            right: 0.5rem;
             border-radius: 20px;
             color: #fff;
-            border: 2px outset #fff;
+            border: 2px solid #fff;
             cursor: pointer;
             transition: all 1s;
             padding: 5px;
-            font-size: 25px;
+            font-size: 20px;
             &:hover {
-                border: 3px inset #fff;
-                transition: all 1s;
+                border: 3px solid #fff;
+                transition: all 0.3s;
             }
         }
         .form-modal {
@@ -51,7 +52,6 @@
             flex-direction: column;
             width: 90%;
             gap: 10px;
-            margin-top: 5%;
             .input-edit {
                 width: 100%;
                 border-radius: 10px;
@@ -143,10 +143,10 @@
 
 .wrapper-add-user {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 85%;
-    position: relative;
-    right: 10px;
-    top: 2px;
+    margin: 3% auto;
 }
 
 .users-list {
@@ -178,13 +178,41 @@
     height: 40px;
     align-items: center;
 }
-.user {
-    cursor: pointer;
-    &:hover {
-        border: 2px solid #fff;
-        width: 35px;
-        height: 35px;
-        border-radius: 25px;
+
+:host {
+    ::ng-deep {
+        .user-logo {
+            width: 30px;
+            height: 30px;
+            position: relative;
+            transition: all 0.4s;
+        }
+        .user-logo:hover{
+            background: #161643;
+            color: #161643;
+            transition: all 0.4s;
+        }
+        .user-logo:hover:after {
+            position: absolute;
+            content: "";
+            top: 5px;
+            background: rgb(255, 255, 255);
+            width: 2px;
+            height: 20px;
+            transform: rotate(45deg);
+            transition: all 0.4s;
+        }
+        .user-logo:hover:before {
+            position: absolute;
+            content: "";
+            top: 5px;
+            background: rgb(255, 255, 255);
+            width: 2px;
+            height: 20px;
+            transform: rotate(45deg);
+            transform: rotate(314deg);
+            transition: all 0.4s;
+        }
     }
 }
 
