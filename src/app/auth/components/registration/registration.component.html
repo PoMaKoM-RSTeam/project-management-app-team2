@@ -34,7 +34,7 @@
           <input nz-input id="login" formControlName="login"
             class="{{validateForm.get('login')?.errors && validateForm.get('login')?.touched   ? 'error' : 'valid'}}"/>
           <small class="notification" *ngIf="validateForm.get('login')?.errors?.['required'] && validateForm.get('login')?.touched">
-            {{'AUTH.REQUIRED_NAME' | translate}}
+            {{'AUTH.REQUIRED_LOGIN' | translate}}
           </small>
           <small class="notification" *ngIf="validateForm.get('login')?.getError('minlength')">{{'AUTH.MIN_LENGTH_NAME' | translate}}</small>
         </nz-input-group>
