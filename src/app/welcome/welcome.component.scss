@@ -381,13 +381,21 @@ h1 {
   position: absolute;
   bottom: 90px;
   left: 20px;
+  text-align: end;
+  width: 90%;
+  bottom: 0;
+  right: 0%;
 }
 
 @media (max-width: 768px) {
+  :host {
+    position: fixed;
+  }
   .wrapper-square, .wrapper-square-right{
     display: none;
   }
   .welcome-page h1 {
+    padding-top: 35px;
     font-size: 25px;
     position: relative;
     z-index: 30;
@@ -397,8 +405,11 @@ h1 {
     width: 100%;
     margin-left: 0px;
   }
-  .bubble {
-    // display: none;
+  .bubbles {
+    display: none;
+  }
+  .bubble-big-right{
+    height: 300px;
   }
   .square-small-multiple {
     max-width: 80%;
