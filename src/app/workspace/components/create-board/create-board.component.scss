@@ -154,3 +154,36 @@
         color: #fff;
     }
 }
+
+:host {
+    ::ng-deep {
+        .user-logo {
+            width: 30px;
+            height: 30px;
+            position: relative;
+        }
+        .user-logo:hover{
+            background: #161643;
+            color: #161643
+        }
+        .user-logo:hover:after {
+            position: absolute;
+            content: "";
+            top: 5px;
+            background: rgb(255, 255, 255);
+            width: 2px;
+            height: 20px;
+            transform: rotate(45deg);
+        }
+        .user-logo:hover:before {
+            position: absolute;
+            content: "";
+            top: 5px;
+            background: rgb(255, 255, 255);
+            width: 2px;
+            height: 20px;
+            transform: rotate(45deg);
+            transform: rotate(314deg);
+        }
+    }
+}

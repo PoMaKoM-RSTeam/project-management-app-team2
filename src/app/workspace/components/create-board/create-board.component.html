@@ -5,7 +5,7 @@
                 <app-add-users-form [userName]="allUsers"></app-add-users-form>
                 <div class="user">
                     <app-user-logo *ngFor="let userName of usersName" (click)="removeUser(userName)" [userName]="userName"></app-user-logo>
-                    <app-user-logo [userName]="owner"></app-user-logo>
+                    <app-user-logo style="pointer-events: none" [userName]="owner"></app-user-logo>
                 </div>
             </div>
             <span class="btn-close" type="button" nz-icon nzType="close" nzTheme="outline" (click)="closeCreateBoard()"></span>
