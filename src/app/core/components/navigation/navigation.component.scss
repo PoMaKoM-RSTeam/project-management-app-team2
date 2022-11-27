@@ -1,6 +1,28 @@
 .wrapper {
   width: 240px;
   height: calc(100vh - 120px);
+
+  @media (max-width: 768px) {
+    .ant-menu {
+      width: 80px;
+    }
+    .nav-text {
+      display: none;
+    }
+    .ant-menu-item a::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: transparent;
+      content: '';
+    }
+    .ant-menu-inline-collapsed{
+      width: 0px;
+    }
+  }
+
 }
 
 button {
