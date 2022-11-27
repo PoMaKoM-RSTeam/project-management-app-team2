@@ -1,4 +1,4 @@
-<div *ngIf="isAuth" class="wrapper">
+<div *ngIf="isAuth" class="{{!isCollapsed? 'wrapper' : 'close-wrapper'}}">
   <button class="primary" nz-button nzType="primary" (click)="toggleCollapsed()">
     <span nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></span>
   </button>

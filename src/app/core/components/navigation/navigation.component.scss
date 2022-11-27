@@ -8,6 +8,9 @@
     .ant-menu, .wrapper {
       width: 80px;
     }
+    .close-wrapper {
+      width: 0px;
+    }
     .nav-text {
       display: none;
     }
@@ -77,5 +80,15 @@ button {
     position: relative;
     left: 0;
     transition: all 1s;
+  }
+}
+
+.close-wrapper {
+  width: 80px;
+  height: calc(100vh - 120px);
+  transition: 1.5s;
+
+  @media(max-width: 768px) {
+    width: 0;
   }
 }

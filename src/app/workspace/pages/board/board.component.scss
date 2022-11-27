@@ -97,8 +97,7 @@
     padding-bottom: 20px;
     align-items: flex-start;
 
-    @media screen and (max-width:768px){
-      padding-left: 10px !important;
+    @media screen and (max-width:768px) {
       height: calc(100vh - 158px);
     }
 
@@ -114,20 +113,23 @@
       @media(max-width: 420px) {
         padding-left: 35%;
         width: 100%;
-    }
+      }
+      @media(max-width: 375px) {
+        padding-left: 80px;
+      }
   }
   &.close {
       padding-left: 100px;
       @media(max-width: 768px) {
-          padding-left: 3%;
+          padding-left: 10px;
       }
-      @media(max-width: 600px) {
-          padding-left: 20%;  
-      }
-      @media(max-width: 420px) {
-        padding-left: 20%;
+      @media(max-width: 425px) {
+        padding-left: 10px;
         width: 100%;
-    }
+      }
+      @media(max-width: 375px) {
+        padding-left: 5px;
+      }
   }
 }
   
@@ -394,5 +396,9 @@
   position: absolute;
   right: 115px;
   top: 100px;
-  height: 40px
+  height: 40px;
+  @media(max-width: 768px) {
+    right: 85px;
+    top: 64px;
+  }
 }
