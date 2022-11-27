@@ -13,6 +13,7 @@ li {
   bottom: 0;
   z-index: 20;
 }
+
 .footer {
   height: 80px;
   background-color: #677de9;
@@ -56,5 +57,43 @@ li {
 
   &__logo {
     width: 100px;
+    height: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  :host {
+    min-height: 60px;
+
+    .footer {
+      width: 90%;
+      height: fit-content;
+
+      &__logo {
+        width: 80px;
+      }
+
+      .footer__links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        .footer__list {
+          display: flex;
+          flex-direction: column;
+          gap: 0.2rem;
+
+        }
+      }
+      .footer__nav {
+        display: none;
+        height: 0px;
+        overflow: hidden;
+      }
+
+      .our-team:focus+.footer__nav, &:hover .footer__nav{
+        display: inline;
+        height: fit-content;
+      }
+    }
   }
 }

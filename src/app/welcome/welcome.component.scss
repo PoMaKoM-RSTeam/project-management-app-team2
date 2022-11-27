@@ -1,6 +1,3 @@
-@import url(https://fonts.googleapis.com/css?family=Satisfy:regular);
-@import url(https://fonts.googleapis.com/css?family=Shadows+Into+Light:regular);
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -20,7 +17,6 @@
   max-width: 1356px;
   justify-content: center;
   margin: 0 auto;
-  font-size: 21px;
 }
 
 .welcome-page {
@@ -28,20 +24,21 @@
   color: #fff;
   position: relative;
   padding: 0 20px;
+  width: calc(100% - 120px);
 }
 
 .wrapper-title {
   display: flex;
   gap: 20px;
   margin: 0 auto;
-  margin-top: 70px;
+  margin-top: 7%;
   max-width: 787px;
-  width: 100vw;
+  width: 100%;
 }
 
 .wrapper-square {
   position: relative;
-  margin-top: 53px;
+  margin-top: 5%;
 
 }
 
@@ -79,8 +76,8 @@
   backdrop-filter: blur(5px);
   border-radius: 13px;
   position: absolute;
-  top: 47px;
-  left: 55px;
+  top: 10%;
+  left: 5%;
 
   animation-duration: 6s;
   animation-name: square-mini-animation;
@@ -115,8 +112,8 @@
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(5px);
   border-radius: 13px;
-  left: 22px;
-  top: 52px;
+  left: 2%;
+  top: 5%;
   position: absolute;
   animation-duration: 7s;
 animation-name: square-mini-animation;
@@ -188,7 +185,7 @@ animation-iteration-count: infinite;
 
 h1 {
   text-align: center;
-  font-size: 42px;
+  font-size: 50px;
   line-height: 54px;
   color: #fff;
   word-wrap: break-word;
@@ -199,7 +196,7 @@ h1 {
   padding: 72px 44px;
   position: absolute;
   left: 480px;
-  top: 112px;
+  top: 12%;
   z-index: 1;
   animation-duration: 6s;
   animation-name: square-custom-animation;
@@ -220,7 +217,7 @@ h1 {
   padding: 26px 132px;
   max-height: 76px;
   position: absolute;
-  top: 189px;
+  top: 19%;
   left: 0;
   z-index: 1;
   animation-duration: 5s;
@@ -241,8 +238,8 @@ h1 {
   max-height: 156px;
   padding: 66px 89px;
   position: absolute;
-  top: 210px;
-  left: 265px;
+  top: 41%;
+  left: 26%;
   z-index: 0;
   animation-duration: 4s;
   animation-name: square-drag-animation;
@@ -273,8 +270,8 @@ h1 {
   backdrop-filter: blur(5px);
   border-radius: 13px;
   position: absolute;
-  top: 242px;
-  left: 151px;
+  top: 25%;
+  left: 15%;
   animation-duration: 5s;
   animation-name: square-mini-animation;
   animation-iteration-count: infinite;
@@ -300,8 +297,8 @@ h1 {
   backdrop-filter: blur(5px);
   border-radius: 13px;
   position: absolute;
-  top: 268px;
-  left: 100px;
+  top: 27%;
+  left: 10%;
   animation-duration: 6s;
   animation-name: square-big-animation;
   animation-iteration-count: infinite;
@@ -330,30 +327,30 @@ h1 {
 .bubble {
   width: 395px;
   height: 395px;
-  right: -35px;
-  top: -64px;
+  right: -3%;
+  top: -6%;
 }
 
 .bubble-mini {
   width: 91px;
   height: 91px;
-  left: -40px;
-  top: 200px;
+  left: -4%;
+  top: 20%;
   background: rgba(237, 231, 231, 0.05);
 }
 
 .bubble-big {
   width: 444px;
   height: 444px;
-  left: -60px;
-  top: 380px;
+  left: -6%;
+  top: 38%;
 }
 
 .bubble-mini-right {
   width: 75px;
   height: 75px;
-  top: 38px;
-  right: -270px;
+  top: 4%;
+  right: -27%;
 }
 
 .bubble-mini-right-small {
@@ -366,8 +363,8 @@ h1 {
 .bubble-big-right {
   width: 440px;
   height: 440px;
-  top: 500px;
-  right: -410px;
+  top: 50%;
+  right: -41%;
 }
 
 .auth {
@@ -380,31 +377,53 @@ h1 {
 }
 
 .design {
+  color: white;
   position: absolute;
   bottom: 90px;
   left: 20px;
-  display: flex;
-  align-items: center;
-  gap: 5px;
+  text-align: end;
+    width: 90%;
+  bottom: 0;
+  right: 0%;
 }
 
-.lucia-github {
-  font-family: 'Shadows Into Light';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 22px;
-  line-height: 35px;
-  display: flex;
-  align-items: center;
-}
-
-.imagined {
-  font-family: 'Satisfy';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 22px;
-  line-height: 32px;
-  display: flex;
-  align-items: center;
-  color: #FFFFFF;
+@media (max-width: 768px) {
+  :host {
+    position: fixed;
+  }
+  .wrapper-square, .wrapper-square-right{
+    display: none;
+  }
+  .welcome-page h1 {
+    padding-top: 35px;
+    font-size: 25px;
+    position: relative;
+    z-index: 30;
+    width: 100%;
+  }
+  .wrapper-square-low {
+    width: 100%;
+    margin-left: 0px;
+  }
+  .bubbles {
+    display: none;
+  }
+  .bubble-big-right{
+    height: 300px;
+  }
+  .square-small-multiple {
+    max-width: 80%;
+    top: 0;
+  }
+  .square-small-custom {
+    width: 150px;
+    padding: 30px 44px;
+    left: 85%;
+    top: 19%;
+  }
+  .square-small-drag[_ngcontent-wcm-c411] {
+    padding: 66px 89px;
+    top: 71%;
+    left: 26%;
+  }
 }

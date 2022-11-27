@@ -20,16 +20,18 @@
   backdrop-filter: blur(5px);
 }
 
+  .login-page {
+    max-width: 480px;
+    width: 100%;
+    margin: 10% auto auto auto;
+    padding-top: 10%;
+
+  }
 .login-form-button {
   max-width: 200px;
   width: 60%;
   display: block;
   margin: 16px auto;
-}
-
-.login-page {
-  width: 100%;
-  padding-top: 10%;
 }
 
 .userName {
