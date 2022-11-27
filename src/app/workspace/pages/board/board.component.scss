@@ -201,6 +201,9 @@
   &:hover {
     cursor: grab;
   }
+  &:active {
+    cursor: grabbing;
+  }
 
   &__title {
     display: flex;
