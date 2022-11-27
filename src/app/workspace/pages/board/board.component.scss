@@ -199,6 +199,9 @@
   max-height: calc(100vh - 340px);
 
   &:hover {
+    cursor: grab;
+  }
+  &:active {
     cursor: grabbing;
   }
 
