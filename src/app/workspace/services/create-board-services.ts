@@ -28,7 +28,6 @@ export class CreateBoardService {
   }
 
   getOwner(owner:string) {
-    console.log(owner, 'owner');
     return this.owner$$.next(owner);
   }
 }
