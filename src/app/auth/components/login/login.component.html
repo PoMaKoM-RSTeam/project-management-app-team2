@@ -1,6 +1,7 @@
 
     <section *ngIf="!isLogin" class="login-page">
     <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+      <a routerLink="/" class="link-back" >{{'AUTH.BACK' | translate}}</a>
       <nz-form-item>
           <nz-input-group class="{{
             validateForm.get('login')?.errors &&
