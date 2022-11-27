@@ -15,7 +15,7 @@ export class AuthGuard implements CanActivate {
 
   canActivate(): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
     if (!this.changeLanguageService.getFromLocalStorage('login')) {
-      this.route.navigate(['/auth']);
+      this.route.navigate(['/']);
       return false;
     }
     return true;
