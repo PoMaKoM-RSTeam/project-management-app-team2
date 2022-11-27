@@ -189,6 +189,8 @@ h1 {
   line-height: 54px;
   color: #fff;
   word-wrap: break-word;
+  position: relative;
+  z-index: 5;
 }
 
 .square-small-custom {
@@ -375,6 +377,7 @@ h1 {
   position: absolute;
   right: 0px;
   top: 5px;
+  z-index: 10;
 }
 
 .design {
