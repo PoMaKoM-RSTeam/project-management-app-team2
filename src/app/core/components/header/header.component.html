@@ -12,6 +12,7 @@
       <app-logo-tree-d></app-logo-tree-d>
     </div>
   </div>
+  <span nz-icon nzType="file-add" nzTheme="outline" *ngIf="showSearch" (click)="createForm()" class="header__create-board" title="{{'HEADER.CREATE_BOARD' | translate}}"></span>
   <div class="header__search" *ngIf="showSearch">
     <app-global-search></app-global-search>
   </div>

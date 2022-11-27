@@ -78,3 +78,17 @@
     font-size: 18px;
     width: 50px;
   }
+
+  @media (max-width: 600px) {
+    .input {
+      width: 80%;
+    }
+
+    .ant-form .ant-form-item {
+      height: 70px;
+      margin-bottom: 2px;
+    }
+    .ant-form-item-control {
+      margin: 10px 0;
+    }
+  }

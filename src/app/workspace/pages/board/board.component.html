@@ -19,6 +19,7 @@
   </div>
 </nz-result>
 <section *ngIf="board" class="board">
+  <a routerLink="/workspace" class="link-back" >{{'AUTH.BACK' | translate}}</a>
   <button class="board__filter" (click)="onFilterPush()" title="{{'FILTER.FILTER' | translate}}"><span class="board__filter-icon" nz-icon nzType="filter" nzTheme="outline"></span></button>
   <button class="board__filter-clear" (click)="onFilterClear()" title="{{'FILTER.CLEAR' | translate}}"><span nz-icon nzType="clear" class="board__filter-icon" nzTheme="outline"></span></button>
   <app-filter-window class="board__filter-options" *ngIf="isFilterVisible"></app-filter-window>

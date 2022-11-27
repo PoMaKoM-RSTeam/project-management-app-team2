@@ -101,6 +101,7 @@
       padding-left: 10px !important;
       height: calc(100vh - 158px);
     }
+
     &.open {
       padding-left: 260px;
       @media(max-width: 768px) {
@@ -387,4 +388,11 @@
     border-radius: 15px;
     background-color: transparent;
   }
+}
+
+.link-back {
+  position: absolute;
+  right: 115px;
+  top: 100px;
+  height: 40px
 }

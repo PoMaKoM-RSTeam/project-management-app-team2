@@ -1,10 +1,30 @@
 .wrapper {
   width: 240px;
   height: calc(100vh - 120px);
-  @media(max-width: 768px) {
-    width: 49px;
-  }
 }
+
+  @media (max-width: 768px) {
+
+    .ant-menu, .wrapper {
+      width: 80px;
+    }
+    .nav-text {
+      display: none;
+    }
+    .ant-menu-item a::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: transparent;
+      content: '';
+    }
+    .ant-menu-inline-collapsed{
+      width: 0px;
+    }
+  }
+
 
 .link-text {
   @media(max-width: 768px) {
@@ -47,7 +67,7 @@ button {
     display: block;
     position: relative;
     left: -300px;
-    transition: all 1s; 
+    transition: all 1s;
   }
 }
 
@@ -56,6 +76,6 @@ button {
   @media (max-width: 768px) {
     position: relative;
     left: 0;
-    transition: all 1s; 
+    transition: all 1s;
   }
 }

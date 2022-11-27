@@ -77,3 +77,9 @@
     }
   }
 }
+
+@media (max-width: 400px) {
+  .create-column {
+    max-width: 320px;
+  }
+}
