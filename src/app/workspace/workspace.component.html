@@ -8,15 +8,14 @@
 
 <section class="workspace" *ngIf="!searchString">
   <h1 class="title-boards">{{ "WORKSPACE.BOARD" | translate }}</h1>
+
   <div
-    class="boards"
-    [ngStyle]="{
-      paddingLeft: isNavigationClose ? '100px' : '260px',
-      transition: '1.5s'
-    }"
+    class="boards {{isNavigationClose? 'close' : 'open'}}"
+    [ngStyle]="{transition: '1.5s'}"
+
   >
     <div class="board create-board" (click)="createForm()">
-      <span class="link-board">{{ "WORKSPACE.CREATE_BOARD" | translate }}</span>
+      <span (click)="createForm()" class="link-board">{{ "WORKSPACE.CREATE_BOARD" | translate }}</span>
     </div>
     <div class="board" *ngFor="let board of boards">
       <button
@@ -45,11 +44,13 @@
         [queryParams]="{ id: board._id }"
       >
         {{ board.title }}
-        <div class="owner">
+        <!-- <div class="owner">
           {{ board.owner }}
-        </div>
-        <div class="{{ board.users.length > 0 ? 'users' : '' }}">
-          <span class="user" *ngFor="let user of board.users">{{ user }}</span>
+        </div> -->
+        <div class="users">
+          <span class="user" *ngFor="let user of board.users">
+            <app-user-logo [userName]="user"></app-user-logo>
+          </span>
         </div>
       </a>
     </div>

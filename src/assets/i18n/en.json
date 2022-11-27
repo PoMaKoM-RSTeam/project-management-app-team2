@@ -49,7 +49,8 @@
     "CREATE": "Create new column",
     "ADD_CARD": "Add card",
     "REQUIRED_INPUT": "Please input title!",
-    "REQUIRED_MAX_VALUE": "maximum length 15 characters"
+    "REQUIRED_MAX_VALUE": "maximum length 15 characters",
+    "REQUIRED_BOARD_LENGTH": "The name of the board cannot exceed 20 characters!"
   },
   "MODAL": {
     "TITLE": "Are you sure delete this column?",
@@ -111,6 +112,7 @@
     "CREATE_BOARD": "Create board"
   },
   "FILTER": {
-    "FILTER": "Filters"
+    "FILTER": "Filters",
+    "CLEAR": "Clear filters"
   }
 }

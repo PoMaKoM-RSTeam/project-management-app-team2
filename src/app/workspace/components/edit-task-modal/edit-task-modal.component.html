@@ -1,17 +1,10 @@
 <div class="wrapper-edit-modal" *ngIf="openEditTaskModal">
   <div class="edit-modal">
-  <!-- <button class="close" type="button" nz-icon nzType="close" nzTheme="outline" (click)="closeEditTask()"></button> -->
-
+    
     <span class="btn-close" type="button" nz-icon nzType="close" nzTheme="outline" (click)="closeEditTask()"></span>
     <div class="wrapper-add-user" >
-      <span nz-dropdown [nzDropdownMenu]="menu" class="add-user" nz-icon nzType="user-add" nzTheme="outline"></span>
-      <nz-dropdown-menu #menu="nzDropdownMenu">
-        <ul class="users-list">
-          <li class="user-link"  *ngFor="let user of task.users" (click)="addUserTask(user)">{{user}}</li>
-        </ul>
-      </nz-dropdown-menu>
+      <app-add-users-form [userName]="task.users"></app-add-users-form>
       <div class="users" >
-          <!-- <button class="btn-delete-user" type="button" nz-icon nzType="close-circle" nzTheme="outline" (click)="removeUserTask(user)"></button> -->
         <div class="user" *ngFor="let user of this.users" >
           <app-user-logo (click)="removeUserTask(user)" [userName]="user"></app-user-logo>
         </div>
