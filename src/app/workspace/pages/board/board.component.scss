@@ -101,7 +101,7 @@
       padding-left: 10px !important;
       height: calc(100vh - 158px);
     }
-    
+  }
   &__create-button {
     padding: 15px;
     min-width: 350px;
@@ -359,4 +359,11 @@
     border-radius: 15px;
     background-color: transparent;
   }
+}
+
+.link-back {
+  position: absolute;
+  right: 115px;
+  top: 100px;
+  height: 40px
 }

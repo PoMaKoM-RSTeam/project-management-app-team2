@@ -4,7 +4,8 @@
 }
 
   @media (max-width: 768px) {
-    .ant-menu {
+
+    .ant-menu, .wrapper {
       width: 80px;
     }
     .nav-text {

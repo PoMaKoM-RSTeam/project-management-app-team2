@@ -77,7 +77,7 @@
   border-radius: 13px;
   position: absolute;
   top: 10%;
-  left: 5%;
+  left: 55%;
 
   animation-duration: 6s;
   animation-name: square-mini-animation;
@@ -195,8 +195,9 @@ h1 {
   max-height: 150px;
   padding: 72px 44px;
   position: absolute;
-  left: 480px;
-  top: 12%;
+  left: 85%;
+  top: 30%;
+  width: 180px;
   z-index: 1;
   animation-duration: 6s;
   animation-name: square-custom-animation;
@@ -217,8 +218,8 @@ h1 {
   padding: 26px 132px;
   max-height: 76px;
   position: absolute;
-  top: 19%;
-  left: 0;
+  top: 45%;
+  left: 10%;
   z-index: 1;
   animation-duration: 5s;
   animation-name: square-big-animation;
@@ -238,8 +239,8 @@ h1 {
   max-height: 156px;
   padding: 66px 89px;
   position: absolute;
-  top: 41%;
-  left: 26%;
+  bottom: 0%;
+  left: 50%;
   z-index: 0;
   animation-duration: 4s;
   animation-name: square-drag-animation;
@@ -297,8 +298,8 @@ h1 {
   backdrop-filter: blur(5px);
   border-radius: 13px;
   position: absolute;
-  top: 27%;
-  left: 10%;
+  top: 30%;
+  right: -28px;
   animation-duration: 6s;
   animation-name: square-big-animation;
   animation-iteration-count: infinite;
@@ -427,3 +428,11 @@ h1 {
     left: 26%;
   }
 }
+
+.square-big {
+  position: absolute;
+  top: -50%;
+  right: -60px;
+
+}
+
