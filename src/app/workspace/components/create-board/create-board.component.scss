@@ -161,10 +161,12 @@
             width: 30px;
             height: 30px;
             position: relative;
+            transition: all 0.4s;
         }
         .user-logo:hover{
             background: #161643;
-            color: #161643
+            color: #161643;
+            transition: all 0.4s;
         }
         .user-logo:hover:after {
             position: absolute;
@@ -174,6 +176,7 @@
             width: 2px;
             height: 20px;
             transform: rotate(45deg);
+            transition: all 0.4s;
         }
         .user-logo:hover:before {
             position: absolute;
@@ -182,8 +185,8 @@
             background: rgb(255, 255, 255);
             width: 2px;
             height: 20px;
-            transform: rotate(45deg);
             transform: rotate(314deg);
+            transition: all 0.4s;
         }
     }
 }
