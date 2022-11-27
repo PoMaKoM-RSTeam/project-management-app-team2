@@ -71,6 +71,11 @@
   .registr-btn {
     padding: 0 30px;
     margin: 0 40px;
+    @media (max-width: 425px) {
+      margin: 0;
+      padding: 0 10px;
+      font-size: 14px;
+    }
   }
 
   .link-back {
