@@ -1,1 +1,3 @@
-<span class="user-logo">{{userName! | userLogo}}</span>
+<span class="user-logo" title="{{userName}}" nz-popover nzPopoverContent="{{userName}}">
+    {{userName! | userLogo}}
+</span>

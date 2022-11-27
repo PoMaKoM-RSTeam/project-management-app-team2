@@ -49,7 +49,8 @@
     "CREATE": "Neues Board erstellen",
     "ADD_CARD": "Karte hinzufügen",
     "REQUIRED_INPUT": "Bitte Titel eingeben!",
-    "REQUIRED_MAX_VALUE": "maximale Länge 15 Zeichen"
+    "REQUIRED_MAX_VALUE": "maximale Länge 15 Zeichen",
+    "REQUIRED_BOARD_LENGTH": "Der Name der Tafel darf 20 Zeichen nicht überschreiten!"
   },
   "MODAL": {
     "TITLE": "Sind Sie sicher, dass Sie diese Spalte löschen?",

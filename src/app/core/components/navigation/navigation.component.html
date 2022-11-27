@@ -2,10 +2,12 @@
   <button class="primary" nz-button nzType="primary" (click)="toggleCollapsed()">
     <span nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></span>
   </button>
-  <ul class="navigation" nz-menu nzMode="inline" nzTheme="dark" [nzInlineCollapsed]="isCollapsed">
+  <ul class="{{isCollapsed? 'navigation' : 'close'}}" nz-menu nzMode="inline" nzTheme="dark" [nzInlineCollapsed]="isCollapsed">
     <li nzSelected="{{!(url.includes('auth') || url.includes('workspace') || url.includes('profile'))}}" nz-menu-item nz-tooltip nzTooltipPlacement="right" [nzTooltipTitle]="isCollapsed ? 'Welcome Page' : ''"
       >
       <a routerLink="" routerLinkActive="active">
+        <span nz-icon nzType="mail"></span>
+        <span class="link-text">{{'NAV.WELCOME'| translate}}</span>
         <span nz-icon nzType="home"></span>
         <span>{{'NAV.WELCOME'| translate}}</span>
       </a>
@@ -15,7 +17,7 @@
       <a
         routerLink="workspace" routerLinkActive="active">
         <span nz-icon nzType="appstore"></span>
-        <span>{{'NAV.WORKSPACE'| translate}}</span>
+        <span class="link-text">{{'NAV.WORKSPACE'| translate}}</span>
       </a>
     </li>
 
@@ -23,7 +25,7 @@
       <a
         routerLink="profile" routerLinkActive="active">
         <span nz-icon nzType="setting"></span>
-        <span>{{'NAV.PROFILE'| translate}}</span>
+        <span class="link-text">{{'NAV.PROFILE'| translate}}</span>
       </a>
     </li>
   </ul>

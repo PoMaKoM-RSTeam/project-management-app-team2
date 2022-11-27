@@ -23,64 +23,59 @@
   <button class="board__filter-clear" (click)="onFilterClear()" title="{{'FILTER.CLEAR' | translate}}"><span nz-icon nzType="clear" class="board__filter-icon" nzTheme="outline"></span></button>
   <app-filter-window class="board__filter-options" *ngIf="isFilterVisible"></app-filter-window>
   <h1 class="board__title">{{ board.title }}</h1>
+
   <div
-    class="board__columns"
+    class="board__columns {{isCollapsed? 'close' : 'open'}}"
     cdkDropList
     cdkDropListOrientation="horizontal"
     (cdkDropListDropped)="drop($event)"
-    [ngStyle]="{
-      paddingLeft: isCollapsed? '100px': '260px',
-      transition: '1.5s'
-    }"
+    [ngStyle]="{transition: '1.5s'}"
   >
-  <div cdkDropListGroup style="display: flex;">
+    <div cdkDropListGroup style="display: flex;">
 
-    <div class="column" *ngFor="let column of columns" cdkDrag >
-      <div class="column__title">
-        <h2 class="column__order">{{column.order<10?'0'+column.order: column.order}}</h2>
-        <h3 #h3 *ngIf="!(isTitleClicked === column._id)" class="column__h3" (click)="onTitleClick(column.title, column._id);">{{column.title}}</h3>
-        <form class="column__form" [formGroup]="inputForm" *ngIf="isTitleClicked === column._id" autofocus>
-          <input formControlName="myInput" class="column__input"  type="text" [(ngModel)]="column.title" autofocus>
-          <span class="column__icon" nz-icon [nzType]="'check-circle'" nzTheme="outline" (click)="onSubmitForm(column)"></span>
+      <div class="column" *ngFor="let column of columns" cdkDrag >
+        <div class="column__title">
+          <h2 class="column__order">{{column.order<10?'0'+column.order: column.order}}</h2>
+          <h3 #h3 *ngIf="!(isTitleClicked === column._id)" class="column__h3" (click)="onTitleClick(column.title, column._id);">{{column.title}}</h3>
+          <form class="column__form" [formGroup]="inputForm" *ngIf="isTitleClicked === column._id" autofocus>
+            <input formControlName="myInput" class="column__input"  type="text" [(ngModel)]="column.title" autofocus>
+            <span class="column__icon" nz-icon [nzType]="'check-circle'" nzTheme="outline" (click)="onSubmitForm(column)"></span>
 
-          <span class="column__icon"
-                nz-icon [nzType]="'close-circle'"
-                [nzTheme]="'outline'"
-                (click)="column.title = prevTitle; isTitleClicked = ''; this.isForbidChangeTitle = true;">
-          </span>
-        </form>
-        <button
-          nz-dropdown
-          nzTrigger="click"
-          [nzDropdownMenu]="menu"
-          class="column__delete"
-          [nzPlacement]="'bottomRight'"
-          (click)="defineColumnId(column._id)"
-          >
-            . . .
-          </button>
-        <nz-dropdown-menu #menu="nzDropdownMenu">
-          <ul nz-menu class="dropdown-menu" nzSelectable>
-            <li nz-menu-item> <app-confirmation-modal
-              [modalText]="'CONFIRMATION_FORM.TEXT_DELETE_COLUMN'"
-              [onDelete]="deleteColumn"
+            <span class="column__icon"
+                  nz-icon [nzType]="'close-circle'"
+                  [nzTheme]="'outline'"
+                  (click)="column.title = prevTitle; isTitleClicked = ''; this.isForbidChangeTitle = true;">
+            </span>
+          </form>
+          <button
+            nz-dropdown
+            nzTrigger="click"
+            [nzDropdownMenu]="menu"
+            class="column__delete"
+            [nzPlacement]="'bottomRight'"
+            (click)="defineColumnId(column._id)"
             >
-            </app-confirmation-modal></li>
-          </ul>
-        </nz-dropdown-menu>
-      </div>
-<!--       <div class="alert" *ngIf="inputForm.get('myInput')?.errors?.['required']">{{"BOARD.REQUIRED_INPUT"| translate}}</div>
-      <div class="alert" *ngIf="inputForm.get('myInput')?.errors?.['maxlength']">{{"BOARD.REQUIRED_MAX_VALUE"| translate}}</div> -->
-
-      <div class="column__tasks" cdkDropList [cdkDropListData]="column.tasks" (cdkDropListDropped)="dropTasks($event)">
-        <div cdkDrag *ngFor="let task of column.tasks | taskFilter: filterInputValue" style="margin-bottom: 20px;">
-          <app-task [task]="task" (deleteTask)="deleteTask($event)"></app-task>
+              . . .
+          </button>
+          <nz-dropdown-menu #menu="nzDropdownMenu">
+            <ul nz-menu class="dropdown-menu" nzSelectable>
+              <li nz-menu-item> <app-confirmation-modal
+                [modalText]="'CONFIRMATION_FORM.TEXT_DELETE_COLUMN'"
+                [onDelete]="deleteColumn"
+              >
+              </app-confirmation-modal></li>
+            </ul>
+          </nz-dropdown-menu>
         </div>
-      </div>
-      <button class="column__button" (click)="onTaskModalOpen(board._id, column._id)">+{{"BOARD.ADD_CARD"| translate}}</button>
-    </div>
-  </div>
 
+        <div class="column__tasks" cdkDropList [cdkDropListData]="column.tasks" (cdkDropListDropped)="dropTasks($event)">
+          <div cdkDrag *ngFor="let task of column.tasks | taskFilter: filterInputValue" style="margin-bottom: 20px;">
+            <app-task [task]="task" (deleteTask)="deleteTask($event)"></app-task>
+          </div>
+        </div>
+        <button class="column__button" (click)="onTaskModalOpen(board._id, column._id)">+{{"BOARD.ADD_CARD"| translate}}</button>
+      </div>
+    </div>
 
     <div style="display: flex; flex-direction: column; gap: 20px;">
       <div class="board__create-button" [cdkDragDisabled]="true" cdkDrag (click)="onCreateColumn()">

@@ -11,9 +11,13 @@ export class CreateBoardService {
 
   private boards$$ = new Subject<BoardResponse>();
 
+  private owner$$ = new Subject<string>();
+
   public isCreateBoardOpen$ = this.isCreateBoardOpen$$.asObservable();
 
   public boards$ = this.boards$$.asObservable();
+
+  public owner$ = this.owner$$.asObservable();
 
   stateFormBoard(ev:boolean) {
     this.isCreateBoardOpen$$.next(ev);
@@ -21,5 +25,10 @@ export class CreateBoardService {
 
   updateBoards(formsBoards: BoardResponse) {
     this.boards$$.next(formsBoards);
+  }
+
+  getOwner(owner:string) {
+    console.log(owner, 'owner');
+    return this.owner$$.next(owner);
   }
 }
